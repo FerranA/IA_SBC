@@ -1,0 +1,748 @@
+; Fri May 03 12:25:56 CEST 2019
+; 
+;+ (version "3.5")
+;+ (build "Build 660")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot edad
+		(type SYMBOL)
+		(allowed-values 65-70 70-75 75-80 80-85 85-90 90-95 95-100 100-105)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ingrediente_principal
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_ingrediente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidades_recomendadas
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sal
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_minerales
+		(type INSTANCE)
+;+		(allowed-classes mineral)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fosforo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot poliinsaturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot calcio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot clasificacion_alimento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vitamina_k
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot restricciones
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot grasa
+		(type INSTANCE)
+;+		(allowed-classes acidos_grasos)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_vitaminas
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hierro
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot grasas_saturadas
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_micronutrientes
+		(type INSTANCE)
+;+		(allowed-classes micronutrientes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot evitar_receta
+		(type INSTANCE)
+;+		(allowed-classes alimento)
+		(create-accessor read-write))
+	(single-slot grasas
+		(type INSTANCE)
+;+		(allowed-classes acidos_grasos)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sodio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_macronutrientes
+		(type INSTANCE)
+;+		(allowed-classes macronutrientes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot niacina
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fibra_alimentaria
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot grasas_monoinsaturada
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot energia
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidad_recomendada
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_14%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_acidos_grasos
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot potasio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot magnesio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A1
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_12
+;+		(comment "cianocobalamina")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A3
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot tipo
+;+		(comment "expresa si es bebida, entrante ...")
+		(type SYMBOL)
+		(allowed-values bebida entrante principal postre)
+		(create-accessor read-write))
+	(multislot evitar_ingrediente
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(single-slot valor_nutricional
+;+		(comment "valor nutricional por cada 100 gramos de alimento")
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iodo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fluor
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot monoinsaturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_minerales
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recomendaciones
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot zinc
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hidratos_de_carbono
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot minerales
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot saturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot a
+;+		(comment "retinol")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot d
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot e
+;+		(comment "tocoferol")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot obligatoria
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_alimento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_cantidades
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_macronutrientes
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot proteinas
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot acido_folico
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot IARecteas_Class28
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot grasas_poliinsaturada
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nutrientes
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ingredientes
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(single-slot preferencias
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_2
+;+		(comment "riboflavina")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_1
+;+		(comment "tiamina")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_6
+;+		(comment "pirodoxina")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_microntrientes
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sexo
+		(type SYMBOL)
+		(allowed-values hombre mujer todos otros)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot etanol
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot colesterol
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vitamina_a
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vitamina_e
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot vitamina_d
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot lipidos
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_16%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot temporada
+		(type SYMBOL)
+		(allowed-values todas primavera invierno oto%C3%B1o verano)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_16%3A1
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_proteinas
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_vitaminas
+		(type INSTANCE)
+;+		(allowed-classes vitaminas)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot momento_ingesta
+		(type SYMBOL)
+		(allowed-values desayuno comida cena todos)
+		(create-accessor read-write))
+	(single-slot carbohidratos
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_calorias
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cobre
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot selenio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot forma_cocinar
+		(type SYMBOL)
+		(allowed-values frito al_vapor crudo a_la_plancha)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot actividad_fisica
+		(type SYMBOL)
+		(allowed-values poco medio mucho)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass ingrediente
+	(is-a USER)
+	(role concrete)
+	(single-slot temporada
+		(type SYMBOL)
+		(allowed-values todas primavera invierno oto%C3%B1o verano)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_ingrediente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass carne
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass fruta
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass verdura
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass lacteos
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass cantidades_nutricionales
+	(is-a USER)
+	(role concrete)
+	(single-slot numero_macronutrientes
+		(type INSTANCE)
+;+		(allowed-classes macronutrientes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_cantidades
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_micronutrientes
+		(type INSTANCE)
+;+		(allowed-classes micronutrientes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sal
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass perfil
+	(is-a USER)
+	(role concrete)
+	(single-slot edad
+		(type SYMBOL)
+		(allowed-values 65-70 70-75 75-80 80-85 85-90 90-95 95-100 100-105)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sexo
+		(type SYMBOL)
+		(allowed-values hombre mujer todos otros)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recomendaciones
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot actividad_fisica
+		(type SYMBOL)
+		(allowed-values poco medio mucho)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass enfermedad
+	(is-a USER)
+	(role concrete)
+	(single-slot restricciones
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass restriccion
+	(is-a USER)
+	(role concrete)
+	(single-slot obligatoria
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidades_recomendadas
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot evitar_ingrediente
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(multislot evitar_receta
+		(type INSTANCE)
+;+		(allowed-classes alimento)
+		(create-accessor read-write)))
+
+(defclass preferencia_personal
+	(is-a USER)
+	(role concrete)
+	(single-slot preferencias
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass acidos_grasos "todos los valores estan en gramos"
+	(is-a USER)
+	(role concrete)
+	(single-slot c_16%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_acidos_grasos
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_16%3A1
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A2
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A1
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_18%3A3
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot saturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot etanol
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot colesterol
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot monoinsaturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot poliinsaturados
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c_14%3A0
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass vitaminas "todos los valores en minigramos"
+	(is-a USER)
+	(role concrete)
+	(single-slot b_6
+;+		(comment "pirodoxina")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot acido_folico
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_12
+;+		(comment "cianocobalamina")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot niacina
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_vitaminas
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot a
+;+		(comment "retinol")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot c
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot d
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_2
+;+		(comment "riboflavina")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot e
+;+		(comment "tocoferol")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_1
+;+		(comment "tiamina")
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass micronutrientes
+	(is-a USER)
+	(role concrete)
+	(single-slot nombre_microntrientes
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_vitaminas
+		(type INSTANCE)
+;+		(allowed-classes vitaminas)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot numero_minerales
+		(type INSTANCE)
+;+		(allowed-classes mineral)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass macronutrientes "la energía se mide en kcal y el resto en gramos"
+	(is-a USER)
+	(role concrete)
+	(single-slot numero_proteinas
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_macronutrientes
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot lipidos
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fibra_alimentaria
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot energia
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot carbohidratos
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot grasa
+		(type INSTANCE)
+;+		(allowed-classes acidos_grasos)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass mineral "todos los valores en minigramos"
+	(is-a USER)
+	(role concrete)
+	(single-slot potasio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot magnesio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot iodo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fluor
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot sodio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fosforo
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cobre
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot selenio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_minerales
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot zinc
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot hierro
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot calcio
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass alimento "la cantidad recomendada es un valor en gramos"
+	(is-a USER)
+	(role concrete)
+	(single-slot nombre_alimento
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ingrediente_principal
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot ingredientes
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(multislot tipo
+;+		(comment "expresa si es bebida, entrante ...")
+		(type SYMBOL)
+		(allowed-values bebida entrante principal postre)
+		(create-accessor read-write))
+	(single-slot forma_cocinar
+		(type SYMBOL)
+		(allowed-values frito al_vapor crudo a_la_plancha)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot valor_nutricional
+;+		(comment "valor nutricional por cada 100 gramos de alimento")
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot momento_ingesta
+		(type SYMBOL)
+		(allowed-values desayuno comida cena todos)
+		(create-accessor read-write))
+	(single-slot cantidad_recomendada
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))

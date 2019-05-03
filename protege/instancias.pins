@@ -1,0 +1,459 @@
+; Fri May 03 12:25:56 CEST 2019
+; 
+;+ (version "3.5")
+;+ (build "Build 660")
+
+([IARecteas_Class10028] of  macronutrientes
+
+	(carbohidratos 91.3)
+	(energia 386.0)
+	(fibra_alimentaria 1.4)
+	(grasa [IARecteas_Class10029])
+	(lipidos 0.2)
+	(nombre_macronutrientes "macronutrientes cereales con miel")
+	(numero_proteinas 4.4))
+
+([IARecteas_Class10029] of  acidos_grasos
+
+	(c_14%3A0 0.0)
+	(c_16%3A0 0.0)
+	(c_16%3A1 0.0)
+	(c_18%3A0 0.0)
+	(c_18%3A1 0.0)
+	(c_18%3A2 "0")
+	(c_18%3A3 0.0)
+	(colesterol 0.0)
+	(monoinsaturados 0.0)
+	(nombre_acidos_grasos "acidos grasos cereales con miel")
+	(poliinsaturados 0.0)
+	(saturados 0.0))
+
+([IARecteas_Class10030] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes cereales con miel")
+	(numero_minerales [IARecteas_Class10031])
+	(numero_vitaminas [IARecteas_Class10032]))
+
+([IARecteas_Class10031] of  mineral
+
+	(calcio 12.0)
+	(cobre 0.21)
+	(fosforo 24.0)
+	(hierro 1.0)
+	(magnesio 16.0)
+	(nombre_minerales "minerales cereales con miel")
+	(potasio 88.0)
+	(selenio 0.0355)
+	(sodio 0.2)
+	(zinc 18.7))
+
+([IARecteas_Class10032] of  vitaminas
+
+	(a 0.0)
+	(acido_folico 0.007)
+	(b_1 0.41)
+	(b_12 "0")
+	(b_2 0.04)
+	(b_6 "0.13")
+	(c 0.0)
+	(niacina 1.9)
+	(nombre_vitaminas "vitaminas"))
+
+([IARecteas_Class10033] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades pasta fresca al huevo")
+	(numero_macronutrientes [IARecteas_Class10034])
+	(numero_micronutrientes [IARecteas_Class10036]))
+
+([IARecteas_Class10034] of  macronutrientes
+
+	(carbohidratos 54.2)
+	(energia 280.0)
+	(grasa [IARecteas_Class10035])
+	(lipidos 2.5)
+	(nombre_macronutrientes "macronutrientes pasta fresca al huevo")
+	(numero_proteinas 10.1))
+
+([IARecteas_Class10035] of  acidos_grasos
+
+	(nombre_acidos_grasos "acidos pasta fresca al huevo"))
+
+([IARecteas_Class10036] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes pasta fresca al huevo")
+	(numero_minerales [IARecteas_Class10037])
+	(numero_vitaminas [IARecteas_Class10038]))
+
+([IARecteas_Class10037] of  mineral
+
+	(nombre_minerales "minerales pasta fresca al huevo"))
+
+([IARecteas_Class10038] of  vitaminas
+
+	(nombre_vitaminas "vitaminas pasta fresca al huevo"))
+
+([IARecteas_Class10039] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades tortellini de carne")
+	(numero_macronutrientes [IARecteas_Class10040]))
+
+([IARecteas_Class10040] of  macronutrientes
+
+	(carbohidratos 46.0)
+	(energia 295.0)
+	(lipidos 7.0)
+	(nombre_macronutrientes "macronutrientes tortellini de carne")
+	(numero_proteinas 12.0))
+
+([IARecteas_Class10041] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades tortellini de espinacas")
+	(numero_macronutrientes [IARecteas_Class10042]))
+
+([IARecteas_Class10042] of  macronutrientes
+
+	(carbohidratos 46.0)
+	(energia 296.0)
+	(lipidos 8.0)
+	(nombre_macronutrientes "macronutrientes tortelloni de espinacas")
+	(numero_proteinas 10.0))
+
+([IARecteas_Class10050] of  alimento
+
+	(momento_ingesta todos)
+	(nombre_alimento "bizcocho")
+	(tipo postre)
+	(valor_nutricional [IARecteas_Class10051]))
+
+([IARecteas_Class10051] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades bizcocho")
+	(numero_macronutrientes [IARecteas_Class10052])
+	(numero_micronutrientes [IARecteas_Class10054]))
+
+([IARecteas_Class10052] of  macronutrientes
+
+	(carbohidratos 79.1)
+	(energia 456.0)
+	(fibra_alimentaria 3.0)
+	(grasa [IARecteas_Class10053])
+	(lipidos 15.2)
+	(nombre_macronutrientes "macronutrientes bizcocho")
+	(numero_proteinas 5.6))
+
+([IARecteas_Class10053] of  acidos_grasos
+
+	(c_14%3A0 0.7)
+	(c_16%3A0 3.9)
+	(c_16%3A1 0.8)
+	(c_18%3A0 1.3)
+	(c_18%3A1 3.8)
+	(c_18%3A2 "1.1")
+	(c_18%3A3 0.1)
+	(colesterol 0.13)
+	(monoinsaturados 5.4)
+	(nombre_acidos_grasos "acidos grasos bizcocho")
+	(poliinsaturados 1.2)
+	(saturados 6.2))
+
+([IARecteas_Class10054] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes bizcocho")
+	(numero_minerales [IARecteas_Class10055])
+	(numero_vitaminas [IARecteas_Class10056]))
+
+([IARecteas_Class10055] of  mineral
+
+	(calcio 82.0)
+	(cobre 0.04)
+	(fosforo 87.0)
+	(hierro 4.0)
+	(magnesio 16.0)
+	(nombre_minerales "minerales bizcocho")
+	(potasio 170.0)
+	(sodio 110.0)
+	(zinc 2.0))
+
+([IARecteas_Class10056] of  vitaminas
+
+	(a 0.13)
+	(acido_folico 0.004)
+	(b_1 0.11)
+	(b_12 "0")
+	(b_2 0.03)
+	(b_6 "0.07")
+	(c 0.0)
+	(d 0.0)
+	(niacina 0.9)
+	(nombre_vitaminas "vitaminas bizcocho"))
+
+([IARecteas_Class10057] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "pastel de manzana")
+	(tipo postre)
+	(valor_nutricional [IARecteas_Class10058]))
+
+([IARecteas_Class10058] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades pastel de manzana")
+	(numero_macronutrientes [IARecteas_Class10059])
+	(numero_micronutrientes [IARecteas_Class10061]))
+
+([IARecteas_Class10059] of  macronutrientes
+
+	(carbohidratos 40.1)
+	(energia 311.0)
+	(fibra_alimentaria 2.5)
+	(grasa [IARecteas_Class10060])
+	(lipidos 15.1)
+	(nombre_macronutrientes "macronutrientes pastel de manzana")
+	(numero_proteinas 3.6))
+
+([IARecteas_Class10060] of  acidos_grasos
+
+	(c_14%3A0 0.7)
+	(c_16%3A0 3.9)
+	(c_16%3A1 0.8)
+	(c_18%3A0 1.3)
+	(c_18%3A1 3.8)
+	(c_18%3A2 "1.1")
+	(c_18%3A3 0.1)
+	(colesterol 130.0)
+	(monoinsaturados 5.4)
+	(nombre_acidos_grasos "acidos grasos pastel de manzana")
+	(poliinsaturados 1.2)
+	(saturados 6.1))
+
+([IARecteas_Class10061] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes pastel de manzana")
+	(numero_minerales [IARecteas_Class10062])
+	(numero_vitaminas [IARecteas_Class10063]))
+
+([IARecteas_Class10062] of  mineral
+
+	(calcio 82.0)
+	(fosforo 87.0)
+	(hierro 4.0)
+	(magnesio 35.0)
+	(nombre_minerales "minerales pastel de manzana")
+	(potasio 117.0)
+	(sodio 626.0)
+	(zinc 2.0))
+
+([IARecteas_Class10063] of  vitaminas
+
+	(a 0.0)
+	(acido_folico 0.007)
+	(b_1 0.1)
+	(b_12 "0")
+	(b_2 0.03)
+	(b_6 "0.07")
+	(c 0.0)
+	(d 0.0)
+	(niacina 0.9)
+	(nombre_vitaminas "vitaminas pastel de manzana"))
+
+([IARecteas_Class10065] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "menestra de verduras")
+	(tipo entrante principal)
+	(valor_nutricional [IARecteas_Class10073]))
+
+([IARecteas_Class10066] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "pure de patata")
+	(tipo entrante principal)
+	(valor_nutricional [IARecteas_Class10067]))
+
+([IARecteas_Class10067] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades pure de patata")
+	(numero_macronutrientes [IARecteas_Class10068])
+	(numero_micronutrientes [IARecteas_Class10070]))
+
+([IARecteas_Class10068] of  macronutrientes
+
+	(carbohidratos 80.0)
+	(energia 357.0)
+	(fibra_alimentaria 2.0)
+	(grasa [IARecteas_Class10069])
+	(lipidos 0.7)
+	(nombre_macronutrientes "macronutrientes pure de patata")
+	(numero_proteinas 7.0))
+
+([IARecteas_Class10069] of  acidos_grasos
+
+	(c_18%3A2 "0")
+	(c_18%3A3 0.0)
+	(colesterol 0.0)
+	(nombre_acidos_grasos "acidos grasos pure de patata")
+	(poliinsaturados 0.0))
+
+([IARecteas_Class10070] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes pure de patata")
+	(numero_minerales [IARecteas_Class10071])
+	(numero_vitaminas [IARecteas_Class10072]))
+
+([IARecteas_Class10071] of  mineral
+
+	(cobre 0.137)
+	(hierro 4.0)
+	(magnesio 25.0)
+	(nombre_minerales "minerales pure de patata")
+	(zinc 0.3))
+
+([IARecteas_Class10072] of  vitaminas
+
+	(acido_folico 0.01)
+	(b_1 0.3)
+	(b_12 "0")
+	(b_2 0.11)
+	(b_6 "0.18")
+	(niacina 1.5)
+	(nombre_vitaminas "vitaminas pure de patata"))
+
+([IARecteas_Class10073] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades menestra de verduras")
+	(numero_macronutrientes [IARecteas_Class10074])
+	(numero_micronutrientes [IARecteas_Class10076]))
+
+([IARecteas_Class10074] of  macronutrientes
+
+	(carbohidratos 5.1)
+	(energia 29.0)
+	(grasa [IARecteas_Class10075])
+	(lipidos 0.51)
+	(nombre_macronutrientes "macronutrientes menestra de verduras")
+	(numero_proteinas 0.86))
+
+([IARecteas_Class10075] of  acidos_grasos
+
+	(colesterol 0.0)
+	(nombre_acidos_grasos "acidos grasos menestra de verduras"))
+
+([IARecteas_Class10076] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes menestra de verduras")
+	(numero_minerales [IARecteas_Class10077]))
+
+([IARecteas_Class10077] of  mineral
+
+	(nombre_minerales "minerales menestra de verduras"))
+
+([IARecteas_Class15] of  acidos_grasos
+
+	(colesterol 0.0)
+	(nombre_acidos_grasos "acidos grasos arroz blanco"))
+
+([IARecteas_Class16] of  mineral
+
+	(calcio 10.0)
+	(cobre 0.03)
+	(fluor 0.0385)
+	(fosforo 180.0)
+	(hierro 0.8)
+	(iodo 0.002)
+	(magnesio 28.0)
+	(nombre_minerales "minerales arroz blanco")
+	(potasio 120.0)
+	(selenio 0.02)
+	(sodio 4.0)
+	(zinc 0.2))
+
+([IARecteas_Class17] of  vitaminas
+
+	(acido_folico 0.006)
+	(b_1 0.06)
+	(b_12 "0")
+	(b_2 0.03)
+	(b_6 "0.3")
+	(c 0.0)
+	(niacina 3.8)
+	(nombre_vitaminas "vitaminas arroz blanco"))
+
+([IARecteas_Class2] of  alimento
+
+	(ingredientes [IARecteas_Class24])
+	(momento_ingesta comida cena)
+	(nombre_alimento "arroz blanco")
+	(tipo entrante principal)
+	(valor_nutricional [IARecteas_Class8]))
+
+([IARecteas_Class20] of  macronutrientes
+
+	(carbohidratos 77.0)
+	(energia 354.0)
+	(fibra_alimentaria 0.3)
+	(grasa [IARecteas_Class15])
+	(lipidos 1.7)
+	(nombre_macronutrientes "macronutrientes arroz blanco")
+	(numero_proteinas 7.6))
+
+([IARecteas_Class23] of  micronutrientes
+
+	(nombre_microntrientes "micronutrientes arroz blanco")
+	(numero_minerales [IARecteas_Class16])
+	(numero_vitaminas [IARecteas_Class17]))
+
+([IARecteas_Class24] of  ingrediente
+
+	(nombre_ingrediente "arroz")
+	(temporada todas))
+
+([IARecteas_Class25] of  ingrediente
+
+	(nombre_ingrediente "cereales")
+	(temporada todas))
+
+([IARecteas_Class26] of  ingrediente
+
+	(nombre_ingrediente "miel"))
+
+([IARecteas_Class27] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidad nutricional cereales con miel")
+	(numero_macronutrientes [IARecteas_Class10028])
+	(numero_micronutrientes [IARecteas_Class10030]))
+
+([IARecteas_Class3] of  alimento
+
+	(ingredientes
+		[IARecteas_Class25]
+		[IARecteas_Class26])
+	(momento_ingesta desayuno)
+	(nombre_alimento "cereales con miel")
+	(tipo principal)
+	(valor_nutricional [IARecteas_Class27]))
+
+([IARecteas_Class4] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "pasta fresca al huevo")
+	(tipo entrante principal)
+	(valor_nutricional [IARecteas_Class10033]))
+
+([IARecteas_Class5] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "tortellini de carne")
+	(tipo entrante principal)
+	(valor_nutricional [IARecteas_Class10039]))
+
+([IARecteas_Class6] of  alimento
+
+	(momento_ingesta comida cena)
+	(nombre_alimento "tortelloni de espinacas")
+	(tipo principal entrante)
+	(valor_nutricional [IARecteas_Class10041]))
+
+([IARecteas_Class8] of  cantidades_nutricionales
+
+	(nombre_cantidades "cantidades arroz blanco")
+	(numero_macronutrientes [IARecteas_Class20])
+	(numero_micronutrientes [IARecteas_Class23]))
