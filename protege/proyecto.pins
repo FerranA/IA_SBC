@@ -1,4 +1,4 @@
-; Fri May 03 13:35:42 CEST 2019
+; Fri May 03 23:10:30 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -90,6 +90,11 @@
 ([acidos+pasta+fresca+al+huevo] of  acidos_grasos
 )
 
+([agua] of  bebidas
+
+	(momento_ingesta desayuno comida cena)
+	(tipo bebida))
+
 ([arroz] of  cereal
 
 	(temporada todas))
@@ -121,6 +126,30 @@
 
 	(numero_macronutrientes [macronutrientes+bizcocho])
 	(numero_micronutrientes [micronutrientes+bizcocho]))
+
+([cantidades+edad+65-69+hombre] of  cantidades_nutricionales
+
+	(cantidad_agua 3.7)
+	(numero_macronutrientes [macronutrientes+edad+65-69+hombre])
+	(numero_micronutrientes [micronutrientes+edad+65-69+hombre]))
+
+([cantidades+edad+65-69+mujer] of  cantidades_nutricionales
+
+	(cantidad_agua 2.7)
+	(numero_macronutrientes [macronutrientes+edad+65-69+mujer])
+	(numero_micronutrientes [micronutrientes+edad+65-69+mujer]))
+
+([cantidades+edad+%3E%3D+70+hombre] of  cantidades_nutricionales
+
+	(cantidad_agua 3.7)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+hombre])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre]))
+
+([cantidades+edad+%3E%3D+70+mujer] of  cantidades_nutricionales
+
+	(cantidad_agua 2.7)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer]))
 
 ([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
 
@@ -230,6 +259,30 @@
 	(lipidos 0.2)
 	(numero_proteinas 4.4))
 
+([macronutrientes+edad+65-69+hombre] of  macronutrientes
+
+	(carbohidratos 130.0)
+	(fibra_alimentaria 30.0)
+	(numero_proteinas 56.0))
+
+([macronutrientes+edad+65-69+mujer] of  macronutrientes
+
+	(carbohidratos 130.0)
+	(fibra_alimentaria 21.0)
+	(numero_proteinas 46.0))
+
+([macronutrientes+edad+%3E%3D+70+hombre] of  macronutrientes
+
+	(carbohidratos 130.0)
+	(fibra_alimentaria 30.0)
+	(numero_proteinas 56.0))
+
+([macronutrientes+edad+%3E%3D+70+mujer] of  macronutrientes
+
+	(carbohidratos 130.0)
+	(fibra_alimentaria 21.0)
+	(numero_proteinas 46.0))
+
 ([macronutrientes+filetes+de+merluza+empanados] of  macronutrientes
 
 	(carbohidratos 13.7)
@@ -338,6 +391,26 @@
 	(numero_minerales [minerales+cereales+con+miel])
 	(numero_vitaminas [vitaminas+cereales+con+miel]))
 
+([micronutrientes+edad+65-69+hombre] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+hombre])
+	(numero_vitaminas [vitaminas+edad+65-69+hombre]))
+
+([micronutrientes+edad+65-69+mujer] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+mujer])
+	(numero_vitaminas [vitaminas+edad+65-69+mujer]))
+
+([micronutrientes+edad+%3E%3D+70+hombre] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+hombre])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+hombre]))
+
+([micronutrientes+edad+%3E%3D+70+mujer] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
+
 ([micronutrientes+manzana] of  micronutrientes
 
 	(numero_minerales [minerales+manzana])
@@ -412,6 +485,62 @@
 	(selenio 0.0355)
 	(sodio 0.2)
 	(zinc 18.7))
+
+([minerales+edad+65-69+hombre] of  mineral
+
+	(calcio 1000.0)
+	(cobre 0.9)
+	(fluor 4.0)
+	(fosforo 700.0)
+	(hierro 8.0)
+	(iodo 0.15)
+	(magnesio 0.42)
+	(potasio 4700.0)
+	(selenio 0.055)
+	(sodio 1300.0)
+	(zinc 11.0))
+
+([minerales+edad+65-69+mujer] of  mineral
+
+	(calcio 1200.0)
+	(cobre 0.9)
+	(fluor 3.0)
+	(fosforo 700.0)
+	(hierro 8.0)
+	(iodo 0.15)
+	(magnesio 320.0)
+	(potasio 4700.0)
+	(selenio 0.055)
+	(sodio 1300.0)
+	(zinc 8.0))
+
+([minerales+edad+%3E%3D+70+hombre] of  mineral
+
+	(calcio 1200.0)
+	(cobre 0.9)
+	(fluor 4.0)
+	(fosforo 700.0)
+	(hierro 8.0)
+	(iodo 0.15)
+	(magnesio 420.0)
+	(potasio 4700.0)
+	(selenio 0.055)
+	(sodio 1200.0)
+	(zinc 11.0))
+
+([minerales+edad+%3E%3D+70+mujer] of  mineral
+
+	(calcio 1200.0)
+	(cobre 0.9)
+	(fluor 3.0)
+	(fosforo 700.0)
+	(hierro 8.0)
+	(iodo 0.15)
+	(magnesio 320.0)
+	(potasio 4700.0)
+	(selenio 0.055)
+	(sodio 1200.0)
+	(zinc 8.0))
 
 ([minerales+manzana] of  mineral
 
@@ -490,11 +619,69 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pera]))
 
+([perfil+edad+65-69+hombre] of  perfil
+
+	(edad 65-69)
+	(recomendaciones [restriccion+edad+65-69+hombre])
+	(sexo hombre))
+
+([perfil+edad+65-69+mujer] of  perfil
+
+	(recomendaciones [restriccion+edad+65-69+mujer])
+	(sexo mujer))
+
+([perfil+edad+%3E%3D+70+hombre] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(recomendaciones [restriccion+edad+%3E%3D+70+hombre])
+	(sexo hombre))
+
+([perfil+edad+%3E%3D+70+mujer] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(recomendaciones [restriccion+edad+%3E%3D+70+mujer])
+	(sexo mujer))
+
+([preferencia+vegetariano] of  preferencia_personal
+
+	(preferencias [restriccion+vegetariano]))
+
+([proyecto_Class10] of  acidos_grasos
+)
+
+([proyecto_Class33] of  cantidades_nutricionales
+)
+
+([proyecto_Class35] of  cantidades_nutricionales
+)
+
 ([pure+de+patata] of  verduras_y_hortalizas
 
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+pure+de+patata]))
+
+([restriccion+edad+65-69+hombre] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+edad+65-69+hombre]))
+
+([restriccion+edad+65-69+mujer] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+edad+65-69+mujer]))
+
+([restriccion+edad+%3E%3D+70+hombre] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+hombre])
+	(obligatoria FALSE))
+
+([restriccion+edad+%3E%3D+70+mujer] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
+
+([restriccion+vegetariano] of  restriccion
+
+	(evitar_tipo_ingrediente carne)
+	(obligatoria TRUE))
 
 ([tortellini+de+carne] of  cereales_y_derivados
 
@@ -540,6 +727,47 @@
 	(b_6 "0.13")
 	(c 0.0)
 	(niacina 1.9))
+
+([vitaminas+edad+65-69+hombre] of  vitaminas
+
+	(a 0.9)
+	(b_12 "0.0024")
+	(b_6 "1.7")
+	(c 90.0)
+	(d 0.015)
+	(e 15.0)
+	(niacina 16.0))
+
+([vitaminas+edad+65-69+mujer] of  vitaminas
+
+	(a 0.7)
+	(b_12 "0.0024")
+	(b_6 "1.5")
+	(c 75.0)
+	(d 0.015)
+	(e 15.0)
+	(niacina 14.0))
+
+([vitaminas+edad+%3E%3D+70+hombre] of  vitaminas
+
+	(a 0.9)
+	(acido_folico 0.4)
+	(b_12 "0.0024")
+	(b_6 "1.7")
+	(c 90.0)
+	(d 0.02)
+	(e 15.0)
+	(niacina 16.0))
+
+([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
+
+	(a 0.7)
+	(b_12 "0.0024")
+	(b_6 "1.5")
+	(c 75.0)
+	(d 0.02)
+	(e 15.0)
+	(niacina 14.0))
 
 ([vitaminas+manzana] of  vitaminas
 

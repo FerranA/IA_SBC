@@ -1,4 +1,4 @@
-; Fri May 03 13:35:42 CEST 2019
+; Fri May 03 23:10:30 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -7,10 +7,9 @@
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
 	(is-a USER)
 	(role abstract)
-	(single-slot edad
+	(multislot edad
 		(type SYMBOL)
-		(allowed-values 65-70 70-75 75-80 80-85 85-90 90-95 95-100 100-105)
-;+		(cardinality 0 1)
+		(allowed-values 70-79 80-89 90-100 100-110 65-69)
 		(create-accessor read-write))
 	(single-slot ingrediente_principal
 		(type INSTANCE)
@@ -19,11 +18,6 @@
 		(create-accessor read-write))
 	(single-slot nombre_ingrediente
 		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot cantidades_recomendadas
-		(type INSTANCE)
-;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sal
@@ -153,6 +147,10 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot proyecto_Class30
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot c_18%3A3
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -205,6 +203,11 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot cantidades_recomendadas_diarias
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -219,6 +222,10 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot d
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidad_agua
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -264,6 +271,10 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot proyecto_Class15
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot ingredientes
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
@@ -294,8 +305,12 @@
 		(create-accessor read-write))
 	(single-slot sexo
 		(type SYMBOL)
-		(allowed-values hombre mujer todos otros)
+		(allowed-values hombre mujer otros)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot evitar_tipo_ingrediente
+		(type SYMBOL)
+;+		(allowed-parents carne lacteos)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
@@ -431,19 +446,22 @@
 	(single-slot %3ANAME
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidad_agua
+		(type FLOAT)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass perfil
 	(is-a USER)
 	(role concrete)
-	(single-slot edad
+	(multislot edad
 		(type SYMBOL)
-		(allowed-values 65-70 70-75 75-80 80-85 85-90 90-95 95-100 100-105)
-;+		(cardinality 0 1)
+		(allowed-values 70-79 80-89 90-100 100-110 65-69)
 		(create-accessor read-write))
 	(single-slot sexo
 		(type SYMBOL)
-		(allowed-values hombre mujer todos otros)
+		(allowed-values hombre mujer otros)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot recomendaciones
@@ -454,6 +472,10 @@
 	(single-slot actividad_fisica
 		(type SYMBOL)
 		(allowed-values poco medio mucho)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -474,10 +496,14 @@
 		(allowed-values FALSE TRUE)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cantidades_recomendadas
+	(single-slot cantidades_recomendadas_diarias
 		(type INSTANCE)
 ;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot evitar_tipo_ingrediente
+		(type SYMBOL)
+;+		(allowed-parents carne lacteos)
 		(create-accessor read-write))
 	(multislot evitar_ingrediente
 		(type INSTANCE)
@@ -498,6 +524,10 @@
 	(single-slot preferencias
 		(type INSTANCE)
 ;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -629,7 +659,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass macronutrientes "la energía se mide en kcal y el resto en gramos"
+(defclass macronutrientes "la energía se mide en kcal, el agua en litros y el resto en gramos"
 	(is-a USER)
 	(role concrete)
 	(single-slot numero_proteinas
