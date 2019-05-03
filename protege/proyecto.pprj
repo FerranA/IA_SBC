@@ -1,4 +1,4 @@
-; Fri May 03 12:28:48 CEST 2019
+; Fri May 03 13:09:16 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class10226]
-		[proyecto_ProjectKB_Class10227]
-		[proyecto_ProjectKB_Class10228]))
+		[proyecto_ProjectKB_Class10382]
+		[proyecto_ProjectKB_Class10383]
+		[proyecto_ProjectKB_Class10384]))
 
 ([CLSES_TAB] of  Widget
 
@@ -119,6 +119,20 @@
 ([IARecteas_ProjectKB_Class10205] of  Property_List
 )
 
+([IARecteas_ProjectKB_Class15] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_alimento")
+	(property_list [IARecteas_ProjectKB_Class16])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class16] of  Property_List
+)
+
 ([IARecteas_ProjectKB_Class17] of  Widget
 
 	(height 60)
@@ -145,6 +159,20 @@
 	(y 60))
 
 ([IARecteas_ProjectKB_Class26] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class55] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "c_18:2")
+	(property_list [IARecteas_ProjectKB_Class56])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class56] of  Property_List
 )
 
 ([INSTANCE_ANNOTATION_FORM_WIDGET] of  Widget
@@ -179,9 +207,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class10229]
-		[proyecto_ProjectKB_Class10230]
-		[proyecto_ProjectKB_Class10231]))
+		[proyecto_ProjectKB_Class10385]
+		[proyecto_ProjectKB_Class10386]
+		[proyecto_ProjectKB_Class10387]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -189,7 +217,7 @@
 ([KB_259481_Class100] of  String
 
 	(name "instances_file_name")
-	(string_value "instancias"))
+	(string_value "proyecto.pins"))
 
 ([KB_259481_Class11] of  Widget
 
@@ -606,7 +634,7 @@
 ([KB_259481_Class99] of  String
 
 	(name "classes_file_name")
-	(string_value "clases"))
+	(string_value "proyecto.pont"))
 
 ([KB_973042_Class3] of  Map
 )
@@ -752,36 +780,92 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class10226] of  String
+([proyecto_ProjectKB_Class10242] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_alimento")
+	(property_list [proyecto_ProjectKB_Class10243])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([proyecto_ProjectKB_Class10243] of  Property_List
+)
+
+([proyecto_ProjectKB_Class10267] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_alimento")
+	(property_list [proyecto_ProjectKB_Class10268])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([proyecto_ProjectKB_Class10268] of  Property_List
+)
+
+([proyecto_ProjectKB_Class10292] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_alimento")
+	(property_list [proyecto_ProjectKB_Class10293])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([proyecto_ProjectKB_Class10293] of  Property_List
+)
+
+([proyecto_ProjectKB_Class10317] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_alimento")
+	(property_list [proyecto_ProjectKB_Class10318])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([proyecto_ProjectKB_Class10318] of  Property_List
+)
+
+([proyecto_ProjectKB_Class10382] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class10227] of  String
+([proyecto_ProjectKB_Class10383] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class10228] of  String
+([proyecto_ProjectKB_Class10384] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class10229] of  Map_Entry
+([proyecto_ProjectKB_Class10385] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10230] of  Map_Entry
+([proyecto_ProjectKB_Class10386] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10231] of  Map_Entry
+([proyecto_ProjectKB_Class10387] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")

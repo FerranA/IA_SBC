@@ -1,4 +1,4 @@
-; Fri May 03 12:25:56 CEST 2019
+; Fri May 03 13:09:16 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -137,7 +137,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A2
-		(type STRING)
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot magnesio
@@ -345,7 +345,7 @@
 		(create-accessor read-write))
 	(multislot momento_ingesta
 		(type SYMBOL)
-		(allowed-values desayuno comida cena todos)
+		(allowed-values desayuno comida cena)
 		(create-accessor read-write))
 	(single-slot carbohidratos
 		(type FLOAT)
@@ -389,6 +389,10 @@
 	(single-slot nombre_ingrediente
 		(type STRING)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass carne
@@ -404,6 +408,10 @@
 	(role concrete))
 
 (defclass lacteos
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass cereal
 	(is-a ingrediente)
 	(role concrete))
 
@@ -426,6 +434,10 @@
 		(create-accessor read-write))
 	(single-slot sal
 		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -479,6 +491,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
 		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot evitar_receta
 		(type INSTANCE)
 ;+		(allowed-classes alimento)
@@ -513,7 +529,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A2
-		(type STRING)
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A1
@@ -544,6 +560,10 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot c_14%3A0
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -566,14 +586,6 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot niacina
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot nombre_vitaminas
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
 		(type FLOAT)
@@ -587,13 +599,25 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot b_2
-;+		(comment "riboflavina")
+	(single-slot e
+;+		(comment "tocoferol")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot e
-;+		(comment "tocoferol")
+	(single-slot niacina
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre_vitaminas
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_2
+;+		(comment "riboflavina")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -619,6 +643,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes mineral)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass macronutrientes "la energía se mide en kcal y el resto en gramos"
@@ -638,6 +666,10 @@
 		(create-accessor read-write))
 	(single-slot fibra_alimentaria
 		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot energia
@@ -701,6 +733,10 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot calcio
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -709,10 +745,6 @@
 (defclass alimento "la cantidad recomendada es un valor en gramos"
 	(is-a USER)
 	(role concrete)
-	(single-slot nombre_alimento
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot ingrediente_principal
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
@@ -740,9 +772,29 @@
 		(create-accessor read-write))
 	(multislot momento_ingesta
 		(type SYMBOL)
-		(allowed-values desayuno comida cena todos)
+		(allowed-values desayuno comida cena)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cantidad_recomendada
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
+
+(defclass cereales_y_derivados
+	(is-a alimento)
+	(role concrete))
+
+(defclass pasteleria
+	(is-a alimento)
+	(role concrete))
+
+(defclass verduras_y_hortalizas
+	(is-a alimento)
+	(role concrete))
+
+(defclass frutas
+	(is-a alimento)
+	(role concrete))
