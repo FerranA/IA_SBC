@@ -1,4 +1,4 @@
-; Fri May 03 13:09:16 CEST 2019
+; Fri May 03 13:35:42 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class10382]
-		[proyecto_ProjectKB_Class10383]
-		[proyecto_ProjectKB_Class10384]))
+		[proyecto_ProjectKB_Class10444]
+		[proyecto_ProjectKB_Class10445]
+		[proyecto_ProjectKB_Class10446]))
 
 ([CLSES_TAB] of  Widget
 
@@ -46,6 +46,34 @@
 
 	(name "SearchTab_Query"))
 
+([IARecteas_ProjectKB_Class10119] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_vitaminas")
+	(property_list [IARecteas_ProjectKB_Class10120])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 120))
+
+([IARecteas_ProjectKB_Class10120] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class10138] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_macronutrientes")
+	(property_list [IARecteas_ProjectKB_Class10139])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class10139] of  Property_List
+)
+
 ([IARecteas_ProjectKB_Class10150] of  Widget
 
 	(height 60)
@@ -58,6 +86,34 @@
 	(y 120))
 
 ([IARecteas_ProjectKB_Class10151] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class10163] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_microntrientes")
+	(property_list [IARecteas_ProjectKB_Class10164])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class10164] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class10178] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_ingrediente")
+	(property_list [IARecteas_ProjectKB_Class10179])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class10179] of  Property_List
 )
 
 ([IARecteas_ProjectKB_Class10192] of  Widget
@@ -161,6 +217,20 @@
 ([IARecteas_ProjectKB_Class26] of  Property_List
 )
 
+([IARecteas_ProjectKB_Class38] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_cantidades")
+	(property_list [IARecteas_ProjectKB_Class39])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class39] of  Property_List
+)
+
 ([IARecteas_ProjectKB_Class55] of  Widget
 
 	(height 60)
@@ -173,6 +243,34 @@
 	(y 0))
 
 ([IARecteas_ProjectKB_Class56] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class73] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_acidos_grasos")
+	(property_list [IARecteas_ProjectKB_Class74])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 180))
+
+([IARecteas_ProjectKB_Class74] of  Property_List
+)
+
+([IARecteas_ProjectKB_Class94] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_minerales")
+	(property_list [IARecteas_ProjectKB_Class95])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([IARecteas_ProjectKB_Class95] of  Property_List
 )
 
 ([INSTANCE_ANNOTATION_FORM_WIDGET] of  Widget
@@ -207,9 +305,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class10385]
-		[proyecto_ProjectKB_Class10386]
-		[proyecto_ProjectKB_Class10387]))
+		[proyecto_ProjectKB_Class10447]
+		[proyecto_ProjectKB_Class10448]
+		[proyecto_ProjectKB_Class10449]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -780,6 +878,20 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
+([proyecto_ProjectKB_Class10237] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_ingrediente")
+	(property_list [proyecto_ProjectKB_Class10238])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 0))
+
+([proyecto_ProjectKB_Class10238] of  Property_List
+)
+
 ([proyecto_ProjectKB_Class10242] of  Widget
 
 	(height 60)
@@ -836,36 +948,50 @@
 ([proyecto_ProjectKB_Class10318] of  Property_List
 )
 
-([proyecto_ProjectKB_Class10382] of  String
+([proyecto_ProjectKB_Class10372] of  Widget
+
+	(height 60)
+	(is_hidden FALSE)
+	(name "nombre_ingrediente")
+	(property_list [proyecto_ProjectKB_Class10373])
+	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
+	(width 200)
+	(x 0)
+	(y 60))
+
+([proyecto_ProjectKB_Class10373] of  Property_List
+)
+
+([proyecto_ProjectKB_Class10444] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class10383] of  String
+([proyecto_ProjectKB_Class10445] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class10384] of  String
+([proyecto_ProjectKB_Class10446] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class10385] of  Map_Entry
+([proyecto_ProjectKB_Class10447] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10386] of  Map_Entry
+([proyecto_ProjectKB_Class10448] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10387] of  Map_Entry
+([proyecto_ProjectKB_Class10449] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")

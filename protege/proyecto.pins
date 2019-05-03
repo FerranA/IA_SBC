@@ -1,4 +1,4 @@
-; Fri May 03 13:09:16 CEST 2019
+; Fri May 03 13:35:42 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -32,6 +32,9 @@
 	(monoinsaturados 0.0)
 	(poliinsaturados 0.0)
 	(saturados 0.0))
+
+([acidos+grasos+filetes+de+merluza+empanados] of  acidos_grasos
+)
 
 ([acidos+grasos+manzana] of  acidos_grasos
 
@@ -119,6 +122,10 @@
 	(numero_macronutrientes [macronutrientes+bizcocho])
 	(numero_micronutrientes [micronutrientes+bizcocho]))
 
+([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
+
+	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
+
 ([cantidades+manzana] of  cantidades_nutricionales
 
 	(numero_macronutrientes [macronutrientes+manzana])
@@ -157,6 +164,11 @@
 
 	(numero_macronutrientes [macronutrientes+tortelloni+de+espinacas]))
 
+([cantidades+whisky] of  cantidades_nutricionales
+
+	(numero_macronutrientes [macronutrientes+whisky])
+	(numero_micronutrientes [micronutrientes+whisky]))
+
 ([cereales] of  cereal
 
 	(temporada todas))
@@ -169,6 +181,27 @@
 	(momento_ingesta desayuno)
 	(tipo principal)
 	(valor_nutricional [cantidad+nutricional+cereales+con+miel]))
+
+([filetes+de+merluza+empanados] of  pescados_mariscos_y_crustaceos
+
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+filetes+de+merluza+empanados]))
+
+([grasas+whisky] of  acidos_grasos
+
+	(c_14%3A0 0.0)
+	(c_16%3A0 0.0)
+	(c_16%3A1 0.0)
+	(c_18%3A0 0.0)
+	(c_18%3A1 0.0)
+	(c_18%3A2 0.0)
+	(c_18%3A3 0.0)
+	(colesterol 0.0)
+	(etanol 0.035)
+	(monoinsaturados 0.0)
+	(poliinsaturados 0.0)
+	(saturados 0.0))
 
 ([macronutrientes+arroz+blanco] of  macronutrientes
 
@@ -196,6 +229,13 @@
 	(grasa [acidos+grasos+cereales+con+miel])
 	(lipidos 0.2)
 	(numero_proteinas 4.4))
+
+([macronutrientes+filetes+de+merluza+empanados] of  macronutrientes
+
+	(carbohidratos 13.7)
+	(energia 120.4)
+	(lipidos 1.6)
+	(numero_proteinas 12.8))
 
 ([macronutrientes+manzana] of  macronutrientes
 
@@ -263,6 +303,14 @@
 	(lipidos 8.0)
 	(numero_proteinas 10.0))
 
+([macronutrientes+whisky] of  macronutrientes
+
+	(energia 244.0)
+	(fibra_alimentaria 0.0)
+	(grasa [grasas+whisky])
+	(lipidos 0.0)
+	(numero_proteinas 0.0))
+
 ([manzana] of  frutas
 
 	(momento_ingesta desayuno comida cena)
@@ -319,6 +367,11 @@
 
 	(numero_minerales [minerales+pure+de+patata])
 	(numero_vitaminas [vitaminas+pure+de+patata]))
+
+([micronutrientes+whisky] of  micronutrientes
+
+	(numero_minerales [minerales+whisky])
+	(numero_vitaminas [vitaminas+whisky]))
 
 ([miel] of  ingrediente
 )
@@ -414,6 +467,10 @@
 	(hierro 4.0)
 	(magnesio 25.0)
 	(zinc 0.3))
+
+([minerales+whisky] of  mineral
+
+	(cobre 0.02))
 
 ([pasta+fresca+al+huevo] of  cereales_y_derivados
 
@@ -536,3 +593,22 @@
 	(b_2 0.11)
 	(b_6 "0.18")
 	(niacina 1.5))
+
+([vitaminas+whisky] of  vitaminas
+
+	(a 0.0)
+	(acido_folico 0.0)
+	(b_1 0.0)
+	(b_12 "0")
+	(b_2 0.0)
+	(b_6 "0")
+	(c 0.0)
+	(d 0.0)
+	(e 0.0)
+	(niacina 0.0))
+
+([whisky] of  bebidas
+
+	(momento_ingesta desayuno comida cena)
+	(tipo bebida)
+	(valor_nutricional [cantidades+whisky]))
