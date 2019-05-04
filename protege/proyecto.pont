@@ -1,4 +1,4 @@
-; Sat May 04 19:31:51 CEST 2019
+; Sat May 04 20:22:19 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -47,11 +47,6 @@
 		(create-accessor read-write))
 	(single-slot vitamina_k
 		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot restricciones
-		(type INSTANCE)
-;+		(allowed-classes restriccion)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot grasa
@@ -208,6 +203,11 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot recomendaciones_diarias
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -314,7 +314,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents carne lacteos)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
@@ -395,6 +395,11 @@
 		(type SYMBOL)
 		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ingredientes_recomendados
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ingrediente
@@ -410,43 +415,43 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass carne
+(defclass ingrediente_carne
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass fruta
+(defclass ingrediente_fruta
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass hortalizas_y_verduras
+(defclass ingrediente_verdura
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass lacteos
+(defclass ingrediente_lacteo
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass pan_pasta_azucar_y_dulces
+(defclass ingrediente_cereal
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass pescado
+(defclass ingrediente_pescado
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass huevos
+(defclass ingrediente_huevo
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass legumbres_y_frutos_secos
+(defclass ingrediente_legumbre
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass aceites_y_grasas
+(defclass ingrediente_grasa
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass bebida
+(defclass ingrediente_bebida
 	(is-a ingrediente)
 	(role concrete))
 
@@ -506,9 +511,13 @@
 (defclass enfermedad
 	(is-a USER)
 	(role concrete)
-	(single-slot restricciones
+	(single-slot recomendaciones_diarias
 		(type INSTANCE)
 ;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -527,11 +536,16 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents carne lacteos)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
 		(create-accessor read-write))
 	(multislot evitar_ingrediente
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(single-slot ingredientes_recomendados
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
@@ -813,7 +827,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass cereales_y_derivados
+(defclass cereal
 	(is-a alimento)
 	(role concrete))
 
@@ -821,26 +835,26 @@
 	(is-a alimento)
 	(role concrete))
 
-(defclass verduras_y_hortalizas
+(defclass verdura
 	(is-a alimento)
 	(role concrete))
 
-(defclass frutas
+(defclass fruta
 	(is-a alimento)
 	(role concrete))
 
-(defclass pescados_mariscos_y_crustaceos
+(defclass pescado
 	(is-a alimento)
 	(role concrete))
 
-(defclass bebidas
+(defclass bebida
 	(is-a alimento)
 	(role concrete))
 
-(defclass legumbres
+(defclass legumbre
 	(is-a alimento)
 	(role concrete))
 
-(defclass lacteos_y_derivados
+(defclass lacteo
 	(is-a alimento)
 	(role concrete))

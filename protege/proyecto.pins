@@ -1,9 +1,9 @@
-; Sat May 04 19:31:51 CEST 2019
+; Sat May 04 20:22:19 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
 
-([aceite+de+oliva] of  aceites_y_grasas
+([aceite+de+oliva] of  ingrediente_grasa
 )
 
 ([acidos+grasos+arroz+blanco] of  acidos_grasos
@@ -126,12 +126,12 @@
 ([acidos+pasta+fresca+al+huevo] of  acidos_grasos
 )
 
-([agua] of  bebidas
+([agua] of  bebida
 
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida))
 
-([arroz+blanco] of  cereales_y_derivados
+([arroz+blanco] of  cereal
 
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes [ingrediente+arroz])
@@ -151,7 +151,7 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+arroz+con+leche]))
 
-([arroz+con+pollo] of  cereales_y_derivados
+([arroz+con+pollo] of  cereal
 
 	(cantidad_porcion 220.0)
 	(ingrediente_principal [ingrediente+arroz])
@@ -232,6 +232,10 @@
 
 	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
 
+([cantidades+hipertension] of  cantidades_nutricionales
+
+	(numero_micronutrientes [micronutrientes+hipertension]))
+
 ([cantidades+hummus] of  cantidades_nutricionales
 
 	(cantidad_agua 0.06487)
@@ -299,7 +303,7 @@
 	(numero_macronutrientes [macronutrientes+yogur+natural+griego])
 	(numero_micronutrientes [micronutrientes+yogur+natural+griego]))
 
-([cereales+con+miel] of  cereales_y_derivados
+([cereales+con+miel] of  cereal
 
 	(ingrediente_principal [ingrediente+cereal])
 	(ingredientes
@@ -309,7 +313,11 @@
 	(tipo principal)
 	(valor_nutricional [cantidad+nutricional+cereales+con+miel]))
 
-([filetes+de+merluza+empanados] of  pescados_mariscos_y_crustaceos
+([enfermedad+hipertension] of  enfermedad
+
+	(recomendaciones_diarias [restriccion+hipertension]))
+
+([filetes+de+merluza+empanados] of  pescado
 
 	(ingrediente_principal [ingrediente+merluza])
 	(ingredientes
@@ -336,10 +344,10 @@
 	(poliinsaturados 0.0)
 	(saturados 0.0))
 
-([huevo] of  huevos
+([huevo] of  ingrediente_huevo
 )
 
-([hummus] of  legumbres
+([hummus] of  legumbre
 
 	(ingrediente_principal [ingrediente+garbanzo])
 	(ingredientes
@@ -349,85 +357,85 @@
 	(tipo principal entrante)
 	(valor_nutricional [cantidades+hummus]))
 
-([ingrediente+ajo] of  hortalizas_y_verduras
+([ingrediente+ajo] of  ingrediente_verdura
 )
 
-([ingrediente+arroz] of  pan_pasta_azucar_y_dulces
+([ingrediente+arroz] of  ingrediente_cereal
 
 	(temporada todas))
 
-([ingrediente+azucar] of  pan_pasta_azucar_y_dulces
+([ingrediente+azucar] of  ingrediente_cereal
 )
 
-([ingrediente+cebolla] of  hortalizas_y_verduras
+([ingrediente+cebolla] of  ingrediente_verdura
 )
 
-([ingrediente+cereal] of  pan_pasta_azucar_y_dulces
+([ingrediente+cereal] of  ingrediente_cereal
 
 	(temporada todas))
 
-([ingrediente+espinaca] of  hortalizas_y_verduras
+([ingrediente+espinaca] of  ingrediente_verdura
 )
 
-([ingrediente+garbanzo] of  legumbres_y_frutos_secos
+([ingrediente+garbanzo] of  ingrediente_legumbre
 )
 
-([ingrediente+guisante] of  hortalizas_y_verduras
+([ingrediente+guisante] of  ingrediente_verdura
 )
 
-([ingrediente+harina] of  pan_pasta_azucar_y_dulces
+([ingrediente+harina] of  ingrediente_cereal
 
 	(temporada todas))
 
-([ingrediente+lenteja] of  legumbres_y_frutos_secos
+([ingrediente+lenteja] of  ingrediente_legumbre
 )
 
-([ingrediente+limon] of  fruta
+([ingrediente+limon] of  ingrediente_fruta
 )
 
-([ingrediente+manzana] of  fruta
+([ingrediente+manzana] of  ingrediente_fruta
 )
 
-([ingrediente+merluza] of  pescado
+([ingrediente+merluza] of  ingrediente_pescado
 )
 
-([ingrediente+miel] of  pan_pasta_azucar_y_dulces
+([ingrediente+miel] of  ingrediente_cereal
 )
 
-([ingrediente+pan] of  pan_pasta_azucar_y_dulces
+([ingrediente+pan] of  ingrediente_cereal
 )
 
-([ingrediente+pasta] of  pan_pasta_azucar_y_dulces
+([ingrediente+pasta] of  ingrediente_cereal
 )
 
-([ingrediente+patata] of  hortalizas_y_verduras
+([ingrediente+patata] of  ingrediente_verdura
 )
 
-([ingrediente+pera] of  fruta
+([ingrediente+pera] of  ingrediente_fruta
 )
 
-([ingrediente+pimiento+rojo] of  hortalizas_y_verduras
+([ingrediente+pimiento+rojo] of  ingrediente_verdura
 )
 
-([ingrediente+pollo] of  carne
+([ingrediente+pollo] of  ingrediente_carne
 )
 
-([ingrediente+queso] of  lacteos
+([ingrediente+queso] of  ingrediente_lacteo
 )
 
-([ingrediente+ternera] of  carne
+([ingrediente+ternera] of  ingrediente_carne
 )
 
-([ingrediente+tomate] of  hortalizas_y_verduras
+([ingrediente+tomate] of  ingrediente_verdura
 )
 
-([ingrediente+yogur] of  lacteos
+([ingrediente+yogur] of  ingrediente_lacteo
 )
 
-([ingrediente+zanahoria] of  hortalizas_y_verduras
+([ingrediente+zanahoria] of  ingrediente_verdura
 )
 
-([lasa%C3%B1a] of  cereales_y_derivados
+([lasa%C3%B1a] of  cereal
 
 	(cantidad_porcion 437.0)
 	(ingrediente_principal [ingrediente+pasta])
@@ -445,7 +453,7 @@
 	(tipo principal)
 	(valor_nutricional [cantidades+lasa%C3%B1a]))
 
-([leche] of  lacteos
+([leche] of  ingrediente_lacteo
 )
 
 ([macronutrientes+arroz+blanco] of  macronutrientes
@@ -634,17 +642,17 @@
 	(lipidos 5.0)
 	(numero_proteinas 9.0))
 
-([mantequilla] of  aceites_y_grasas
+([mantequilla] of  ingrediente_grasa
 )
 
-([manzana] of  frutas
+([manzana] of  fruta
 
 	(ingredientes [ingrediente+manzana])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
 	(valor_nutricional [cantidades+manzana]))
 
-([menestra+de+verduras] of  verduras_y_hortalizas
+([menestra+de+verduras] of  verdura
 
 	(ingrediente_principal [ingrediente+patata])
 	(ingredientes
@@ -701,6 +709,10 @@
 
 	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
+
+([micronutrientes+hipertension] of  micronutrientes
+
+	(numero_minerales [minerales+hipertension]))
 
 ([micronutrientes+hummus] of  micronutrientes
 
@@ -874,6 +886,10 @@
 	(sodio 1200.0)
 	(zinc 8.0))
 
+([minerales+hipertension] of  mineral
+
+	(potasio 4700.0))
+
 ([minerales+hummus] of  mineral
 
 	(calcio 49.0)
@@ -981,7 +997,7 @@
 	(sodio 35.0)
 	(zinc 0.52))
 
-([pasta+fresca+al+huevo] of  cereales_y_derivados
+([pasta+fresca+al+huevo] of  cereal
 
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
@@ -1002,7 +1018,7 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pastel+de+manzana]))
 
-([pera] of  frutas
+([pera] of  fruta
 
 	(ingredientes [ingrediente+pera])
 	(momento_ingesta desayuno comida cena)
@@ -1047,7 +1063,7 @@
 	(poliinsaturados 2.109)
 	(saturados 1.141))
 
-([pure+de+patata] of  verduras_y_hortalizas
+([pure+de+patata] of  verdura
 
 	(ingrediente_principal [ingrediente+patata])
 	(ingredientes
@@ -1075,12 +1091,17 @@
 
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
 
+([restriccion+hipertension] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+hipertension])
+	(ingredientes_recomendados [ingrediente+ajo]))
+
 ([restriccion+vegetariano] of  restriccion
 
-	(evitar_tipo_ingrediente carne)
+	(evitar_tipo_ingrediente ingrediente_carne)
 	(obligatoria TRUE))
 
-([spaghetti+a+la+bolo%C3%B1esa+%28con+albondigas%29] of  cereales_y_derivados
+([spaghetti+a+la+bolo%C3%B1esa+%28con+albondigas%29] of  cereal
 
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
@@ -1093,14 +1114,14 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+spaghetti+a+la+bolo%C3%B1esa]))
 
-([tortellini+de+carne] of  cereales_y_derivados
+([tortellini+de+carne] of  cereal
 
 	(ingrediente_principal [ingrediente+pasta])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+tortellini+de+carne]))
 
-([tortelloni+de+espinacas] of  cereales_y_derivados
+([tortelloni+de+espinacas] of  cereal
 
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
@@ -1303,13 +1324,13 @@
 	(k 0.0)
 	(niacina 0.208))
 
-([whisky] of  bebidas
+([whisky] of  bebida
 
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida)
 	(valor_nutricional [cantidades+whisky]))
 
-([yogurt+natural+griego] of  lacteos_y_derivados
+([yogurt+natural+griego] of  lacteo
 
 	(cantidad_porcion 125.0)
 	(ingrediente_principal [ingrediente+yogur])
