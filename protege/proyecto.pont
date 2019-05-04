@@ -1,4 +1,4 @@
-; Fri May 03 23:10:30 CEST 2019
+; Sat May 04 19:31:51 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -110,10 +110,6 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot cantidad_recomendada
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot c_14%3A0
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -208,6 +204,10 @@
 ;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot cantidad_porcion
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -249,6 +249,10 @@
 		(create-accessor read-write))
 	(single-slot nombre_macronutrientes
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot k
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot proteinas
@@ -414,7 +418,7 @@
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass verdura
+(defclass hortalizas_y_verduras
 	(is-a ingrediente)
 	(role concrete))
 
@@ -422,7 +426,27 @@
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass cereal
+(defclass pan_pasta_azucar_y_dulces
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass pescado
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass huevos
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass legumbres_y_frutos_secos
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass aceites_y_grasas
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass bebida
 	(is-a ingrediente)
 	(role concrete))
 
@@ -604,14 +628,6 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot niacina
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot %3ANAME
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
 		(type FLOAT)
@@ -625,13 +641,25 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot b_2
-;+		(comment "riboflavina")
+	(single-slot e
+;+		(comment "tocoferol")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot e
-;+		(comment "tocoferol")
+	(single-slot k
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot niacina
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_2
+;+		(comment "riboflavina")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -756,6 +784,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
 		(create-accessor read-write))
+	(single-slot cantidad_porcion
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot tipo
 ;+		(comment "expresa si es bebida, entrante ...")
 		(type SYMBOL)
@@ -778,10 +810,6 @@
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot cantidad_recomendada
-		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -806,5 +834,13 @@
 	(role concrete))
 
 (defclass bebidas
+	(is-a alimento)
+	(role concrete))
+
+(defclass legumbres
+	(is-a alimento)
+	(role concrete))
+
+(defclass lacteos_y_derivados
 	(is-a alimento)
 	(role concrete))

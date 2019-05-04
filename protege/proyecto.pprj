@@ -1,4 +1,4 @@
-; Fri May 03 23:10:30 CEST 2019
+; Sat May 04 19:31:51 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class228]
-		[proyecto_ProjectKB_Class229]
-		[proyecto_ProjectKB_Class230]))
+		[proyecto_ProjectKB_Class10476]
+		[proyecto_ProjectKB_Class10477]
+		[proyecto_ProjectKB_Class10478]))
 
 ([CLSES_TAB] of  Widget
 
@@ -78,9 +78,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class231]
-		[proyecto_ProjectKB_Class232]
-		[proyecto_ProjectKB_Class233]))
+		[proyecto_ProjectKB_Class10479]
+		[proyecto_ProjectKB_Class10480]
+		[proyecto_ProjectKB_Class10481]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -507,7 +507,7 @@
 	(name "classes_file_name")
 	(string_value "proyecto.pont"))
 
-([KB_382398_Class3] of  Map
+([KB_932381_Class3] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -596,8 +596,8 @@
 		[STANDARD_CLASS_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
 		[INSTANCE_ANNOTATION_FORM_WIDGET]
-		[STANDARD_FACET_FORM_WIDGET]
-		[PAL_FORM_WIDGET])
+		[PAL_FORM_WIDGET]
+		[STANDARD_FACET_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
 	(default_facet_metaclass ":STANDARD-FACET")
 	(default_instance_widget_class_name "edu.stanford.smi.protege.widget.FormWidget")
@@ -651,165 +651,41 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class158] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "edad")
-	(property_list [proyecto_ProjectKB_Class159])
-	(widget_class_name "edu.stanford.smi.protege.widget.ComboBoxWidget")
-	(width 100)
-	(x 100)
-	(y 0))
-
-([proyecto_ProjectKB_Class159] of  Property_List
-)
-
-([proyecto_ProjectKB_Class168] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "proyecto_Class15")
-	(property_list [proyecto_ProjectKB_Class169])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([proyecto_ProjectKB_Class169] of  Property_List
-)
-
-([proyecto_ProjectKB_Class199] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "proyecto_Class30")
-	(property_list [proyecto_ProjectKB_Class200])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([proyecto_ProjectKB_Class200] of  Property_List
-)
-
-([proyecto_ProjectKB_Class201] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "evitar_tipo_ingrediente")
-	(property_list [proyecto_ProjectKB_Class202])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([proyecto_ProjectKB_Class202] of  Property_List
-)
-
-([proyecto_ProjectKB_Class203] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "evitar_tipo_ingrediente")
-	(property_list [proyecto_ProjectKB_Class204])
-	(widget_class_name "edu.stanford.smi.protege.widget.InstanceFieldWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([proyecto_ProjectKB_Class204] of  Property_List
-
-	(properties
-		[proyecto_ProjectKB_Class205]
-		[proyecto_ProjectKB_Class206]))
-
-([proyecto_ProjectKB_Class205] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-View References to Value"))
-
-([proyecto_ProjectKB_Class206] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-Delete Instance"))
-
-([proyecto_ProjectKB_Class207] of  Widget
-
-	(height 120)
-	(is_hidden FALSE)
-	(name "evitar_tipo_ingrediente")
-	(property_list [proyecto_ProjectKB_Class208])
-	(widget_class_name "edu.stanford.smi.protege.widget.InstanceListWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([proyecto_ProjectKB_Class208] of  Property_List
-
-	(properties
-		[proyecto_ProjectKB_Class209]
-		[proyecto_ProjectKB_Class210]))
-
-([proyecto_ProjectKB_Class209] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-View References to Value"))
-
-([proyecto_ProjectKB_Class210] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-Delete Instance"))
-
-([proyecto_ProjectKB_Class228] of  String
+([proyecto_ProjectKB_Class10476] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class229] of  String
+([proyecto_ProjectKB_Class10477] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class230] of  String
+([proyecto_ProjectKB_Class10478] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class231] of  Map_Entry
+([proyecto_ProjectKB_Class10479] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class232] of  Map_Entry
+([proyecto_ProjectKB_Class10480] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class233] of  Map_Entry
+([proyecto_ProjectKB_Class10481] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
-
-([proyecto_ProjectKB_Class57] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "agua")
-	(property_list [proyecto_ProjectKB_Class58])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([proyecto_ProjectKB_Class58] of  Property_List
-)
 
 ([QUERIES_TAB] of  Widget
 
