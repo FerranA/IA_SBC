@@ -51,17 +51,11 @@
 (defrule determine-age-interval "Determina el intervalo de edad del usuario."
 	(edad ?edad)
 	=>
-	(if (and (>= ?edad 65) (<= ?edad 74))
-		then (assert (intervalo-edad 65-74))
+	(if (and (>= ?edad 65) (<= ?edad 69))
+		then (assert (intervalo-edad 65-69))
 	)
-	(if (and (>= ?edad 75) (<= ?edad 84))
-		then (assert (intervalo-edad 75-84))
-	)
-	(if (and (>= ?edad 85) (<= ?edad 94))
-		then (assert (intervalo-edad 85-94))
-	)
-	(if (>= ?edad 95)
-		then (assert (intervalo-edad 95+))
+	(if (>= ?edad 70)
+		then (assert (intervalo-edad 70+))
 	)
 )
 
@@ -102,7 +96,7 @@
 	(bind ?respuesta (ask-yn "¿Tienes alergia a algun tipo de alimento? (Si/No) "))
 	(while (not (eq ?respuesta no))
 		(bind ?alergia (ask-wever "¿Que tipo de alimento? "))
-		(assert (alergia ?alergia))
+		(assert (tiene-alergia ?alergia))
 		(bind ?respuesta (ask-yn "¿Tienes alguna otra alergia? (Si/No) "))
 	)
 	(assert (alergias-recogidas))
@@ -114,7 +108,7 @@
 	(bind ?respuesta (ask-yn "¿Tienes alguna preferencia alimenticia? (Si/No) "))
 	(while (not (eq ?respuesta no))
 		(bind ?preferencia (ask-wever "¿Que preferencia? "))
-		(assert (preferencia ?preferencia))
+		(assert (tiene-preferencia ?preferencia))
 		(bind ?respuesta (ask-yn "¿Tienes alguna otra preferencia alimenticia? (Si/No) "))
 	)
 	(assert (preferencias-recogidas))
@@ -126,9 +120,69 @@
 	(bind ?respuesta (ask-yn "¿Padeces alguna enfermedad? (Si/No) "))
 	(while (not (eq ?respuesta no))
 		(bind ?enfermedad (ask-wever "¿Que enfermedad? "))
-		(assert (enfermedad ?enfermedad))
+		(assert (tiene-enfermedad ?enfermedad))
 		(bind ?respuesta (ask-yn "¿Padeces alguna otra enfermedad? (Si/No) "))
 	)
 	(assert (enfermedades-recogidas))
 )
 
+(defrule get-basic-cdr1 "Determina el nombre de la instancia de cantidad basica recomendada que se debe asignar al usuario."
+	(perfil ?edad ?sexo ?act)
+	=>
+	(if (eq ?sexo hombre) then
+		(if (eq ?edad 65-69) then
+			(assert (nombre-cdr [cantidades+edad+65-69+hombre]))
+		else (if (eq ?edad 70+) then
+			(assert (nombre-cdr [cantidades+edad+%3E%3D+70+hombre])))
+		)
+	else 
+		(if (eq ?edad 65-69) then
+			(assert (nombre-cdr [cantidades+edad+65-69+mujer]))
+		else (if (eq ?edad 70+) then
+			(assert (nombre-cdr [cantidades+edad+%3E%3D+70+mujer])))
+		)
+	)
+)
+
+
+(defrule get-basic-cdr2 "Asigna una cantidad basica recomendada al usuario segun su perfil basico."
+	?cdr <- (object (name ?nombre) (is-a cantidades_nutricionales))
+	(nombre-cdr ?nombre)
+	=> 
+	(assert (cdr ?cdr))
+)
+	
+
+
+(deftemplate almuerzo ""
+	(slot bebida)
+	(slot almuerzo)
+)
+
+(deftemplate comida ""
+	(slot bebida)
+	(slot entrante)
+	(slot plato-principal)
+	(slot postre)
+)
+
+(deftemplate cena ""
+	(slot bebida)
+	(slot entrante)
+	(slot plato-principal)
+	(slot postre)
+)
+
+(deftemplate menu-dia ""
+	(slot almuerzo (type almuerzo))
+	(slot comida   (type comida))
+	(slot cena     (type cena))
+)
+
+(deftemplate menu-semanal ""
+	(slot menu-lunes     (type menu-dia))
+	(slot menu-martes    (type menu-dia))
+	(slot menu-miercoles (type menu-dia))
+	(slot menu-jueves    (type menu-dia))
+	(slot menu-viernes   (type menu-dia))
+)
