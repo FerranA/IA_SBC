@@ -205,8 +205,8 @@
 )
 
 (defrule bebida_usable ""
-	(alimento-usable ?alimento)
 	?objeto <- (object (name ?alimento))
+	(alimento-usable ?alimento)
 	(test (eq (class ?objeto) bebida))
 	=>
 	(assert (bebida-usable ?alimento))
@@ -240,22 +240,12 @@
 (defrule postre_usable ""
 	?objeto <- (object (name ?alimento) (tipo $?tipo))
 	(alimento-usable ?alimento)
-	(test (member principal ?tipo))
+	(test (member postre ?tipo))
 	=>
 	(assert (postre-usable ?alimento))
 )
 
 (defrule day_menu ""
-;  ?bebida_des <- (object (name ?name_bedes) (momento_ingesta ?x0))
-;  ?almuer_des <- (object (name ?name_aldes) (momento_ingesta ?x1))
-;  ?bebida_com <- (object (name ?name_becom) (momento_ingesta ?x2))
-;  ?entran_com <- (object (name ?name_encom) (momento_ingesta ?x3))
-;  ?platop_com <- (object (name ?name_plcom) (momento_ingesta ?x4))
-;  ?postre_com <- (object (name ?name_pocom) (momento_ingesta ?x5))
-;  ?bebida_cen <- (object (name ?name_becen) (momento_ingesta ?x6))
-;  ?entran_cen <- (object (name ?name_encen) (momento_ingesta ?x7))
-;  ?platop_cen <- (object (name ?name_plcom) (momento_ingesta ?x8))
-;  ?postre_cen <- (object (name ?name_pocom) (momento_ingesta ?x9))
 	(not (hay-menu))
 	(bebida-usable ?bebida_des)
 	(almuerzo-usable ?almuer_des)
@@ -268,7 +258,6 @@
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
   =>
-  (printout t "explosion")
 	(printout t ?bebida_des)
 	(printout t ?almuer_des)
 	(printout t ?bebida_com)
@@ -280,5 +269,6 @@
 	(printout t ?entran_cen)
 	(printout t ?platop_cen)
 	(printout t ?postre_cen)
+        (printout t "\n")
 	(assert (hay-menu))
 )
