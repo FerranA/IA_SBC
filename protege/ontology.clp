@@ -1,4 +1,4 @@
-; Sat May 04 20:22:19 CEST 2019
+; Sun May 05 19:04:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -859,8 +859,12 @@
 	(is-a alimento)
 	(role concrete))
 
+(defclass %3AUNDEFINED
+	(is-a USER)
+	(role concrete))
+
 (definstances instancias
-; Sat May 04 20:22:19 CEST 2019
+; Sun May 05 19:04:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -1399,7 +1403,6 @@
 	(carbohidratos 20.12)
 	(energia 177.0)
 	(fibra_alimentaria 4.0)
-	(grasa [proyecto_Class10030])
 	(lipidos 8.6)
 	(numero_proteinas 4.86))
 
@@ -1574,7 +1577,8 @@
 
 ([micronutrientes+hipertension] of  micronutrientes
 
-	(numero_minerales [minerales+hipertension]))
+	(numero_minerales [minerales+hipertension])
+	(numero_vitaminas [vitaminas+hipertension]))
 
 ([micronutrientes+hummus] of  micronutrientes
 
@@ -1915,15 +1919,11 @@
 
 	(preferencias [restriccion+vegetariano]))
 
-([proyecto_Class10] of  acidos_grasos
+([proyecto_Class10063] of  %3AUNDEFINED
 )
 
-([proyecto_Class10030] of  acidos_grasos
-
-	(colesterol 0.0)
-	(monoinsaturados 4.865)
-	(poliinsaturados 2.109)
-	(saturados 1.141))
+([proyecto_Class10074] of  %3AUNDEFINED
+)
 
 ([pure+de+patata] of  verdura
 
@@ -2080,6 +2080,10 @@
 	(d 0.02)
 	(e 15.0)
 	(niacina 14.0))
+
+([vitaminas+hipertension] of  vitaminas
+
+	(a 100.0))
 
 ([vitaminas+hummus] of  vitaminas
 
