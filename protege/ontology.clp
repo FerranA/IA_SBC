@@ -1,4 +1,4 @@
-; Fri May 03 23:10:30 CEST 2019
+; Sat May 04 20:22:19 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -47,11 +47,6 @@
 		(create-accessor read-write))
 	(single-slot vitamina_k
 		(type INTEGER)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot restricciones
-		(type INSTANCE)
-;+		(allowed-classes restriccion)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot grasa
@@ -107,10 +102,6 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot energia
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot cantidad_recomendada
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -208,6 +199,15 @@
 ;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot cantidad_porcion
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot recomendaciones_diarias
+		(type INSTANCE)
+;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
 ;+		(cardinality 0 1)
@@ -249,6 +249,10 @@
 		(create-accessor read-write))
 	(single-slot nombre_macronutrientes
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot k
+		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot proteinas
@@ -310,7 +314,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents carne lacteos)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
@@ -391,6 +395,11 @@
 		(type SYMBOL)
 		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot ingredientes_recomendados
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ingrediente
@@ -406,23 +415,43 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass carne
+(defclass ingrediente_carne
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass fruta
+(defclass ingrediente_fruta
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass verdura
+(defclass ingrediente_verdura
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass lacteos
+(defclass ingrediente_lacteo
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass cereal
+(defclass ingrediente_cereal
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_pescado
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_huevo
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_legumbre
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_grasa
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_bebida
 	(is-a ingrediente)
 	(role concrete))
 
@@ -482,9 +511,13 @@
 (defclass enfermedad
 	(is-a USER)
 	(role concrete)
-	(single-slot restricciones
+	(single-slot recomendaciones_diarias
 		(type INSTANCE)
 ;+		(allowed-classes restriccion)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -503,11 +536,16 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents carne lacteos)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
 		(create-accessor read-write))
 	(multislot evitar_ingrediente
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
+		(create-accessor read-write))
+	(single-slot ingredientes_recomendados
+		(type INSTANCE)
+;+		(allowed-classes ingrediente)
+;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
@@ -604,14 +642,6 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot niacina
-		(type FLOAT)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot %3ANAME
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
 		(type FLOAT)
@@ -625,13 +655,25 @@
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot b_2
-;+		(comment "riboflavina")
+	(single-slot e
+;+		(comment "tocoferol")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot e
-;+		(comment "tocoferol")
+	(single-slot k
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot niacina
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot b_2
+;+		(comment "riboflavina")
 		(type FLOAT)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
@@ -756,6 +798,10 @@
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
 		(create-accessor read-write))
+	(single-slot cantidad_porcion
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot tipo
 ;+		(comment "expresa si es bebida, entrante ...")
 		(type SYMBOL)
@@ -779,13 +825,9 @@
 	(single-slot %3ANAME
 		(type STRING)
 ;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot cantidad_recomendada
-		(type FLOAT)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass cereales_y_derivados
+(defclass cereal
 	(is-a alimento)
 	(role concrete))
 
@@ -793,31 +835,55 @@
 	(is-a alimento)
 	(role concrete))
 
-(defclass verduras_y_hortalizas
+(defclass verdura
 	(is-a alimento)
 	(role concrete))
 
-(defclass frutas
+(defclass fruta
 	(is-a alimento)
 	(role concrete))
 
-(defclass pescados_mariscos_y_crustaceos
+(defclass pescado
 	(is-a alimento)
 	(role concrete))
 
-(defclass bebidas
+(defclass bebida
+	(is-a alimento)
+	(role concrete))
+
+(defclass legumbre
+	(is-a alimento)
+	(role concrete))
+
+(defclass lacteo
 	(is-a alimento)
 	(role concrete))
 
 (definstances instancias
-; Fri May 03 23:10:30 CEST 2019
+; Sat May 04 20:22:19 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
 
+([aceite+de+oliva] of  ingrediente_grasa
+)
+
 ([acidos+grasos+arroz+blanco] of  acidos_grasos
 
 	(colesterol 0.0))
+
+([acidos+grasos+arroz+con+leche] of  acidos_grasos
+
+	(colesterol 0.008)
+	(monoinsaturados 1.018)
+	(poliinsaturados 0.443)
+	(saturados 1.899))
+
+([acidos+grasos+arroz+con+pollo] of  acidos_grasos
+
+	(monoinsaturados 1799.0)
+	(poliinsaturados 1564.0)
+	(saturados 1101.0))
 
 ([acidos+grasos+bizcocho] of  acidos_grasos
 
@@ -847,6 +913,12 @@
 
 ([acidos+grasos+filetes+de+merluza+empanados] of  acidos_grasos
 )
+
+([acidos+grasos+lasa%C3%B1a] of  acidos_grasos
+
+	(monoinsaturados 3.577)
+	(poliinsaturados 0.716)
+	(saturados 4.366))
 
 ([acidos+grasos+manzana] of  acidos_grasos
 
@@ -899,27 +971,70 @@
 	(colesterol 0.0)
 	(poliinsaturados 0.0))
 
+([acidos+grasos+spaghetti+a+la+bolo%C3%B1esa] of  acidos_grasos
+
+	(colesterol 0.019)
+	(monoinsaturados 3.6)
+	(poliinsaturados 1.213)
+	(saturados 3.104))
+
+([acidos+grasos+yogur+natural+griego] of  acidos_grasos
+
+	(colesterol 0.013)
+	(monoinsaturados 2136.0)
+	(poliinsaturados 0.469)
+	(saturados 2395.0))
+
 ([acidos+pasta+fresca+al+huevo] of  acidos_grasos
 )
 
-([agua] of  bebidas
+([agua] of  bebida
 
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida))
 
-([arroz] of  cereal
+([arroz+blanco] of  cereal
 
-	(temporada todas))
-
-([arroz+blanco] of  cereales_y_derivados
-
-	(ingredientes [arroz])
+	(ingrediente_principal [ingrediente+arroz])
+	(ingredientes [ingrediente+arroz])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+arroz+blanco]))
 
-([bizcocho] of  pasteleria
+([arroz+con+leche] of  pasteleria
 
+	(ingrediente_principal [ingrediente+arroz])
+	(ingredientes
+		[leche]
+		[ingrediente+arroz]
+		[ingrediente+azucar]
+		[mantequilla])
+	(momento_ingesta comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+arroz+con+leche]))
+
+([arroz+con+pollo] of  cereal
+
+	(cantidad_porcion 220.0)
+	(ingrediente_principal [ingrediente+arroz])
+	(ingredientes
+		[ingrediente+pollo]
+		[ingrediente+cebolla]
+		[ingrediente+pimiento+rojo]
+		[ingrediente+arroz])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+arroz+con+pollo]))
+
+([bizcocho+de+limon] of  pasteleria
+
+	(ingrediente_principal [ingrediente+harina])
+	(ingredientes
+		[ingrediente+limon]
+		[mantequilla]
+		[huevo]
+		[ingrediente+harina]
+		[aceite+de+oliva])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
 	(valor_nutricional [cantidades+bizcocho]))
@@ -933,6 +1048,18 @@
 
 	(numero_macronutrientes [macronutrientes+arroz+blanco])
 	(numero_micronutrientes [micronutrientes+arroz+blanco]))
+
+([cantidades+arroz+con+leche] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06739)
+	(numero_macronutrientes [macronutrientes+arroz+con+leche])
+	(numero_micronutrientes [micronutrientes+arroz+con+leche]))
+
+([cantidades+arroz+con+pollo] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06112)
+	(numero_macronutrientes [macronutrientes+arroz+con+pollo])
+	(numero_micronutrientes [micronutrientes+arroz+con+pollo]))
 
 ([cantidades+bizcocho] of  cantidades_nutricionales
 
@@ -967,6 +1094,22 @@
 
 	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
 
+([cantidades+hipertension] of  cantidades_nutricionales
+
+	(numero_micronutrientes [micronutrientes+hipertension]))
+
+([cantidades+hummus] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06487)
+	(numero_macronutrientes [macronutrientes+hummus])
+	(numero_micronutrientes [micronutrientes+hummus]))
+
+([cantidades+lasa%C3%B1a] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06372)
+	(numero_macronutrientes [macronutrientes+lasa%C3%B1a])
+	(numero_micronutrientes [micronutrientes+lasa%C3%B1a]))
+
 ([cantidades+manzana] of  cantidades_nutricionales
 
 	(numero_macronutrientes [macronutrientes+manzana])
@@ -997,6 +1140,12 @@
 	(numero_macronutrientes [macronutrientes+pure+de+patata])
 	(numero_micronutrientes [micronutrientes+pure+de+patata]))
 
+([cantidades+spaghetti+a+la+bolo%C3%B1esa] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0664)
+	(numero_macronutrientes [macronutrientes+spaghetti+a+la+bolo%C3%B1esa])
+	(numero_micronutrientes [micronutrientes+spaghetti+a+la+bolo%C3%B1esa]))
+
 ([cantidades+tortellini+de+carne] of  cantidades_nutricionales
 
 	(numero_macronutrientes [macronutrientes+tortellini+de+carne]))
@@ -1010,21 +1159,34 @@
 	(numero_macronutrientes [macronutrientes+whisky])
 	(numero_micronutrientes [micronutrientes+whisky]))
 
-([cereales] of  cereal
+([cantidades+yogur+natural+griego] of  cantidades_nutricionales
 
-	(temporada todas))
+	(cantidad_agua 0.0813)
+	(numero_macronutrientes [macronutrientes+yogur+natural+griego])
+	(numero_micronutrientes [micronutrientes+yogur+natural+griego]))
 
-([cereales+con+miel] of  cereales_y_derivados
+([cereales+con+miel] of  cereal
 
+	(ingrediente_principal [ingrediente+cereal])
 	(ingredientes
-		[cereales]
-		[miel])
+		[ingrediente+cereal]
+		[ingrediente+miel])
 	(momento_ingesta desayuno)
 	(tipo principal)
 	(valor_nutricional [cantidad+nutricional+cereales+con+miel]))
 
-([filetes+de+merluza+empanados] of  pescados_mariscos_y_crustaceos
+([enfermedad+hipertension] of  enfermedad
 
+	(recomendaciones_diarias [restriccion+hipertension]))
+
+([filetes+de+merluza+empanados] of  pescado
+
+	(ingrediente_principal [ingrediente+merluza])
+	(ingredientes
+		[aceite+de+oliva]
+		[huevo]
+		[ingrediente+harina]
+		[ingrediente+merluza])
 	(momento_ingesta comida cena)
 	(tipo principal)
 	(valor_nutricional [cantidades+filetes+de+merluza+empanados]))
@@ -1044,6 +1206,118 @@
 	(poliinsaturados 0.0)
 	(saturados 0.0))
 
+([huevo] of  ingrediente_huevo
+)
+
+([hummus] of  legumbre
+
+	(ingrediente_principal [ingrediente+garbanzo])
+	(ingredientes
+		[ingrediente+ajo]
+		[ingrediente+garbanzo])
+	(momento_ingesta comida cena)
+	(tipo principal entrante)
+	(valor_nutricional [cantidades+hummus]))
+
+([ingrediente+ajo] of  ingrediente_verdura
+)
+
+([ingrediente+arroz] of  ingrediente_cereal
+
+	(temporada todas))
+
+([ingrediente+azucar] of  ingrediente_cereal
+)
+
+([ingrediente+cebolla] of  ingrediente_verdura
+)
+
+([ingrediente+cereal] of  ingrediente_cereal
+
+	(temporada todas))
+
+([ingrediente+espinaca] of  ingrediente_verdura
+)
+
+([ingrediente+garbanzo] of  ingrediente_legumbre
+)
+
+([ingrediente+guisante] of  ingrediente_verdura
+)
+
+([ingrediente+harina] of  ingrediente_cereal
+
+	(temporada todas))
+
+([ingrediente+lenteja] of  ingrediente_legumbre
+)
+
+([ingrediente+limon] of  ingrediente_fruta
+)
+
+([ingrediente+manzana] of  ingrediente_fruta
+)
+
+([ingrediente+merluza] of  ingrediente_pescado
+)
+
+([ingrediente+miel] of  ingrediente_cereal
+)
+
+([ingrediente+pan] of  ingrediente_cereal
+)
+
+([ingrediente+pasta] of  ingrediente_cereal
+)
+
+([ingrediente+patata] of  ingrediente_verdura
+)
+
+([ingrediente+pera] of  ingrediente_fruta
+)
+
+([ingrediente+pimiento+rojo] of  ingrediente_verdura
+)
+
+([ingrediente+pollo] of  ingrediente_carne
+)
+
+([ingrediente+queso] of  ingrediente_lacteo
+)
+
+([ingrediente+ternera] of  ingrediente_carne
+)
+
+([ingrediente+tomate] of  ingrediente_verdura
+)
+
+([ingrediente+yogur] of  ingrediente_lacteo
+)
+
+([ingrediente+zanahoria] of  ingrediente_verdura
+)
+
+([lasa%C3%B1a] of  cereal
+
+	(cantidad_porcion 437.0)
+	(ingrediente_principal [ingrediente+pasta])
+	(ingredientes
+		[ingrediente+ajo]
+		[ingrediente+cebolla]
+		[proyecto_Class10063]
+		[ingrediente+zanahoria]
+		[ingrediente+ternera]
+		[huevo]
+		[ingrediente+pasta]
+		[aceite+de+oliva]
+		[ingrediente+queso])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+lasa%C3%B1a]))
+
+([leche] of  ingrediente_lacteo
+)
+
 ([macronutrientes+arroz+blanco] of  macronutrientes
 
 	(carbohidratos 77.0)
@@ -1052,6 +1326,24 @@
 	(grasa [acidos+grasos+arroz+blanco])
 	(lipidos 1.7)
 	(numero_proteinas 7.6))
+
+([macronutrientes+arroz+con+leche] of  macronutrientes
+
+	(carbohidratos 24.92)
+	(energia 146.0)
+	(fibra_alimentaria 0.5)
+	(grasa [acidos+grasos+arroz+con+leche])
+	(lipidos 3.69)
+	(numero_proteinas 3.2))
+
+([macronutrientes+arroz+con+pollo] of  macronutrientes
+
+	(carbohidratos 20.0)
+	(energia 174.0)
+	(fibra_alimentaria 1.2)
+	(grasa [acidos+grasos+arroz+con+pollo])
+	(lipidos 5.1)
+	(numero_proteinas 12.0))
 
 ([macronutrientes+bizcocho] of  macronutrientes
 
@@ -1101,6 +1393,24 @@
 	(energia 120.4)
 	(lipidos 1.6)
 	(numero_proteinas 12.8))
+
+([macronutrientes+hummus] of  macronutrientes
+
+	(carbohidratos 20.12)
+	(energia 177.0)
+	(fibra_alimentaria 4.0)
+	(grasa [proyecto_Class10030])
+	(lipidos 8.6)
+	(numero_proteinas 4.86))
+
+([macronutrientes+lasa%C3%B1a] of  macronutrientes
+
+	(carbohidratos 12.0)
+	(energia 191.0)
+	(fibra_alimentaria 1.3)
+	(grasa [acidos+grasos+lasa%C3%B1a])
+	(lipidos 11.0)
+	(numero_proteinas 10.0))
 
 ([macronutrientes+manzana] of  macronutrientes
 
@@ -1154,6 +1464,15 @@
 	(lipidos 0.7)
 	(numero_proteinas 7.0))
 
+([macronutrientes+spaghetti+a+la+bolo%C3%B1esa] of  macronutrientes
+
+	(carbohidratos 15.51)
+	(energia 170.0)
+	(fibra_alimentaria 1.5)
+	(grasa [acidos+grasos+spaghetti+a+la+bolo%C3%B1esa])
+	(lipidos 8.5)
+	(numero_proteinas 7.8))
+
 ([macronutrientes+tortellini+de+carne] of  macronutrientes
 
 	(carbohidratos 46.0)
@@ -1176,14 +1495,34 @@
 	(lipidos 0.0)
 	(numero_proteinas 0.0))
 
-([manzana] of  frutas
+([macronutrientes+yogur+natural+griego] of  macronutrientes
 
+	(carbohidratos 4.0)
+	(energia 97.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+yogur+natural+griego])
+	(lipidos 5.0)
+	(numero_proteinas 9.0))
+
+([mantequilla] of  ingrediente_grasa
+)
+
+([manzana] of  fruta
+
+	(ingredientes [ingrediente+manzana])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
 	(valor_nutricional [cantidades+manzana]))
 
-([menestra+de+verduras] of  verduras_y_hortalizas
+([menestra+de+verduras] of  verdura
 
+	(ingrediente_principal [ingrediente+patata])
+	(ingredientes
+		[ingrediente+espinaca]
+		[ingrediente+cebolla]
+		[ingrediente+guisante]
+		[ingrediente+patata]
+		[ingrediente+zanahoria])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+menestra+de+verduras]))
@@ -1192,6 +1531,16 @@
 
 	(numero_minerales [minerales+arroz+blanco])
 	(numero_vitaminas [vitaminas+arroz+blanco]))
+
+([micronutrientes+arroz+con+leche] of  micronutrientes
+
+	(numero_minerales [minerales+arroz+con+leche])
+	(numero_vitaminas [vitaminas+arroz+con+leche]))
+
+([micronutrientes+arroz+con+pollo] of  micronutrientes
+
+	(numero_minerales [minerales+arroz+con+pollo])
+	(numero_vitaminas [vitaminas+arroz+con+pollo]))
 
 ([micronutrientes+bizcocho] of  micronutrientes
 
@@ -1223,6 +1572,20 @@
 	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
 
+([micronutrientes+hipertension] of  micronutrientes
+
+	(numero_minerales [minerales+hipertension]))
+
+([micronutrientes+hummus] of  micronutrientes
+
+	(numero_minerales [minerales+hummus])
+	(numero_vitaminas [vitaminas+hummus]))
+
+([micronutrientes+lasa%C3%B1a] of  micronutrientes
+
+	(numero_minerales [minerales+lasa%C3%B1a])
+	(numero_vitaminas [vitaminas+lasa%C3%B1a]))
+
 ([micronutrientes+manzana] of  micronutrientes
 
 	(numero_minerales [minerales+manzana])
@@ -1253,13 +1616,20 @@
 	(numero_minerales [minerales+pure+de+patata])
 	(numero_vitaminas [vitaminas+pure+de+patata]))
 
+([micronutrientes+spaghetti+a+la+bolo%C3%B1esa] of  micronutrientes
+
+	(numero_minerales [minerales+spaghetti+a+la+bolo%C3%B1esa])
+	(numero_vitaminas [vitaminas+spaghetti+a+la+bolo%C3%B1esa]))
+
 ([micronutrientes+whisky] of  micronutrientes
 
 	(numero_minerales [minerales+whisky])
 	(numero_vitaminas [vitaminas+whisky]))
 
-([miel] of  ingrediente
-)
+([micronutrientes+yogur+natural+griego] of  micronutrientes
+
+	(numero_minerales [minerales+yogur+natural+griego])
+	(numero_vitaminas [vitaminas+yogur+natural+griego]))
 
 ([minerales+arroz+blanco] of  mineral
 
@@ -1274,6 +1644,30 @@
 	(selenio 0.02)
 	(sodio 4.0)
 	(zinc 0.2))
+
+([minerales+arroz+con+leche] of  mineral
+
+	(calcio 90.0)
+	(cobre 0.031)
+	(fosforo 83.0)
+	(hierro 0.23)
+	(magnesio 11.0)
+	(potasio 142.0)
+	(selenio 3.7)
+	(sodio 106.0)
+	(zinc 0.5))
+
+([minerales+arroz+con+pollo] of  mineral
+
+	(calcio 18.0)
+	(cobre 0.076)
+	(fosforo 122.0)
+	(hierro 0.95)
+	(magnesio 18.0)
+	(potasio 184.0)
+	(selenio 14.5)
+	(sodio 518.0)
+	(zinc 0.78))
 
 ([minerales+bizcocho] of  mineral
 
@@ -1354,6 +1748,34 @@
 	(sodio 1200.0)
 	(zinc 8.0))
 
+([minerales+hipertension] of  mineral
+
+	(potasio 4700.0))
+
+([minerales+hummus] of  mineral
+
+	(calcio 49.0)
+	(cobre 0.224)
+	(fosforo 110.0)
+	(hierro 1.56)
+	(magnesio 29.0)
+	(potasio 173.0)
+	(selenio 2.4)
+	(sodio 242.0)
+	(zinc 1.09))
+
+([minerales+lasa%C3%B1a] of  mineral
+
+	(calcio 185.0)
+	(cobre 0.073)
+	(fosforo 176.0)
+	(hierro 0.74)
+	(magnesio 24.0)
+	(potasio 266.0)
+	(selenio 20.0)
+	(sodio 524.0)
+	(zinc 1.35))
+
 ([minerales+manzana] of  mineral
 
 	(calcio 6.0)
@@ -1409,24 +1831,58 @@
 	(magnesio 25.0)
 	(zinc 0.3))
 
+([minerales+spaghetti+a+la+bolo%C3%B1esa] of  mineral
+
+	(calcio 45.0)
+	(cobre 0.106)
+	(fosforo 89.0)
+	(hierro 1.29)
+	(magnesio 23.0)
+	(potasio 206.0)
+	(selenio 18.4)
+	(sodio 351.0)
+	(zinc 1.04))
+
 ([minerales+whisky] of  mineral
 
 	(cobre 0.02))
 
-([pasta+fresca+al+huevo] of  cereales_y_derivados
+([minerales+yogur+natural+griego] of  mineral
 
+	(calcio 100.0)
+	(cobre 0.017)
+	(fosforo 135.0)
+	(hierro 0.0)
+	(magnesio 11.0)
+	(potasio 141.0)
+	(selenio 9.7)
+	(sodio 35.0)
+	(zinc 0.52))
+
+([pasta+fresca+al+huevo] of  cereal
+
+	(ingrediente_principal [ingrediente+pasta])
+	(ingredientes
+		[ingrediente+harina]
+		[huevo])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+pasta+fresca+al+huevo]))
 
 ([pastel+de+manzana] of  pasteleria
 
+	(ingrediente_principal [ingrediente+harina])
+	(ingredientes
+		[ingrediente+manzana]
+		[huevo]
+		[ingrediente+harina])
 	(momento_ingesta comida cena)
 	(tipo postre)
 	(valor_nutricional [cantidades+pastel+de+manzana]))
 
-([pera] of  frutas
+([pera] of  fruta
 
+	(ingredientes [ingrediente+pera])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
 	(valor_nutricional [cantidades+pera]))
@@ -1439,6 +1895,7 @@
 
 ([perfil+edad+65-69+mujer] of  perfil
 
+	(edad 65-69)
 	(recomendaciones [restriccion+edad+65-69+mujer])
 	(sexo mujer))
 
@@ -1461,14 +1918,20 @@
 ([proyecto_Class10] of  acidos_grasos
 )
 
-([proyecto_Class33] of  cantidades_nutricionales
-)
+([proyecto_Class10030] of  acidos_grasos
 
-([proyecto_Class35] of  cantidades_nutricionales
-)
+	(colesterol 0.0)
+	(monoinsaturados 4.865)
+	(poliinsaturados 2.109)
+	(saturados 1.141))
 
-([pure+de+patata] of  verduras_y_hortalizas
+([pure+de+patata] of  verdura
 
+	(ingrediente_principal [ingrediente+patata])
+	(ingredientes
+		[ingrediente+patata]
+		[leche]
+		[mantequilla])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+pure+de+patata]))
@@ -1490,19 +1953,43 @@
 
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
 
+([restriccion+hipertension] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+hipertension])
+	(ingredientes_recomendados [ingrediente+ajo]))
+
 ([restriccion+vegetariano] of  restriccion
 
-	(evitar_tipo_ingrediente carne)
+	(evitar_tipo_ingrediente ingrediente_carne)
 	(obligatoria TRUE))
 
-([tortellini+de+carne] of  cereales_y_derivados
+([spaghetti+a+la+bolo%C3%B1esa+%28con+albondigas%29] of  cereal
 
+	(ingrediente_principal [ingrediente+pasta])
+	(ingredientes
+		[ingrediente+ternera]
+		[ingrediente+tomate]
+		[huevo]
+		[ingrediente+pasta]
+		[ingrediente+pan])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+spaghetti+a+la+bolo%C3%B1esa]))
+
+([tortellini+de+carne] of  cereal
+
+	(ingrediente_principal [ingrediente+pasta])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+tortellini+de+carne]))
 
-([tortelloni+de+espinacas] of  cereales_y_derivados
+([tortelloni+de+espinacas] of  cereal
 
+	(ingrediente_principal [ingrediente+pasta])
+	(ingredientes
+		[huevo]
+		[ingrediente+harina]
+		[ingrediente+espinaca])
 	(momento_ingesta comida cena)
 	(tipo principal entrante)
 	(valor_nutricional [cantidades+tortellini+de+espinacas]))
@@ -1516,6 +2003,19 @@
 	(b_6 "0.3")
 	(c 0.0)
 	(niacina 3.8))
+
+([vitaminas+arroz+con+leche] of  vitaminas
+
+	(b_12 "0.08")
+	(b_6 "0.025")
+	(e 0.21)
+	(niacina 0.31))
+
+([vitaminas+arroz+con+pollo] of  vitaminas
+
+	(e 0.5)
+	(k 4.0)
+	(niacina 5558.0))
 
 ([vitaminas+bizcocho] of  vitaminas
 
@@ -1581,6 +2081,25 @@
 	(e 15.0)
 	(niacina 14.0))
 
+([vitaminas+hummus] of  vitaminas
+
+	(a 1.5)
+	(b_12 "0")
+	(b_6 "0.399")
+	(c 7.9)
+	(d 0.0)
+	(e 0.75)
+	(k 3.0)
+	(niacina 0.399))
+
+([vitaminas+lasa%C3%B1a] of  vitaminas
+
+	(a 205.5)
+	(b_12 "0.77")
+	(c 0.8)
+	(e 0.97)
+	(niacina 1.757))
+
 ([vitaminas+manzana] of  vitaminas
 
 	(a 0.03)
@@ -1634,6 +2153,15 @@
 	(b_6 "0.18")
 	(niacina 1.5))
 
+([vitaminas+spaghetti+a+la+bolo%C3%B1esa] of  vitaminas
+
+	(a 77.0)
+	(b_12 "0.39")
+	(b_6 "0.143")
+	(c 0.9)
+	(e 0.75)
+	(niacina 2.0))
+
 ([vitaminas+whisky] of  vitaminas
 
 	(a 0.0)
@@ -1647,9 +2175,29 @@
 	(e 0.0)
 	(niacina 0.0))
 
-([whisky] of  bebidas
+([vitaminas+yogur+natural+griego] of  vitaminas
+
+	(a 4.5)
+	(b_12 "0.75")
+	(b_6 "0.063")
+	(c 0.0)
+	(d 0.0)
+	(e 0.01)
+	(k 0.0)
+	(niacina 0.208))
+
+([whisky] of  bebida
 
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida)
 	(valor_nutricional [cantidades+whisky]))
+
+([yogurt+natural+griego] of  lacteo
+
+	(cantidad_porcion 125.0)
+	(ingrediente_principal [ingrediente+yogur])
+	(ingredientes [proyecto_Class10074])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+yogur+natural+griego]))
 )
