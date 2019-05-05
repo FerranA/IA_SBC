@@ -1,4 +1,4 @@
-; Sat May 04 20:47:25 CEST 2019
+; Sun May 05 19:04:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class10536]
-		[proyecto_ProjectKB_Class10537]
-		[proyecto_ProjectKB_Class10538]))
+		[proyecto_ProjectKB_Class137]
+		[proyecto_ProjectKB_Class138]
+		[proyecto_ProjectKB_Class139]))
 
 ([CLSES_TAB] of  Widget
 
@@ -78,9 +78,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class10539]
-		[proyecto_ProjectKB_Class10540]
-		[proyecto_ProjectKB_Class10541]))
+		[proyecto_ProjectKB_Class140]
+		[proyecto_ProjectKB_Class141]
+		[proyecto_ProjectKB_Class142]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -507,7 +507,7 @@
 	(name "classes_file_name")
 	(string_value "proyecto.pont"))
 
-([KB_932381_Class3] of  Map
+([KB_561373_Class3] of  Map
 )
 
 ([LAYOUT_PROPERTIES] of  Property_List
@@ -593,9 +593,9 @@
 
 	(browser_slot_names [BROWSER_SLOT_NAMES])
 	(customized_instance_widgets
+		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[STANDARD_CLASS_FORM_WIDGET]
 		[STANDARD_SLOT_FORM_WIDGET]
-		[INSTANCE_ANNOTATION_FORM_WIDGET]
 		[PAL_FORM_WIDGET]
 		[STANDARD_FACET_FORM_WIDGET])
 	(default_cls_metaclass ":STANDARD-CLASS")
@@ -651,63 +651,36 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class10489] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "ingredientes_recomendados")
-	(property_list [proyecto_ProjectKB_Class10490])
-	(widget_class_name "edu.stanford.smi.protege.widget.InstanceFieldWidget")
-	(width 200)
-	(x 0)
-	(y 0))
-
-([proyecto_ProjectKB_Class10490] of  Property_List
-
-	(properties
-		[proyecto_ProjectKB_Class10491]
-		[proyecto_ProjectKB_Class10492]))
-
-([proyecto_ProjectKB_Class10491] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-View References to Value"))
-
-([proyecto_ProjectKB_Class10492] of  Boolean
-
-	(boolean_value FALSE)
-	(name "ButtonDisplayed-Delete Instance"))
-
-([proyecto_ProjectKB_Class10536] of  String
+([proyecto_ProjectKB_Class137] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class10537] of  String
+([proyecto_ProjectKB_Class138] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class10538] of  String
+([proyecto_ProjectKB_Class139] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class10539] of  Map_Entry
+([proyecto_ProjectKB_Class140] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10540] of  Map_Entry
+([proyecto_ProjectKB_Class141] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10541] of  Map_Entry
+([proyecto_ProjectKB_Class142] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
