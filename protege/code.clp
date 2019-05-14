@@ -2452,7 +2452,65 @@
 
 (defmodule CDR (export ?ALL) (import MAIN ?ALL) (import PERFIL ?ALL))
 
+(deftemplate cdr-final ""
+	(slot a)
+	;(slot acido_folico)
+	(slot b_1)
+	(slot b_2)
+	;(slot b_6)
+	;(slot b_12)
+	(slot c)
+	;(slot d)
+	;(slot e)
+	(slot k)
+	;(slot niacina)
+
+	(slot calcio)
+	;(slot cobre)
+	;(slot fluor)
+	;(slot fosforo)
+	(slot hierro)
+	;(slot iodo)
+	;(slot magnesio)
+	(slot potasio)
+	;(slot selenio)
+	(slot sodio)
+	;(slot zinc)
+)
+
+(deffunction calculo-cdr-basica "" (?sim)
+	(bind ?nombre (symbol-to-instance-name ?sim))
+	; HAY UN PROBLEMA A PARTIR DE AQUI CON ALGUN SLOT, SUPONGO QUE ?x:name
+	(bind ?cdr  (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq ?x ?nombre))))
+	(bind ?micro (send ?cdr get-numero_micronutrientes))
+	(bind ?miner (send ?micro get-numero_minerales))
+	(bind ?vitam (send ?micro get-numero_vitaminas))
+	(assert (cdr-final (a (send ?vitam get-a))
+										 ;(acido_folico (send ?vitam get-acido_folico))
+										 (b_1 (send ?vitam get-b_1))
+										 (b_2 (send ?vitam get-b_2))
+										 ;(b_6 (send ?vitam get-b_6))
+										 ;(b_12 (send ?vitam get-b_12))
+										 (c (send ?vitam get-c))
+										 ;(d (send ?vitam get-d))
+										 ;(e (send ?vitam get-e))
+										 (k (send ?vitam get-k))
+										 (calcio (send ?miner get-calcio))
+										 ;(cobre (send ?miner get-cobre))
+										 ;(fluor (send ?miner get-fluor))
+										 ;(fosforo (send ?miner get-fosforo))
+										 (hierro (send ?miner get-hierro))
+										 ;(iodo (send ?miner get-iodo))
+										 ;(magnesio (send ?miner get-magnesio))
+										 (potasio (send ?miner get-potasio))
+										 ;(selenio (send ?miner get-sodio))
+										 (sodio (send ?miner get-sodio))
+										 ;(zinc (send ?miner get-zinc))
+	))
+)
+
 (defrule cdr-enfermedades ""
+	(declare (salience 10))
 	(restriccion ?simbolo)
 	?rest <- (object (name ?nombre) (is-a restriccion) (cantidades_recomendadas_diarias ?cdr))
 	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
@@ -2461,6 +2519,7 @@
 )
 
 (defrule micro-macro-enfermedades ""
+	(declare (salience 9))
 	(cdr-rest ?simbolo)
 	?cdr <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?nmicro) (numero_macronutrientes ?nmacro))
 	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
@@ -2470,6 +2529,7 @@
 )
 
 (defrule miner-vitam-enfermedades ""
+	(declare (salience 8))
 	(micro-rest ?simbolo)
 	?micro <- (object (name ?nombre) (is-a micronutrientes) (numero_minerales ?nminer) (numero_vitaminas ?nvitam))
 	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
@@ -2479,6 +2539,7 @@
 )
 
 (defrule minerales-enfermedades ""
+	(declare (salience 7))
 	(miner-rest ?simbolo)
 	?miner <- (object (name ?nombre) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
 																							(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
@@ -2498,6 +2559,7 @@
 )
 
 (defrule vitaminas-enfermedades ""
+	(declare (salience 7))
 	(vitam-rest ?simbolo)
 	?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?k) (niacina ?n))
 	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
@@ -2513,6 +2575,95 @@
 	(if (not (eq ?e -1.0)) then (assert (vitamina-e-rest ?e)))
 	(if (not (eq ?k -1.0)) then (assert (vitamina-k-rest ?k)))
 	(if (not (eq ?n -1.0)) then (assert (niacina-rest ?n)))
+)
+
+(defrule cdr-final ""
+	(declare (salience 1))
+	(cdr ?nombre)
+	=>
+	(calculo-cdr-basica ?nombre)
+)
+
+(defrule cdr-vitamina-a ""
+	(declare (salience 0))
+	(vitamina-a-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(printout t ?fact crlf)
+	(modify ?fact (a ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-vitamina-b_1 ""
+	(declare (salience 0))
+	(vitamina-b_1-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (b_1 ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-vitamina-b_2 ""
+	(declare (salience 0))
+	(vitamina-b_2-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (b_2 ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-vitamina-c ""
+	(declare (salience 0))
+	(vitamina-c-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (c ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-vitamina-k ""
+	(declare (salience 0))
+	(vitamina-k-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (k ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-calcio ""
+	(declare (salience 0))
+	(calcio-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (calcio ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-hierro ""
+	(declare (salience 0))
+	(hierro-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (hierro ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-potasio ""
+	(declare (salience 0))
+	(potasio-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (potasio ?new))
+	(retract ?fact)
+)
+
+(defrule cdr-sodio ""
+	(declare (salience 0))
+	(sodio-rest ?new)
+	=>
+	(bind ?fact (nth$ 1 (find-fact ((?p cdr-final)) TRUE)))
+	(modify ?fact (sodio ?new))
+	(retract ?fact)
 )
 
 (defrule goto_alimentos ""
@@ -2610,7 +2761,7 @@
 )
 
 (defrule bebida-usable ""
-  (declare (salience 0))
+	(declare (salience 0))
 	?objeto <- (object (name ?nombre))
 	(test (eq (class ?nombre) bebida))
 	(alimento-usable ?alimento)
@@ -2665,6 +2816,13 @@
 	(assert (postre-usable ?s))
 )
 
+(defrule borrar-alimentos-usables ""
+	(declare (salience -1))
+	?fact <- (alimento-usable ?alimento)
+	=>
+	(retract ?fact)
+)
+
 (defrule goto_menu ""
 	(declare (salience -10))
 	=>
@@ -2685,7 +2843,7 @@
 
 (deftemplate cantidades-menu ""
 	(slot a)
-	(slot acido-folico)
+	(slot acido_folico)
 	(slot b_1)
 	(slot b_2)
 	(slot b_6)
@@ -2710,49 +2868,113 @@
 )
 
 (deffunction calculo-cantidades-menu-diario "" ($?alimentos)
-	(assert (cantidades-menu (a 0) (acido-folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
+	(assert (cantidades-menu (a 0) (acido_folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
 														(calcio 0) (cobre 0) (fluor 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0)))
-	;?fact <- (find-fact ((?p cantidades-menu)) TRUE)
-	(bind ?fact (find-fact ((?p cantidades-menu)) TRUE))
-	;?fact <- (cantidades-menu (a 0) (acido-folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
+		;?fact <- (find-fact ((?p cantidades-menu)) TRUE)
+	(bind ?fact (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
+	(printout t ?fact " " (type ?fact) crlf)
+	;?fact <- (cantidades-menu (a 0) (acido_folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
 	;													(calcio 0) (cobre 0) (fluor 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0))
+	(bind ?a 0)
+	(bind ?acido_folico 0)
+	(bind ?b_1 0)
+	(bind ?b_2 0)
+	(bind ?b_6 0)
+	(bind ?b_12 0)
+	(bind ?c 0)
+	(bind ?d 0)
+	(bind ?e 0)
+	(bind ?k 0)
+	(bind ?niacina 0)
+	(bind ?calcio 0)
+	(bind ?cobre 0)
+	(bind ?fluor 0)
+	(bind ?fosforo 0)
+	(bind ?hierro 0)
+	(bind ?iodo 0)
+	(bind ?magnesio 0)
+	(bind ?potasio 0)
+	(bind ?selenio 0)
+	(bind ?sodio 0)
+	(bind ?zinc 0)
 	(loop-for-count (?i 1 (length$ ?alimentos)) do
 		(bind ?alimento (nth$ ?i ?alimentos))
 		(bind ?nombre (symbol-to-instance-name ?alimento))
 		; HAY UN PROBLEMA A PARTIR DE AQUI CON ALGUN SLOT, SUPONGO QUE ?x:name
-		(bind ?cant  (find-instance ((?x cantidades_nutricionales)) (eq ?x:name ?nombre)))
-		(bind ?micro (find-instance ((?x micronutrientes)) (eq ?x:name (send ?cant get-numero_micronutrientes))))
-		(bind ?miner (find-instance ((?x micronutrientes)) (eq ?x:name (send ?micro get-numero_minerales))))
-		(bind ?vitam (find-instance ((?x micronutrientes)) (eq ?x:name (send ?micro get-numero_vitaminas))))
+		(bind ?alim  (nth$ 1 (find-instance ((?x alimento)) (eq ?x ?nombre))))
+		(bind ?cant (send ?alim get-valor_nutricional))
+		(printout t ?alimento " " ?nombre " " ?alim " " ?cant crlf)
+		;(printout t (type ?alimento) " " (type ?nombre) " " (type ?alim) " " (type ?cant) crlf)
+		(if (neq ?cant [nil]) then
+			(bind ?micro (send ?cant get-numero_micronutrientes))
+			(if (neq ?micro [nil]) then
+				(bind ?miner (send ?micro get-numero_minerales))
+				(bind ?vitam (send ?micro get-numero_vitaminas))
+				(if (neq ?miner [nil]) then
+					(bind ?calcio (+ ?calcio (max 0.0 (send ?miner get-calcio))))
+					;(bind ?cobre (+ ?cobre (max 0.0 (send ?miner get-cobre))))
+					;(bind ?fluor (+ ?fluor (max 0.0 (send ?miner get-fluor))))
+					;(bind ?fosforo (+ ?fosforo (max 0.0 (send ?miner get-fosforo))))
+					(bind ?hierro (+ ?hierro (max 0.0 (send ?miner get-hierro))))
+					;(bind ?iodo (+ ?iodo (max 0.0 (send ?miner get-iodo))))
+					;(bind ?magnesio (+ ?magnesio (max 0.0 (send ?miner get-magnesio))))
+					(bind ?potasio (+ ?potasio (max 0.0 (send ?miner get-potasio))))
+					;(bind ?selenio (+ ?selenio (max 0.0 (send ?miner get-selenio))))
+					(bind ?sodio (+ ?sodio (max 0.0 (send ?miner get-sodio))))
+					;(bind ?zinc (+ ?zinc (max 0.0 (send ?miner get-zinc))))
+				)
+				(if (neq ?vitam [nil]) then
+					(bind ?a (+ ?a (max 0.0 (send ?vitam get-a))))
+					;(bind ?acido_folico (+ ?acido_folico (max 0.0 (send ?vitam get-acido_folico))))
+					(bind ?b_1 (+ ?b_1 (max 0.0 (send ?vitam get-b_1))))
+					(bind ?b_2 (+ ?b_2 (max 0.0 (send ?vitam get-b_2))))
+					;(bind ?b_6 (+ ?b_6 (max 0.0 (send ?vitam get-b_6))))
+					;(bind ?b_12 (+ ?b_12 (max 0.0 (send ?vitam get-b_12))))
+					(bind ?c (+ ?c (max 0.0 (send ?vitam get-c))))
+					;(bind ?d (+ ?d (max 0.0 (send ?vitam get-d))))
+					;(bind ?e (+ ?e (max 0.0 (send ?vitam get-e))))
+					(bind ?k (+ ?k (max 0.0 (send ?vitam get-k))))
+				)
+			)
+		;(bind ?cant  (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq (instance-name-to-symbol ?x) (send ?alim get-valor_nutricional)))))
+		;(bind ?micro (nth$ 1 (find-instance ((?x micronutrientes)) (eq ?x (send ?cant get-numero_micronutrientes)))))
+		;(bind ?miner (nth$ 1 (find-instance ((?x mineral)) (eq ?x (send ?micro get-numero_minerales)))))
+		;(bind ?vitam (nth$ 1 (find-instance ((?x vitaminas)) (eq ?x (send ?micro get-numero_vitaminas)))))
 		;?cant  <- (find-instance (?))
 		;?cant  <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?micro))
 		;?micro <- (object (name ?micro) (is-a micronutrientes) (numero_minerales ?miner) (numero_vitaminas ?vitam))
 		;?miner <- (object (name ?miner) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
 		;																						(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
 		;?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?kk) (niacina ?n))
-		(modify ?fact (calcio       (+ (fact-slot-value ?fact calcio)              (send ?miner get-calcio))))
-		(modify ?fact (cobre        (+ (fact-slot-value ?fact cobre)                (send ?miner get-cobre))))
-		(modify ?fact (fluor        (+ (fact-slot-value ?fact fluor)                (send ?miner get-fluor))))
-		(modify ?fact (fosforo      (+ (fact-slot-value ?fact fosforo)            (send ?miner get-fosforo))))
-		(modify ?fact (hierro       (+ (fact-slot-value ?fact hierro)              (send ?miner get-hierro))))
-		(modify ?fact (iodo         (+ (fact-slot-value ?fact iodo)                  (send ?miner get-iodo))))
-		(modify ?fact (magnesio     (+ (fact-slot-value ?fact magnesio)          (send ?miner get-magnesio))))
-		(modify ?fact (potasio      (+ (fact-slot-value ?fact potasio)            (send ?miner get-potasio))))
-		(modify ?fact (selenio      (+ (fact-slot-value ?fact selenio)            (send ?miner get-selenio))))
-		(modify ?fact (sodio        (+ (fact-slot-value ?fact sodio)                (send ?miner get-sodio))))
-		(modify ?fact (zinc         (+ (fact-slot-value ?fact zinc)                  (send ?miner get-zinc))))
-		(modify ?fact (a            (+ (fact-slot-value ?fact a)                        (send ?vitam get-a))))
-		(modify ?fact (acido_folico (+ (fact-slot-value ?fact acido_folico)  (send ?vitam get-acido_folico))))
-		(modify ?fact (b_1          (+ (fact-slot-value ?fact b_1)                    (send ?vitam get-b_1))))
-		(modify ?fact (b_2          (+ (fact-slot-value ?fact b_2)                    (send ?vitam get-b_2))))
-		(modify ?fact (b_6          (+ (fact-slot-value ?fact b_6)                    (send ?vitam get-b_6))))
-		(modify ?fact (b_12         (+ (fact-slot-value ?fact b_12)                  (send ?vitam get-b_12))))
-		(modify ?fact (c            (+ (fact-slot-value ?fact c)                        (send ?vitam get-c))))
-		(modify ?fact (d            (+ (fact-slot-value ?fact d)                        (send ?vitam get-d))))
-		(modify ?fact (e            (+ (fact-slot-value ?fact e)                        (send ?vitam get-e))))
-		(modify ?fact (k            (+ (fact-slot-value ?fact k)                        (send ?vitam get-k))))
-		(modify ?fact (niacina      (+ (fact-slot-value ?fact niacina)            (send ?vitam get-niacina))))
+			; CADA PUTO SEND GET-ALGO HAY QUE METERLO COMO MAX(0,SEND)
+
+
+		)
 	)
+	(modify ?fact (a            (+ (fact-slot-value ?fact a)                        ?a))
+								(acido_folico (+ (fact-slot-value ?fact acido_folico)  ?acido_folico))
+								(b_1          (+ (fact-slot-value ?fact b_1)                    ?b_1))
+								(b_2          (+ (fact-slot-value ?fact b_2)                    ?b_2))
+								(b_6          (+ (fact-slot-value ?fact b_6)                    ?b_6))
+								(b_12         (+ (fact-slot-value ?fact b_12)                  ?b_12))
+								(c            (+ (fact-slot-value ?fact c)                        ?c))
+								(d            (+ (fact-slot-value ?fact d)                        ?d))
+								(e            (+ (fact-slot-value ?fact e)                        ?e))
+								(k            (+ (fact-slot-value ?fact k)                        ?k))
+								(niacina      (+ (fact-slot-value ?fact niacina)            ?niacina))
+								(calcio       (+ (fact-slot-value ?fact calcio)              ?calcio))
+								(cobre        (+ (fact-slot-value ?fact cobre)                ?cobre))
+								(fluor        (+ (fact-slot-value ?fact fluor)                ?fluor))
+								(fosforo      (+ (fact-slot-value ?fact fosforo)            ?fosforo))
+								(hierro       (+ (fact-slot-value ?fact hierro)              ?hierro))
+								(iodo         (+ (fact-slot-value ?fact iodo)                  ?iodo))
+								(magnesio     (+ (fact-slot-value ?fact magnesio)          ?magnesio))
+							  (potasio      (+ (fact-slot-value ?fact potasio)            ?potasio))
+								(selenio      (+ (fact-slot-value ?fact selenio)            ?selenio))
+								(sodio        (+ (fact-slot-value ?fact sodio)                ?sodio))
+								(zinc         (+ (fact-slot-value ?fact zinc)                  ?zinc))
+	)
+	(bind ?fact (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
 )
 
 (deftemplate almuerzo ""
