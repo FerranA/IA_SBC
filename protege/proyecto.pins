@@ -1,7 +1,7 @@
-; Sun May 05 19:04:49 CEST 2019
+; Tue May 14 11:17:26 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 ([aceite+de+oliva] of  ingrediente_grasa
 )
@@ -1132,16 +1132,12 @@
 
 	(acido_folico 0.006)
 	(b_1 0.06)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.3")
 	(c 0.0)
 	(niacina 3.8))
 
 ([vitaminas+arroz+con+leche] of  vitaminas
 
-	(b_12 "0.08")
-	(b_6 "0.025")
 	(e 0.21)
 	(niacina 0.31))
 
@@ -1156,9 +1152,7 @@
 	(a 0.13)
 	(acido_folico 0.004)
 	(b_1 0.11)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.07")
 	(c 0.0)
 	(d 0.0)
 	(niacina 0.9))
@@ -1168,17 +1162,13 @@
 	(a 0.0)
 	(acido_folico 0.007)
 	(b_1 0.41)
-	(b_12 "0")
 	(b_2 0.04)
-	(b_6 "0.13")
 	(c 0.0)
 	(niacina 1.9))
 
 ([vitaminas+edad+65-69+hombre] of  vitaminas
 
 	(a 0.9)
-	(b_12 "0.0024")
-	(b_6 "1.7")
 	(c 90.0)
 	(d 0.015)
 	(e 15.0)
@@ -1187,8 +1177,6 @@
 ([vitaminas+edad+65-69+mujer] of  vitaminas
 
 	(a 0.7)
-	(b_12 "0.0024")
-	(b_6 "1.5")
 	(c 75.0)
 	(d 0.015)
 	(e 15.0)
@@ -1198,8 +1186,6 @@
 
 	(a 0.9)
 	(acido_folico 0.4)
-	(b_12 "0.0024")
-	(b_6 "1.7")
 	(c 90.0)
 	(d 0.02)
 	(e 15.0)
@@ -1208,8 +1194,6 @@
 ([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
 
 	(a 0.7)
-	(b_12 "0.0024")
-	(b_6 "1.5")
 	(c 75.0)
 	(d 0.02)
 	(e 15.0)
@@ -1222,8 +1206,6 @@
 ([vitaminas+hummus] of  vitaminas
 
 	(a 1.5)
-	(b_12 "0")
-	(b_6 "0.399")
 	(c 7.9)
 	(d 0.0)
 	(e 0.75)
@@ -1233,7 +1215,6 @@
 ([vitaminas+lasa%C3%B1a] of  vitaminas
 
 	(a 205.5)
-	(b_12 "0.77")
 	(c 0.8)
 	(e 0.97)
 	(niacina 1.757))
@@ -1243,17 +1224,14 @@
 	(a 0.03)
 	(acido_folico 0.004)
 	(b_1 0.04)
-	(b_12 "0")
 	(b_2 0.02)
-	(b_6 "0.03")
 	(c 3.0)
 	(d 0.0)
 	(e 7.2E-4)
 	(niacina 0.1))
 
 ([vitaminas+menestra+de+verduras] of  vitaminas
-
-	(b_6 "0.1"))
+)
 
 ([vitaminas+pasta+fresca+al+huevo] of  vitaminas
 )
@@ -1263,9 +1241,7 @@
 	(a 0.0)
 	(acido_folico 0.007)
 	(b_1 0.1)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.07")
 	(c 0.0)
 	(d 0.0)
 	(niacina 0.9))
@@ -1275,9 +1251,7 @@
 	(a 0.2)
 	(acido_folico 0.008)
 	(b_1 0.02)
-	(b_12 "0")
 	(b_2 0.05)
-	(b_6 "0.02")
 	(c 3.0)
 	(d 0.0)
 	(niacina 0.2))
@@ -1286,16 +1260,12 @@
 
 	(acido_folico 0.01)
 	(b_1 0.3)
-	(b_12 "0")
 	(b_2 0.11)
-	(b_6 "0.18")
 	(niacina 1.5))
 
 ([vitaminas+spaghetti+a+la+bolo%C3%B1esa] of  vitaminas
 
 	(a 77.0)
-	(b_12 "0.39")
-	(b_6 "0.143")
 	(c 0.9)
 	(e 0.75)
 	(niacina 2.0))
@@ -1305,9 +1275,7 @@
 	(a 0.0)
 	(acido_folico 0.0)
 	(b_1 0.0)
-	(b_12 "0")
 	(b_2 0.0)
-	(b_6 "0")
 	(c 0.0)
 	(d 0.0)
 	(e 0.0)
@@ -1316,8 +1284,6 @@
 ([vitaminas+yogur+natural+griego] of  vitaminas
 
 	(a 4.5)
-	(b_12 "0.75")
-	(b_6 "0.063")
 	(c 0.0)
 	(d 0.0)
 	(e 0.01)

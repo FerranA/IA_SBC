@@ -1,10 +1,8 @@
 (defmodule MAIN (export ?ALL))
-
-
-; Sun May 05 19:04:49 CEST 2019
+; Tue May 14 11:17:26 CEST 2019
 ;
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
@@ -24,7 +22,8 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sal
-		(type INTEGER)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numero_minerales
@@ -34,14 +33,17 @@
 		(create-accessor read-write))
 	(single-slot fosforo
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot poliinsaturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot calcio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot clasificacion_alimento
@@ -63,6 +65,7 @@
 		(create-accessor read-write))
 	(single-slot hierro
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot grasas_saturadas
@@ -85,6 +88,7 @@
 		(create-accessor read-write))
 	(single-slot sodio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numero_macronutrientes
@@ -94,10 +98,12 @@
 		(create-accessor read-write))
 	(single-slot niacina
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fibra_alimentaria
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot grasas_monoinsaturada
@@ -106,10 +112,12 @@
 		(create-accessor read-write))
 	(single-slot energia
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_14%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_acidos_grasos
@@ -118,27 +126,33 @@
 		(create-accessor read-write))
 	(single-slot c_18%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot potasio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A2
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot magnesio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A1
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot b_12
 ;+		(comment "cianocobalamina")
-		(type STRING)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot proyecto_Class30
@@ -147,6 +161,7 @@
 		(create-accessor read-write))
 	(single-slot c_18%3A3
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot tipo
@@ -166,14 +181,17 @@
 		(create-accessor read-write))
 	(single-slot iodo
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fluor
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot monoinsaturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_minerales
@@ -187,6 +205,7 @@
 		(create-accessor read-write))
 	(single-slot zinc
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot hidratos_de_carbono
@@ -213,28 +232,34 @@
 		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot d
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cantidad_agua
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot e
 ;+		(comment "tocoferol")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot obligatoria
@@ -256,6 +281,7 @@
 		(create-accessor read-write))
 	(single-slot k
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot proteinas
@@ -264,6 +290,7 @@
 		(create-accessor read-write))
 	(single-slot acido_folico
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot IARecteas_Class28
@@ -294,16 +321,19 @@
 	(single-slot b_2
 ;+		(comment "riboflavina")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot b_1
 ;+		(comment "tiamina")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot b_6
 ;+		(comment "pirodoxina")
-		(type STRING)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_microntrientes
@@ -321,10 +351,12 @@
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot colesterol
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot vitamina_a
@@ -341,10 +373,12 @@
 		(create-accessor read-write))
 	(single-slot lipidos
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_16%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot temporada
@@ -354,10 +388,12 @@
 		(create-accessor read-write))
 	(single-slot c_16%3A1
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numero_proteinas
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numero_vitaminas
@@ -371,6 +407,7 @@
 		(create-accessor read-write))
 	(single-slot carbohidratos
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot numero_calorias
@@ -379,10 +416,12 @@
 		(create-accessor read-write))
 	(single-slot cobre
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot selenio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre
@@ -472,7 +511,8 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sal
-		(type INTEGER)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -481,6 +521,7 @@
 		(create-accessor read-write))
 	(single-slot cantidad_agua
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -577,46 +618,57 @@
 	(role concrete)
 	(single-slot c_16%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_16%3A1
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A2
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A1
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c_18%3A3
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot saturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot colesterol
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot monoinsaturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot poliinsaturados
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -625,6 +677,7 @@
 		(create-accessor read-write))
 	(single-slot c_14%3A0
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -633,42 +686,51 @@
 	(role concrete)
 	(single-slot b_6
 ;+		(comment "pirodoxina")
-		(type STRING)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot acido_folico
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot b_12
 ;+		(comment "cianocobalamina")
-		(type STRING)
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot c
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot d
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot e
 ;+		(comment "tocoferol")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot k
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot niacina
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -678,11 +740,13 @@
 	(single-slot b_2
 ;+		(comment "riboflavina")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot b_1
 ;+		(comment "tiamina")
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -709,14 +773,17 @@
 	(role concrete)
 	(single-slot numero_proteinas
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot lipidos
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fibra_alimentaria
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -725,10 +792,12 @@
 		(create-accessor read-write))
 	(single-slot energia
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot carbohidratos
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot grasa
@@ -742,42 +811,52 @@
 	(role concrete)
 	(single-slot potasio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot magnesio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot iodo
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fluor
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sodio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fosforo
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cobre
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot selenio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot zinc
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot hierro
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -786,6 +865,7 @@
 		(create-accessor read-write))
 	(single-slot calcio
 		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -867,10 +947,10 @@
 	(role concrete))
 
 (definstances instancias
-; Sun May 05 19:04:49 CEST 2019
+; Tue May 14 11:17:26 CEST 2019
 ;
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 ([aceite+de+oliva] of  ingrediente_grasa
 )
@@ -2001,16 +2081,12 @@
 
 	(acido_folico 0.006)
 	(b_1 0.06)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.3")
 	(c 0.0)
 	(niacina 3.8))
 
 ([vitaminas+arroz+con+leche] of  vitaminas
 
-	(b_12 "0.08")
-	(b_6 "0.025")
 	(e 0.21)
 	(niacina 0.31))
 
@@ -2025,9 +2101,7 @@
 	(a 0.13)
 	(acido_folico 0.004)
 	(b_1 0.11)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.07")
 	(c 0.0)
 	(d 0.0)
 	(niacina 0.9))
@@ -2037,17 +2111,13 @@
 	(a 0.0)
 	(acido_folico 0.007)
 	(b_1 0.41)
-	(b_12 "0")
 	(b_2 0.04)
-	(b_6 "0.13")
 	(c 0.0)
 	(niacina 1.9))
 
 ([vitaminas+edad+65-69+hombre] of  vitaminas
 
 	(a 0.9)
-	(b_12 "0.0024")
-	(b_6 "1.7")
 	(c 90.0)
 	(d 0.015)
 	(e 15.0)
@@ -2056,8 +2126,6 @@
 ([vitaminas+edad+65-69+mujer] of  vitaminas
 
 	(a 0.7)
-	(b_12 "0.0024")
-	(b_6 "1.5")
 	(c 75.0)
 	(d 0.015)
 	(e 15.0)
@@ -2067,8 +2135,6 @@
 
 	(a 0.9)
 	(acido_folico 0.4)
-	(b_12 "0.0024")
-	(b_6 "1.7")
 	(c 90.0)
 	(d 0.02)
 	(e 15.0)
@@ -2077,8 +2143,6 @@
 ([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
 
 	(a 0.7)
-	(b_12 "0.0024")
-	(b_6 "1.5")
 	(c 75.0)
 	(d 0.02)
 	(e 15.0)
@@ -2091,8 +2155,6 @@
 ([vitaminas+hummus] of  vitaminas
 
 	(a 1.5)
-	(b_12 "0")
-	(b_6 "0.399")
 	(c 7.9)
 	(d 0.0)
 	(e 0.75)
@@ -2102,7 +2164,6 @@
 ([vitaminas+lasa%C3%B1a] of  vitaminas
 
 	(a 205.5)
-	(b_12 "0.77")
 	(c 0.8)
 	(e 0.97)
 	(niacina 1.757))
@@ -2112,17 +2173,14 @@
 	(a 0.03)
 	(acido_folico 0.004)
 	(b_1 0.04)
-	(b_12 "0")
 	(b_2 0.02)
-	(b_6 "0.03")
 	(c 3.0)
 	(d 0.0)
 	(e 7.2E-4)
 	(niacina 0.1))
 
 ([vitaminas+menestra+de+verduras] of  vitaminas
-
-	(b_6 "0.1"))
+)
 
 ([vitaminas+pasta+fresca+al+huevo] of  vitaminas
 )
@@ -2132,9 +2190,7 @@
 	(a 0.0)
 	(acido_folico 0.007)
 	(b_1 0.1)
-	(b_12 "0")
 	(b_2 0.03)
-	(b_6 "0.07")
 	(c 0.0)
 	(d 0.0)
 	(niacina 0.9))
@@ -2144,9 +2200,7 @@
 	(a 0.2)
 	(acido_folico 0.008)
 	(b_1 0.02)
-	(b_12 "0")
 	(b_2 0.05)
-	(b_6 "0.02")
 	(c 3.0)
 	(d 0.0)
 	(niacina 0.2))
@@ -2155,16 +2209,12 @@
 
 	(acido_folico 0.01)
 	(b_1 0.3)
-	(b_12 "0")
 	(b_2 0.11)
-	(b_6 "0.18")
 	(niacina 1.5))
 
 ([vitaminas+spaghetti+a+la+bolo%C3%B1esa] of  vitaminas
 
 	(a 77.0)
-	(b_12 "0.39")
-	(b_6 "0.143")
 	(c 0.9)
 	(e 0.75)
 	(niacina 2.0))
@@ -2174,9 +2224,7 @@
 	(a 0.0)
 	(acido_folico 0.0)
 	(b_1 0.0)
-	(b_12 "0")
 	(b_2 0.0)
-	(b_6 "0")
 	(c 0.0)
 	(d 0.0)
 	(e 0.0)
@@ -2185,8 +2233,6 @@
 ([vitaminas+yogur+natural+griego] of  vitaminas
 
 	(a 4.5)
-	(b_12 "0.75")
-	(b_6 "0.063")
 	(c 0.0)
 	(d 0.0)
 	(e 0.01)
@@ -2208,7 +2254,6 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+yogur+natural+griego]))
 )
-
 
 
 
@@ -2361,7 +2406,7 @@
 	(enfermedades-recogidas)
 	(tiene-enfermedad ?enfermedad)
 	=>
-	(bind ?nombre-enfermedad (sym-cat [enfermedad+ ?enfermedad ]))
+	(bind ?nombre-enfermedad (sym-cat enfermedad+ ?enfermedad))
 	(assert (enfermedad ?nombre-enfermedad))
 )
 
@@ -2378,7 +2423,7 @@
 	?enf <- (object (name ?x) (is-a enfermedad) (recomendaciones_diarias ?restriccion))
 	(test (eq (instance-name-to-symbol ?x) ?nombre-enfermedad))
 	=>
-	(assert (restriccion ?restriccion))
+	(assert (restriccion (instance-name-to-symbol ?restriccion)))
 )
 
 (defrule get-basic-cdr "Determina el nombre de la instancia de cantidad basica recomendada que se debe asignar al usuario."
@@ -2399,6 +2444,77 @@
 	)
 )
 
+(defrule goto_cdr ""
+	(declare (salience -10))
+	=>
+	(focus CDR)
+)
+
+(defmodule CDR (export ?ALL) (import MAIN ?ALL) (import PERFIL ?ALL))
+
+(defrule cdr-enfermedades ""
+	(restriccion ?simbolo)
+	?rest <- (object (name ?nombre) (is-a restriccion) (cantidades_recomendadas_diarias ?cdr))
+	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
+	=>
+	(if (not (eq nil (instance-name-to-symbol ?cdr))) then (assert (cdr-rest (instance-name-to-symbol ?cdr))))
+)
+
+(defrule micro-macro-enfermedades ""
+	(cdr-rest ?simbolo)
+	?cdr <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?nmicro) (numero_macronutrientes ?nmacro))
+	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
+	=>
+	(if (not (eq nil (instance-name-to-symbol ?nmicro))) then (assert (micro-rest (instance-name-to-symbol ?nmicro))))
+	(if (not (eq nil (instance-name-to-symbol ?nmacro))) then (assert (macro-rest (instance-name-to-symbol ?nmacro))))
+)
+
+(defrule miner-vitam-enfermedades ""
+	(micro-rest ?simbolo)
+	?micro <- (object (name ?nombre) (is-a micronutrientes) (numero_minerales ?nminer) (numero_vitaminas ?nvitam))
+	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
+	=>
+	(if (not (eq nil (instance-name-to-symbol ?nminer))) then (assert (miner-rest (instance-name-to-symbol ?nminer))))
+	(if (not (eq nil (instance-name-to-symbol ?nvitam))) then (assert (vitam-rest (instance-name-to-symbol ?nvitam))))
+)
+
+(defrule minerales-enfermedades ""
+	(miner-rest ?simbolo)
+	?miner <- (object (name ?nombre) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
+																							(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
+	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
+	=>
+	(if (not (eq ?ca -1.0)) then (assert (calcio-rest ?ca)))
+	(if (not (eq ?cu -1.0)) then (assert (cobre-rest ?cu)))
+	(if (not (eq ?f -1.0)) then (assert (fluor-rest ?f)))
+	(if (not (eq ?p -1.0)) then (assert (fosforo-rest ?p)))
+	(if (not (eq ?fe -1.0)) then (assert (hierro-rest ?fe)))
+	(if (not (eq ?i -1.0)) then (assert (iodo-rest ?i)))
+	(if (not (eq ?mg -1.0)) then (assert (magnesio-rest ?mg)))
+	(if (not (eq ?k -1.0)) then (assert (potasio-rest ?k)))
+	(if (not (eq ?se -1.0)) then (assert (selenio-rest ?se)))
+	(if (not (eq ?na -1.0)) then (assert (sodio-rest ?na)))
+	(if (not (eq ?z -1.0)) then (assert (zinc-rest ?z)))
+)
+
+(defrule vitaminas-enfermedades ""
+	(vitam-rest ?simbolo)
+	?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?k) (niacina ?n))
+	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
+	=>
+	(if (not (eq ?a -1.0)) then (assert (vitamina-a-rest ?a)))
+	(if (not (eq ?fol -1.0)) then (assert (acido-folico-rest ?a)))
+	(if (not (eq ?b1 -1.0)) then (assert (vitamina-b_1-rest ?b1)))
+	(if (not (eq ?b2 -1.0)) then (assert (vitamina-b_2-rest ?b2)))
+	(if (not (eq ?b12 -1.0)) then (assert (vitamina-b_12-rest ?b12)))
+	(if (not (eq ?b6 -1.0)) then (assert (vitamina-b_6-rest ?b6)))
+	(if (not (eq ?c -1.0)) then (assert (vitamina-c-rest ?c)))
+	(if (not (eq ?d -1.0)) then (assert (vitamina-d-rest ?d)))
+	(if (not (eq ?e -1.0)) then (assert (vitamina-e-rest ?e)))
+	(if (not (eq ?k -1.0)) then (assert (vitamina-k-rest ?k)))
+	(if (not (eq ?n -1.0)) then (assert (niacina-rest ?n)))
+)
+
 (defrule goto_alimentos ""
 	(declare (salience -10))
 	=>
@@ -2409,25 +2525,6 @@
 
 
 (defmodule ALIMENTOS (export ?ALL) (import MAIN ?ALL) (import PERFIL ?ALL))
-
-(deftemplate almuerzo ""
-	(slot bebida)
-	(slot almuerzo)
-)
-
-(deftemplate comida ""
-	(slot bebida)
-	(slot entrante)
-	(slot plato-principal)
-	(slot postre)
-)
-
-(deftemplate cena ""
-	(slot bebida)
-	(slot entrante)
-	(slot plato-principal)
-	(slot postre)
-)
 
 
 (deffunction esusable "" (?alimento)
@@ -2571,6 +2668,7 @@
 (defrule goto_menu ""
 	(declare (salience -10))
 	=>
+	(focus MENU)
 )
 
 
@@ -2584,6 +2682,97 @@
 ;	(slot comida 		(type INSTANCE) (allowed-classes comida))
 ;	(slot cena 			(type INSTANCE) (allowed-classes cena))
 ;)
+
+(deftemplate cantidades-menu ""
+	(slot a)
+	(slot acido-folico)
+	(slot b_1)
+	(slot b_2)
+	(slot b_6)
+	(slot b_12)
+	(slot c)
+	(slot d)
+	(slot e)
+	(slot k)
+	(slot niacina)
+
+	(slot calcio)
+	(slot cobre)
+	(slot fluor)
+	(slot fosforo)
+	(slot hierro)
+	(slot iodo)
+	(slot magnesio)
+	(slot potasio)
+	(slot selenio)
+	(slot sodio)
+	(slot zinc)
+)
+
+(deffunction calculo-cantidades-menu-diario "" ($?alimentos)
+	(assert (cantidades-menu (a 0) (acido-folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
+														(calcio 0) (cobre 0) (fluor 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0)))
+	;?fact <- (find-fact ((?p cantidades-menu)) TRUE)
+	(bind ?fact (find-fact ((?p cantidades-menu)) TRUE))
+	;?fact <- (cantidades-menu (a 0) (acido-folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
+	;													(calcio 0) (cobre 0) (fluor 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0))
+	(loop-for-count (?i 1 (length$ ?alimentos)) do
+		(bind ?alimento (nth$ ?i ?alimentos))
+		(bind ?nombre (symbol-to-instance-name ?alimento))
+		; HAY UN PROBLEMA A PARTIR DE AQUI CON ALGUN SLOT, SUPONGO QUE ?x:name
+		(bind ?cant  (find-instance ((?x cantidades_nutricionales)) (eq ?x:name ?nombre)))
+		(bind ?micro (find-instance ((?x micronutrientes)) (eq ?x:name (send ?cant get-numero_micronutrientes))))
+		(bind ?miner (find-instance ((?x micronutrientes)) (eq ?x:name (send ?micro get-numero_minerales))))
+		(bind ?vitam (find-instance ((?x micronutrientes)) (eq ?x:name (send ?micro get-numero_vitaminas))))
+		;?cant  <- (find-instance (?))
+		;?cant  <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?micro))
+		;?micro <- (object (name ?micro) (is-a micronutrientes) (numero_minerales ?miner) (numero_vitaminas ?vitam))
+		;?miner <- (object (name ?miner) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
+		;																						(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
+		;?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?kk) (niacina ?n))
+		(modify ?fact (calcio       (+ (fact-slot-value ?fact calcio)              (send ?miner get-calcio))))
+		(modify ?fact (cobre        (+ (fact-slot-value ?fact cobre)                (send ?miner get-cobre))))
+		(modify ?fact (fluor        (+ (fact-slot-value ?fact fluor)                (send ?miner get-fluor))))
+		(modify ?fact (fosforo      (+ (fact-slot-value ?fact fosforo)            (send ?miner get-fosforo))))
+		(modify ?fact (hierro       (+ (fact-slot-value ?fact hierro)              (send ?miner get-hierro))))
+		(modify ?fact (iodo         (+ (fact-slot-value ?fact iodo)                  (send ?miner get-iodo))))
+		(modify ?fact (magnesio     (+ (fact-slot-value ?fact magnesio)          (send ?miner get-magnesio))))
+		(modify ?fact (potasio      (+ (fact-slot-value ?fact potasio)            (send ?miner get-potasio))))
+		(modify ?fact (selenio      (+ (fact-slot-value ?fact selenio)            (send ?miner get-selenio))))
+		(modify ?fact (sodio        (+ (fact-slot-value ?fact sodio)                (send ?miner get-sodio))))
+		(modify ?fact (zinc         (+ (fact-slot-value ?fact zinc)                  (send ?miner get-zinc))))
+		(modify ?fact (a            (+ (fact-slot-value ?fact a)                        (send ?vitam get-a))))
+		(modify ?fact (acido_folico (+ (fact-slot-value ?fact acido_folico)  (send ?vitam get-acido_folico))))
+		(modify ?fact (b_1          (+ (fact-slot-value ?fact b_1)                    (send ?vitam get-b_1))))
+		(modify ?fact (b_2          (+ (fact-slot-value ?fact b_2)                    (send ?vitam get-b_2))))
+		(modify ?fact (b_6          (+ (fact-slot-value ?fact b_6)                    (send ?vitam get-b_6))))
+		(modify ?fact (b_12         (+ (fact-slot-value ?fact b_12)                  (send ?vitam get-b_12))))
+		(modify ?fact (c            (+ (fact-slot-value ?fact c)                        (send ?vitam get-c))))
+		(modify ?fact (d            (+ (fact-slot-value ?fact d)                        (send ?vitam get-d))))
+		(modify ?fact (e            (+ (fact-slot-value ?fact e)                        (send ?vitam get-e))))
+		(modify ?fact (k            (+ (fact-slot-value ?fact k)                        (send ?vitam get-k))))
+		(modify ?fact (niacina      (+ (fact-slot-value ?fact niacina)            (send ?vitam get-niacina))))
+	)
+)
+
+(deftemplate almuerzo ""
+	(slot bebida)
+	(slot almuerzo)
+)
+
+(deftemplate comida ""
+	(slot bebida)
+	(slot entrante)
+	(slot plato-principal)
+	(slot postre)
+)
+
+(deftemplate cena ""
+	(slot bebida)
+	(slot entrante)
+	(slot plato-principal)
+	(slot postre)
+)
 
 (deftemplate menu-dia ""
 	(slot dia)
@@ -2627,6 +2816,7 @@
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (hay-menu-lunes))
 	(assert (menu-dia
 		(dia lunes)
