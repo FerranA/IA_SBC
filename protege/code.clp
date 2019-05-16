@@ -1,4 +1,4 @@
-(defmodule MAIN (export ?ALL))
+﻿(defmodule MAIN (export ?ALL))
 ; Tue May 14 11:17:26 CEST 2019
 ;
 ;+ (version "3.5")
@@ -3082,6 +3082,16 @@
 	(slot menu-domingo		(type INSTANCE) (allowed-classes menu-dia))
 )
 
+(deftemplate alimento-usado
+	(slot alimento)
+)
+
+(deffunction borrar-usados "" ()
+	(progn ?elem (find-all-facts ((?f alimento-usado)) TRUE)
+		(retract ?elem)
+	)
+)
+
 (defrule menu_lunes ""
 	(not (hay-menu-lunes))
 	(bebida-usable ?bebida_des)
@@ -3101,8 +3111,7 @@
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
 	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
-	(if (cantidades-validas) then
-		(assert (hay-menu-lunes))
+	;(if (cantidades-validas) then
 		(assert (menu-dia
 			(dia lunes)
 			(bebida_des ?bebida_des)
@@ -3116,7 +3125,12 @@
 			(platop_cen ?platop_cen)
 			(postre_cen ?postre_cen)
 		))
-	)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+		(assert (hay-menu-lunes))
+	;)
 )
 
 (defrule menu_martes ""
@@ -3132,13 +3146,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
-	(assert (hay-menu-martes))
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (menu-dia
 		(dia martes)
 		(bebida_des ?bebida_des)
@@ -3152,6 +3170,12 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(borrar-usados)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+	(assert (hay-menu-martes))
 )
 
 (defrule menu_miercoles ""
@@ -3167,13 +3191,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
-	(assert (hay-menu-miercoles))
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (menu-dia
 		(dia miercoles)
 		(bebida_des ?bebida_des)
@@ -3187,6 +3215,12 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(borrar-usados)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+	(assert (hay-menu-miercoles))
 )
 
 (defrule menu_jueves ""
@@ -3202,13 +3236,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
-	(assert (hay-menu-jueves))
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (menu-dia
 		(dia jueves)
 		(bebida_des ?bebida_des)
@@ -3222,6 +3260,12 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(borrar-usados)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+	(assert (hay-menu-jueves))
 )
 
 (defrule menu_viernes ""
@@ -3237,13 +3281,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
-	(assert (hay-menu-viernes))
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (menu-dia
 		(dia viernes)
 		(bebida_des ?bebida_des)
@@ -3257,6 +3305,12 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(borrar-usados)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+	(assert (hay-menu-viernes))
 )
 
 (defrule menu_sabado ""
@@ -3272,13 +3326,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
-	(assert (hay-menu-sabado))
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (menu-dia
 		(dia sabado)
 		(bebida_des ?bebida_des)
@@ -3292,6 +3350,12 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(borrar-usados)
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
+	(assert (hay-menu-sabado))
 )
 
 (defrule menu_domingo ""
@@ -3307,12 +3371,17 @@
 	(entrante-usable ?entran_cen)
 	(plato-principal-usable ?platop_cen)
 	(postre-usable ?postre_cen)
+	(not (alimento-usado (alimento ?entran_com)))
+	(not (alimento-usado (alimento ?platop_com)))
+	(not (alimento-usado (alimento ?entran_cen)))
+	(not (alimento-usado (alimento ?platop_cen)))
 	(test (not (eq ?entran_com ?entran_cen)))
 	(test (not (eq ?entran_com ?platop_com)))
 	(test (not (eq ?entran_cen ?platop_cen)))
 	(test (not (eq ?platop_com ?platop_cen)))
 	(test (not (eq ?postre_com ?postre_cen)))
 	=>
+	(calculo-cantidades-menu-diario ?bebida_des ?almuer_des ?bebida_com ?entran_com ?platop_com ?postre_com ?bebida_cen ?entran_cen ?platop_cen ?postre_cen)
 	(assert (hay-menu-domingo))
 	(assert (menu-dia
 		(dia domingo)
@@ -3327,6 +3396,10 @@
 		(platop_cen ?platop_cen)
 		(postre_cen ?postre_cen)
 	))
+	(assert (alimento-usado (alimento ?entran_com)))
+	(assert (alimento-usado (alimento ?platop_com)))
+	(assert (alimento-usado (alimento ?entran_cen)))
+	(assert (alimento-usado (alimento ?platop_cen)))
 )
 
 (defrule menu_semanal ""
