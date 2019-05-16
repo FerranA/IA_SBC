@@ -1,7 +1,7 @@
-; Tue May 14 11:17:26 CEST 2019
+; Wed May 15 16:38:11 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 663")
+;+ (build "Build 660")
 
 
 (defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
@@ -496,7 +496,7 @@
 	(is-a ingrediente)
 	(role concrete))
 
-(defclass cantidades_nutricionales
+(defclass cantidades_nutricionales "agua en litros y sal en gramos"
 	(is-a USER)
 	(role concrete)
 	(single-slot numero_macronutrientes

@@ -1,7 +1,7 @@
-; Tue May 14 11:17:26 CEST 2019
+; Wed May 15 16:38:11 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 663")
+;+ (build "Build 660")
 
 ([aceite+de+oliva] of  ingrediente_grasa
 )
@@ -49,8 +49,53 @@
 	(poliinsaturados 0.0)
 	(saturados 0.0))
 
+([acidos+grasos+diabetes] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(poliinsaturados -1.0)
+	(saturados 9.0))
+
+([acidos+grasos+diarrea] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0))
+
 ([acidos+grasos+filetes+de+merluza+empanados] of  acidos_grasos
 )
+
+([acidos+grasos+hipertension] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol 95.0)
+	(etanol -1.0)
+	(monoinsaturados 19.0)
+	(poliinsaturados -1.0)
+	(saturados 9.0))
 
 ([acidos+grasos+lasa%C3%B1a] of  acidos_grasos
 
@@ -75,6 +120,21 @@
 ([acidos+grasos+menestra+de+verduras] of  acidos_grasos
 
 	(colesterol 0.0))
+
+([acidos+grasos+osteoporosis] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0))
 
 ([acidos+grasos+pastel+de+manzana] of  acidos_grasos
 
@@ -204,29 +264,47 @@
 	(numero_macronutrientes [macronutrientes+bizcocho])
 	(numero_micronutrientes [micronutrientes+bizcocho]))
 
+([cantidades+diabetes] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+diabetes])
+	(numero_micronutrientes [micronutrientes+diabetes])
+	(sal -1.0))
+
+([cantidades+diarrea] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+diarrea])
+	(numero_micronutrientes [micronutrientes+diarrea])
+	(sal -1.0))
+
 ([cantidades+edad+65-69+hombre] of  cantidades_nutricionales
 
 	(cantidad_agua 3.7)
 	(numero_macronutrientes [macronutrientes+edad+65-69+hombre])
-	(numero_micronutrientes [micronutrientes+edad+65-69+hombre]))
+	(numero_micronutrientes [micronutrientes+edad+65-69+hombre])
+	(sal 6.0))
 
 ([cantidades+edad+65-69+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+65-69+mujer])
-	(numero_micronutrientes [micronutrientes+edad+65-69+mujer]))
+	(numero_micronutrientes [micronutrientes+edad+65-69+mujer])
+	(sal 6.0))
 
 ([cantidades+edad+%3E%3D+70+hombre] of  cantidades_nutricionales
 
 	(cantidad_agua 3.7)
 	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+hombre])
-	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre]))
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre])
+	(sal 6.0))
 
 ([cantidades+edad+%3E%3D+70+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer])
-	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer]))
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer])
+	(sal 6.0))
 
 ([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
 
@@ -234,6 +312,7 @@
 
 ([cantidades+hipertension] of  cantidades_nutricionales
 
+	(numero_macronutrientes [macronutrientes+hipertension])
 	(numero_micronutrientes [micronutrientes+hipertension]))
 
 ([cantidades+hummus] of  cantidades_nutricionales
@@ -257,6 +336,13 @@
 
 	(numero_macronutrientes [macronutrientes+menestra+de+verduras])
 	(numero_micronutrientes [micronutrientes+menestra+de+verduras]))
+
+([cantidades+osteoporosis] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+osteoporosis])
+	(numero_micronutrientes [micronutrientes+osteoporosis])
+	(sal -1.0))
 
 ([cantidades+pasta+fresca+al+huevo] of  cantidades_nutricionales
 
@@ -313,9 +399,24 @@
 	(tipo principal)
 	(valor_nutricional [cantidad+nutricional+cereales+con+miel]))
 
+([enfermedad+diabetes] of  enfermedad
+
+	(recomendaciones_diarias [restriccion+diabetes]))
+
+([enfermedad+diarrea] of  enfermedad
+
+	(recomendaciones_diarias [restriccion+diarrea]))
+
+([enfermedad+fenilcetonuria] of  enfermedad
+)
+
 ([enfermedad+hipertension] of  enfermedad
 
 	(recomendaciones_diarias [restriccion+hipertension]))
+
+([enfermedad+osteoporosis] of  enfermedad
+
+	(recomendaciones_diarias [restriccion+osteoporosis]))
 
 ([filetes+de+merluza+empanados] of  pescado
 
@@ -501,6 +602,24 @@
 	(lipidos 0.2)
 	(numero_proteinas 4.4))
 
+([macronutrientes+diabetes] of  macronutrientes
+
+	(carbohidratos 158.0)
+	(energia 1196.4)
+	(fibra_alimentaria 30.0)
+	(grasa [acidos+grasos+diabetes])
+	(lipidos 48.0)
+	(numero_proteinas 59.0))
+
+([macronutrientes+diarrea] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1946.0)
+	(fibra_alimentaria 10.0)
+	(grasa [acidos+grasos+diarrea])
+	(lipidos 54.0)
+	(numero_proteinas 101.0))
+
 ([macronutrientes+edad+65-69+hombre] of  macronutrientes
 
 	(carbohidratos 130.0)
@@ -531,6 +650,15 @@
 	(energia 120.4)
 	(lipidos 1.6)
 	(numero_proteinas 12.8))
+
+([macronutrientes+hipertension] of  macronutrientes
+
+	(carbohidratos 285.0)
+	(energia 2016.0)
+	(fibra_alimentaria 35.0)
+	(grasa [acidos+grasos+hipertension])
+	(lipidos 62.0)
+	(numero_proteinas 96.0))
 
 ([macronutrientes+hummus] of  macronutrientes
 
@@ -565,6 +693,15 @@
 	(grasa [acidos+grasos+menestra+de+verduras])
 	(lipidos 0.51)
 	(numero_proteinas 0.86))
+
+([macronutrientes+osteoporosis] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+osteoporosis])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
 
 ([macronutrientes+pasta+fresca+al+huevo] of  macronutrientes
 
@@ -689,6 +826,16 @@
 	(numero_minerales [minerales+cereales+con+miel])
 	(numero_vitaminas [vitaminas+cereales+con+miel]))
 
+([micronutrientes+diabetes] of  micronutrientes
+
+	(numero_minerales [minerales+diabetes])
+	(numero_vitaminas [vitaminas+diabetes]))
+
+([micronutrientes+diarrea] of  micronutrientes
+
+	(numero_minerales [minerales+diarrea])
+	(numero_vitaminas [vitaminas+diarrea]))
+
 ([micronutrientes+edad+65-69+hombre] of  micronutrientes
 
 	(numero_minerales [minerales+edad+65-69+hombre])
@@ -733,6 +880,11 @@
 
 	(numero_minerales [minerales+menestra+de+verduras])
 	(numero_vitaminas [vitaminas+menestra+de+verduras]))
+
+([micronutrientes+osteoporosis] of  micronutrientes
+
+	(numero_minerales [minerales+osteoporosis])
+	(numero_vitaminas [vitaminas+osteoporosis]))
 
 ([micronutrientes+pasta+fresca+al+huevo] of  micronutrientes
 
@@ -830,6 +982,34 @@
 	(sodio 0.2)
 	(zinc 18.7))
 
+([minerales+diabetes] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio 1375.0)
+	(zinc -1.0))
+
+([minerales+diarrea] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
+
 ([minerales+edad+65-69+hombre] of  mineral
 
 	(calcio 1000.0)
@@ -888,7 +1068,10 @@
 
 ([minerales+hipertension] of  mineral
 
-	(potasio 4700.0))
+	(calcio 1248.0)
+	(magnesio 441.0)
+	(potasio 3823.0)
+	(sodio 1598.0))
 
 ([minerales+hummus] of  mineral
 
@@ -934,6 +1117,20 @@
 	(magnesio 7.9)
 	(potasio 200.0)
 	(sodio 200.0))
+
+([minerales+osteoporosis] of  mineral
+
+	(calcio 1300.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
 
 ([minerales+pasta+fresca+al+huevo] of  mineral
 )
@@ -1059,6 +1256,11 @@
 ([proyecto_Class10074] of  %3AUNDEFINED
 )
 
+([proyecto_Class13] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(sal -1.0))
+
 ([pure+de+patata] of  verdura
 
 	(ingrediente_principal [ingrediente+patata])
@@ -1069,6 +1271,16 @@
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+pure+de+patata]))
+
+([restriccion+diabetes] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+diabetes])
+	(obligatoria FALSE))
+
+([restriccion+diarrea] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+diarrea])
+	(ingredientes_recomendados [ingrediente+arroz]))
 
 ([restriccion+edad+65-69+hombre] of  restriccion
 
@@ -1091,6 +1303,10 @@
 
 	(cantidades_recomendadas_diarias [cantidades+hipertension])
 	(ingredientes_recomendados [ingrediente+ajo]))
+
+([restriccion+osteoporosis] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+osteoporosis]))
 
 ([restriccion+vegetariano] of  restriccion
 
@@ -1166,6 +1382,34 @@
 	(c 0.0)
 	(niacina 1.9))
 
+([vitaminas+diabetes] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_1 -1.0)
+	(b_12 -1.0)
+	(b_2 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0))
+
+([vitaminas+diarrea] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_1 -1.0)
+	(b_12 -1.0)
+	(b_2 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0))
+
 ([vitaminas+edad+65-69+hombre] of  vitaminas
 
 	(a 0.9)
@@ -1200,8 +1444,7 @@
 	(niacina 14.0))
 
 ([vitaminas+hipertension] of  vitaminas
-
-	(a 100.0))
+)
 
 ([vitaminas+hummus] of  vitaminas
 
@@ -1232,6 +1475,20 @@
 
 ([vitaminas+menestra+de+verduras] of  vitaminas
 )
+
+([vitaminas+osteoporosis] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_1 -1.0)
+	(b_12 -1.0)
+	(b_2 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(d 0.015)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0))
 
 ([vitaminas+pasta+fresca+al+huevo] of  vitaminas
 )
