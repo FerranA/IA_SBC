@@ -2735,12 +2735,15 @@
 						(evitar_tipo_ingrediente $?tipos)
 						(evitar_ingrediente $?ings)
 						(evitar_receta $?recetas)
+						(ingredientes_recomendados ?recom)
 				)
 	(test (eq (instance-name-to-symbol ?x) ?restriccion))
 	=>
 	(prohibir-tipos-ingrediente ?tipos)
 	(prohibir-ingredientes ?ings)
 	(prohibir-recetas ?recetas)
+	(assert (ingrediente-recomendado (instance-name-to-symbol ?recom)))
+	(printout t ingrediente-recomendado (instance-name-to-symbol ?recom) crlf)
 )
 
 (defrule ingredientes-prohibidos ""
@@ -2749,6 +2752,21 @@
 	?ingr <- (object (name ?nombre) (is-a ?tipo))
 	=>
 	(assert (ingrediente-prohibido (instance-name-to-symbol ?nombre)))
+)
+
+(defrule recetas-recomendadas ""
+	(declare (salience 8))
+	(ingrediente-recomendado ?ing)
+	?receta <- (object (name ?nombre) (is-a alimento) (ingredientes $?ingredientes))
+	=>
+	(progn$ (?i ?ingredientes)
+		(bind ?ning (instance-name-to-symbol ?i))
+		(if (eq ?ning ?ing) then
+			(assert (alimento-recomendado (instance-name-to-symbol ?nombre)))
+			(printout t alimento-recomendado (instance-name-to-symbol ?nombre) crlf)
+			(break)
+		)
+	)
 )
 
 (defrule recetas-prohibidas ""
@@ -2800,16 +2818,30 @@
 	?objeto <- (object (name ?nombre))
 	(test (eq (class ?nombre) bebida))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
 	=>
 	(bind ?s (instance-name-to-symbol ?nombre))
 	(assert (alimento-permitido (tipo bebida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule bebida-usable2 ""
+	(declare (salience 0))
+	?objeto <- (object (name ?nombre))
+	(test (eq (class ?nombre) bebida))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo bebida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule almuerzo-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (not (eq (class ?objeto) bebida)))
 	(test (member desayuno ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2818,10 +2850,24 @@
 	(assert (alimento-permitido (tipo almuerzo) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule almuerzo-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (not (eq (class ?objeto) bebida)))
+	(test (member desayuno ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo almuerzo) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule entrante-comida-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (member entrante ?tipo))
 	(test (member comida ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2830,10 +2876,24 @@
 	(assert (alimento-permitido (tipo entrante-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule entrante-comida-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (member entrante ?tipo))
+	(test (member comida ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo entrante-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule entrante-cena-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (member entrante ?tipo))
 	(test (member cena ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2842,10 +2902,24 @@
 	(assert (alimento-permitido (tipo entrante-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule entrante-cena-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (member entrante ?tipo))
+	(test (member cena ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo entrante-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule plato-principal-comida-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (member principal ?tipo))
 	(test (member comida ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2854,10 +2928,24 @@
 	(assert (alimento-permitido (tipo plato-principal-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule plato-principal-comida-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (member principal ?tipo))
+	(test (member comida ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo plato-principal-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule plato-principal-cena-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
 	(test (member principal ?tipo))
 	(test (member cena ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2866,10 +2954,24 @@
 	(assert (alimento-permitido (tipo plato-principal-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule plato-principal-cena-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
+	(test (member principal ?tipo))
+	(test (member cena ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo plato-principal-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule postre-comida-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (member postre ?tipo))
 	(test (member comida ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
@@ -2878,16 +2980,43 @@
 	(assert (alimento-permitido (tipo postre-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
 )
 
+(defrule postre-comida-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (member postre ?tipo))
+	(test (member comida ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo postre-comida) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
+)
+
 (defrule postre-cena-usable ""
   (declare (salience 0))
 	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
 	(alimento-usable ?alimento)
+	(not (alimento-recomendado ?alimento))
 	(test (member postre ?tipo))
 	(test (member cena ?momento))
 	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
 	=>
 	(bind ?s (instance-name-to-symbol ?nombre))
 	(assert (alimento-permitido (tipo postre-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion 0)))
+)
+
+(defrule postre-cena-usable2 ""
+  (declare (salience 0))
+	?objeto <- (object (name ?nombre) (tipo $?tipo) (momento_ingesta $?momento))
+	(alimento-usable ?alimento)
+	(alimento-recomendado ?alimento)
+	(test (member postre ?tipo))
+	(test (member cena ?momento))
+	(test (eq (instance-name-to-symbol ?nombre) ?alimento))
+	=>
+	(bind ?s (instance-name-to-symbol ?nombre))
+	(assert (alimento-permitido (tipo postre-cena) (alimento (instance-name-to-symbol ?nombre)) (puntuacion -15)))
 )
 
 (defrule borrar-alimentos-usables ""
@@ -3147,81 +3276,151 @@
 )
 
 (deffunction escoge-menu-prioridad "" ()
-	(bind ?min 100000)
+	(bind ?min 1000000)
 	(bind ?bebida1 nil)
+	(bind ?bebidalist (create$ ))
 	(do-for-all-facts ((?bebida alimento-permitido)) (eq ?bebida:tipo bebida)
 		;(printout t ?bebida " " (fact-slot-value ?bebida alimento) " " (fact-slot-value ?bebida puntuacion) crlf)
+		(if (= (fact-slot-value ?bebida puntuacion) ?min) then
+			(bind ?bebidalist (insert$ ?bebidalist 1 ?bebida))
+		)
 		(if (< (fact-slot-value ?bebida puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?bebida puntuacion))
-			(bind ?bebida1 (fact-slot-value ?bebida alimento))
+			(bind ?bebidalist (create$ ?bebida))
 		)
 	)
+	(printout t ?bebidalist crlf)
+	(bind ?bebida1 (fact-slot-value (nth (+ (mod (random) (length ?bebidalist)) 1) ?bebidalist) alimento))
+
 	(bind ?min 100000)
 	(bind ?bebida2 nil)
+	(bind ?bebidalist (create$ ))
 	(do-for-all-facts ((?bebida alimento-permitido)) (eq ?bebida:tipo bebida)
+	    (if (= (fact-slot-value ?bebida puntuacion) ?min) then
+			(bind ?bebidalist (insert$ ?bebidalist 1 ?bebida))
+		)
 		(if (< (fact-slot-value ?bebida puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?bebida puntuacion))
-			(bind ?bebida2 (fact-slot-value ?bebida alimento))
+			(bind ?bebidalist (create$ ?bebida))
 		)
 	)
+	(printout t ?bebidalist crlf)
+	(bind ?bebida2 (fact-slot-value (nth (+ (mod (random) (length ?bebidalist)) 1) ?bebidalist) alimento))
+
 	(bind ?min 100000)
 	(bind ?bebida3 nil)
+	(bind ?bebidalist (create$ ))
 	(do-for-all-facts ((?bebida alimento-permitido)) (eq ?bebida:tipo bebida)
+	    (if (= (fact-slot-value ?bebida puntuacion) ?min) then
+			(bind ?bebidalist (insert$ ?bebidalist 1 ?bebida))
+		)
 		(if (< (fact-slot-value ?bebida puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?bebida puntuacion))
-			(bind ?bebida3 (fact-slot-value ?bebida alimento))
+			(bind ?bebidalist (create$ ?bebida))
 		)
 	)
+	(printout t ?bebidalist crlf)
+	(bind ?bebida3 (fact-slot-value (nth (+ (mod (random) (length ?bebidalist)) 1) ?bebidalist) alimento))
+
 	(bind ?min 100000)
 	(bind ?almuerzo nil)
+	(bind ?almuerzolist (create$))
 	(do-for-all-facts ((?alm alimento-permitido)) (eq ?alm:tipo almuerzo)
+		(if (= (fact-slot-value ?alm puntuacion) ?min) then
+			(bind ?almuerzolist (insert$ ?almuerzolist 1 ?alm))
+		)
 		(if (< (fact-slot-value ?alm puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?alm puntuacion))
-			(bind ?almuerzo (fact-slot-value ?alm alimento))
+			(bind ?almuerzolist (create$ ?alm))
 		)
 	)
+	(printout t ?almuerzolist crlf)
+	(bind ?almuerzo (fact-slot-value (nth (+ (mod (random) (length ?almuerzolist)) 1) ?almuerzolist) alimento))
+
 	(bind ?min 100000)
+	(bind ?entrantelist (create$))
 	(do-for-all-facts ((?entrante alimento-permitido)) (eq ?entrante:tipo entrante-comida)
+		(if (= (fact-slot-value ?entrante puntuacion) ?min) then
+			(bind ?entrantelist (insert$ ?entrantelist 1 ?entrante))
+		)
 		(if (< (fact-slot-value ?entrante puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?entrante puntuacion))
-			(bind ?entrante1 (fact-slot-value ?entrante alimento))
+			(bind ?entrantelist (create$ ?entrante))
 		)
 	)
+	(printout t ?entrantelist crlf)
+	(bind ?entrante1 (fact-slot-value (nth (+ (mod (random) (length ?entrantelist)) 1) ?entrantelist) alimento))
+
 	(bind ?min 100000)
+	(bind ?entrantelist (create$))
 	(do-for-all-facts ((?entrante alimento-permitido)) (eq ?entrante:tipo entrante-cena)
+		(if (and (not (eq ?entrante1 (fact-slot-value ?entrante alimento))) (= (fact-slot-value ?entrante puntuacion) ?min)) then
+			(bind ?entrantelist (insert$ ?entrantelist 1 ?entrante))
+		)
 		(if (and (not (eq ?entrante1 (fact-slot-value ?entrante alimento))) (< (fact-slot-value ?entrante puntuacion) ?min)) then
 			(bind ?min (fact-slot-value ?entrante puntuacion))
-			(bind ?entrante2 (fact-slot-value ?entrante alimento))
+			(bind ?entrantelist (create$ ?entrante))
 		)
 	)
+	(printout t ?entrantelist crlf)
+	(bind ?entrante2 (fact-slot-value (nth (+ (mod (random) (length ?entrantelist)) 1) ?entrantelist) alimento))
+
 	(bind ?min 100000)
+	(bind ?platoprincipallist (create$))
 	(do-for-all-facts ((?pp alimento-permitido)) (eq ?pp:tipo plato-principal-comida)
+		(if (and (not (eq ?entrante1 (fact-slot-value ?pp alimento))) (not (eq ?entrante2 (fact-slot-value ?pp alimento))) (= (fact-slot-value ?pp puntuacion) ?min)) then
+			(bind ?platoprincipallist (insert$ ?platoprincipallist 1 ?pp))
+		)
 		(if (and (not (eq ?entrante1 (fact-slot-value ?pp alimento))) (not (eq ?entrante2 (fact-slot-value ?pp alimento))) (< (fact-slot-value ?pp puntuacion) ?min)) then
 			(bind ?min (fact-slot-value ?pp puntuacion))
-			(bind ?pp1 (fact-slot-value ?pp alimento))
+			(bind ?entrantelist (create$ ?pp))
 		)
 	)
+	(printout t ?platoprincipallist crlf)
+	(bind ?pp1 (fact-slot-value (nth (+ (mod (random) (length ?platoprincipallist)) 1) ?platoprincipallist) alimento))
+
 	(bind ?min 100000)
+	(bind ?platoprincipallist (create$))
 	(do-for-all-facts ((?pp alimento-permitido)) (eq ?pp:tipo plato-principal-cena)
+		(if (and (not (eq ?entrante1 (fact-slot-value ?pp alimento))) (not (eq ?entrante2 (fact-slot-value ?pp alimento))) (not (eq ?pp1 (fact-slot-value ?pp alimento))) (= (fact-slot-value ?pp puntuacion) ?min)) then
+			(bind ?platoprincipallist (insert$ ?platoprincipallist 1 ?pp))
+		)
 		(if (and (not (eq ?entrante1 (fact-slot-value ?pp alimento))) (not (eq ?entrante2 (fact-slot-value ?pp alimento))) (not (eq ?pp1 (fact-slot-value ?pp alimento))) (< (fact-slot-value ?pp puntuacion) ?min)) then
 			(bind ?min (fact-slot-value ?pp puntuacion))
-			(bind ?pp2 (fact-slot-value ?pp alimento))
+			(bind ?entrantelist (create$ ?pp))
 		)
 	)
+	(printout t ?platoprincipallist crlf)
+	(bind ?pp2 (fact-slot-value (nth (+ (mod (random) (length ?platoprincipallist)) 1) ?platoprincipallist) alimento))
+
 	(bind ?min 100000)
+	(bind ?postrelist (create$))
 	(do-for-all-facts ((?postre alimento-permitido)) (eq ?postre:tipo postre-comida)
+		(if (= (fact-slot-value ?postre puntuacion) ?min) then
+			(bind ?postrelist (insert$ ?postrelist 1 ?postre))
+		)
 		(if (< (fact-slot-value ?postre puntuacion) ?min) then
 			(bind ?min (fact-slot-value ?postre puntuacion))
-			(bind ?postre1 (fact-slot-value ?postre alimento))
+			(bind ?postrelist (create$ ?postre))
 		)
 	)
+	(printout t ?postrelist crlf)
+	(bind ?postre1 (fact-slot-value (nth (+ (mod (random) (length ?postrelist)) 1) ?postrelist) alimento))
+
 	(bind ?min 100000)
+	(bind ?postrelist (create$))
 	(do-for-all-facts ((?postre alimento-permitido)) (eq ?postre:tipo postre-cena)
 		(if (and (not (eq ?postre1 (fact-slot-value ?postre alimento))) (< (fact-slot-value ?postre puntuacion) ?min)) then
+			(bind ?postrelist (insert$ ?postrelist 1 ?postre))
+		)
+		(if (and (not (eq ?postre1 (fact-slot-value ?postre alimento))) (< (fact-slot-value ?postre puntuacion) ?min)) then
 			(bind ?min (fact-slot-value ?postre puntuacion))
-			(bind ?postre2 (fact-slot-value ?postre alimento))
+			(bind ?postrelist (create$ ?postre))
 		)
 	)
+	(printout t ?postrelist crlf)
+	(bind ?postre2 (fact-slot-value (nth (+ (mod (random) (length ?postrelist)) 1) ?postrelist) alimento))
+
 	(return (create$ ?bebida1 ?almuerzo ?bebida2 ?entrante1 ?pp1 ?postre1 ?bebida3 ?entrante2 ?pp2 ?postre2))
 )
 
@@ -3313,8 +3512,20 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 		(assert (hay-menu-lunes))
 	;)
+)
+
+(defrule actualizar-ingrediente-recomendado ""
+	?air <- (actualizar-ingredientes-recomendados)
+	(alimento-recomendado ?alim)
+	=>
+	(bind ?flist (find-all-facts ((?f alimento-permitido)) (eq ?f:alimento ?alim)))
+	(progn$ (?f ?flist)
+		(modify ?f (puntuacion (+ (fact-slot-value ?f puntuacion) 15)))
+	)
+	(retract ?air)
 )
 
 (defrule menu_martes ""
@@ -3381,6 +3592,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 	(assert (hay-menu-martes))
 )
 
@@ -3426,6 +3638,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 	(assert (hay-menu-miercoles))
 )
 
@@ -3472,6 +3685,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 	(assert (hay-menu-jueves))
 )
 
@@ -3517,6 +3731,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 	(assert (hay-menu-viernes))
 )
 
@@ -3562,6 +3777,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	(assert (actualizar-ingredientes-recomendados))
 	(assert (hay-menu-sabado))
 )
 
@@ -3607,6 +3823,7 @@
 		(postre_cen ?postre_cen)
 	))
 	(actualizacion-puntuaciones ?almuer_des ?entran_com ?platop_com ?postre_com ?entran_cen ?platop_cen ?postre_cen)
+	
 	(assert (hay-menu-domingo))
 )
 
