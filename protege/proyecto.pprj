@@ -1,7 +1,7 @@
-; Wed May 15 16:38:11 CEST 2019
+; Thu May 16 17:55:23 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 ([ANNOTATED_INSTANCE_WIDGET] of  Widget
 
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class10170]
-		[proyecto_ProjectKB_Class10171]
-		[proyecto_ProjectKB_Class10172]))
+		[proyecto_ProjectKB_Class326]
+		[proyecto_ProjectKB_Class327]
+		[proyecto_ProjectKB_Class328]))
 
 ([CLSES_TAB] of  Widget
 
@@ -70,9 +70,6 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_082758_Class3] of  Map
-)
-
 ([KB_259481_Class0] of  String
 
 	(name "factory_class_name")
@@ -81,9 +78,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class10173]
-		[proyecto_ProjectKB_Class10174]
-		[proyecto_ProjectKB_Class10175]))
+		[proyecto_ProjectKB_Class329]
+		[proyecto_ProjectKB_Class330]
+		[proyecto_ProjectKB_Class331]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -510,6 +507,9 @@
 	(name "classes_file_name")
 	(string_value "proyecto.pont"))
 
+([KB_385327_Class3] of  Map
+)
+
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -651,36 +651,36 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class10170] of  String
+([proyecto_ProjectKB_Class326] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class10171] of  String
+([proyecto_ProjectKB_Class327] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class10172] of  String
+([proyecto_ProjectKB_Class328] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class10173] of  Map_Entry
+([proyecto_ProjectKB_Class329] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10174] of  Map_Entry
+([proyecto_ProjectKB_Class330] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class10175] of  Map_Entry
+([proyecto_ProjectKB_Class331] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
