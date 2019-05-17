@@ -1,7 +1,7 @@
-; Thu May 16 17:55:58 CEST 2019
+; Fri May 17 15:00:13 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 663")
+;+ (build "Build 660")
 
 ([aceite+de+oliva] of  ingrediente_grasa
 )
@@ -65,6 +65,21 @@
 	(saturados 9.0))
 
 ([acidos+grasos+diarrea] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0))
+
+([acidos+grasos+fenilcetonuria] of  acidos_grasos
 
 	(c_14%3A0 -1.0)
 	(c_16%3A0 -1.0)
@@ -203,11 +218,13 @@
 
 ([agua] of  bebida
 
+	(cantidad_porcion 0.5)
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida))
 
 ([arroz+blanco] of  cereal
 
+	(cantidad_porcion 500.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes [ingrediente+arroz])
 	(momento_ingesta comida cena)
@@ -216,6 +233,7 @@
 
 ([arroz+con+leche] of  pasteleria
 
+	(cantidad_porcion 100.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes
 		[leche]
@@ -228,7 +246,7 @@
 
 ([arroz+con+pollo] of  cereal
 
-	(cantidad_porcion 220.0)
+	(cantidad_porcion 550.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes
 		[ingrediente+pollo]
@@ -241,6 +259,7 @@
 
 ([bizcocho+de+limon] of  pasteleria
 
+	(cantidad_porcion 100.0)
 	(ingrediente_principal [ingrediente+harina])
 	(ingredientes
 		[ingrediente+limon]
@@ -335,6 +354,13 @@
 	(numero_micronutrientes [micronutrientes+ensalada+de+atun])
 	(sal -1.0))
 
+([cantidades+fenilcetonuria] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+fenilcetonuria])
+	(numero_micronutrientes [micronutrientes+fenilcetonuria])
+	(sal -1.0))
+
 ([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
 
 	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
@@ -427,6 +453,7 @@
 
 ([cereales+con+miel] of  cereal
 
+	(cantidad_porcion 100.0)
 	(ingrediente_principal [ingrediente+cereal])
 	(ingredientes
 		[ingrediente+cereal]
@@ -437,6 +464,7 @@
 
 ([col+hervida] of  verdura
 
+	(cantidad_porcion 200.0)
 	(ingrediente_principal [ingrediente+col])
 	(ingredientes
 		[aceite+de+oliva]
@@ -454,7 +482,8 @@
 	(recomendaciones_diarias [restriccion+diarrea]))
 
 ([enfermedad+fenilcetonuria] of  enfermedad
-)
+
+	(recomendaciones_diarias [restriccion+fenilcetonuria]))
 
 ([enfermedad+hipertension] of  enfermedad
 
@@ -466,6 +495,7 @@
 
 ([ensalada+de+atun] of  pescado
 
+	(cantidad_porcion 300.0)
 	(ingrediente_principal [ingrediente+atun])
 	(ingredientes
 		[huevo]
@@ -476,6 +506,7 @@
 
 ([filetes+de+merluza+empanados] of  pescado
 
+	(cantidad_porcion 300.0)
 	(ingrediente_principal [ingrediente+merluza])
 	(ingredientes
 		[aceite+de+oliva]
@@ -488,6 +519,7 @@
 
 ([flan+de+huevo] of  lacteo
 
+	(cantidad_porcion 125.0)
 	(ingrediente_principal [huevo])
 	(ingredientes [huevo])
 	(momento_ingesta comida cena)
@@ -513,6 +545,7 @@
 
 ([hummus] of  legumbre
 
+	(cantidad_porcion 300.0)
 	(ingrediente_principal [ingrediente+garbanzo])
 	(ingredientes
 		[ingrediente+ajo]
@@ -732,6 +765,15 @@
 	(lipidos 9.3)
 	(numero_proteinas 16.04))
 
+([macronutrientes+fenilcetonuria] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2300.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+fenilcetonuria])
+	(lipidos -1.0)
+	(numero_proteinas 12.05))
+
 ([macronutrientes+filetes+de+merluza+empanados] of  macronutrientes
 
 	(carbohidratos 13.7)
@@ -880,6 +922,7 @@
 
 ([manzana] of  fruta
 
+	(cantidad_porcion 200.0)
 	(ingredientes [ingrediente+manzana])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
@@ -887,6 +930,7 @@
 
 ([menestra+de+verduras] of  verdura
 
+	(cantidad_porcion 250.0)
 	(ingrediente_principal [ingrediente+patata])
 	(ingredientes
 		[ingrediente+espinaca]
@@ -962,6 +1006,11 @@
 
 	(numero_minerales [minerales+ensalada+de+atun])
 	(numero_vitaminas [vitaminas+ensalada+de+atun]))
+
+([micronutrientes+fenilcetonuria] of  micronutrientes
+
+	(numero_minerales [minerales+fenilcetonuria])
+	(numero_vitaminas [vitaminas+fenilcetonuria]))
 
 ([micronutrientes+flan+de+huevo] of  micronutrientes
 
@@ -1209,6 +1258,20 @@
 	(sodio 402.0)
 	(zinc 0.56))
 
+([minerales+fenilcetonuria] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
+
 ([minerales+flan+de+huevo] of  mineral
 
 	(calcio 81.0)
@@ -1353,6 +1416,7 @@
 
 ([pasta+fresca+al+huevo] of  cereal
 
+	(cantidad_porcion 350.0)
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
 		[ingrediente+harina]
@@ -1363,6 +1427,7 @@
 
 ([pastel+de+manzana] of  pasteleria
 
+	(cantidad_porcion 150.0)
 	(ingrediente_principal [ingrediente+harina])
 	(ingredientes
 		[ingrediente+manzana]
@@ -1374,6 +1439,7 @@
 
 ([pera] of  fruta
 
+	(cantidad_porcion 200.0)
 	(ingredientes [ingrediente+pera])
 	(momento_ingesta desayuno comida cena)
 	(tipo postre)
@@ -1431,6 +1497,7 @@
 
 ([pure+de+patata] of  verdura
 
+	(cantidad_porcion 250.0)
 	(ingrediente_principal [ingrediente+patata])
 	(ingredientes
 		[ingrediente+patata]
@@ -1467,6 +1534,10 @@
 
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
 
+([restriccion+fenilcetonuria] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+fenilcetonuria]))
+
 ([restriccion+hipertension] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+hipertension])
@@ -1483,6 +1554,7 @@
 
 ([spaghetti+a+la+bolo%C3%B1esa+%28con+albondigas%29] of  cereal
 
+	(cantidad_porcion 350.0)
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
 		[ingrediente+ternera]
@@ -1496,6 +1568,7 @@
 
 ([tortellini+de+carne] of  cereal
 
+	(cantidad_porcion 350.0)
 	(ingrediente_principal [ingrediente+pasta])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
@@ -1503,6 +1576,7 @@
 
 ([tortelloni+de+espinacas] of  cereal
 
+	(cantidad_porcion 350.0)
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
 		[huevo]
@@ -1639,6 +1713,20 @@
 	(k 0.0)
 	(niacina 6.7))
 
+([vitaminas+fenilcetonuria] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_1 -1.0)
+	(b_12 -1.0)
+	(b_2 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0))
+
 ([vitaminas+flan+de+huevo] of  vitaminas
 
 	(a 39.0)
@@ -1759,6 +1847,7 @@
 
 ([whisky] of  bebida
 
+	(cantidad_porcion 0.5)
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida)
 	(valor_nutricional [cantidades+whisky]))
