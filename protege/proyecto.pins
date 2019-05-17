@@ -1,7 +1,7 @@
-; Wed May 15 16:38:11 CEST 2019
+; Thu May 16 17:55:58 CEST 2019
 ; 
 ;+ (version "3.5")
-;+ (build "Build 660")
+;+ (build "Build 663")
 
 ([aceite+de+oliva] of  ingrediente_grasa
 )
@@ -81,6 +81,21 @@
 
 ([acidos+grasos+filetes+de+merluza+empanados] of  acidos_grasos
 )
+
+([acidos+grasos+flan+de+huevo] of  acidos_grasos
+
+	(c_14%3A0 -1.0)
+	(c_16%3A0 -1.0)
+	(c_16%3A1 -1.0)
+	(c_18%3A0 -1.0)
+	(c_18%3A1 -1.0)
+	(c_18%3A2 -1.0)
+	(c_18%3A3 -1.0)
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0))
 
 ([acidos+grasos+hipertension] of  acidos_grasos
 
@@ -264,6 +279,13 @@
 	(numero_macronutrientes [macronutrientes+bizcocho])
 	(numero_micronutrientes [micronutrientes+bizcocho]))
 
+([cantidades+col+hervida] of  cantidades_nutricionales
+
+	(cantidad_agua 92.57)
+	(numero_macronutrientes [macronutrientes+col+hervida])
+	(numero_micronutrientes [micronutrientes+col+hervida])
+	(sal -1.0))
+
 ([cantidades+diabetes] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
@@ -306,9 +328,23 @@
 	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer])
 	(sal 6.0))
 
+([cantidades+ensalada+de+atun] of  cantidades_nutricionales
+
+	(cantidad_agua 63.16)
+	(numero_macronutrientes [macronutrientes+ensalada+de+atun])
+	(numero_micronutrientes [micronutrientes+ensalada+de+atun])
+	(sal -1.0))
+
 ([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
 
 	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
+
+([cantidades+flan+de+huevo] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+flan+de+huevo])
+	(numero_micronutrientes [micronutrientes+flan+de+huevo])
+	(sal -1.0))
 
 ([cantidades+hipertension] of  cantidades_nutricionales
 
@@ -399,6 +435,16 @@
 	(tipo principal)
 	(valor_nutricional [cantidad+nutricional+cereales+con+miel]))
 
+([col+hervida] of  verdura
+
+	(ingrediente_principal [ingrediente+col])
+	(ingredientes
+		[aceite+de+oliva]
+		[ingrediente+ajo])
+	(momento_ingesta comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+col+hervida]))
+
 ([enfermedad+diabetes] of  enfermedad
 
 	(recomendaciones_diarias [restriccion+diabetes]))
@@ -418,6 +464,16 @@
 
 	(recomendaciones_diarias [restriccion+osteoporosis]))
 
+([ensalada+de+atun] of  pescado
+
+	(ingrediente_principal [ingrediente+atun])
+	(ingredientes
+		[huevo]
+		[ingrediente+cebolla])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+ensalada+de+atun]))
+
 ([filetes+de+merluza+empanados] of  pescado
 
 	(ingrediente_principal [ingrediente+merluza])
@@ -429,6 +485,13 @@
 	(momento_ingesta comida cena)
 	(tipo principal)
 	(valor_nutricional [cantidades+filetes+de+merluza+empanados]))
+
+([flan+de+huevo] of  lacteo
+
+	(ingrediente_principal [huevo])
+	(ingredientes [huevo])
+	(momento_ingesta comida cena)
+	(tipo postre))
 
 ([grasas+whisky] of  acidos_grasos
 
@@ -465,6 +528,9 @@
 
 	(temporada todas))
 
+([ingrediente+atun] of  ingrediente_pescado
+)
+
 ([ingrediente+azucar] of  ingrediente_cereal
 )
 
@@ -474,6 +540,9 @@
 ([ingrediente+cereal] of  ingrediente_cereal
 
 	(temporada todas))
+
+([ingrediente+col] of  ingrediente_verdura
+)
 
 ([ingrediente+espinaca] of  ingrediente_verdura
 )
@@ -487,6 +556,9 @@
 ([ingrediente+harina] of  ingrediente_cereal
 
 	(temporada todas))
+
+([ingrediente+lechuga] of  ingrediente_verdura
+)
 
 ([ingrediente+lenteja] of  ingrediente_legumbre
 )
@@ -602,6 +674,14 @@
 	(lipidos 0.2)
 	(numero_proteinas 4.4))
 
+([macronutrientes+col+hervida] of  macronutrientes
+
+	(carbohidratos 5.51)
+	(energia 23.0)
+	(fibra_alimentaria -1.0)
+	(lipidos 0.06)
+	(numero_proteinas 1.3))
+
 ([macronutrientes+diabetes] of  macronutrientes
 
 	(carbohidratos 158.0)
@@ -644,12 +724,29 @@
 	(fibra_alimentaria 21.0)
 	(numero_proteinas 46.0))
 
+([macronutrientes+ensalada+de+atun] of  macronutrientes
+
+	(carbohidratos 9.41)
+	(energia 187.0)
+	(fibra_alimentaria 0.0)
+	(lipidos 9.3)
+	(numero_proteinas 16.04))
+
 ([macronutrientes+filetes+de+merluza+empanados] of  macronutrientes
 
 	(carbohidratos 13.7)
 	(energia 120.4)
 	(lipidos 1.6)
 	(numero_proteinas 12.8))
+
+([macronutrientes+flan+de+huevo] of  macronutrientes
+
+	(carbohidratos 21.9)
+	(energia 126.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+flan+de+huevo])
+	(lipidos 2.19)
+	(numero_proteinas 4.6))
 
 ([macronutrientes+hipertension] of  macronutrientes
 
@@ -826,6 +923,11 @@
 	(numero_minerales [minerales+cereales+con+miel])
 	(numero_vitaminas [vitaminas+cereales+con+miel]))
 
+([micronutrientes+col+hervida] of  micronutrientes
+
+	(numero_minerales [minerales+col+hervida])
+	(numero_vitaminas [vitaminas+col+hervida]))
+
 ([micronutrientes+diabetes] of  micronutrientes
 
 	(numero_minerales [minerales+diabetes])
@@ -855,6 +957,16 @@
 
 	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
+
+([micronutrientes+ensalada+de+atun] of  micronutrientes
+
+	(numero_minerales [minerales+ensalada+de+atun])
+	(numero_vitaminas [vitaminas+ensalada+de+atun]))
+
+([micronutrientes+flan+de+huevo] of  micronutrientes
+
+	(numero_minerales [minerales+flan+de+huevo])
+	(numero_vitaminas [vitaminas+flan+de+huevo]))
 
 ([micronutrientes+hipertension] of  micronutrientes
 
@@ -921,6 +1033,9 @@
 	(numero_minerales [minerales+yogur+natural+griego])
 	(numero_vitaminas [vitaminas+yogur+natural+griego]))
 
+([mincronutrientes+ensalada+de+atun] of  micronutrientes
+)
+
 ([minerales+arroz+blanco] of  mineral
 
 	(calcio 10.0)
@@ -981,6 +1096,20 @@
 	(selenio 0.0355)
 	(sodio 0.2)
 	(zinc 18.7))
+
+([minerales+col+hervida] of  mineral
+
+	(calcio 48.0)
+	(cobre 0.017)
+	(fluor 1.0)
+	(fosforo 33.0)
+	(hierro 0.17)
+	(iodo -1.0)
+	(magnesio 15.0)
+	(potasio 196.0)
+	(selenio 0.6)
+	(sodio 8.0)
+	(zinc 0.2))
 
 ([minerales+diabetes] of  mineral
 
@@ -1065,6 +1194,34 @@
 	(selenio 0.055)
 	(sodio 1200.0)
 	(zinc 8.0))
+
+([minerales+ensalada+de+atun] of  mineral
+
+	(calcio 17.0)
+	(cobre 0.145)
+	(fluor -1.0)
+	(fosforo 178.0)
+	(hierro 1.0)
+	(iodo -1.0)
+	(magnesio 19.0)
+	(potasio 178.0)
+	(selenio 41.2)
+	(sodio 402.0)
+	(zinc 0.56))
+
+([minerales+flan+de+huevo] of  mineral
+
+	(calcio 81.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo 120.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(potasio 130.0)
+	(selenio -1.0)
+	(sodio 95.0)
+	(zinc -1.0))
 
 ([minerales+hipertension] of  mineral
 
@@ -1261,6 +1418,17 @@
 	(cantidad_agua -1.0)
 	(sal -1.0))
 
+([proyecto_Class2] of  ingrediente_huevo
+)
+
+([proyecto_Class6] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([pure+de+patata] of  verdura
 
 	(ingrediente_principal [ingrediente+patata])
@@ -1382,6 +1550,20 @@
 	(c 0.0)
 	(niacina 1.9))
 
+([vitaminas+col+hervida] of  vitaminas
+
+	(a 0.004)
+	(acido_folico 0.0)
+	(b_1 -1.0)
+	(b_12 0.0)
+	(b_2 -1.0)
+	(b_6 0.112)
+	(c 37.5)
+	(d 0.0)
+	(e 0.14)
+	(k 0.108)
+	(niacina 0.248))
+
 ([vitaminas+diabetes] of  vitaminas
 
 	(a -1.0)
@@ -1442,6 +1624,34 @@
 	(d 0.02)
 	(e 15.0)
 	(niacina 14.0))
+
+([vitaminas+ensalada+de+atun] of  vitaminas
+
+	(a 0.024)
+	(acido_folico 0.0)
+	(b_1 -1.0)
+	(b_12 0.001)
+	(b_2 0.0)
+	(b_6 0.081)
+	(c 2.2)
+	(d 0.0)
+	(e 0.0)
+	(k 0.0)
+	(niacina 6.7))
+
+([vitaminas+flan+de+huevo] of  vitaminas
+
+	(a 39.0)
+	(acido_folico 0.25)
+	(b_1 -1.0)
+	(b_12 0.7)
+	(b_2 0.12)
+	(b_6 -1.0)
+	(c -1.0)
+	(d 0.4)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0))
 
 ([vitaminas+hipertension] of  vitaminas
 )
