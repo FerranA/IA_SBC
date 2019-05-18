@@ -7212,7 +7212,9 @@
 
 	(if (or (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) (< (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmin calcio))) then
 			(return FALSE)
-	)
+	else (if (or (> (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmax proteinas)) (< (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmin proteinas))) then
+			(return FALSE)
+	))
 	(return TRUE)
 )
 
@@ -7237,7 +7239,9 @@
 
 	(if (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) then
 			(return FALSE)
-	)
+	else (if (> (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmax proteinas)) then
+			(return FALSE)
+	))
 	(return TRUE)
 )
 
