@@ -1,4 +1,4 @@
-; Sat May 18 17:39:28 CEST 2019
+; Sun May 19 00:18:56 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -381,7 +381,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo ingrediente_pescado ingrediente_bebida ingrediente_fruta ingrediente_huevo ingrediente_grasa ingrediente_legumbre ingrediente_verdura ingrediente_cereal ingrediente_otro)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
@@ -623,7 +623,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo ingrediente_pescado ingrediente_bebida ingrediente_fruta ingrediente_huevo ingrediente_grasa ingrediente_legumbre ingrediente_verdura ingrediente_cereal ingrediente_otro)
 		(create-accessor read-write))
 	(multislot evitar_ingrediente
 		(type INSTANCE)

@@ -1,4 +1,4 @@
-; Sat May 18 17:39:28 CEST 2019
+; Sun May 19 00:18:56 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class558]
-		[proyecto_ProjectKB_Class559]
-		[proyecto_ProjectKB_Class560]))
+		[proyecto_ProjectKB_Class370]
+		[proyecto_ProjectKB_Class371]
+		[proyecto_ProjectKB_Class372]))
 
 ([CLSES_TAB] of  Widget
 
@@ -70,6 +70,9 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
+([KB_078571_Class3] of  Map
+)
+
 ([KB_259481_Class0] of  String
 
 	(name "factory_class_name")
@@ -78,9 +81,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class561]
-		[proyecto_ProjectKB_Class562]
-		[proyecto_ProjectKB_Class563]))
+		[proyecto_ProjectKB_Class373]
+		[proyecto_ProjectKB_Class374]
+		[proyecto_ProjectKB_Class375]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -507,9 +510,6 @@
 	(name "classes_file_name")
 	(string_value "proyecto.pont"))
 
-([KB_509214_Class3] of  Map
-)
-
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -651,279 +651,41 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class157] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "b_2")
-	(property_list [proyecto_ProjectKB_Class158])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 200)
-	(y 0))
-
-([proyecto_ProjectKB_Class158] of  Property_List
-)
-
-([proyecto_ProjectKB_Class159] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "b_1")
-	(property_list [proyecto_ProjectKB_Class160])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 0)
-	(y 120))
-
-([proyecto_ProjectKB_Class160] of  Property_List
-)
-
-([proyecto_ProjectKB_Class161] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "tiamina")
-	(property_list [proyecto_ProjectKB_Class162])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([proyecto_ProjectKB_Class162] of  Property_List
-)
-
-([proyecto_ProjectKB_Class165] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "choline")
-	(property_list [proyecto_ProjectKB_Class166])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([proyecto_ProjectKB_Class166] of  Property_List
-)
-
-([proyecto_ProjectKB_Class169] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "pantothenic_acid")
-	(property_list [proyecto_ProjectKB_Class170])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 300))
-
-([proyecto_ProjectKB_Class170] of  Property_List
-)
-
-([proyecto_ProjectKB_Class173] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "riboflavin")
-	(property_list [proyecto_ProjectKB_Class174])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 360))
-
-([proyecto_ProjectKB_Class174] of  Property_List
-)
-
-([proyecto_ProjectKB_Class177] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "trans")
-	(property_list [proyecto_ProjectKB_Class178])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 120))
-
-([proyecto_ProjectKB_Class178] of  Property_List
-)
-
-([proyecto_ProjectKB_Class181] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "octadecadienoic_acid")
-	(property_list [proyecto_ProjectKB_Class182])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([proyecto_ProjectKB_Class182] of  Property_List
-)
-
-([proyecto_ProjectKB_Class185] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "octadecatetraenoic_acid")
-	(property_list [proyecto_ProjectKB_Class186])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 240))
-
-([proyecto_ProjectKB_Class186] of  Property_List
-)
-
-([proyecto_ProjectKB_Class196] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "manganese")
-	(property_list [proyecto_ProjectKB_Class197])
-	(widget_class_name "edu.stanford.smi.protege.widget.TextFieldWidget")
-	(width 200)
-	(x 0)
-	(y 180))
-
-([proyecto_ProjectKB_Class197] of  Property_List
-)
-
-([proyecto_ProjectKB_Class558] of  String
+([proyecto_ProjectKB_Class370] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class559] of  String
+([proyecto_ProjectKB_Class371] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class560] of  String
+([proyecto_ProjectKB_Class372] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class561] of  Map_Entry
+([proyecto_ProjectKB_Class373] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class562] of  Map_Entry
+([proyecto_ProjectKB_Class374] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class563] of  Map_Entry
+([proyecto_ProjectKB_Class375] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
-
-([proyecto_ProjectKB_Class68] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_16:0")
-	(property_list [proyecto_ProjectKB_Class69])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 100)
-	(y 60))
-
-([proyecto_ProjectKB_Class69] of  Property_List
-)
-
-([proyecto_ProjectKB_Class70] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_18:0")
-	(property_list [proyecto_ProjectKB_Class71])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 100)
-	(y 120))
-
-([proyecto_ProjectKB_Class71] of  Property_List
-)
-
-([proyecto_ProjectKB_Class72] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_16:1")
-	(property_list [proyecto_ProjectKB_Class73])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 0)
-	(y 120))
-
-([proyecto_ProjectKB_Class73] of  Property_List
-)
-
-([proyecto_ProjectKB_Class74] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_18:2")
-	(property_list [proyecto_ProjectKB_Class75])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 300)
-	(y 0))
-
-([proyecto_ProjectKB_Class75] of  Property_List
-)
-
-([proyecto_ProjectKB_Class76] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_18:1")
-	(property_list [proyecto_ProjectKB_Class77])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 200)
-	(y 0))
-
-([proyecto_ProjectKB_Class77] of  Property_List
-)
-
-([proyecto_ProjectKB_Class78] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_18:3")
-	(property_list [proyecto_ProjectKB_Class79])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 200)
-	(y 60))
-
-([proyecto_ProjectKB_Class79] of  Property_List
-)
-
-([proyecto_ProjectKB_Class92] of  Widget
-
-	(height 60)
-	(is_hidden FALSE)
-	(name "c_14:0")
-	(property_list [proyecto_ProjectKB_Class93])
-	(widget_class_name "edu.stanford.smi.protege.widget.FloatFieldWidget")
-	(width 100)
-	(x 0)
-	(y 60))
-
-([proyecto_ProjectKB_Class93] of  Property_List
-)
 
 ([QUERIES_TAB] of  Widget
 
