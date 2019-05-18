@@ -1,4 +1,4 @@
-; Fri May 17 15:00:13 CEST 2019
+; Sat May 18 14:22:58 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,6 +20,11 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot choline
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot sal
 		(type FLOAT)
 		(default -1.0)
@@ -28,6 +33,11 @@
 	(single-slot numero_minerales
 		(type INSTANCE)
 ;+		(allowed-classes mineral)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tiamina
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot fosforo
@@ -58,11 +68,21 @@
 ;+		(allowed-classes acidos_grasos)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot riboflavin
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot nombre_vitaminas
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot hierro
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot trans
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -270,8 +290,18 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot octadecatrienoic_acid
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot nombre_cantidades
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot octadecadienoic_acid
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_macronutrientes
@@ -279,6 +309,11 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot k
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot manganese
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -413,6 +448,11 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot pantothenic_acid
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot cobre
 		(type FLOAT)
 		(default -1.0)
@@ -493,6 +533,10 @@
 	(role concrete))
 
 (defclass ingrediente_bebida
+	(is-a ingrediente)
+	(role concrete))
+
+(defclass ingrediente_otro
 	(is-a ingrediente)
 	(role concrete))
 
@@ -612,35 +656,25 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
-(defclass acidos_grasos "todos los valores estan en gramos"
+(defclass acidos_grasos "todos los valores estan en gramos menos el colesterol que está en minigramos"
 	(is-a USER)
 	(role concrete)
-	(single-slot c_16%3A0
+	(single-slot octadecatrienoic_acid
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot c_18%3A0
+	(single-slot octadecadienoic_acid
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot c_16%3A1
+	(single-slot poliinsaturados
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot c_18%3A2
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot c_18%3A1
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot c_18%3A3
+	(single-slot trans
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -655,26 +689,16 @@
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot %3ANAME
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot colesterol
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot monoinsaturados
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot poliinsaturados
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot %3ANAME
-		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot c_14%3A0
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -700,8 +724,18 @@
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot choline
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot a
 ;+		(comment "retinol")
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tiamina
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -722,6 +756,16 @@
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot pantothenic_acid
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot riboflavin
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot k
 		(type FLOAT)
 		(default -1.0)
@@ -734,18 +778,6 @@
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot b_2
-;+		(comment "riboflavina")
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot b_1
-;+		(comment "tiamina")
-		(type FLOAT)
-		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
@@ -853,6 +885,11 @@
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot manganese
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot hierro
 		(type FLOAT)
 		(default -1.0)
@@ -938,6 +975,14 @@
 	(role concrete))
 
 (defclass lacteo
+	(is-a alimento)
+	(role concrete))
+
+(defclass carne
+	(is-a alimento)
+	(role concrete))
+
+(defclass otro
 	(is-a alimento)
 	(role concrete))
 
