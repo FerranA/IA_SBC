@@ -4341,7 +4341,7 @@
 	=>
 	(bind ?respuesta (ask-yn "Tienes alguna preferencia alimenticia? (Si/No) "))
 	(while (not (eq ?respuesta no))
-		(bind ?preferencia (ask-wever "Que preferencia? "))
+		(bind ?preferencia (ask "Que preferencia? (Vegetariano) " vegetariano))
 		(assert (tiene-preferencia ?preferencia))
 		(bind ?respuesta (ask-yn "Tienes alguna otra preferencia alimenticia? (Si/No) "))
 	)
@@ -4353,7 +4353,7 @@
 	=>
 	(bind ?respuesta (ask-yn "Padeces alguna enfermedad? (Si/No) "))
 	(while (not (eq ?respuesta no))
-		(bind ?enfermedad (ask-wever "Que enfermedad? "))
+		(bind ?enfermedad (ask "Que enfermedad? (Diabetes/Diarrea/Fenilcetonuria/Hipertension/Osteoporosis) " diabetes diarrea fenilcetonuria hipertension osteoporosis))
 		(assert (tiene-enfermedad ?enfermedad))
 		(bind ?respuesta (ask-yn "Padeces alguna otra enfermedad? (Si/No) "))
 	)
