@@ -1,4 +1,4 @@
-; Sat May 18 15:09:52 CEST 2019
+; Sun May 19 00:18:56 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -381,7 +381,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo ingrediente_pescado ingrediente_bebida ingrediente_fruta ingrediente_huevo ingrediente_grasa ingrediente_legumbre ingrediente_verdura ingrediente_cereal ingrediente_otro)
 		(create-accessor read-write))
 	(single-slot etanol
 		(type FLOAT)
@@ -623,7 +623,7 @@
 		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
-;+		(allowed-parents ingrediente_carne ingrediente_lacteo)
+;+		(allowed-parents ingrediente_carne ingrediente_lacteo ingrediente_pescado ingrediente_bebida ingrediente_fruta ingrediente_huevo ingrediente_grasa ingrediente_legumbre ingrediente_verdura ingrediente_cereal ingrediente_otro)
 		(create-accessor read-write))
 	(multislot evitar_ingrediente
 		(type INSTANCE)
@@ -991,7 +991,7 @@
 	(role concrete))
 
 (definstances instancias
-; Sat May 18 15:09:52 CEST 2019
+; Sun May 19 00:18:56 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -1007,9 +1007,53 @@
 	(saturados 0.0)
 	(trans 0.0))
 
+([acidos+grasos] of  acidos_grasos
+
+	(colesterol 114.0)
+	(etanol -1.0)
+	(monoinsaturados 7.747)
+	(octadecadienoic_acid 0.263)
+	(octadecatrienoic_acid 0.394)
+	(poliinsaturados 0.657)
+	(saturados 17.614)
+	(trans -1.0))
+
+([acidos+grasos+albaricoque] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 0.17)
+	(octadecadienoic_acid 0.077)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 0.077)
+	(saturados 0.027)
+	(trans 0.0))
+
+([acidos+grasos+alcachofas+cocidas] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 0.011)
+	(octadecadienoic_acid 0.105)
+	(octadecatrienoic_acid 0.038)
+	(poliinsaturados 0.145)
+	(saturados 0.079)
+	(trans 0.0))
+
 ([acidos+grasos+arroz+blanco] of  acidos_grasos
 
 	(colesterol 0.0))
+
+([acidos+grasos+arroz+con+frijoles] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados 0.889)
+	(octadecadienoic_acid 1.313)
+	(octadecatrienoic_acid 0.014)
+	(poliinsaturados 1.557)
+	(saturados 0.729)
+	(trans 0.047))
 
 ([acidos+grasos+arroz+con+leche] of  acidos_grasos
 
@@ -1023,6 +1067,17 @@
 	(monoinsaturados 1799.0)
 	(poliinsaturados 1564.0)
 	(saturados 1101.0))
+
+([acidos+grasos+atun+fresco] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados 0.138)
+	(octadecadienoic_acid 0.023)
+	(octadecatrienoic_acid 0.002)
+	(poliinsaturados 0.175)
+	(saturados 0.205)
+	(trans 0.02))
 
 ([acidos+grasos+banana] of  acidos_grasos
 
@@ -1041,6 +1096,17 @@
 	(monoinsaturados 5.4)
 	(poliinsaturados 1.2)
 	(saturados 6.2))
+
+([acidos+grasos+cacahuetes] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 23.065)
+	(octadecadienoic_acid 17.76)
+	(octadecatrienoic_acid 0.01)
+	(poliinsaturados 17.76)
+	(saturados 7.894)
+	(trans -1.0))
 
 ([acidos+grasos+cereales+con+miel] of  acidos_grasos
 
@@ -1069,6 +1135,17 @@
 	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+cortezas] of  acidos_grasos
+
+	(colesterol 115.0)
+	(etanol -1.0)
+	(monoinsaturados 15.03)
+	(octadecadienoic_acid 3.41)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 3.45)
+	(saturados 11.56)
 	(trans -1.0))
 
 ([acidos+grasos+diabetes] of  acidos_grasos
@@ -1164,6 +1241,28 @@
 	(saturados 1.437)
 	(trans 0.025))
 
+([acidos+grasos+esparragos+cocidos] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados 0.0)
+	(octadecadienoic_acid 0.076)
+	(octadecatrienoic_acid 0.029)
+	(poliinsaturados 0.0)
+	(saturados 0.048)
+	(trans 0.0))
+
+([acidos+grasos+esturion+fresco] of  acidos_grasos
+
+	(colesterol 77.0)
+	(etanol -1.0)
+	(monoinsaturados 2.486)
+	(octadecadienoic_acid 0.087)
+	(octadecatrienoic_acid 0.128)
+	(poliinsaturados 0.885)
+	(saturados 1.173)
+	(trans -1.0))
+
 ([acidos+grasos+fenilcetonuria] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -1182,6 +1281,39 @@
 	(monoinsaturados -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0))
+
+([acidos+grasos+frijoles] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados 2.133)
+	(octadecadienoic_acid 0.593)
+	(octadecatrienoic_acid 0.147)
+	(poliinsaturados 0.74)
+	(saturados 1.948)
+	(trans 0.0))
+
+([acidos+grasos+gelatina] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol 0.0)
+	(monoinsaturados 0.0)
+	(octadecadienoic_acid 0.0)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 0.0)
+	(saturados 0.0)
+	(trans -1.0))
+
+([acidos+grasos+hamburguesa+de+ternera] of  acidos_grasos
+
+	(colesterol 38.0)
+	(etanol -1.0)
+	(monoinsaturados 4.407)
+	(octadecadienoic_acid 1.195)
+	(octadecatrienoic_acid 0.161)
+	(poliinsaturados 1.405)
+	(saturados 5.191)
+	(trans 0.394))
 
 ([acidos+grasos+hipertension] of  acidos_grasos
 
@@ -1235,8 +1367,11 @@
 	(colesterol 0.0)
 	(etanol 0.0)
 	(monoinsaturados 0.0)
+	(octadecadienoic_acid 0.0)
+	(octadecatrienoic_acid 0.0)
 	(poliinsaturados 0.0)
-	(saturados 0.0))
+	(saturados 0.0)
+	(trans 0.0))
 
 ([acidos+grasos+menestra+de+verduras] of  acidos_grasos
 
@@ -1268,6 +1403,17 @@
 	(poliinsaturados 1.2)
 	(saturados 6.1))
 
+([acidos+grasos+pato+estofado] of  acidos_grasos
+
+	(colesterol 105.0)
+	(etanol -1.0)
+	(monoinsaturados 2.637)
+	(octadecadienoic_acid 0.817)
+	(octadecatrienoic_acid 0.039)
+	(poliinsaturados 0.909)
+	(saturados 1.339)
+	(trans -1.0))
+
 ([acidos+grasos+pera] of  acidos_grasos
 
 	(colesterol 0.0)
@@ -1287,10 +1433,65 @@
 	(saturados 0.009)
 	(trans 0.0))
 
+([acidos+grasos+pollo+al+ast] of  acidos_grasos
+
+	(colesterol 120.0)
+	(etanol -1.0)
+	(monoinsaturados 14.464)
+	(octadecadienoic_acid 3.739)
+	(octadecatrienoic_acid 0.183)
+	(poliinsaturados 4.018)
+	(saturados 9.33)
+	(trans 0.438))
+
 ([acidos+grasos+pure+de+patata] of  acidos_grasos
 
 	(colesterol 0.0)
 	(poliinsaturados 0.0))
+
+([acidos+grasos+quesadillas+de+queso] of  acidos_grasos
+
+	(colesterol 59.0)
+	(etanol -1.0)
+	(monoinsaturados 6.309)
+	(octadecadienoic_acid 2.072)
+	(octadecatrienoic_acid 0.208)
+	(poliinsaturados 2.361)
+	(saturados 12.976)
+	(trans 0.635))
+
+([acidos+grasos+queso+brie] of  acidos_grasos
+
+	(colesterol 100.0)
+	(etanol -1.0)
+	(monoinsaturados 8.013)
+	(octadecadienoic_acid 0.513)
+	(octadecatrienoic_acid 0.313)
+	(poliinsaturados 0.826)
+	(saturados 17.41)
+	(trans -1.0))
+
+([acidos+grasos+queso+edam] of  acidos_grasos
+
+	(colesterol 89.0)
+	(etanol -1.0)
+	(monoinsaturados 8.125)
+	(octadecadienoic_acid 0.418)
+	(octadecatrienoic_acid 0.247)
+	(poliinsaturados 0.665)
+	(saturados 17.572)
+	(trans -1.0))
+
+([acidos+grasos+raviolis+con+queso] of  acidos_grasos
+
+	(colesterol 23.0)
+	(etanol -1.0)
+	(monoinsaturados 1.428)
+	(octadecadienoic_acid 0.462)
+	(octadecatrienoic_acid 0.067)
+	(poliinsaturados 0.547)
+	(saturados 2.531)
+	(trans 0.121))
 
 ([acidos+grasos+salchichas+de+cerdo] of  acidos_grasos
 
@@ -1302,6 +1503,39 @@
 	(poliinsaturados 4.073)
 	(saturados 12.825)
 	(trans -1.0))
+
+([acidos+grasos+salchichas+de+ternera] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol 82.0)
+	(monoinsaturados 12.639)
+	(octadecadienoic_acid 0.568)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 0.663)
+	(saturados 10.905)
+	(trans 0.0))
+
+([acidos+grasos+salmon+fresco] of  acidos_grasos
+
+	(colesterol 55.0)
+	(etanol -1.0)
+	(monoinsaturados 1.581)
+	(octadecadienoic_acid 0.056)
+	(octadecatrienoic_acid 0.055)
+	(poliinsaturados 1.273)
+	(saturados 1.054)
+	(trans -1.0))
+
+([acidos+grasos+sandia] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 0.037)
+	(octadecadienoic_acid 0.05)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 0.05)
+	(saturados 0.016)
+	(trans 0.0))
 
 ([acidos+grasos+solomillo+de+ternera] of  acidos_grasos
 
@@ -1343,6 +1577,17 @@
 	(poliinsaturados 1.213)
 	(saturados 3.104))
 
+([acidos+grasos+tiras+de+pollo] of  acidos_grasos
+
+	(colesterol 46.0)
+	(etanol -1.0)
+	(monoinsaturados 3.865)
+	(octadecadienoic_acid 7.152)
+	(octadecatrienoic_acid 0.704)
+	(poliinsaturados 7.935)
+	(saturados 2.946)
+	(trans 0.133))
+
 ([acidos+grasos+tortellini+de+carne] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -1365,12 +1610,64 @@
 	(saturados -1.0)
 	(trans -1.0))
 
+([acidos+grasos+trucha+fresca] of  acidos_grasos
+
+	(colesterol 70.0)
+	(etanol -1.0)
+	(monoinsaturados 2.363)
+	(octadecadienoic_acid 0.588)
+	(octadecatrienoic_acid 0.08)
+	(poliinsaturados 1.799)
+	(saturados 1.651)
+	(trans 0.056))
+
+([acidos+grasos+uvas] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 0.081)
+	(octadecadienoic_acid 0.148)
+	(octadecatrienoic_acid 0.856)
+	(poliinsaturados 1.065)
+	(saturados 0.336)
+	(trans 0.0))
+
+([acidos+grasos+vaso+de+leche] of  acidos_grasos
+
+	(colesterol 5.0)
+	(etanol -1.0)
+	(monoinsaturados 0.277)
+	(octadecadienoic_acid 0.03)
+	(octadecatrienoic_acid 0.004)
+	(poliinsaturados 0.035)
+	(saturados 0.633)
+	(trans -1.0))
+
+([acidos+grasos+whisky] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol 0.035)
+	(monoinsaturados 0.0)
+	(poliinsaturados 0.0)
+	(saturados 0.0))
+
 ([acidos+grasos+yogur+natural+griego] of  acidos_grasos
 
 	(colesterol 0.013)
 	(monoinsaturados 2136.0)
 	(poliinsaturados 0.469)
 	(saturados 2395.0))
+
+([acidos+grasos+yogurt+de+vainilla] of  acidos_grasos
+
+	(colesterol 3.0)
+	(etanol -1.0)
+	(monoinsaturados 0.0)
+	(octadecadienoic_acid 0.0)
+	(octadecatrienoic_acid 0.0)
+	(poliinsaturados 0.0)
+	(saturados 0.0)
+	(trans -1.0))
 
 ([acidos+grasos+zumo+de+ciruela] of  acidos_grasos
 
@@ -1379,6 +1676,17 @@
 	(monoinsaturados 0.025)
 	(poliinsaturados 0.034)
 	(saturados 0.018))
+
+([acidos+grasos+zumo+de+manzana] of  acidos_grasos
+
+	(colesterol 0.0)
+	(etanol -1.0)
+	(monoinsaturados 0.008)
+	(octadecadienoic_acid 0.043)
+	(octadecatrienoic_acid 0.009)
+	(poliinsaturados 0.051)
+	(saturados 0.029)
+	(trans 0.0))
 
 ([acidos+grasos+zumo+de+naranja] of  acidos_grasos
 
@@ -1414,6 +1722,24 @@
 	(tipo bebida)
 	(valor_nutricional [cantidades+agua]))
 
+([albaricoque] of  fruta
+
+	(cantidad_porcion 105.0)
+	(ingrediente_principal [ingrediente+albaricoque])
+	(ingredientes [ingrediente+albaricoque])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+albaricoque]))
+
+([alcachofas+cocidas] of  verdura
+
+	(cantidad_porcion 84.0)
+	(ingrediente_principal [ingrediente+alcachofa])
+	(ingredientes [ingrediente+alcachofa])
+	(momento_ingesta comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+alcachofas+cocidas]))
+
 ([arroz+blanco] of  cereal
 
 	(cantidad_porcion 500.0)
@@ -1422,6 +1748,17 @@
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+arroz+blanco]))
+
+([arroz+con+frijoles] of  cereal
+
+	(cantidad_porcion 350.0)
+	(ingrediente_principal [ingrediente+arroz])
+	(ingredientes
+		[ingrediente+arroz]
+		[ingrediente_frijol])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+arroz+con+frijoles]))
 
 ([arroz+con+leche] of  pasteleria
 
@@ -1449,6 +1786,15 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+arroz+con+pollo]))
 
+([atun+fresco] of  pescado
+
+	(cantidad_porcion 110.0)
+	(ingrediente_principal [ingrediente+atun])
+	(ingredientes [ingrediente+atun])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+atun+fresco]))
+
 ([banana] of  fruta
 
 	(cantidad_porcion 118.0)
@@ -1472,6 +1818,18 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+bizcocho]))
 
+([cacahuete] of  ingrediente_otro
+)
+
+([cacahuetes] of  otro
+
+	(cantidad_porcion 104.0)
+	(ingrediente_principal [cacahuete])
+	(ingredientes [cacahuete])
+	(momento_ingesta comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+cacahuetes]))
+
 ([cantidades+agua] of  cantidades_nutricionales
 
 	(cantidad_agua 500.0)
@@ -1479,11 +1837,32 @@
 	(numero_micronutrientes [micronutreintes+agua])
 	(sal -1.0))
 
+([cantidades+albaricoque] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08635)
+	(numero_macronutrientes [macronutrientes+albaricoque])
+	(numero_micronutrientes [micronutrientes+albaricoque])
+	(sal -1.0))
+
+([cantidades+alcachofas+cocidas] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08408)
+	(numero_macronutrientes [macronutrientes+alcachofas+cocidas])
+	(numero_micronutrientes [micronutrientes+alcachofas+cocidas])
+	(sal -1.0))
+
 ([cantidades+arroz+blanco] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+arroz+blanco])
 	(numero_micronutrientes [micronutrientes+arroz+blanco])
+	(sal -1.0))
+
+([cantidades+arroz+con+frijoles] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06547)
+	(numero_macronutrientes [macronutrientes+arroz+con+frijoles])
+	(numero_micronutrientes [micronutrientes+arroz+con+frijoles])
 	(sal -1.0))
 
 ([cantidades+arroz+con+leche] of  cantidades_nutricionales
@@ -1500,6 +1879,13 @@
 	(numero_micronutrientes [micronutrientes+arroz+con+pollo])
 	(sal -1.0))
 
+([cantidades+atun+fresco] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06898)
+	(numero_macronutrientes [macronutrientes+atun+fresco])
+	(numero_micronutrientes [micronutrientes+atun+fresco])
+	(sal -1.0))
+
 ([cantidades+banana] of  cantidades_nutricionales
 
 	(cantidad_agua 0.07491)
@@ -1512,6 +1898,13 @@
 	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+bizcocho])
 	(numero_micronutrientes [micronutrientes+bizcocho])
+	(sal -1.0))
+
+([cantidades+cacahuetes] of  cantidades_nutricionales
+
+	(cantidad_agua 0.00212)
+	(numero_macronutrientes [macronutrientes+cacahuetes])
+	(numero_micronutrientes [micronutrientes+cacahuetes])
 	(sal -1.0))
 
 ([cantidades+cereales+con+miel] of  cantidades_nutricionales
@@ -1533,6 +1926,13 @@
 	(cantidad_agua 92.57)
 	(numero_macronutrientes [macronutrientes+col+hervida])
 	(numero_micronutrientes [micronutrientes+col+hervida])
+	(sal -1.0))
+
+([cantidades+cortezas] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0021)
+	(numero_macronutrientes [macronutrientes+cortezas])
+	(numero_micronutrientes [micronutrientes+cortezas])
 	(sal -1.0))
 
 ([cantidades+diabetes] of  cantidades_nutricionales
@@ -1598,6 +1998,19 @@
 	(numero_micronutrientes [micronutrientes+ensaladilla+rusa])
 	(sal -1.0))
 
+([cantidades+esparragos+cocidos] of  cantidades_nutricionales
+
+	(cantidad_agua 92.63)
+	(numero_macronutrientes [macronutrientes+esparragos])
+	(sal -1.0))
+
+([cantidades+esturion+fresco] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06994)
+	(numero_macronutrientes [macronutrientes+esturion+fresco])
+	(numero_micronutrientes [micronutrientes+esturion+fresco])
+	(sal -1.0))
+
 ([cantidades+fenilcetonuria] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
@@ -1617,6 +2030,27 @@
 	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+flan+de+huevo])
 	(numero_micronutrientes [micronutrientes+flan+de+huevo])
+	(sal -1.0))
+
+([cantidades+frijoles] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06517)
+	(numero_macronutrientes [macronutrientes+frijoles])
+	(numero_micronutrientes [micronutrientes+frijoles])
+	(sal -1.0))
+
+([cantidades+gelatina] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08439)
+	(numero_macronutrientes [macronutientes+gelatina])
+	(numero_micronutrientes [micronutrientes+gelatina])
+	(sal -1.0))
+
+([cantidades+hamburguesa+de+ternera] of  cantidades_nutricionales
+
+	(cantidad_agua 57.5)
+	(numero_macronutrientes [macronutrientes+hamburguesa+de+ternera])
+	(numero_micronutrientes [micronutrientes+hamburguesa+de+ternera])
 	(sal -1.0))
 
 ([cantidades+hipertension] of  cantidades_nutricionales
@@ -1696,6 +2130,13 @@
 	(numero_micronutrientes [micronutrientes+pastel+de+manzana])
 	(sal -1.0))
 
+([cantidades+pato+estofado] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0646)
+	(numero_macronutrientes [macronutrientes+pato+estofado])
+	(numero_micronutrientes [micronutrientes+pato+estofado])
+	(sal -1.0))
+
 ([cantidades+pera] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
@@ -1710,6 +2151,13 @@
 	(numero_micronutrientes [micronutrientes+pi%C3%B1a])
 	(sal -1.0))
 
+([cantidades+pollo+al+ast] of  cantidades_nutricionales
+
+	(cantidad_agua 0.04781)
+	(numero_macronutrientes [macronutrientes+pollo+al+ast])
+	(numero_micronutrientes [micronutrientes+pollo+al+ast])
+	(sal -1.0))
+
 ([cantidades+pure+de+patata] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
@@ -1717,11 +2165,60 @@
 	(numero_micronutrientes [micronutrientes+pure+de+patata])
 	(sal -1.0))
 
+([cantidades+quesadillas+de+queso] of  cantidades_nutricionales
+
+	(cantidad_agua 0.03031)
+	(numero_macronutrientes [macronutrientes+quesadillas+de+queso])
+	(numero_micronutrientes [micronutrientes+quesadillas+de+queso])
+	(sal -1.0))
+
+([cantidades+queso+brie] of  cantidades_nutricionales
+
+	(cantidad_agua 0.04842)
+	(numero_macronutrientes [macronutrientes+queso+brie])
+	(numero_micronutrientes [micronutrientes+queso+brie])
+	(sal -1.0))
+
+([cantidades+queso+edam] of  cantidades_nutricionales
+
+	(cantidad_agua 0.04156)
+	(numero_macronutrientes [macronutrientes+queso+edam])
+	(numero_micronutrientes [micronuetrientes+queso+edam])
+	(sal -1.0))
+
+([cantidades+raviolis+de+queso] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06596)
+	(numero_macronutrientes [macronutrientes+raviolis+de+queso])
+	(numero_micronutrientes [micronutrientes+raviolis+de+queso])
+	(sal -1.0))
+
 ([cantidades+salchichas+de+cerdo] of  cantidades_nutricionales
 
 	(cantidad_agua 0.0441)
 	(numero_macronutrientes [macronutrientes+salchichas+de+cerdo])
 	(numero_micronutrientes [micronutrientes+salchichas+de+cerdo])
+	(sal -1.0))
+
+([cantidades+salchichas+de+ternera] of  cantidades_nutricionales
+
+	(cantidad_agua 0.05112)
+	(numero_macronutrientes [macronutrientes+salchichas+de+ternera])
+	(numero_micronutrientes [micronutrientes+salchichas+de+ternera])
+	(sal -1.0))
+
+([cantidades+salmon+fresco] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0715)
+	(numero_macronutrientes [macronutrientes+salmon+fresco])
+	(numero_micronutrientes [micronutrientes+salmon+fresco])
+	(sal -1.0))
+
+([cantidades+sandia] of  cantidades_nutricionales
+
+	(cantidad_agua 0.09145)
+	(numero_macronutrientes [macronutrientes+sandia])
+	(numero_micronutrientes [micronutrientes+sandia])
 	(sal -1.0))
 
 ([cantidades+solomillo+de+ternera] of  cantidades_nutricionales
@@ -1752,6 +2249,13 @@
 	(numero_micronutrientes [micronutrientes+spaghetti+a+la+bolo%C3%B1esa])
 	(sal -1.0))
 
+([cantidades+tiras+de+pollo] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0423)
+	(numero_macronutrientes [macronutrientes+tiras+de+pollo])
+	(numero_micronutrientes [micronutrientes+tiras+de+pollo])
+	(sal -1.0))
+
 ([cantidades+tortellini+de+carne] of  cantidades_nutricionales
 
 	(cantidad_agua -1.0)
@@ -1764,6 +2268,27 @@
 	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+tortelloni+de+espinacas])
 	(numero_micronutrientes [macronutrientes+tortellini+de+espinacas])
+	(sal -1.0))
+
+([cantidades+trucha+fresca] of  cantidades_nutricionales
+
+	(cantidad_agua 68.72)
+	(numero_macronutrientes [macronutrientes+trucha+fresca])
+	(numero_micronutrientes [micronutrientes+trucha+fresca])
+	(sal -1.0))
+
+([cantidades+uvas] of  cantidades_nutricionales
+
+	(cantidad_agua 0.07332)
+	(numero_macronutrientes [macronutrientes+uvas])
+	(numero_micronutrientes [micronutrientes+uvas])
+	(sal -1.0))
+
+([cantidades+vaso+de+leche] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08992)
+	(numero_macronutrientes [macronutrientes+vaso+de+leche])
+	(numero_micronutrientes [micronutrientes+vaso+de+leche])
 	(sal -1.0))
 
 ([cantidades+whisky] of  cantidades_nutricionales
@@ -1780,11 +2305,25 @@
 	(numero_micronutrientes [micronutrientes+yogur+natural+griego])
 	(sal -1.0))
 
+([cantidades+yogurt+de+vainilla] of  cantidades_nutricionales
+
+	(cantidad_agua 0.079)
+	(numero_macronutrientes [macronutrientes+yogurt+de+vainilla])
+	(numero_micronutrientes [micronutrientes+yogurt+de+vainilla])
+	(sal -1.0))
+
 ([cantidades+zumo+de+ciruela] of  cantidades_nutricionales
 
 	(cantidad_agua 0.05)
 	(numero_macronutrientes [macronutrientes+zumo+de+ciruela])
 	(numero_micronutrientes [micronutrientes+zumo+de+ciruela])
+	(sal -1.0))
+
+([cantidades+zumo+de+manzana] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08792)
+	(numero_macronutrientes [macronutrientes+sumo+de+manzana])
+	(numero_micronutrientes [micronutrientes+zumo+de+manzana])
 	(sal -1.0))
 
 ([cantidades+zumo+de+naranja] of  cantidades_nutricionales
@@ -1832,6 +2371,15 @@
 	(momento_ingesta comida cena)
 	(tipo entrante)
 	(valor_nutricional [cantidades+col+hervida]))
+
+([cortezas] of  otro
+
+	(cantidad_porcion 15.0)
+	(ingrediente_principal [ingrediente+corteza])
+	(ingredientes [ingrediente+corteza])
+	(momento_ingesta comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+cortezas]))
 
 ([enfermedad+diabetes] of  enfermedad
 
@@ -1894,6 +2442,24 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+ensaladilla+rusa]))
 
+([esparragos+cocidos] of  verdura
+
+	(cantidad_porcion 110.0)
+	(ingrediente_principal [ingrediente+esparrago])
+	(ingredientes [ingrediente+esparrago])
+	(momento_ingesta comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+esparragos+cocidos]))
+
+([esturion+fresco] of  pescado
+
+	(cantidad_porcion 145.0)
+	(ingrediente_principal [ingrediente+esturion])
+	(ingredientes [ingrediente+esturion])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+esturion+fresco]))
+
 ([filetes+de+merluza+empanados] of  pescado
 
 	(cantidad_porcion 300.0)
@@ -1915,13 +2481,36 @@
 	(momento_ingesta comida cena)
 	(tipo postre))
 
-([grasas+whisky] of  acidos_grasos
+([frijoles] of  legumbre
 
-	(colesterol 0.0)
-	(etanol 0.035)
-	(monoinsaturados 0.0)
-	(poliinsaturados 0.0)
-	(saturados 0.0))
+	(cantidad_porcion 253.0)
+	(ingrediente_principal [ingrediente_frijol])
+	(ingredientes
+		[ingrediente+ajo]
+		[ingrediente+cebolla])
+	(momento_ingesta comida cena)
+	(tipo principal entrante)
+	(valor_nutricional [cantidades+frijoles]))
+
+([gelatina] of  otro
+
+	(cantidad_porcion 135.0)
+	(ingrediente_principal [ingrediente+gelatina])
+	(ingredientes [ingrediente+gelatina])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+gelatina]))
+
+([hamburguesa+de+ternera] of  carne
+
+	(cantidad_porcion 236.0)
+	(ingrediente_principal [ingrediente+ternera])
+	(ingredientes
+		[ingrediente+queso]
+		[ingrediente+ternera])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+hamburguesa+de+ternera]))
 
 ([hummus] of  legumbre
 
@@ -1947,6 +2536,12 @@
 )
 
 ([ingrediente+ajo] of  ingrediente_verdura
+)
+
+([ingrediente+albaricoque] of  ingrediente_fruta
+)
+
+([ingrediente+alcachofa] of  ingrediente_verdura
 )
 
 ([ingrediente+almeja] of  ingrediente_pescado
@@ -1979,10 +2574,22 @@
 ([ingrediente+col] of  ingrediente_verdura
 )
 
+([ingrediente+corteza] of  ingrediente_otro
+)
+
+([ingrediente+esparrago] of  ingrediente_verdura
+)
+
 ([ingrediente+espinaca] of  ingrediente_verdura
 )
 
+([ingrediente+esturion] of  ingrediente_pescado
+)
+
 ([ingrediente+garbanzo] of  ingrediente_legumbre
+)
+
+([ingrediente+gelatina] of  ingrediente_otro
 )
 
 ([ingrediente+guava] of  ingrediente_fruta
@@ -2064,10 +2671,25 @@
 ([ingrediente+queso] of  ingrediente_lacteo
 )
 
+([ingrediente+salmon] of  ingrediente_pescado
+)
+
+([ingrediente+sandia] of  ingrediente_fruta
+)
+
 ([ingrediente+ternera] of  ingrediente_carne
 )
 
 ([ingrediente+tomate] of  ingrediente_verdura
+)
+
+([ingrediente+trigo] of  ingrediente_cereal
+)
+
+([ingrediente+trucha] of  ingrediente_pescado
+)
+
+([ingrediente+uva] of  ingrediente_fruta
 )
 
 ([ingrediente+whisky] of  ingrediente_bebida
@@ -2077,6 +2699,9 @@
 )
 
 ([ingrediente+zanahoria] of  ingrediente_verdura
+)
+
+([ingrediente_frijol] of  ingrediente_legumbre
 )
 
 ([lasa%C3%B1a] of  cereal
@@ -2106,7 +2731,6 @@
 	(ingrediente_principal [ingrediente+lenteja])
 	(ingredientes
 		[ingrediente+lenteja]
-		[proyecto_Class20136]
 		[ingrediente+ajo]
 		[ingrediente+cebolla]
 		[ingrediente+zanahoria])
@@ -2125,6 +2749,15 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+macarrones+con+queso]))
 
+([macronutientes+gelatina] of  macronutrientes
+
+	(carbohidratos 14.0)
+	(energia 62.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+gelatina])
+	(lipidos 0.0)
+	(numero_proteinas 1.2))
+
 ([macronutrientes+agua] of  macronutrientes
 
 	(carbohidratos 0.0)
@@ -2134,6 +2767,24 @@
 	(lipidos 0.0)
 	(numero_proteinas 0.0))
 
+([macronutrientes+albaricoque] of  macronutrientes
+
+	(carbohidratos 11.0)
+	(energia 48.0)
+	(fibra_alimentaria 2.0)
+	(grasa [acidos+grasos+albaricoque])
+	(lipidos 0.4)
+	(numero_proteinas 1.4))
+
+([macronutrientes+alcachofas+cocidas] of  macronutrientes
+
+	(carbohidratos 11.39)
+	(energia 51.0)
+	(fibra_alimentaria 5.7)
+	(grasa [acidos+grasos+alcachofas+cocidas])
+	(lipidos 0.3)
+	(numero_proteinas 2.9))
+
 ([macronutrientes+arroz+blanco] of  macronutrientes
 
 	(carbohidratos 77.0)
@@ -2142,6 +2793,15 @@
 	(grasa [acidos+grasos+arroz+blanco])
 	(lipidos 1.7)
 	(numero_proteinas 7.6))
+
+([macronutrientes+arroz+con+frijoles] of  macronutrientes
+
+	(carbohidratos 24.0)
+	(energia 151.0)
+	(fibra_alimentaria 3.4)
+	(grasa [acidos+grasos+arroz+con+frijoles])
+	(lipidos 3.9)
+	(numero_proteinas 4.6))
 
 ([macronutrientes+arroz+con+leche] of  macronutrientes
 
@@ -2161,6 +2821,15 @@
 	(lipidos 5.1)
 	(numero_proteinas 12.0))
 
+([macronutrientes+atun+fresco] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 130.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+atun+fresco])
+	(lipidos 0.6)
+	(numero_proteinas 29.0))
+
 ([macronutrientes+banana] of  macronutrientes
 
 	(carbohidratos 23.0)
@@ -2178,6 +2847,15 @@
 	(grasa [acidos+grasos+bizcocho])
 	(lipidos 15.2)
 	(numero_proteinas 5.6))
+
+([macronutrientes+cacahuetes] of  macronutrientes
+
+	(carbohidratos 16.0)
+	(energia 589.0)
+	(fibra_alimentaria 8.9)
+	(grasa [acidos+grasos+cacahuetes])
+	(lipidos 51.0)
+	(numero_proteinas 27.0))
 
 ([macronutrientes+cereales+con+miel] of  macronutrientes
 
@@ -2205,6 +2883,15 @@
 	(grasa [acidos+grasos+col+hervida])
 	(lipidos 0.06)
 	(numero_proteinas 1.3))
+
+([macronutrientes+cortezas] of  macronutrientes
+
+	(carbohidratos 1.6)
+	(energia 538.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+cortezas])
+	(lipidos 32.0)
+	(numero_proteinas 58.0))
 
 ([macronutrientes+diabetes] of  macronutrientes
 
@@ -2287,6 +2974,24 @@
 	(lipidos 9.4)
 	(numero_proteinas 2.0))
 
+([macronutrientes+esparragos] of  macronutrientes
+
+	(carbohidratos 4.1)
+	(energia 22.0)
+	(fibra_alimentaria 2.0)
+	(grasa [acidos+grasos+esparragos+cocidos])
+	(lipidos 0.2)
+	(numero_proteinas 2.4))
+
+([macronutrientes+esturion+fresco] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 135.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+esturion+fresco])
+	(lipidos 5.2)
+	(numero_proteinas 21.0))
+
 ([macronutrientes+fenilcetonuria] of  macronutrientes
 
 	(carbohidratos -1.0)
@@ -2312,6 +3017,24 @@
 	(grasa [acidos+grasos+flan+de+huevo])
 	(lipidos 2.19)
 	(numero_proteinas 4.6))
+
+([macronutrientes+frijoles] of  macronutrientes
+
+	(carbohidratos 22.0)
+	(energia 155.0)
+	(fibra_alimentaria 5.5)
+	(grasa [acidos+grasos+frijoles])
+	(lipidos 5.2)
+	(numero_proteinas 5.5))
+
+([macronutrientes+hamburguesa+de+ternera] of  macronutrientes
+
+	(carbohidratos 14.0)
+	(energia 221.0)
+	(fibra_alimentaria 1.4)
+	(grasa [acidos+grasos+hamburguesa+de+ternera])
+	(lipidos 12.0)
+	(numero_proteinas 15.0))
 
 ([macronutrientes+hipertension] of  macronutrientes
 
@@ -2411,6 +3134,15 @@
 	(lipidos 15.1)
 	(numero_proteinas 3.6))
 
+([macronutrientes+pato+estofado] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 178.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+pato+estofado])
+	(lipidos 6.0)
+	(numero_proteinas 29.0))
+
 ([macronutrientes+pera] of  macronutrientes
 
 	(carbohidratos 14.0)
@@ -2429,6 +3161,15 @@
 	(lipidos 0.1)
 	(numero_proteinas 0.5))
 
+([macronutrientes+pollo+al+ast] of  macronutrientes
+
+	(carbohidratos 0.7)
+	(energia 378.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+pollo+al+ast])
+	(lipidos 35.0)
+	(numero_proteinas 15.0))
+
 ([macronutrientes+pure+de+patata] of  macronutrientes
 
 	(carbohidratos 80.0)
@@ -2438,6 +3179,51 @@
 	(lipidos 0.7)
 	(numero_proteinas 7.0))
 
+([macronutrientes+quesadillas+de+queso] of  macronutrientes
+
+	(carbohidratos 24.0)
+	(energia 394.0)
+	(fibra_alimentaria 2.2)
+	(grasa [acidos+grasos+quesadillas+de+queso])
+	(lipidos 26.0)
+	(numero_proteinas 17.0))
+
+([macronutrientes+queso+brie] of  macronutrientes
+
+	(carbohidratos 0.5)
+	(energia 334.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+queso+brie])
+	(lipidos 28.0)
+	(numero_proteinas 21.0))
+
+([macronutrientes+queso+edam] of  macronutrientes
+
+	(carbohidratos 1.4)
+	(energia 357.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+queso+edam])
+	(lipidos 28.0)
+	(numero_proteinas 25.0))
+
+([macronutrientes+queso+gouda] of  macronutrientes
+
+	(carbohidratos 2.2)
+	(energia 356.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos])
+	(lipidos 27.0)
+	(numero_proteinas 25.0))
+
+([macronutrientes+raviolis+de+queso] of  macronutrientes
+
+	(carbohidratos 20.0)
+	(energia 159.0)
+	(fibra_alimentaria 1.1)
+	(grasa [acidos+grasos+raviolis+con+queso])
+	(lipidos 5.6)
+	(numero_proteinas 7.4))
+
 ([macronutrientes+salchichas+de+cerdo] of  macronutrientes
 
 	(carbohidratos 2.4)
@@ -2446,6 +3232,33 @@
 	(grasa [acidos+grasos+salchichas+de+cerdo])
 	(lipidos 38.0)
 	(numero_proteinas 14.0))
+
+([macronutrientes+salchichas+de+ternera] of  macronutrientes
+
+	(carbohidratos 0.4)
+	(energia 332.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+salchichas+de+ternera])
+	(lipidos 28.0)
+	(numero_proteinas 18.0))
+
+([macronutrientes+salmon+fresco] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 139.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+salmon+fresco])
+	(lipidos 4.3)
+	(numero_proteinas 23.0))
+
+([macronutrientes+sandia] of  macronutrientes
+
+	(carbohidratos 7.6)
+	(energia 30.0)
+	(fibra_alimentaria 0.4)
+	(grasa [acidos+grasos+sandia])
+	(lipidos 0.2)
+	(numero_proteinas 0.6))
 
 ([macronutrientes+solomillo+de+ternera] of  macronutrientes
 
@@ -2483,6 +3296,24 @@
 	(lipidos 8.5)
 	(numero_proteinas 7.8))
 
+([macronutrientes+sumo+de+manzana] of  macronutrientes
+
+	(carbohidratos 11.0)
+	(energia 48.0)
+	(fibra_alimentaria 0.3)
+	(grasa [acidos+grasos+zumo+de+manzana])
+	(lipidos 0.2)
+	(numero_proteinas 0.1))
+
+([macronutrientes+tiras+de+pollo] of  macronutrientes
+
+	(carbohidratos 19.0)
+	(energia 302.0)
+	(fibra_alimentaria 0.9)
+	(grasa [acidos+grasos+tiras+de+pollo])
+	(lipidos 17.0)
+	(numero_proteinas 19.0))
+
 ([macronutrientes+tortellini+de+carne] of  macronutrientes
 
 	(carbohidratos 46.0)
@@ -2506,12 +3337,39 @@
 	(lipidos 8.0)
 	(numero_proteinas 10.0))
 
+([macronutrientes+trucha+fresca] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 168.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+trucha+fresca])
+	(lipidos 7.4)
+	(numero_proteinas 24.0))
+
+([macronutrientes+uvas] of  macronutrientes
+
+	(carbohidratos 17.0)
+	(energia 93.0)
+	(fibra_alimentaria 11.0)
+	(grasa [acidos+grasos+uvas])
+	(lipidos 2.1)
+	(numero_proteinas 5.6))
+
+([macronutrientes+vaso+de+leche] of  macronutrientes
+
+	(carbohidratos 5.0)
+	(energia 42.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+vaso+de+leche])
+	(lipidos 1.0)
+	(numero_proteinas 3.4))
+
 ([macronutrientes+whisky] of  macronutrientes
 
 	(carbohidratos -1.0)
 	(energia 244.0)
 	(fibra_alimentaria 0.0)
-	(grasa [grasas+whisky])
+	(grasa [acidos+grasos+whisky])
 	(lipidos 0.0)
 	(numero_proteinas 0.0))
 
@@ -2523,6 +3381,15 @@
 	(grasa [acidos+grasos+yogur+natural+griego])
 	(lipidos 5.0)
 	(numero_proteinas 9.0))
+
+([macronutrientes+yogurt+de+vainilla] of  macronutrientes
+
+	(carbohidratos 17.0)
+	(energia 78.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+yogurt+de+vainilla])
+	(lipidos 0.0)
+	(numero_proteinas 2.9))
 
 ([macronutrientes+zumo+de+ciruela] of  macronutrientes
 
@@ -2574,6 +3441,11 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+menestra+de+verduras]))
 
+([micronuetrientes+queso+edam] of  micronutrientes
+
+	(numero_minerales [minerales+queso+edam])
+	(numero_vitaminas [vitaminas+queso+edam]))
+
 ([micronutientes+ciruela] of  micronutrientes
 
 	(numero_minerales [minerales+ciruela])
@@ -2584,10 +3456,25 @@
 	(numero_minerales [minerales+agua])
 	(numero_vitaminas [vitaminas+agua]))
 
+([micronutrientes+albaricoque] of  micronutrientes
+
+	(numero_minerales [minerales+albaricoque])
+	(numero_vitaminas [vitaminas+albaricoque]))
+
+([micronutrientes+alcachofas+cocidas] of  micronutrientes
+
+	(numero_minerales [minerales+alcachofas+cocidas])
+	(numero_vitaminas [vitaminas+alcachofas+cocidas]))
+
 ([micronutrientes+arroz+blanco] of  micronutrientes
 
 	(numero_minerales [minerales+arroz+blanco])
 	(numero_vitaminas [vitaminas+arroz+blanco]))
+
+([micronutrientes+arroz+con+frijoles] of  micronutrientes
+
+	(numero_minerales [minerales+arroz+con+frijoles])
+	(numero_vitaminas [vitaminas+arroz+con+frijoles]))
 
 ([micronutrientes+arroz+con+leche] of  micronutrientes
 
@@ -2599,6 +3486,11 @@
 	(numero_minerales [minerales+arroz+con+pollo])
 	(numero_vitaminas [vitaminas+arroz+con+pollo]))
 
+([micronutrientes+atun+fresco] of  micronutrientes
+
+	(numero_minerales [minerales+atun+fresco])
+	(numero_vitaminas [vitaminas+atun+fresco]))
+
 ([micronutrientes+banana] of  micronutrientes
 
 	(numero_minerales [minerales+banana])
@@ -2609,6 +3501,11 @@
 	(numero_minerales [minerales+bizcocho])
 	(numero_vitaminas [vitaminas+bizcocho]))
 
+([micronutrientes+cacahuetes] of  micronutrientes
+
+	(numero_minerales [minerales+cachauetes])
+	(numero_vitaminas [vitaminas+cacahuetes]))
+
 ([micronutrientes+cereales+con+miel] of  micronutrientes
 
 	(numero_minerales [minerales+cereales+con+miel])
@@ -2618,6 +3515,11 @@
 
 	(numero_minerales [minerales+col+hervida])
 	(numero_vitaminas [vitaminas+col+hervida]))
+
+([micronutrientes+cortezas] of  micronutrientes
+
+	(numero_minerales [minerales+cortezas])
+	(numero_vitaminas [vitaminas+cortezas]))
 
 ([micronutrientes+diabetes] of  micronutrientes
 
@@ -2664,6 +3566,11 @@
 	(numero_minerales [minerales+ensaladilla+rusa])
 	(numero_vitaminas [vitaminas+ensaladilla+rusa]))
 
+([micronutrientes+esturion+fresco] of  micronutrientes
+
+	(numero_minerales [minerales+esturion+fresco])
+	(numero_vitaminas [vitaminas+esturion+fresco]))
+
 ([micronutrientes+fenilcetonuria] of  micronutrientes
 
 	(numero_minerales [minerales+fenilcetonuria])
@@ -2678,6 +3585,21 @@
 
 	(numero_minerales [minerales+flan+de+huevo])
 	(numero_vitaminas [vitaminas+flan+de+huevo]))
+
+([micronutrientes+frijoles] of  micronutrientes
+
+	(numero_minerales [minerales+frijoles])
+	(numero_vitaminas [vitaminas+frijoles]))
+
+([micronutrientes+gelatina] of  micronutrientes
+
+	(numero_minerales [minerales+gelatina])
+	(numero_vitaminas [vitaminas+gelatina]))
+
+([micronutrientes+hamburguesa+de+ternera] of  micronutrientes
+
+	(numero_minerales [minerales+hamburguesa+de+ternera])
+	(numero_vitaminas [vitaminas+hamburguesa+de+ternera]))
 
 ([micronutrientes+hipertension] of  micronutrientes
 
@@ -2734,6 +3656,11 @@
 	(numero_minerales [minerales+pastel+de+manzana])
 	(numero_vitaminas [vitaminas+pastel+de+manzana]))
 
+([micronutrientes+pato+estofado] of  micronutrientes
+
+	(numero_minerales [minerales+pato+estofado])
+	(numero_vitaminas [vitaminas+pato+estofado]))
+
 ([micronutrientes+pera] of  micronutrientes
 
 	(numero_minerales [minerales+pera])
@@ -2744,15 +3671,55 @@
 	(numero_minerales [minerales+pi%C3%B1a])
 	(numero_vitaminas [vitaminas+pi%C3%B1a]))
 
+([micronutrientes+pollo+al+ast] of  micronutrientes
+
+	(numero_minerales [minerales+pollo+al+ast])
+	(numero_vitaminas [vitaminas+pollo+al+ast]))
+
 ([micronutrientes+pure+de+patata] of  micronutrientes
 
 	(numero_minerales [minerales+pure+de+patata])
 	(numero_vitaminas [vitaminas+pure+de+patata]))
 
+([micronutrientes+quesadillas+de+queso] of  micronutrientes
+
+	(numero_minerales [minerales+quesadillas+de+queso])
+	(numero_vitaminas [vitaminas+quesadillas+de+queso]))
+
+([micronutrientes+queso+brie] of  micronutrientes
+
+	(numero_minerales [minerales+queso+brie])
+	(numero_vitaminas [vitaminas+queso+brie]))
+
+([micronutrientes+queso+gouda] of  micronutrientes
+
+	(numero_minerales [minerales+queso+gouda])
+	(numero_vitaminas [vitaminas+queso+gouda]))
+
+([micronutrientes+raviolis+de+queso] of  micronutrientes
+
+	(numero_minerales [minerales+raviolis+de+queso])
+	(numero_vitaminas [vitaminas+raviolis+de+queso]))
+
 ([micronutrientes+salchichas+de+cerdo] of  micronutrientes
 
 	(numero_minerales [minerales+salchichas+de+cerdo])
 	(numero_vitaminas [vitaminas+salchichas+de+cerdo]))
+
+([micronutrientes+salchichas+de+ternera] of  micronutrientes
+
+	(numero_minerales [minerales+salchichas+de+ternera])
+	(numero_vitaminas [vitaminas+salchichas+de+ternera]))
+
+([micronutrientes+salmon+fresco] of  micronutrientes
+
+	(numero_minerales [minerales+salmon+fresco])
+	(numero_vitaminas [vitaminas+salmon+fresco]))
+
+([micronutrientes+sandia] of  micronutrientes
+
+	(numero_minerales [minerales+sandia])
+	(numero_vitaminas [vitaminas+sandia]))
 
 ([micronutrientes+solomillo+de+ternera] of  micronutrientes
 
@@ -2774,10 +3741,30 @@
 	(numero_minerales [minerales+spaghetti+a+la+bolo%C3%B1esa])
 	(numero_vitaminas [vitaminas+spaghetti+a+la+bolo%C3%B1esa]))
 
+([micronutrientes+tiras+de+pollo] of  micronutrientes
+
+	(numero_minerales [minerales+tiras+de+pollo])
+	(numero_vitaminas [vitaminas+tiras+de+pollo]))
+
 ([micronutrientes+tortellini+de+carne] of  micronutrientes
 
 	(numero_minerales [minerales+tortellini+de+carne])
 	(numero_vitaminas [vitaminas+tortellini+de+carne]))
+
+([micronutrientes+trucha+fresca] of  micronutrientes
+
+	(numero_minerales [minerales+trucha+fresca])
+	(numero_vitaminas [vitaminas+trucha+fresca]))
+
+([micronutrientes+uvas] of  micronutrientes
+
+	(numero_minerales [minerales+uvas])
+	(numero_vitaminas [vitaminas+uvas]))
+
+([micronutrientes+vaso+de+leche] of  micronutrientes
+
+	(numero_minerales [minerales+vaso+de+leche])
+	(numero_vitaminas [vitaminos+vaso+de+leche]))
 
 ([micronutrientes+whisky] of  micronutrientes
 
@@ -2789,10 +3776,20 @@
 	(numero_minerales [minerales+yogur+natural+griego])
 	(numero_vitaminas [vitaminas+yogur+natural+griego]))
 
+([micronutrientes+yogurt+de+vainilla] of  micronutrientes
+
+	(numero_minerales [minerales+yogurt+de+vainilla])
+	(numero_vitaminas [vitaminas+yogurt+de+vainilla]))
+
 ([micronutrientes+zumo+de+ciruela] of  micronutrientes
 
 	(numero_minerales [minerales+zumo+de+ciruela])
 	(numero_vitaminas [vitaminas+zumo+de+ciruela]))
+
+([micronutrientes+zumo+de+manzana] of  micronutrientes
+
+	(numero_minerales [minerales+zumo+de+manzana])
+	(numero_vitaminas [vitaminas+zumo+de+manzana]))
 
 ([micronutrientes+zumo+de+naranja] of  micronutrientes
 
@@ -2822,6 +3819,36 @@
 	(sodio 2.0)
 	(zinc 0.0))
 
+([minerales+albaricoque] of  mineral
+
+	(calcio 13.0)
+	(cobre 0.078)
+	(fluor -1.0)
+	(fosforo 23.0)
+	(hierro 0.39)
+	(iodo -1.0)
+	(magnesio 10.0)
+	(manganese 0.077)
+	(potasio 259.0)
+	(selenio 1.0E-4)
+	(sodio 1.0)
+	(zinc 0.2))
+
+([minerales+alcachofas+cocidas] of  mineral
+
+	(calcio 21.0)
+	(cobre 0.127)
+	(fluor -1.0)
+	(fosforo 73.0)
+	(hierro 0.61)
+	(iodo -1.0)
+	(magnesio 42.0)
+	(manganese 0.225)
+	(potasio 286.0)
+	(selenio 2.0E-4)
+	(sodio 296.0)
+	(zinc 0.4))
+
 ([minerales+arroz+blanco] of  mineral
 
 	(calcio 10.0)
@@ -2835,6 +3862,21 @@
 	(selenio 0.02)
 	(sodio 4.0)
 	(zinc 0.2))
+
+([minerales+arroz+con+frijoles] of  mineral
+
+	(calcio 37.0)
+	(cobre 0.161)
+	(fluor -1.0)
+	(fosforo 87.0)
+	(hierro 1.57)
+	(iodo -1.0)
+	(magnesio 26.0)
+	(manganese 0.443)
+	(potasio 224.0)
+	(selenio 0.0048)
+	(sodio 420.0)
+	(zinc 0.74))
 
 ([minerales+arroz+con+leche] of  mineral
 
@@ -2859,6 +3901,21 @@
 	(selenio 14.5)
 	(sodio 518.0)
 	(zinc 0.78))
+
+([minerales+atun+fresco] of  mineral
+
+	(calcio 4.0)
+	(cobre 0.043)
+	(fluor -1.0)
+	(fosforo 333.0)
+	(hierro 0.92)
+	(iodo -1.0)
+	(magnesio 42.0)
+	(manganese 0.013)
+	(potasio 527.0)
+	(selenio 0.1082)
+	(sodio 54.0)
+	(zinc 0.45))
 
 ([minerales+banana] of  mineral
 
@@ -2885,6 +3942,21 @@
 	(potasio 170.0)
 	(sodio 110.0)
 	(zinc 2.0))
+
+([minerales+cachauetes] of  mineral
+
+	(calcio 54.0)
+	(cobre 0.838)
+	(fluor -1.0)
+	(fosforo 319.0)
+	(hierro 1.65)
+	(iodo -1.0)
+	(magnesio 160.0)
+	(manganese 1.721)
+	(potasio 612.0)
+	(selenio 0.0075)
+	(sodio 772.0)
+	(zinc 3.08))
 
 ([minerales+cereales+con+miel] of  mineral
 
@@ -2926,6 +3998,21 @@
 	(selenio 0.6)
 	(sodio 8.0)
 	(zinc 0.2))
+
+([minerales+cortezas] of  mineral
+
+	(calcio 43.0)
+	(cobre 0.35)
+	(fluor -1.0)
+	(fosforo 220.0)
+	(hierro 1.04)
+	(iodo -1.0)
+	(magnesio 0.0)
+	(manganese 0.074)
+	(potasio 180.0)
+	(selenio -1.0)
+	(sodio 2667.0)
+	(zinc 0.71))
 
 ([minerales+diabetes] of  mineral
 
@@ -3055,6 +4142,36 @@
 	(sodio 329.0)
 	(zinc 0.33))
 
+([minerales+esparragos+cocidos] of  mineral
+
+	(calcio 23.0)
+	(cobre 0.165)
+	(fluor 0.0219)
+	(fosforo 54.0)
+	(hierro 0.91)
+	(iodo -1.0)
+	(magnesio 14.0)
+	(manganese 0.154)
+	(potasio 224.0)
+	(selenio 6.1)
+	(sodio 240.0)
+	(zinc 0.6))
+
+([minerales+esturion+fresco] of  mineral
+
+	(calcio 17.0)
+	(cobre 0.053)
+	(fluor -1.0)
+	(fosforo 271.0)
+	(hierro 0.9)
+	(iodo -1.0)
+	(magnesio 45.0)
+	(manganese 0.03)
+	(potasio 364.0)
+	(selenio 0.0162)
+	(sodio 69.0)
+	(zinc 0.54))
+
 ([minerales+fenilcetonuria] of  mineral
 
 	(calcio -1.0)
@@ -3097,6 +4214,51 @@
 	(selenio -1.0)
 	(sodio 95.0)
 	(zinc -1.0))
+
+([minerales+frijoles] of  mineral
+
+	(calcio 61.0)
+	(cobre 0.159)
+	(fluor -1.0)
+	(fosforo 109.0)
+	(hierro 1.99)
+	(iodo -1.0)
+	(magnesio 43.0)
+	(manganese 0.255)
+	(potasio 358.0)
+	(selenio 0.0057)
+	(sodio 422.0)
+	(zinc 0.73))
+
+([minerales+gelatina] of  mineral
+
+	(calcio 3.0)
+	(cobre 0.024)
+	(fluor 0.0691)
+	(fosforo 22.0)
+	(hierro 0.02)
+	(iodo -1.0)
+	(magnesio 1.0)
+	(manganese 0.002)
+	(potasio 1.0)
+	(selenio 0.0011)
+	(sodio 75.0)
+	(zinc 0.01))
+
+([minerales+hamburguesa+de+ternera] of  mineral
+
+	(calcio 75.0)
+	(cobre 0.075)
+	(fluor -1.0)
+	(fosforo 126.0)
+	(hierro 2.34)
+	(iodo -1.0)
+	(magnesio 19.0)
+	(manganese 0.162)
+	(potasio 187.0)
+	(selenio 0.0191)
+	(sodio 476.0)
+	(zinc 2.58))
 
 ([minerales+hipertension] of  mineral
 
@@ -3168,6 +4330,7 @@
 	(hierro 0.4)
 	(iodo 0.002)
 	(magnesio 5.0)
+	(manganese 0.035)
 	(potasio 120.0)
 	(selenio 4.0E-4)
 	(sodio 2.0)
@@ -3222,6 +4385,21 @@
 	(sodio 626.0)
 	(zinc 2.0))
 
+([minerales+pato+estofado] of  mineral
+
+	(calcio 10.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro 2.33)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(manganese -1.0)
+	(potasio -1.0)
+	(selenio 0.0216)
+	(sodio 108.0)
+	(zinc -1.0))
+
 ([minerales+pera] of  mineral
 
 	(calcio 12.0)
@@ -3251,12 +4429,102 @@
 	(sodio 1.0)
 	(zinc 0.12))
 
+([minerales+pollo+al+ast] of  mineral
+
+	(calcio 34.0)
+	(cobre 0.043)
+	(fluor -1.0)
+	(fosforo 230.0)
+	(hierro 0.86)
+	(iodo -1.0)
+	(magnesio 22.0)
+	(manganese 0.027)
+	(potasio 223.0)
+	(selenio 0.0166)
+	(sodio 335.0)
+	(zinc 0.76))
+
 ([minerales+pure+de+patata] of  mineral
 
 	(cobre 0.137)
 	(hierro 4.0)
 	(magnesio 25.0)
 	(zinc 0.3))
+
+([minerales+quesadillas+de+queso] of  mineral
+
+	(calcio 432.0)
+	(cobre 0.061)
+	(fluor -1.0)
+	(fosforo 373.0)
+	(hierro 1.52)
+	(iodo -1.0)
+	(magnesio 24.0)
+	(manganese 0.246)
+	(potasio 95.0)
+	(selenio 0.0236)
+	(sodio 677.0)
+	(zinc 2.32))
+
+([minerales+queso+brie] of  mineral
+
+	(calcio 184.0)
+	(cobre 0.019)
+	(fluor -1.0)
+	(fosforo 188.0)
+	(hierro 0.5)
+	(iodo -1.0)
+	(magnesio 20.0)
+	(manganese 0.034)
+	(potasio 152.0)
+	(selenio 0.0145)
+	(sodio 629.0)
+	(zinc 2.38))
+
+([minerales+queso+edam] of  mineral
+
+	(calcio 731.0)
+	(cobre 0.036)
+	(fluor -1.0)
+	(fosforo 536.0)
+	(hierro 0.44)
+	(iodo -1.0)
+	(magnesio 30.0)
+	(manganese 0.011)
+	(potasio 188.0)
+	(selenio 0.0145)
+	(sodio -1.0)
+	(zinc 3.75))
+
+([minerales+queso+gouda] of  mineral
+
+	(calcio 700.0)
+	(cobre 0.036)
+	(fluor -1.0)
+	(fosforo 546.0)
+	(hierro 0.24)
+	(iodo -1.0)
+	(magnesio 29.0)
+	(manganese 0.011)
+	(potasio 121.0)
+	(selenio 0.0145)
+	(sodio 819.0)
+	(zinc 3.9))
+
+([minerales+raviolis+de+queso] of  mineral
+
+	(calcio 121.0)
+	(cobre 0.076)
+	(fluor -1.0)
+	(fosforo 129.0)
+	(hierro 0.96)
+	(iodo -1.0)
+	(magnesio 23.0)
+	(manganese 0.18)
+	(potasio 184.0)
+	(selenio 0.0188)
+	(sodio 269.0)
+	(zinc 0.75))
 
 ([minerales+salchichas+de+cerdo] of  mineral
 
@@ -3272,6 +4540,51 @@
 	(selenio 0.0166)
 	(sodio 689.0)
 	(zinc 1.45))
+
+([minerales+salchichas+de+ternera] of  mineral
+
+	(calcio 11.0)
+	(cobre 0.069)
+	(fluor -1.0)
+	(fosforo 141.0)
+	(hierro 1.57)
+	(iodo -1.0)
+	(magnesio 14.0)
+	(manganese 0.0)
+	(potasio 258.0)
+	(selenio 0.0)
+	(sodio 813.0)
+	(zinc 4.38))
+
+([minerales+salmon+fresco] of  mineral
+
+	(calcio 45.0)
+	(cobre 0.071)
+	(fluor -1.0)
+	(fosforo 322.0)
+	(hierro 0.61)
+	(iodo -1.0)
+	(magnesio 33.0)
+	(manganese 0.019)
+	(potasio 434.0)
+	(selenio 0.038)
+	(sodio 58.0)
+	(zinc 0.56))
+
+([minerales+sandia] of  mineral
+
+	(calcio 7.0)
+	(cobre 0.042)
+	(fluor 0.0015)
+	(fosforo 11.0)
+	(hierro 0.24)
+	(iodo -1.0)
+	(magnesio 10.0)
+	(manganese 0.038)
+	(potasio 112.0)
+	(selenio 4.0E-4)
+	(sodio 1.0)
+	(zinc 0.1))
 
 ([minerales+solomillo+de+ternera] of  mineral
 
@@ -3330,6 +4643,21 @@
 	(sodio 351.0)
 	(zinc 1.04))
 
+([minerales+tiras+de+pollo] of  mineral
+
+	(calcio 18.0)
+	(cobre 0.067)
+	(fluor -1.0)
+	(fosforo 297.0)
+	(hierro 0.74)
+	(iodo -1.0)
+	(magnesio 29.0)
+	(manganese 0.245)
+	(potasio 324.0)
+	(selenio 0.0197)
+	(sodio 800.0)
+	(zinc 0.68))
+
 ([minerales+tortellini+de+carne] of  mineral
 
 	(calcio -1.0)
@@ -3360,6 +4688,51 @@
 	(sodio -1.0)
 	(zinc -1.0))
 
+([minerales+trucha+fresca] of  mineral
+
+	(calcio 30.0)
+	(cobre 0.055)
+	(fluor -1.0)
+	(fosforo 270.0)
+	(hierro 0.36)
+	(iodo -1.0)
+	(magnesio 30.0)
+	(manganese 0.013)
+	(potasio 450.0)
+	(selenio 0.0281)
+	(sodio 61.0)
+	(zinc 0.54))
+
+([minerales+uvas] of  mineral
+
+	(calcio 363.0)
+	(cobre 0.415)
+	(fluor -1.0)
+	(fosforo 91.0)
+	(hierro 2.63)
+	(iodo -1.0)
+	(magnesio 95.0)
+	(manganese 2.855)
+	(potasio 272.0)
+	(selenio 9.0E-4)
+	(sodio 9.0)
+	(zinc 0.67))
+
+([minerales+vaso+de+leche] of  mineral
+
+	(calcio 125.0)
+	(cobre 0.01)
+	(fluor 0.0026)
+	(fosforo 95.0)
+	(hierro 0.03)
+	(iodo -1.0)
+	(magnesio 11.0)
+	(manganese 0.003)
+	(potasio 150.0)
+	(selenio 0.0033)
+	(sodio 44.0)
+	(zinc 0.42))
+
 ([minerales+whisky] of  mineral
 
 	(cobre 0.02))
@@ -3376,6 +4749,21 @@
 	(sodio 35.0)
 	(zinc 0.52))
 
+([minerales+yogurt+de+vainilla] of  mineral
+
+	(calcio 118.0)
+	(cobre 0.013)
+	(fluor -1.0)
+	(fosforo 88.0)
+	(hierro 0.0)
+	(iodo -1.0)
+	(magnesio 16.0)
+	(manganese 0.004)
+	(potasio 141.0)
+	(selenio 0.0049)
+	(sodio 47.0)
+	(zinc 0.83))
+
 ([minerales+zumo+de+ciruela] of  mineral
 
 	(calcio 10.0)
@@ -3388,6 +4776,21 @@
 	(potasio 184.0)
 	(selenio 1.0E-4)
 	(sodio 4.0)
+	(zinc 0.04))
+
+([minerales+zumo+de+manzana] of  mineral
+
+	(calcio 70.0)
+	(cobre 0.01)
+	(fluor -1.0)
+	(fosforo 9.0)
+	(hierro 0.13)
+	(iodo -1.0)
+	(magnesio 5.0)
+	(manganese 0.035)
+	(potasio 184.0)
+	(selenio 1.0E-4)
+	(sodio 5.0)
 	(zinc 0.04))
 
 ([minerales+zumo+de+naranja] of  mineral
@@ -3452,6 +4855,18 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pastel+de+manzana]))
 
+([pato] of  ingrediente_carne
+)
+
+([pato+estofado] of  carne
+
+	(cantidad_porcion 174.0)
+	(ingrediente_principal [pato])
+	(ingredientes [pato])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+pato+estofado]))
+
 ([pera] of  fruta
 
 	(cantidad_porcion 200.0)
@@ -3494,15 +4909,25 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pi%C3%B1a]))
 
+([pollo+al+ast] of  carne
+
+	(cantidad_porcion 110.0)
+	(ingrediente_principal [ingrediente+pollo])
+	(ingredientes [ingrediente+pollo])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+pollo+al+ast]))
+
 ([preferencia+vegetariano] of  preferencia_personal
 
 	(preferencias [restriccion+vegetariano]))
 
-([proyecto_Class10063] of  %3AUNDEFINED
-)
+([proyecto_Class5] of  cantidades_nutricionales
 
-([proyecto_Class10074] of  %3AUNDEFINED
-)
+	(cantidad_agua 0.04146)
+	(numero_macronutrientes [macronutrientes+queso+gouda])
+	(numero_micronutrientes [micronutrientes+queso+gouda])
+	(sal -1.0))
 
 ([pure+de+patata] of  verdura
 
@@ -3515,6 +4940,55 @@
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+pure+de+patata]))
+
+([quesadillas+de+queso] of  cereal
+
+	(cantidad_porcion 400.0)
+	(ingrediente_principal [ingrediente+trigo])
+	(ingredientes
+		[ingrediente+trigo]
+		[ingrediente+queso])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+quesadillas+de+queso]))
+
+([queso+brie] of  lacteo
+
+	(cantidad_porcion 100.0)
+	(ingrediente_principal [ingrediente+queso])
+	(ingredientes [ingrediente+queso])
+	(momento_ingesta desayuno comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+queso+brie]))
+
+([queso+edam] of  lacteo
+
+	(cantidad_porcion 100.0)
+	(ingrediente_principal [ingrediente+queso])
+	(ingredientes [ingrediente+queso])
+	(momento_ingesta desayuno comida cena)
+	(tipo entrante)
+	(valor_nutricional [cantidades+queso+edam]))
+
+([queso+gouda] of  lacteo
+
+	(cantidad_porcion 100.0)
+	(ingrediente_principal [ingrediente+queso])
+	(ingredientes [ingrediente+queso])
+	(momento_ingesta desayuno comida cena)
+	(tipo entrante)
+	(valor_nutricional [proyecto_Class5]))
+
+([raviolis+de+queso] of  cereal
+
+	(cantidad_porcion 454.0)
+	(ingrediente_principal [ingrediente+pasta])
+	(ingredientes
+		[ingrediente+pasta]
+		[ingrediente+queso])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+raviolis+de+queso]))
 
 ([restriccion+diabetes] of  restriccion
 
@@ -3558,7 +5032,9 @@
 
 ([restriccion+vegetariano] of  restriccion
 
-	(evitar_tipo_ingrediente ingrediente_carne)
+	(evitar_tipo_ingrediente
+		ingrediente_carne
+		ingrediente_pescado)
 	(obligatoria TRUE))
 
 ([salchichas+de+cerdo] of  carne
@@ -3569,6 +5045,33 @@
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+salchichas+de+cerdo]))
+
+([salchichas+de+ternera] of  carne
+
+	(cantidad_porcion 128.0)
+	(ingrediente_principal [ingrediente+ternera])
+	(ingredientes [ingrediente+ternera])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+salchichas+de+ternera]))
+
+([salmon+fresco] of  pescado
+
+	(cantidad_porcion 178.0)
+	(ingrediente_principal [ingrediente+salmon])
+	(ingredientes [ingrediente+salmon])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+salmon+fresco]))
+
+([sandia] of  fruta
+
+	(cantidad_porcion 154.0)
+	(ingrediente_principal [ingrediente+sandia])
+	(ingredientes [ingrediente+sandia])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+sandia]))
 
 ([solomillo+de+ternera] of  carne
 
@@ -3620,6 +5123,19 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+spaghetti+a+la+bolo%C3%B1esa]))
 
+([tiras+de+pollo] of  carne
+
+	(cantidad_porcion 201.0)
+	(ingrediente_principal [ingrediente+pollo])
+	(ingredientes
+		[ingrediente+pollo]
+		[ingrediente+huevo]
+		[ingrediente+pan]
+		[ingrediente+pan])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+tiras+de+pollo]))
+
 ([tortellini+de+carne] of  cereal
 
 	(cantidad_porcion 350.0)
@@ -3644,6 +5160,33 @@
 	(tipo principal entrante)
 	(valor_nutricional [cantidades+tortellini+de+espinacas]))
 
+([trucha+fresca] of  pescado
+
+	(cantidad_porcion 85.0)
+	(ingrediente_principal [ingrediente+trucha])
+	(ingredientes [ingrediente+trucha])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+trucha+fresca]))
+
+([uvas] of  fruta
+
+	(cantidad_porcion 50.0)
+	(ingrediente_principal [ingrediente+uva])
+	(ingredientes [ingrediente+uva])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+uvas]))
+
+([vaso+de+leche] of  bebida
+
+	(cantidad_porcion 244.0)
+	(ingrediente_principal [ingrediente+leche])
+	(ingredientes [ingrediente+leche])
+	(momento_ingesta desayuno)
+	(tipo bebida)
+	(valor_nutricional [cantidades+vaso+de+leche]))
+
 ([vitaminas+agua] of  vitaminas
 
 	(a 0.0)
@@ -3660,11 +5203,59 @@
 	(riboflavin 0.0)
 	(tiamina 0.0))
 
+([vitaminas+albaricoque] of  vitaminas
+
+	(a 48.15)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.054)
+	(c 10.0)
+	(choline 2.8)
+	(d 0.0)
+	(e 0.89)
+	(k 0.0033)
+	(niacina 0.6)
+	(pantothenic_acid 0.24)
+	(riboflavin 0.04)
+	(tiamina 0.03))
+
+([vitaminas+alcachofas+cocidas] of  vitaminas
+
+	(a 0.325)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.081)
+	(c 7.4)
+	(choline 34.4)
+	(d 0.0)
+	(e 0.19)
+	(k 0.0148)
+	(niacina 1.11)
+	(pantothenic_acid 0.24)
+	(riboflavin 0.089)
+	(tiamina 0.05))
+
 ([vitaminas+arroz+blanco] of  vitaminas
 
 	(acido_folico 0.006)
 	(c 0.0)
 	(niacina 3.8))
+
+([vitaminas+arroz+con+frijoles] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 0.062)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e 0.47)
+	(k 0.0103)
+	(niacina 1.017)
+	(pantothenic_acid 0.263)
+	(riboflavin 0.021)
+	(tiamina 0.122))
 
 ([vitaminas+arroz+con+leche] of  vitaminas
 
@@ -3676,6 +5267,22 @@
 	(e 0.5)
 	(k 4.0)
 	(niacina 5558.0))
+
+([vitaminas+atun+fresco] of  vitaminas
+
+	(a 1.625)
+	(acido_folico -1.0)
+	(b_12 0.00235)
+	(b_6 1.038)
+	(c 0.0)
+	(choline 77.6)
+	(d 2.05)
+	(e 0.29)
+	(k 1.0E-4)
+	(niacina 22.07)
+	(pantothenic_acid 0.334)
+	(riboflavin 0.137)
+	(tiamina 0.134))
 
 ([vitaminas+banana] of  vitaminas
 
@@ -3700,6 +5307,22 @@
 	(c 0.0)
 	(d 0.0)
 	(niacina 0.9))
+
+([vitaminas+cacahuetes] of  vitaminas
+
+	(a 0.0)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.243)
+	(c 0.0)
+	(choline -1.0)
+	(d 0.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina 14.338)
+	(pantothenic_acid 1.387)
+	(riboflavin 0.153)
+	(tiamina 0.09))
 
 ([vitaminas+cereales+con+miel] of  vitaminas
 
@@ -3735,6 +5358,22 @@
 	(e 0.14)
 	(k 0.108)
 	(niacina 0.248))
+
+([vitaminas+cortezas] of  vitaminas
+
+	(a 16.675)
+	(acido_folico -1.0)
+	(b_12 1.3E-4)
+	(b_6 0.156)
+	(c 1.5)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina 3.355)
+	(pantothenic_acid 0.43)
+	(riboflavin 0.432)
+	(tiamina 0.084))
 
 ([vitaminas+diabetes] of  vitaminas
 
@@ -3837,6 +5476,38 @@
 	(riboflavin 0.017)
 	(tiamina 0.032))
 
+([vitaminas+esparragos+cocidos] of  vitaminas
+
+	(a 25.15)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.079)
+	(c 7.7)
+	(choline 26.1)
+	(d 0.0)
+	(e 1.5)
+	(k 0.0506)
+	(niacina 1.084)
+	(pantothenic_acid 0.225)
+	(riboflavin 0.139)
+	(tiamina 0.162))
+
+([vitaminas+esturion+fresco] of  vitaminas
+
+	(a 21.875)
+	(acido_folico -1.0)
+	(b_12 0.0025)
+	(b_6 0.23)
+	(c 0.0)
+	(choline 70.0)
+	(d 12.875)
+	(e 0.63)
+	(k 1.0E-4)
+	(niacina 10.1)
+	(pantothenic_acid 0.87)
+	(riboflavin 0.09)
+	(tiamina 0.08))
+
 ([vitaminas+fenilcetonuria] of  vitaminas
 
 	(a -1.0)
@@ -3876,6 +5547,54 @@
 	(e -1.0)
 	(k -1.0)
 	(niacina -1.0))
+
+([vitaminas+frijoles] of  vitaminas
+
+	(a 0.0)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.09)
+	(c 1.1)
+	(choline -1.0)
+	(d 0.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina 0.408)
+	(pantothenic_acid 0.155)
+	(riboflavin 0.049)
+	(tiamina 0.136))
+
+([vitaminas+gelatina] of  vitaminas
+
+	(a 0.0)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.0)
+	(c 0.0)
+	(choline 0.5)
+	(d 0.0)
+	(e 0.0)
+	(k 0.0)
+	(niacina 0.001)
+	(pantothenic_acid 0.002)
+	(riboflavin 0.006)
+	(tiamina 0.0))
+
+([vitaminas+hamburguesa+de+ternera] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 0.00154)
+	(b_6 0.106)
+	(c 0.5)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k 0.0093)
+	(niacina 3.19)
+	(pantothenic_acid 0.291)
+	(riboflavin 0.256)
+	(tiamina 0.26))
 
 ([vitaminas+hipertension] of  vitaminas
 )
@@ -3930,12 +5649,19 @@
 
 ([vitaminas+manzana] of  vitaminas
 
-	(a 0.03)
+	(a 1.35)
 	(acido_folico 0.004)
-	(c 3.0)
+	(b_12 0.0)
+	(b_6 0.041)
+	(c 4.6)
+	(choline 3.4)
 	(d 0.0)
-	(e 7.2E-4)
-	(niacina 0.1))
+	(e 0.18)
+	(k 0.0022)
+	(niacina 0.1)
+	(pantothenic_acid 0.061)
+	(riboflavin 0.026)
+	(tiamina 0.017))
 
 ([vitaminas+menestra+de+verduras] of  vitaminas
 )
@@ -3979,6 +5705,22 @@
 	(d 0.0)
 	(niacina 0.9))
 
+([vitaminas+pato+estofado] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 -1.0)
+	(c 2.3)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina 5.33)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+pera] of  vitaminas
 
 	(a 0.2)
@@ -4003,10 +5745,106 @@
 	(riboflavin 0.032)
 	(tiamina 0.079))
 
+([vitaminas+pollo+al+ast] of  vitaminas
+
+	(a 4.275)
+	(acido_folico -1.0)
+	(b_12 5.5E-4)
+	(b_6 0.2569)
+	(c 0.0)
+	(choline 39.3)
+	(d 0.0)
+	(e 0.33)
+	(k 0.0)
+	(niacina 7.082)
+	(pantothenic_acid 0.857)
+	(riboflavin 0.199)
+	(tiamina 0.054))
+
 ([vitaminas+pure+de+patata] of  vitaminas
 
 	(acido_folico 0.01)
 	(niacina 1.5))
+
+([vitaminas+quesadillas+de+queso] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 8.2E-4)
+	(b_6 0.06)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e 0.68)
+	(k -1.0)
+	(niacina 1.985)
+	(pantothenic_acid 0.39)
+	(riboflavin 0.34)
+	(tiamina 0.23))
+
+([vitaminas+queso+brie] of  vitaminas
+
+	(a 14.8)
+	(acido_folico -1.0)
+	(b_12 0.00165)
+	(b_6 0.235)
+	(c 0.0)
+	(choline 15.4)
+	(d 0.5)
+	(e 0.24)
+	(k 0.0023)
+	(niacina 0.38)
+	(pantothenic_acid 0.69)
+	(riboflavin 0.52)
+	(tiamina 0.07))
+
+([vitaminas+queso+edam] of  vitaminas
+
+	(a 20.625)
+	(acido_folico -1.0)
+	(b_12 0.00154)
+	(b_6 0.076)
+	(c 0.0)
+	(choline 15.4)
+	(d 0.5)
+	(e 0.24)
+	(k 0.0023)
+	(niacina 0.082)
+	(pantothenic_acid 0.281)
+	(riboflavin 0.389)
+	(tiamina 0.037))
+
+([vitaminas+queso+gouda] of  vitaminas
+
+	(a 14.075)
+	(acido_folico -1.0)
+	(b_12 0.00154)
+	(b_6 0.08)
+	(c 0.0)
+	(choline 15.4)
+	(d 0.5)
+	(e 0.24)
+	(k 0.0023)
+	(niacina 0.063)
+	(pantothenic_acid 0.34)
+	(riboflavin 0.334)
+	(tiamina 0.03))
+
+([vitaminas+raviolis+de+queso] of  vitaminas
+
+	(a 8.25)
+	(acido_folico -1.0)
+	(b_12 3.2E-4)
+	(b_6 0.09)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e 0.45)
+	(k -1.0)
+	(niacina 1.753)
+	(pantothenic_acid 0.46)
+	(riboflavin 0.237)
+	(tiamina 0.15))
 
 ([vitaminas+salchichas+de+cerdo] of  vitaminas
 
@@ -4023,6 +5861,54 @@
 	(pantothenic_acid -1.0)
 	(riboflavin 0.12)
 	(tiamina 0.48))
+
+([vitaminas+salchichas+de+ternera] of  vitaminas
+
+	(a 2.025)
+	(acido_folico -1.0)
+	(b_12 0.00201)
+	(b_6 0.313)
+	(c 0.0)
+	(choline 51.4)
+	(d 0.45)
+	(e 0.24)
+	(k 0.0011)
+	(niacina 3.6)
+	(pantothenic_acid 0.515)
+	(riboflavin 0.15)
+	(tiamina 0.048))
+
+([vitaminas+salmon+fresco] of  vitaminas
+
+	(a 4.225)
+	(acido_folico -1.0)
+	(b_12 0.005)
+	(b_6 0.568)
+	(c 1.4)
+	(choline 72.0)
+	(d 11.275)
+	(e -1.0)
+	(k 1.0E-4)
+	(niacina 7950.0)
+	(pantothenic_acid 0.81)
+	(riboflavin 0.14)
+	(tiamina 0.075))
+
+([vitaminas+sandia] of  vitaminas
+
+	(a 14.225)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.045)
+	(c 8.1)
+	(choline 4.1)
+	(d 0.0)
+	(e 5.0E-4)
+	(k 1.0E-4)
+	(niacina 0.178)
+	(pantothenic_acid 0.221)
+	(riboflavin 0.021)
+	(tiamina 0.033))
 
 ([vitaminas+solomillo+de+ternera] of  vitaminas
 
@@ -4079,6 +5965,22 @@
 	(e 0.75)
 	(niacina 2.0))
 
+([vitaminas+tiras+de+pollo] of  vitaminas
+
+	(a 1.1)
+	(acido_folico -1.0)
+	(b_12 1.3E-4)
+	(b_6 0.479)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e 1.39)
+	(k -1.0)
+	(niacina 7.76)
+	(pantothenic_acid 1.511)
+	(riboflavin 0.166)
+	(tiamina 0.097))
+
 ([vitaminas+tortellini+de+carne] of  vitaminas
 
 	(a -1.0)
@@ -4111,6 +6013,38 @@
 	(riboflavin -1.0)
 	(tiamina -1.0))
 
+([vitaminas+trucha+fresca] of  vitaminas
+
+	(a 7.525)
+	(acido_folico -1.0)
+	(b_12 0.00411)
+	(b_6 0.386)
+	(c 2.9)
+	(choline 77.6)
+	(d 18.975)
+	(e 2.79)
+	(k 1.0E-4)
+	(niacina 6.646)
+	(pantothenic_acid 1.99)
+	(riboflavin 0.107)
+	(tiamina 0.143))
+
+([vitaminas+uvas] of  vitaminas
+
+	(a 688.025)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.4)
+	(c 11.1)
+	(choline 12.8)
+	(d 0.0)
+	(e 2.0)
+	(k 0.1086)
+	(niacina 2.362)
+	(pantothenic_acid 0.231)
+	(riboflavin 0.354)
+	(tiamina 0.04))
+
 ([vitaminas+whisky] of  vitaminas
 
 	(a 0.0)
@@ -4129,6 +6063,22 @@
 	(k 0.0)
 	(niacina 0.208))
 
+([vitaminas+yogurt+de+vainilla] of  vitaminas
+
+	(a 5.1)
+	(acido_folico -1.0)
+	(b_12 5.3E-4)
+	(b_6 0.045)
+	(c 0.0)
+	(choline 15.6)
+	(d 0.875)
+	(e 0.01)
+	(k 0.0)
+	(niacina 0.107)
+	(pantothenic_acid 0.552)
+	(riboflavin 0.2)
+	(tiamina 0.042))
+
 ([vitaminas+zumo+de+ciruela] of  vitaminas
 
 	(a 0.075)
@@ -4140,6 +6090,22 @@
 	(e 0.12)
 	(k 0.0034)
 	(niacina 0.785))
+
+([vitaminas+zumo+de+manzana] of  vitaminas
+
+	(a 0.025)
+	(acido_folico -1.0)
+	(b_12 0.0)
+	(b_6 0.018)
+	(c 30.3)
+	(choline 1.8)
+	(d 0.0)
+	(e 0.01)
+	(k 0.0)
+	(niacina 0.067)
+	(pantothenic_acid 0.049)
+	(riboflavin 0.015)
+	(tiamina 0.004))
 
 ([vitaminas+zumo+de+naranja] of  vitaminas
 
@@ -4173,6 +6139,22 @@
 	(riboflavin 0.055)
 	(tiamina 0.092))
 
+([vitaminos+vaso+de+leche] of  vitaminas
+
+	(a 1.175)
+	(acido_folico -1.0)
+	(b_12 4.7E-4)
+	(b_6 0.037)
+	(c 0.0)
+	(choline 17.7)
+	(d 1.025)
+	(e 0.01)
+	(k 1.0E-4)
+	(niacina 0.093)
+	(pantothenic_acid 0.361)
+	(riboflavin 0.185)
+	(tiamina 0.02))
+
 ([whisky] of  bebida
 
 	(cantidad_porcion 0.5)
@@ -4181,6 +6163,15 @@
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida)
 	(valor_nutricional [cantidades+whisky]))
+
+([yogurt+de+vainilla] of  lacteo
+
+	(cantidad_porcion 200.0)
+	(ingrediente_principal [ingrediente+yogur])
+	(ingredientes [ingrediente+yogur])
+	(momento_ingesta desayuno comida cena)
+	(tipo postre)
+	(valor_nutricional [cantidades+yogurt+de+vainilla]))
 
 ([yogurt+natural+griego] of  lacteo
 
@@ -4199,6 +6190,15 @@
 	(momento_ingesta desayuno comida cena)
 	(tipo bebida)
 	(valor_nutricional [cantidades+zumo+de+ciruela]))
+
+([zumo+de+manzana] of  bebida
+
+	(cantidad_porcion 177.0)
+	(ingrediente_principal [ingrediente+manzana])
+	(ingredientes [ingrediente+manzana])
+	(momento_ingesta desayuno comida cena)
+	(tipo bebida)
+	(valor_nutricional [cantidades+zumo+de+manzana]))
 
 ([zumo+de+naranja] of  bebida
 
