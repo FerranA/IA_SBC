@@ -1,4 +1,4 @@
-; Sat May 18 14:22:58 CEST 2019
+; Sat May 18 15:09:52 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -67,6 +67,17 @@
 	(saturados 0.017)
 	(trans 0.0))
 
+([acidos+grasos+col+hervida] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+diabetes] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -82,6 +93,61 @@
 	(monoinsaturados -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0))
+
+([acidos+grasos+edad+65-69+hombre] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+65-69+mujer] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+%3E%3D+70+hombre] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+%3E%3D+70+mujer] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+ensalada+de+atun] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
 
 ([acidos+grasos+ensalada+de+frutas+tropical] of  acidos_grasos
 
@@ -132,11 +198,33 @@
 	(poliinsaturados -1.0)
 	(saturados 9.0))
 
+([acidos+grasos+hummus] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+lasa%C3%B1a] of  acidos_grasos
 
 	(monoinsaturados 3.577)
 	(poliinsaturados 0.716)
 	(saturados 4.366))
+
+([acidos+grasos+lentejas+con+jamon] of  acidos_grasos
+
+	(colesterol 3.0)
+	(etanol -1.0)
+	(monoinsaturados 0.52)
+	(octadecadienoic_acid 0.12)
+	(octadecatrienoic_acid 0.01)
+	(poliinsaturados 0.13)
+	(saturados 0.45)
+	(trans -1.0))
 
 ([acidos+grasos+macarrones+con+queso] of  acidos_grasos
 
@@ -211,6 +299,28 @@
 	(colesterol 0.0)
 	(poliinsaturados 0.0))
 
+([acidos+grasos+salchichas+de+cerdo] of  acidos_grasos
+
+	(colesterol 66.0)
+	(etanol -1.0)
+	(monoinsaturados 18.1)
+	(octadecadienoic_acid 1.989)
+	(octadecatrienoic_acid 0.328)
+	(poliinsaturados 4.073)
+	(saturados 12.825)
+	(trans -1.0))
+
+([acidos+grasos+solomillo+de+ternera] of  acidos_grasos
+
+	(colesterol 87.0)
+	(etanol -1.0)
+	(monoinsaturados 3.654)
+	(octadecadienoic_acid 0.502)
+	(octadecatrienoic_acid 0.032)
+	(poliinsaturados 0.03)
+	(saturados 3.143)
+	(trans 0.354))
+
 ([acidos+grasos+sopa+de+pescado] of  acidos_grasos
 
 	(colesterol 1.0)
@@ -239,6 +349,28 @@
 	(monoinsaturados 3.6)
 	(poliinsaturados 1.213)
 	(saturados 3.104))
+
+([acidos+grasos+tortellini+de+carne] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+tortelloni+de+espinacas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
 
 ([acidos+grasos+yogur+natural+griego] of  acidos_grasos
 
@@ -356,20 +488,24 @@
 
 ([cantidades+arroz+blanco] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+arroz+blanco])
-	(numero_micronutrientes [micronutrientes+arroz+blanco]))
+	(numero_micronutrientes [micronutrientes+arroz+blanco])
+	(sal -1.0))
 
 ([cantidades+arroz+con+leche] of  cantidades_nutricionales
 
 	(cantidad_agua 0.06739)
 	(numero_macronutrientes [macronutrientes+arroz+con+leche])
-	(numero_micronutrientes [micronutrientes+arroz+con+leche]))
+	(numero_micronutrientes [micronutrientes+arroz+con+leche])
+	(sal -1.0))
 
 ([cantidades+arroz+con+pollo] of  cantidades_nutricionales
 
 	(cantidad_agua 0.06112)
 	(numero_macronutrientes [macronutrientes+arroz+con+pollo])
-	(numero_micronutrientes [micronutrientes+arroz+con+pollo]))
+	(numero_micronutrientes [micronutrientes+arroz+con+pollo])
+	(sal -1.0))
 
 ([cantidades+banana] of  cantidades_nutricionales
 
@@ -380,13 +516,17 @@
 
 ([cantidades+bizcocho] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+bizcocho])
-	(numero_micronutrientes [micronutrientes+bizcocho]))
+	(numero_micronutrientes [micronutrientes+bizcocho])
+	(sal -1.0))
 
 ([cantidades+cereales+con+miel] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+cereales+con+miel])
-	(numero_micronutrientes [micronutrientes+cereales+con+miel]))
+	(numero_micronutrientes [micronutrientes+cereales+con+miel])
+	(sal -1.0))
 
 ([cantidades+ciruela] of  cantidades_nutricionales
 
@@ -474,7 +614,10 @@
 
 ([cantidades+filetes+de+merluza+empanados] of  cantidades_nutricionales
 
-	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados]))
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+filetes+de+merluza+empanados])
+	(numero_micronutrientes [micronutrientes+filetes+de+merluza+empanados])
+	(sal -1.0))
 
 ([cantidades+flan+de+huevo] of  cantidades_nutricionales
 
@@ -485,20 +628,31 @@
 
 ([cantidades+hipertension] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+hipertension])
-	(numero_micronutrientes [micronutrientes+hipertension]))
+	(numero_micronutrientes [micronutrientes+hipertension])
+	(sal -1.0))
 
 ([cantidades+hummus] of  cantidades_nutricionales
 
 	(cantidad_agua 0.06487)
 	(numero_macronutrientes [macronutrientes+hummus])
-	(numero_micronutrientes [micronutrientes+hummus]))
+	(numero_micronutrientes [micronutrientes+hummus])
+	(sal -1.0))
 
 ([cantidades+lasa%C3%B1a] of  cantidades_nutricionales
 
 	(cantidad_agua 0.06372)
 	(numero_macronutrientes [macronutrientes+lasa%C3%B1a])
-	(numero_micronutrientes [micronutrientes+lasa%C3%B1a]))
+	(numero_micronutrientes [micronutrientes+lasa%C3%B1a])
+	(sal -1.0))
+
+([cantidades+lentejas+con+jamon] of  cantidades_nutricionales
+
+	(cantidad_agua 0.08575)
+	(numero_macronutrientes [macronutrientes+lentejas+con+jamon])
+	(numero_micronutrientes [micronutrientes+lentejas+con+jamon])
+	(sal -1.0))
 
 ([cantidades+macarrones+con+queso] of  cantidades_nutricionales
 
@@ -516,8 +670,10 @@
 
 ([cantidades+menestra+de+verduras] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+menestra+de+verduras])
-	(numero_micronutrientes [micronutrientes+menestra+de+verduras]))
+	(numero_micronutrientes [micronutrientes+menestra+de+verduras])
+	(sal -1.0))
 
 ([cantidades+naranja] of  cantidades_nutricionales
 
@@ -535,18 +691,24 @@
 
 ([cantidades+pasta+fresca+al+huevo] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+pasta+fresca+al+huevo])
-	(numero_micronutrientes [micronutrientes+pasta+fresca+al+huevo]))
+	(numero_micronutrientes [micronutrientes+pasta+fresca+al+huevo])
+	(sal -1.0))
 
 ([cantidades+pastel+de+manzana] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+pastel+de+manzana])
-	(numero_micronutrientes [micronutrientes+pastel+de+manzana]))
+	(numero_micronutrientes [micronutrientes+pastel+de+manzana])
+	(sal -1.0))
 
 ([cantidades+pera] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+pera])
-	(numero_micronutrientes [micronutrientes+pera]))
+	(numero_micronutrientes [micronutrientes+pera])
+	(sal -1.0))
 
 ([cantidades+pi%C3%B1a] of  cantidades_nutricionales
 
@@ -557,8 +719,24 @@
 
 ([cantidades+pure+de+patata] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+pure+de+patata])
-	(numero_micronutrientes [micronutrientes+pure+de+patata]))
+	(numero_micronutrientes [micronutrientes+pure+de+patata])
+	(sal -1.0))
+
+([cantidades+salchichas+de+cerdo] of  cantidades_nutricionales
+
+	(cantidad_agua 0.0441)
+	(numero_macronutrientes [macronutrientes+salchichas+de+cerdo])
+	(numero_micronutrientes [micronutrientes+salchichas+de+cerdo])
+	(sal -1.0))
+
+([cantidades+solomillo+de+ternera] of  cantidades_nutricionales
+
+	(cantidad_agua 0.06018)
+	(numero_macronutrientes [macronutrientes+solomillo+de+ternera])
+	(numero_micronutrientes [micronutrientes+solomillo+de+ternera])
+	(sal -1.0))
 
 ([cantidades+sopa+de+pescado] of  cantidades_nutricionales
 
@@ -578,26 +756,36 @@
 
 	(cantidad_agua 0.0664)
 	(numero_macronutrientes [macronutrientes+spaghetti+a+la+bolo%C3%B1esa])
-	(numero_micronutrientes [micronutrientes+spaghetti+a+la+bolo%C3%B1esa]))
+	(numero_micronutrientes [micronutrientes+spaghetti+a+la+bolo%C3%B1esa])
+	(sal -1.0))
 
 ([cantidades+tortellini+de+carne] of  cantidades_nutricionales
 
-	(numero_macronutrientes [macronutrientes+tortellini+de+carne]))
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+tortellini+de+carne])
+	(numero_micronutrientes [micronutrientes+tortellini+de+carne])
+	(sal -1.0))
 
 ([cantidades+tortellini+de+espinacas] of  cantidades_nutricionales
 
-	(numero_macronutrientes [macronutrientes+tortelloni+de+espinacas]))
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+tortelloni+de+espinacas])
+	(numero_micronutrientes [macronutrientes+tortellini+de+espinacas])
+	(sal -1.0))
 
 ([cantidades+whisky] of  cantidades_nutricionales
 
+	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+whisky])
-	(numero_micronutrientes [micronutrientes+whisky]))
+	(numero_micronutrientes [micronutrientes+whisky])
+	(sal -1.0))
 
 ([cantidades+yogur+natural+griego] of  cantidades_nutricionales
 
 	(cantidad_agua 0.0813)
 	(numero_macronutrientes [macronutrientes+yogur+natural+griego])
-	(numero_micronutrientes [micronutrientes+yogur+natural+griego]))
+	(numero_micronutrientes [micronutrientes+yogur+natural+griego])
+	(sal -1.0))
 
 ([cantidades+zumo+de+ciruela] of  cantidades_nutricionales
 
@@ -784,6 +972,9 @@
 ([ingrediente+cebolla] of  ingrediente_verdura
 )
 
+([ingrediente+cerdo] of  ingrediente_carne
+)
+
 ([ingrediente+cereal] of  ingrediente_cereal
 
 	(temporada todas))
@@ -812,6 +1003,9 @@
 	(temporada todas))
 
 ([ingrediente+huevo] of  ingrediente_huevo
+)
+
+([ingrediente+jamon] of  ingrediente_carne
 )
 
 ([ingrediente+leche] of  ingrediente_lacteo
@@ -913,6 +1107,20 @@
 ([lechuga] of  ingrediente_verdura
 )
 
+([lentejas+con+jamon] of  legumbre
+
+	(cantidad_porcion 300.0)
+	(ingrediente_principal [ingrediente+lenteja])
+	(ingredientes
+		[ingrediente+lenteja]
+		[proyecto_Class20136]
+		[ingrediente+ajo]
+		[ingrediente+cebolla]
+		[ingrediente+zanahoria])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+lentejas+con+jamon]))
+
 ([macarrones+con+queso] of  cereal
 
 	(cantidad_porcion 213.0)
@@ -1001,6 +1209,7 @@
 	(carbohidratos 5.51)
 	(energia 23.0)
 	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+col+hervida])
 	(lipidos 0.06)
 	(numero_proteinas 1.3))
 
@@ -1025,25 +1234,37 @@
 ([macronutrientes+edad+65-69+hombre] of  macronutrientes
 
 	(carbohidratos 130.0)
+	(energia -1.0)
 	(fibra_alimentaria 30.0)
+	(grasa [acidos+grasos+edad+65-69+hombre])
+	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
 ([macronutrientes+edad+65-69+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
+	(energia -1.0)
 	(fibra_alimentaria 21.0)
+	(grasa [acidos+grasos+edad+65-69+mujer])
+	(lipidos -1.0)
 	(numero_proteinas 46.0))
 
 ([macronutrientes+edad+%3E%3D+70+hombre] of  macronutrientes
 
 	(carbohidratos 130.0)
+	(energia -1.0)
 	(fibra_alimentaria 30.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+hombre])
+	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
 ([macronutrientes+edad+%3E%3D+70+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
+	(energia -1.0)
 	(fibra_alimentaria 21.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+mujer])
+	(lipidos -1.0)
 	(numero_proteinas 46.0))
 
 ([macronutrientes+ensalada+de+atun] of  macronutrientes
@@ -1051,6 +1272,7 @@
 	(carbohidratos 9.41)
 	(energia 187.0)
 	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+ensalada+de+atun])
 	(lipidos 9.3)
 	(numero_proteinas 16.04))
 
@@ -1085,6 +1307,7 @@
 
 	(carbohidratos 13.7)
 	(energia 120.4)
+	(grasa [acidos+grasos+filetes+de+merluza+empanados])
 	(lipidos 1.6)
 	(numero_proteinas 12.8))
 
@@ -1111,6 +1334,7 @@
 	(carbohidratos 20.12)
 	(energia 177.0)
 	(fibra_alimentaria 4.0)
+	(grasa [acidos+grasos+hummus])
 	(lipidos 8.6)
 	(numero_proteinas 4.86))
 
@@ -1122,6 +1346,15 @@
 	(grasa [acidos+grasos+lasa%C3%B1a])
 	(lipidos 11.0)
 	(numero_proteinas 10.0))
+
+([macronutrientes+lentejas+con+jamon] of  macronutrientes
+
+	(carbohidratos 8.2)
+	(energia 56.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+lentejas+con+jamon])
+	(lipidos 1.1)
+	(numero_proteinas 3.7))
 
 ([macronutrientes+macarrones+con+queso] of  macronutrientes
 
@@ -1145,6 +1378,7 @@
 
 	(carbohidratos 5.1)
 	(energia 29.0)
+	(fibra_alimentaria -1.0)
 	(grasa [acidos+grasos+menestra+de+verduras])
 	(lipidos 0.51)
 	(numero_proteinas 0.86))
@@ -1211,6 +1445,24 @@
 	(lipidos 0.7)
 	(numero_proteinas 7.0))
 
+([macronutrientes+salchichas+de+cerdo] of  macronutrientes
+
+	(carbohidratos 2.4)
+	(energia 407.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+salchichas+de+cerdo])
+	(lipidos 38.0)
+	(numero_proteinas 14.0))
+
+([macronutrientes+solomillo+de+ternera] of  macronutrientes
+
+	(carbohidratos 0.0)
+	(energia 195.0)
+	(fibra_alimentaria 0.0)
+	(grasa [acidos+grasos+solomillo+de+ternera])
+	(lipidos 8.5)
+	(numero_proteinas 30.0))
+
 ([macronutrientes+sopa+de+pescado] of  macronutrientes
 
 	(carbohidratos 0.0)
@@ -1242,18 +1494,28 @@
 
 	(carbohidratos 46.0)
 	(energia 295.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+tortellini+de+carne])
 	(lipidos 7.0)
 	(numero_proteinas 12.0))
+
+([macronutrientes+tortellini+de+espinacas] of  micronutrientes
+
+	(numero_minerales [minerales+tortellini+de+espinacas])
+	(numero_vitaminas [vitaminas+tortellini+de+espinacas]))
 
 ([macronutrientes+tortelloni+de+espinacas] of  macronutrientes
 
 	(carbohidratos 46.0)
 	(energia 296.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+tortelloni+de+espinacas])
 	(lipidos 8.0)
 	(numero_proteinas 10.0))
 
 ([macronutrientes+whisky] of  macronutrientes
 
+	(carbohidratos -1.0)
 	(energia 244.0)
 	(fibra_alimentaria 0.0)
 	(grasa [grasas+whisky])
@@ -1414,6 +1676,11 @@
 	(numero_minerales [minerales+fenilcetonuria])
 	(numero_vitaminas [vitaminas+fenilcetonuria]))
 
+([micronutrientes+filetes+de+merluza+empanados] of  micronutrientes
+
+	(numero_minerales [minerales+filetes+de+merluza+empanados])
+	(numero_vitaminas [vitaminas+filetes+de+merluza+empanados]))
+
 ([micronutrientes+flan+de+huevo] of  micronutrientes
 
 	(numero_minerales [minerales+flan+de+huevo])
@@ -1433,6 +1700,11 @@
 
 	(numero_minerales [minerales+lasa%C3%B1a])
 	(numero_vitaminas [vitaminas+lasa%C3%B1a]))
+
+([micronutrientes+lentejas+con+jamon] of  micronutrientes
+
+	(numero_minerales [minerales+lentejas+con+jamon])
+	(numero_vitaminas [vitaminas+lentejas+de+jamon]))
 
 ([micronutrientes+macarrones+con+queso] of  micronutrientes
 
@@ -1484,6 +1756,16 @@
 	(numero_minerales [minerales+pure+de+patata])
 	(numero_vitaminas [vitaminas+pure+de+patata]))
 
+([micronutrientes+salchichas+de+cerdo] of  micronutrientes
+
+	(numero_minerales [minerales+salchichas+de+cerdo])
+	(numero_vitaminas [vitaminas+salchichas+de+cerdo]))
+
+([micronutrientes+solomillo+de+ternera] of  micronutrientes
+
+	(numero_minerales [minerales+solomillo+de+ternera])
+	(numero_vitaminas [vitaminas+solomillo+de+ternera]))
+
 ([micronutrientes+sopa+de+pescado] of  micronutrientes
 
 	(numero_minerales [minerales+sopa+de+pescado])
@@ -1498,6 +1780,11 @@
 
 	(numero_minerales [minerales+spaghetti+a+la+bolo%C3%B1esa])
 	(numero_vitaminas [vitaminas+spaghetti+a+la+bolo%C3%B1esa]))
+
+([micronutrientes+tortellini+de+carne] of  micronutrientes
+
+	(numero_minerales [minerales+tortellini+de+carne])
+	(numero_vitaminas [vitaminas+tortellini+de+carne]))
 
 ([micronutrientes+whisky] of  micronutrientes
 
@@ -1789,6 +2076,21 @@
 	(sodio -1.0)
 	(zinc -1.0))
 
+([minerales+filetes+de+merluza+empanados] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(manganese -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
+
 ([minerales+flan+de+huevo] of  mineral
 
 	(calcio 81.0)
@@ -1833,6 +2135,21 @@
 	(selenio 20.0)
 	(sodio 524.0)
 	(zinc 1.35))
+
+([minerales+lentejas+con+jamon] of  mineral
+
+	(calcio 17.0)
+	(cobre 0.07)
+	(fluor -1.0)
+	(fosforo 74.0)
+	(hierro 1.07)
+	(iodo -1.0)
+	(magnesio 9.0)
+	(manganese 0.12)
+	(potasio 144.0)
+	(selenio 3.0E-4)
+	(sodio 532.0)
+	(zinc 0.3))
 
 ([minerales+macarrones+con+queso] of  mineral
 
@@ -1948,6 +2265,36 @@
 	(magnesio 25.0)
 	(zinc 0.3))
 
+([minerales+salchichas+de+cerdo] of  mineral
+
+	(calcio 15.0)
+	(cobre 0.066)
+	(fluor -1.0)
+	(fosforo 116.0)
+	(hierro 1.12)
+	(iodo -1.0)
+	(magnesio 0.079)
+	(manganese -1.0)
+	(potasio 212.0)
+	(selenio 0.0166)
+	(sodio 689.0)
+	(zinc 1.45))
+
+([minerales+solomillo+de+ternera] of  mineral
+
+	(calcio 10.0)
+	(cobre 0.1)
+	(fluor -1.0)
+	(fosforo 230.0)
+	(hierro 2.57)
+	(iodo -1.0)
+	(magnesio 27.0)
+	(manganese 0.02)
+	(potasio 379.0)
+	(selenio 0.029)
+	(sodio 339.0)
+	(zinc 5.44))
+
 ([minerales+sopa+de+pescado] of  mineral
 
 	(calcio 3.0)
@@ -1989,6 +2336,36 @@
 	(selenio 18.4)
 	(sodio 351.0)
 	(zinc 1.04))
+
+([minerales+tortellini+de+carne] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(manganese -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
+
+([minerales+tortellini+de+espinacas] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluor -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(manganese -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
 
 ([minerales+whisky] of  mineral
 
@@ -2134,14 +2511,6 @@
 ([proyecto_Class10074] of  %3AUNDEFINED
 )
 
-([proyecto_Class20085] of  macronutrientes
-
-	(carbohidratos -1.0)
-	(energia -1.0)
-	(fibra_alimentaria -1.0)
-	(lipidos -1.0)
-	(numero_proteinas -1.0))
-
 ([pure+de+patata] of  verdura
 
 	(cantidad_porcion 250.0)
@@ -2198,6 +2567,24 @@
 
 	(evitar_tipo_ingrediente ingrediente_carne)
 	(obligatoria TRUE))
+
+([salchichas+de+cerdo] of  carne
+
+	(cantidad_porcion 60.0)
+	(ingrediente_principal [ingrediente+cerdo])
+	(ingredientes [ingrediente+cerdo])
+	(momento_ingesta comida cena)
+	(tipo entrante principal)
+	(valor_nutricional [cantidades+salchichas+de+cerdo]))
+
+([solomillo+de+ternera] of  carne
+
+	(cantidad_porcion 166.0)
+	(ingrediente_principal [ingrediente+ternera])
+	(ingredientes [ingrediente+ternera])
+	(momento_ingesta comida cena)
+	(tipo principal)
+	(valor_nutricional [cantidades+solomillo+de+ternera]))
 
 ([sopa+de+pescado] of  pescado
 
@@ -2469,6 +2856,22 @@
 	(k -1.0)
 	(niacina -1.0))
 
+([vitaminas+filetes+de+merluza+empanados] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+flan+de+huevo] of  vitaminas
 
 	(a 39.0)
@@ -2499,6 +2902,22 @@
 	(c 0.8)
 	(e 0.97)
 	(niacina 1.757))
+
+([vitaminas+lentejas+de+jamon] of  vitaminas
+
+	(a 3.625)
+	(acido_folico -1.0)
+	(b_12 1.2E-4)
+	(b_6 0.09)
+	(c 1.7)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina 0.545)
+	(pantothenic_acid 0.14)
+	(riboflavin 0.045)
+	(tiamina 0.07))
 
 ([vitaminas+macarrones+con+queso] of  vitaminas
 
@@ -2596,6 +3015,38 @@
 	(acido_folico 0.01)
 	(niacina 1.5))
 
+([vitaminas+salchichas+de+cerdo] of  vitaminas
+
+	(a 0.0)
+	(acido_folico -1.0)
+	(b_12 0.0013)
+	(b_6 0.2)
+	(c 0.0)
+	(choline 3.0)
+	(d 0.9)
+	(e 0.22)
+	(k 0.0034)
+	(niacina 3.35)
+	(pantothenic_acid -1.0)
+	(riboflavin 0.12)
+	(tiamina 0.48))
+
+([vitaminas+solomillo+de+ternera] of  vitaminas
+
+	(a 0.675)
+	(acido_folico -1.0)
+	(b_12 0.00254)
+	(b_6 0.668)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e 0.53)
+	(k -1.0)
+	(niacina 5.683)
+	(pantothenic_acid 0.593)
+	(riboflavin 0.347)
+	(tiamina 0.077))
+
 ([vitaminas+sopa+de+pescado] of  vitaminas
 
 	(a 0.15)
@@ -2634,6 +3085,38 @@
 	(c 0.9)
 	(e 0.75)
 	(niacina 2.0))
+
+([vitaminas+tortellini+de+carne] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
+([vitaminas+tortellini+de+espinacas] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
 
 ([vitaminas+whisky] of  vitaminas
 

@@ -1,4 +1,4 @@
-; Sat May 18 14:22:58 CEST 2019
+; Sat May 18 15:09:52 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class511]
-		[proyecto_ProjectKB_Class512]
-		[proyecto_ProjectKB_Class513]))
+		[proyecto_ProjectKB_Class533]
+		[proyecto_ProjectKB_Class534]
+		[proyecto_ProjectKB_Class535]))
 
 ([CLSES_TAB] of  Widget
 
@@ -78,9 +78,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class514]
-		[proyecto_ProjectKB_Class515]
-		[proyecto_ProjectKB_Class516]))
+		[proyecto_ProjectKB_Class536]
+		[proyecto_ProjectKB_Class537]
+		[proyecto_ProjectKB_Class538]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -791,36 +791,36 @@
 ([proyecto_ProjectKB_Class197] of  Property_List
 )
 
-([proyecto_ProjectKB_Class511] of  String
+([proyecto_ProjectKB_Class533] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class512] of  String
+([proyecto_ProjectKB_Class534] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class513] of  String
+([proyecto_ProjectKB_Class535] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class514] of  Map_Entry
+([proyecto_ProjectKB_Class536] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class515] of  Map_Entry
+([proyecto_ProjectKB_Class537] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class516] of  Map_Entry
+([proyecto_ProjectKB_Class538] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
