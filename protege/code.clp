@@ -1,3 +1,5 @@
+(defmodule MAIN (export ?ALL))
+
 ; Sun May 19 00:18:56 CEST 2019
 ; 
 ;+ (version "3.5")
