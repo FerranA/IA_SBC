@@ -86,7 +86,7 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nivel_actividad_fisica
-		(type SYMBOL)
+		(type FLOAT)
 		(allowed-values 1.2 1.4 1.6 1.8 2.0 2.2)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
