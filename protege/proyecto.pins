@@ -1,4 +1,4 @@
-; Sun May 19 19:38:49 CEST 2019
+; Sun May 19 20:11:26 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -327,8 +327,11 @@
 	(colesterol 95.0)
 	(etanol -1.0)
 	(monoinsaturados 19.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
-	(saturados 9.0))
+	(saturados 9.0)
+	(trans 0.0))
 
 ([acidos+grasos+hummus] of  acidos_grasos
 
@@ -1410,7 +1413,7 @@
 
 ([ensalada+de+atun] of  pescado
 
-	(cantidad_porcion 300.0)
+	(cantidad_porcion 150.0)
 	(ingrediente_principal [ingrediente+atun])
 	(ingredientes
 		[ingrediente+huevo]
@@ -3929,9 +3932,22 @@
 	(tipo principal)
 	(valor_nutricional [cantidades+pollo+al+ast]))
 
+([preferencia+bajar+colesterol] of  preferencia_personal
+
+	(preferencias [restriccion+bajar+colesterol]))
+
+([preferencia+vegano] of  preferencia_personal
+
+	(preferencias [restriccion+vegano]))
+
 ([preferencia+vegetariano] of  preferencia_personal
 
 	(preferencias [restriccion+vegetariano]))
+
+([proyecto_Class4] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(sal -1.0))
 
 ([proyecto_Class5] of  cantidades_nutricionales
 
@@ -4001,6 +4017,11 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+raviolis+de+queso]))
 
+([restriccion+bajar+colesterol] of  restriccion
+
+	(cantidades_recomendadas_diarias [proyecto_Class4])
+	(evitar_tipo_ingrediente ingrediente_grasa))
+
 ([restriccion+diabetes] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+diabetes])
@@ -4040,6 +4061,15 @@
 ([restriccion+osteoporosis] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+osteoporosis]))
+
+([restriccion+vegano] of  restriccion
+
+	(evitar_tipo_ingrediente
+		ingrediente_carne
+		ingrediente_lacteo
+		ingrediente_huevo
+		ingrediente_grasa
+		ingrediente_pescado))
 
 ([restriccion+vegetariano] of  restriccion
 
