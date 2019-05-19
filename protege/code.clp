@@ -1,7 +1,7 @@
 (defmodule MAIN (export ?ALL))
 
 ; Sun May 19 22:57:10 CEST 2019
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 660")
 
@@ -1007,7 +1007,7 @@
 
 (definstances instancias
 ; Sun May 19 22:57:10 CEST 2019
-; 
+;
 ;+ (version "3.5")
 ;+ (build "Build 660")
 
@@ -7678,7 +7678,7 @@
 									 (a (* ?a ?min)) (c (* ?c ?min)) (d (* ?d ?min)) (e (* ?e ?min))
 									 (calcio (* ?ca ?min)) (hierro (* ?fe ?min)) (potasio (* ?k ?min)) (sodio (* ?na ?min))
 									 (proteinas (* ?pr ?min)) (carbohidratos (* ?ch ?min)) (fibra_alimentaria (* ?fa ?min))
-									 (energia (* ?en ?min)
+									 (energia (* ?en ?min))
 	))
 	(assert (max-min-calculados))
 )
@@ -8276,7 +8276,7 @@
 	(progn$ (?c ?compr)
 		(if (or (> (fact-slot-value ?cmenu ?c) (fact-slot-value ?cdrmax ?c)) (< (fact-slot-value ?cmenu ?c) (fact-slot-value ?cdrmin ?c))) then (return FALSE))
 	)
-	
+
 	(return TRUE)
 )
 
@@ -8469,7 +8469,7 @@
 			(bind ?min (fact-slot-value ?entrante puntuacion))
 			(bind ?entrantelist (create$ ?entrante))
 		)
-	  ) 
+	  )
 	)
     (if (= (length ?entrantelist) 0) then (return (create$)))
     (bind ?rand (+ (mod (random) (length ?entrantelist)) 1))
@@ -8506,7 +8506,7 @@
 	(bind ?rand (+ (mod (random) (length ?platoprincipallist)) 1))
 	(bind ?pp1 (fact-slot-value (nth ?rand ?platoprincipallist) alimento))
 	(bind ?pp1f (nth ?rand ?platoprincipallist))
-	
+
 
 	(bind ?min 100000)
 	(bind ?platoprincipallist (create$))
