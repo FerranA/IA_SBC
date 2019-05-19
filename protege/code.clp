@@ -1,6 +1,5 @@
 (defmodule MAIN (export ?ALL))
-
-; Sun May 19 19:38:49 CEST 2019
+; Sun May 19 20:11:26 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -993,7 +992,7 @@
 	(role concrete))
 
 (definstances instancias
-; Sun May 19 19:38:49 CEST 2019
+; Sun May 19 20:11:26 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -1322,8 +1321,11 @@
 	(colesterol 95.0)
 	(etanol -1.0)
 	(monoinsaturados 19.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
-	(saturados 9.0))
+	(saturados 9.0)
+	(trans 0.0))
 
 ([acidos+grasos+hummus] of  acidos_grasos
 
@@ -2405,7 +2407,7 @@
 
 ([ensalada+de+atun] of  pescado
 
-	(cantidad_porcion 300.0)
+	(cantidad_porcion 150.0)
 	(ingrediente_principal [ingrediente+atun])
 	(ingredientes
 		[ingrediente+huevo]
@@ -4924,9 +4926,22 @@
 	(tipo principal)
 	(valor_nutricional [cantidades+pollo+al+ast]))
 
+([preferencia+bajar+colesterol] of  preferencia_personal
+
+	(preferencias [restriccion+bajar+colesterol]))
+
+([preferencia+vegano] of  preferencia_personal
+
+	(preferencias [restriccion+vegano]))
+
 ([preferencia+vegetariano] of  preferencia_personal
 
 	(preferencias [restriccion+vegetariano]))
+
+([proyecto_Class4] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(sal -1.0))
 
 ([proyecto_Class5] of  cantidades_nutricionales
 
@@ -4996,6 +5011,11 @@
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+raviolis+de+queso]))
 
+([restriccion+bajar+colesterol] of  restriccion
+
+	(cantidades_recomendadas_diarias [proyecto_Class4])
+	(evitar_tipo_ingrediente ingrediente_grasa))
+
 ([restriccion+diabetes] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+diabetes])
@@ -5035,6 +5055,15 @@
 ([restriccion+osteoporosis] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+osteoporosis]))
+
+([restriccion+vegano] of  restriccion
+
+	(evitar_tipo_ingrediente
+		ingrediente_carne
+		ingrediente_lacteo
+		ingrediente_huevo
+		ingrediente_grasa
+		ingrediente_pescado))
 
 ([restriccion+vegetariano] of  restriccion
 
@@ -6340,13 +6369,14 @@
 
 (defrule determine-activity-level "Determinar el nivel de actividad del usuario."
 	=>
-	(bind ?tmp (ask "Cada cuanto realizas actividad fisica? (Nunca/Semanalmente/Diariamente) " nunca semanalmente diariamente n s d))
-	(if (eq ?tmp n)
-		then (bind ?tmp sedentario))
-	(if (eq ?tmp s)
-		then (bind ?tmp moderado))
-	(if (eq ?tmp d)
-		then (bind ?tmp activo))
+	(printout t "Cual de estos describe mejor tu estilo de vida:" crlf)
+	(printout t "1. Exclusivamente sedentario o tumbado (Sin poder moverte de una silla o una cama)" crlf)
+	(printout t "2. Solo realizas actividades exclusivamente sedentarias sin apenas actividades agotadoras" crlf)
+	(printout t "3. Realizas actividades mayoritariamente sedentarias, con requisitos ocasionales de andar y quedarse en pie" crlf)
+	(printout t "4. Realizas actividades donde predomina estar de pie o caminar." crlf)
+	(printout t "5. Realizas actividades muy laboriosas." crlf)
+	(printout t "6. Cantidades significantes de deporte ademas de 2., 3., o 4. arriba." crlf)
+	(bind ?tmp (ask "" 1 2 3 4 5 6))
 	(assert (nivel-actividad ?tmp))
 )
 
@@ -6376,7 +6406,7 @@
 	=>
 	(bind ?respuesta (ask-yn "Tienes alguna preferencia alimenticia? (Si/No) "))
 	(while (not (eq ?respuesta no))
-		(bind ?preferencia (ask "Que preferencia? (Vegetariano) " vegetariano))
+		(bind ?preferencia (ask "Que preferencia? (Vegetariano/Vegano) " vegetariano vegano))
 		(assert (tiene-preferencia ?preferencia))
 		(bind ?respuesta (ask-yn "Tienes alguna otra preferencia alimenticia? (Si/No) "))
 	)
@@ -7664,59 +7694,59 @@
 	(bind ?dec 0.9)
 	;(printout t aaaaaaaaaaaaaaaaa crlf)
 	;(printout t (fact-slot-value ?fact e) " " (fact-slot-value ?fact calcio) " " (fact-slot-value ?fact cobre) " " crlf)
-	(modify ?fact (a            	 (* (fact-slot-value ?fact a)                 ?inc))
-				 ;(acido_folico      (* (fact-slot-value ?fact acido_folico)      ?inc))
-				 ;(b_1               (* (fact-slot-value ?fact b_1)               ?inc))
-				 ;(b_2               (* (fact-slot-value ?fact b_2)               ?inc))
-			 	 ;(b_6               (* (fact-slot-value ?fact b_6)               ?inc))
-				 ;(b_12              (* (fact-slot-value ?fact b_12)              ?inc))
-				  (c                 (* (fact-slot-value ?fact c)                 ?inc))
-				  (d                 (* (fact-slot-value ?fact d)                 ?inc))
-				  (e                 (* (fact-slot-value ?fact e)                 ?inc))
-				 ;(k                 (* (fact-slot-value ?fact k)                 ?inc))
-				 ;(niacina           (* (fact-slot-value ?fact niacina)           ?inc))
-				  (calcio            (* (fact-slot-value ?fact calcio)            ?inc))
-				 ;(cobre             (* (fact-slot-value ?fact cobre)             ?inc))
-				 ;(fluoruro          (* (fact-slot-value ?fact fluoruro)          ?inc))
-				 ;(fosforo           (* (fact-slot-value ?fact fosforo)           ?inc))
-				  (hierro            (* (fact-slot-value ?fact hierro)            ?inc))
-				 ;(iodo              (* (fact-slot-value ?fact iodo)              ?inc))
-				 ;(magnesio          (* (fact-slot-value ?fact magnesio)          ?inc))
-				  (potasio           (* (fact-slot-value ?fact potasio)           ?inc))
-				 ;(selenio           (* (fact-slot-value ?fact selenio)           ?inc))
-				  (sodio             (* (fact-slot-value ?fact sodio)             ?inc))
-				 ;(zinc              (* (fact-slot-value ?fact zinc)              ?inc))
-				  (carbohidratos 	 (* (fact-slot-value ?fact carbohidratos)     ?inc))
-				  (fibra_alimentaria (* (fact-slot-value ?fact fibra_alimentaria) ?inc))
-				  (proteinas         (* (fact-slot-value ?fact proteinas)         ?inc))
+	(modify ?fact (a            	 (min (* (fact-slot-value ?fact a)                 ?inc) 2.9))
+				 ;(acido_folico      (min (* (fact-slot-value ?fact acido_folico)      ?inc) 999999999))
+				 ;(b_1               (min (* (fact-slot-value ?fact b_1)               ?inc) 999999999))
+				 ;(b_2               (min (* (fact-slot-value ?fact b_2)               ?inc) 999999999))
+			 	 ;(b_6               (min (* (fact-slot-value ?fact b_6)               ?inc) 999999999))
+				 ;(b_12              (min (* (fact-slot-value ?fact b_12)              ?inc) 999999999))
+				  (c                 (min (* (fact-slot-value ?fact c)                 ?inc) 999999999))
+				  (d                 (min (* (fact-slot-value ?fact d)                 ?inc) 999999999))
+				  (e                 (min (* (fact-slot-value ?fact e)                 ?inc) 999999999))
+				 ;(k                 (min (* (fact-slot-value ?fact k)                 ?inc) 999999999))
+				 ;(niacina           (min (* (fact-slot-value ?fact niacina)           ?inc) 999999999))
+				  (calcio            (min (* (fact-slot-value ?fact calcio)            ?inc) 999999999))
+				 ;(cobre             (min (* (fact-slot-value ?fact cobre)             ?inc) 999999999))
+				 ;(fluoruro          (min (* (fact-slot-value ?fact fluoruro)          ?inc) 999999999))
+				 ;(fosforo           (min (* (fact-slot-value ?fact fosforo)           ?inc) 999999999))
+				  (hierro            (min (* (fact-slot-value ?fact hierro)            ?inc) 999999999))
+				 ;(iodo              (min (* (fact-slot-value ?fact iodo)              ?inc) 999999999))
+				 ;(magnesio          (min (* (fact-slot-value ?fact magnesio)          ?inc) 999999999))
+				  (potasio           (min (* (fact-slot-value ?fact potasio)           ?inc) 999999999))
+				 ;(selenio           (min (* (fact-slot-value ?fact selenio)           ?inc) 999999999))
+				  (sodio             (min (* (fact-slot-value ?fact sodio)             ?inc) 2300))
+				 ;(zinc              (min (* (fact-slot-value ?fact zinc)              ?inc) 999999999))
+				  (carbohidratos 	 (min (* (fact-slot-value ?fact carbohidratos)     ?inc) 999999999))
+				  (fibra_alimentaria (min (* (fact-slot-value ?fact fibra_alimentaria) ?inc) 999999999))
+				  (proteinas         (min (* (fact-slot-value ?fact proteinas)         ?inc) 999999999))
 	)
 	;(printout t acaba " " max crlf)
 	(bind ?fact (nth$ 1 (find-fact ((?f cdr-final)) (eq ?f:tipo min))))
-	(modify ?fact (a				 (* (fact-slot-value ?fact a)                 ?dec))
-				 ;(acido_folico      (* (fact-slot-value ?fact acido_folico)      ?dec))
-				 ;(b_1               (* (fact-slot-value ?fact b_1)               ?dec))
-				 ;(b_2               (* (fact-slot-value ?fact b_2)               ?dec))
-				 ;(b_6               (* (fact-slot-value ?fact b_6)               ?dec))
-				 ;(b_12              (* (fact-slot-value ?fact b_12)              ?dec))
-				  (c                 (* (fact-slot-value ?fact c)                 ?dec))
-				  (d                 (* (fact-slot-value ?fact d)                 ?dec))
-				  (e                 (* (fact-slot-value ?fact e)                 ?dec))
-				 ;(k                 (* (fact-slot-value ?fact k)                 ?dec))
-				 ;(niacina           (* (fact-slot-value ?fact niacina)           ?dec))
-				  (calcio            (* (fact-slot-value ?fact calcio)            ?dec))
-				 ;(cobre             (* (fact-slot-value ?fact cobre)             ?dec))
-				 ;(fluoruro          (* (fact-slot-value ?fact fluoruro)          ?dec))
-				 ;(fosforo           (* (fact-slot-value ?fact fosforo)           ?dec))
-				  (hierro            (* (fact-slot-value ?fact hierro)            ?dec))
-				 ;(iodo              (* (fact-slot-value ?fact iodo)              ?dec))
-				 ;(magnesio          (* (fact-slot-value ?fact magnesio)          ?dec))
-				  (potasio           (* (fact-slot-value ?fact potasio)           ?dec))
-				 ;(selenio           (* (fact-slot-value ?fact selenio)           ?dec))
-				  (sodio             (* (fact-slot-value ?fact sodio)             ?dec))
-				 ;(zinc              (* (fact-slot-value ?fact zinc)              ?dec))
-				  (carbohidratos 	 (* (fact-slot-value ?fact carbohidratos)     ?dec))
-				  (fibra_alimentaria (* (fact-slot-value ?fact fibra_alimentaria) ?dec))
-				  (proteinas         (* (fact-slot-value ?fact proteinas)         ?dec))
+	(modify ?fact (a				 (max (* (fact-slot-value ?fact a)                 ?dec) 0.5))
+				 ;(acido_folico      (max (* (fact-slot-value ?fact acido_folico)      ?dec) 0))
+				 ;(b_1               (max (* (fact-slot-value ?fact b_1)               ?dec) 0))
+				 ;(b_2               (max (* (fact-slot-value ?fact b_2)               ?dec) 0))
+				 ;(b_6               (max (* (fact-slot-value ?fact b_6)               ?dec) 0))
+				 ;(b_12              (max (* (fact-slot-value ?fact b_12)              ?dec) 0))
+				  (c                 (max (* (fact-slot-value ?fact c)                 ?dec) 0))
+				  (d                 (max (* (fact-slot-value ?fact d)                 ?dec) 0))
+				  (e                 (max (* (fact-slot-value ?fact e)                 ?dec) 0))
+				 ;(k                 (max (* (fact-slot-value ?fact k)                 ?dec) 0))
+				 ;(niacina           (max (* (fact-slot-value ?fact niacina)           ?dec) 0))
+				  (calcio            (max (* (fact-slot-value ?fact calcio)            ?dec) 0))
+				 ;(cobre             (max (* (fact-slot-value ?fact cobre)             ?dec) 0))
+				 ;(fluoruro          (max (* (fact-slot-value ?fact fluoruro)          ?dec) 0))
+				 ;(fosforo           (max (* (fact-slot-value ?fact fosforo)           ?dec) 0))
+				  (hierro            (max (* (fact-slot-value ?fact hierro)            ?dec) 0))
+				 ;(iodo              (max (* (fact-slot-value ?fact iodo)              ?dec) 0))
+				 ;(magnesio          (max (* (fact-slot-value ?fact magnesio)          ?dec) 0))
+				  (potasio           (max (* (fact-slot-value ?fact potasio)           ?dec) 0))
+				 ;(selenio           (max (* (fact-slot-value ?fact selenio)           ?dec) 0))
+				  (sodio             (max (* (fact-slot-value ?fact sodio)             ?dec) 0))
+				 ;(zinc              (max (* (fact-slot-value ?fact zinc)              ?dec) 0))
+				  (carbohidratos 	 (max (* (fact-slot-value ?fact carbohidratos)     ?dec) 0))
+				  (fibra_alimentaria (max (* (fact-slot-value ?fact fibra_alimentaria) ?dec) 0))
+				  (proteinas         (max (* (fact-slot-value ?fact proteinas)         ?dec) 0))
 	)
 	;(printout t acaba " " min crlf)
 )
