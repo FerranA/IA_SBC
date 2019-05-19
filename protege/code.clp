@@ -7390,19 +7390,13 @@
 (defrule get-basic-cdr "Determina el nombre de la instancia de cantidad basica recomendada que se debe asignar al usuario."
 	(perfil ?edad ?sexo ?act)
 	=>
-	(if (eq ?sexo hombre) then
-		(if (eq ?edad 65-69) then
-			(assert (cdr cantidades+edad+65-69+hombre))
-		else (if (eq ?edad 70+) then
-			(assert (cdr cantidades+edad+%3E%3D+70+hombre)))
-		)
-	else
-		(if (eq ?edad 65-69) then
-			(assert (cdr cantidades+edad+65-69+mujer))
-		else (if (eq ?edad 70+) then
-			(assert (cdr cantidades+edad+%3E%3D+70+mujer)))
-		)
-	)
+	(if (eq ?edad 65-69) then (bind ?tmp1 (sym-cat cantidades+edad+65-69+ ?sexo) )
+	else (bind ?tmp1 (sym-cat cantidades+edad+%3E%3D+70+ ?sexo) ) )
+
+	(bind ?tmp (sym-cat cantidades+pal+ ?act + ?sexo + ?edad))
+
+	(assert (cdr ?tmp1))
+	(assert (cdr-energia ?tmp))
 )
 
 (defrule goto_cdr ""
@@ -7444,13 +7438,17 @@
 	(slot carbohidratos)
 	(slot fibra_alimentaria)
 	(slot proteinas)
+	(slot energia)
 )
 
-(deffunction get-goal-cdr "" (?sim ?toget)
+(deffunction get-goal-cdr "" (?sim ?sim-energia ?toget)
 	(bind ?nombre (symbol-to-instance-name ?sim))
+	(bind ?nombrenergia (symbol-to-instance-name ?sim-energia))
 	; HAY UN PROBLEMA A PARTIR DE AQUI CON ALGUN SLOT, SUPONGO QUE ?x:name
 	(bind ?cdr  (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq ?x ?nombre))))
+	(bind ?cdrnergia (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq ?x ?nombrenergia))))
 	(bind ?macro (send ?cdr get-numero_macronutrientes))
+	(bind ?macronergia (send ?cdrnergia get-numero-macronutrientes))
 	(bind ?micro (send ?cdr get-numero_micronutrientes))
 	(bind ?miner (send ?micro get-numero_minerales))
 	(bind ?vitam (send ?micro get-numero_vitaminas))
@@ -7478,14 +7476,18 @@
 	(if (eq ?toget carbohidratos)     then (return (max 0 (send ?macro get-carbohidratos    ))))
 	(if (eq ?toget fibra_alimentaria) then (return (max 0 (send ?macro get-fibra_alimentaria))))
 	(if (eq ?toget proteinas)         then (return (max 0 (send ?macro get-numero_proteinas ))))
+	(if (eq ?toget energia)           then (return (max 0 (send ?macronergia get-energia    ))))
 	(return nil)
 )
 
-(deffunction calculo-cdr-basica "" (?sim)
+(deffunction calculo-cdr-basica "" (?sim ?sim-energia)
 	(bind ?nombre (symbol-to-instance-name ?sim))
+	(bind ?nombrenergia (symbol-to-instance-name ?sim-energia))
 	; HAY UN PROBLEMA A PARTIR DE AQUI CON ALGUN SLOT, SUPONGO QUE ?x:name
 	(bind ?cdr  (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq ?x ?nombre))))
+	(bind ?cdrnergia (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq ?x ?nombrenergia))))
 	(bind ?macro (send ?cdr get-numero_macronutrientes))
+	(bind ?macronergia (send ?cdrnergia get-numero_macronutrientes))
 	(bind ?micro (send ?cdr get-numero_micronutrientes))
 	(bind ?miner (send ?micro get-numero_minerales))
 	(bind ?vitam (send ?micro get-numero_vitaminas))
@@ -7514,6 +7516,7 @@
 					   (carbohidratos (max 0 (send ?macro get-carbohidratos)))
 					   (fibra_alimentaria (max 0 (send ?macro get-fibra_alimentaria)))
 					   (proteinas (max 0 (send ?macro get-numero_proteinas)))
+					   (energia   (max 0 (send ?macronergia get-energia)))
 	))
 )
 
@@ -7586,8 +7589,9 @@
 (defrule cdr-final ""
 	(declare (salience 1))
 	(cdr ?nombre)
+	(cdr-energia ?ne)
 	=>
-	(calculo-cdr-basica ?nombre)
+	(calculo-cdr-basica ?nombre ?ne)
 )
 
 (defrule cdr-vitamina-a ""
@@ -7659,7 +7663,7 @@
 	(not (max-min-calculados))
 	(cdr-final (a ?a) (c ?c) (d ?d) (e ?e)
 						 (calcio ?ca) (hierro ?fe) (potasio ?k) (sodio ?na)
-						 (carbohidratos ?ch) (fibra_alimentaria ?fa) (proteinas ?pr)
+						 (carbohidratos ?ch) (fibra_alimentaria ?fa) (proteinas ?pr) (energia ?en)
 	)
 	=>
 	(bind ?max 1.3)
@@ -7668,11 +7672,13 @@
 									 (a (* ?a ?max)) (c (* ?c ?max)) (d (* ?d ?max)) (e (* ?e ?max))
 									 (calcio (* ?ca ?max)) (hierro (* ?fe ?max)) (potasio (* ?k ?max)) (sodio (* ?na ?max))
 									 (proteinas (* ?pr ?max)) (carbohidratos (* ?ch ?max)) (fibra_alimentaria (* ?fa ?max))
+									 (energia (* ?en ?max))
 	))
 	(assert (cdr-final (tipo min)
 									 (a (* ?a ?min)) (c (* ?c ?min)) (d (* ?d ?min)) (e (* ?e ?min))
 									 (calcio (* ?ca ?min)) (hierro (* ?fe ?min)) (potasio (* ?k ?min)) (sodio (* ?na ?min))
 									 (proteinas (* ?pr ?min)) (carbohidratos (* ?ch ?min)) (fibra_alimentaria (* ?fa ?min))
+									 (energia (* ?en ?min)
 	))
 	(assert (max-min-calculados))
 )
@@ -8077,6 +8083,7 @@
 	(slot carbohidratos)
 	(slot fibra_alimentaria)
 	(slot proteinas)
+	(slot energia)
 )
 
 (deffunction cantidad-menu-diario "" (?cantidad $?alimentos)
@@ -8117,6 +8124,7 @@
 				(if (eq ?cantidad carbohidratos)     then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?macro get-carbohidratos    ))))))
 				(if (eq ?cantidad fibra_alimentaria) then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?macro get-fibra_alimentaria))))))
 				(if (eq ?cantidad proteinas)         then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?macro get-numero_proteinas ))))))
+				(if (eq ?cantidad energia)           then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?macro get-energia          ))))))
 			)
 		)
 	)
@@ -8142,6 +8150,7 @@
 							 (carbohidratos 0)
 							 (fibra_alimentaria 0)
 							 (proteinas 0)
+							 (energia 0)
 	))
 		;?fact <- (find-fact ((?p cantidades-menu)) TRUE)
 	(bind ?fact (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
@@ -8172,6 +8181,7 @@
 	(bind ?carbohidratos 0)
 	(bind ?fibra_alimentaria 0)
 	(bind ?proteinas 0)
+	(bind ?energia 0)
 	(loop-for-count (?i 1 (length$ ?alimentos)) do
 		(bind ?alimento (nth$ ?i ?alimentos))
 		(bind ?nombre (symbol-to-instance-name ?alimento))
@@ -8217,18 +8227,8 @@
 				(bind ?carbohidratos (+ ?carbohidratos (max 0.0 (* ?multiplicador (send ?macro get-carbohidratos)))))
 				(bind ?fibra_alimentaria (+ ?fibra_alimentaria (max 0.0 (* ?multiplicador (send ?macro get-fibra_alimentaria)))))
 				(bind ?proteinas (+ ?proteinas (max 0.0 (* ?multiplicador (send ?macro get-numero_proteinas)))))
+				(bind ?energia (+ ?energia (max 0.0 (* ?multiplicador (send ?macro get-energia)))))
 			)
-		;(bind ?cant  (nth$ 1 (find-instance ((?x cantidades_nutricionales)) (eq (instance-name-to-symbol ?x) (send ?alim get-valor_nutricional)))))
-		;(bind ?micro (nth$ 1 (find-instance ((?x micronutrientes)) (eq ?x (send ?cant get-numero_micronutrientes)))))
-		;(bind ?miner (nth$ 1 (find-instance ((?x mineral)) (eq ?x (send ?micro get-numero_minerales)))))
-		;(bind ?vitam (nth$ 1 (find-instance ((?x vitaminas)) (eq ?x (send ?micro get-numero_vitaminas)))))
-		;?cant  <- (find-instance (?))
-		;?cant  <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?micro))
-		;?micro <- (object (name ?micro) (is-a micronutrientes) (numero_minerales ?miner) (numero_vitaminas ?vitam))
-		;?miner <- (object (name ?miner) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluoruro ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
-		;																						(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
-		;?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?kk) (niacina ?n))
-			; CADA PUTO SEND GET-ALGO HAY QUE METERLO COMO MAX(0,SEND)
 
 
 		)
@@ -8258,12 +8258,13 @@
 				  (carbohidratos 	 (+ (fact-slot-value ?fact carbohidratos)         ?carbohidratos))
 				  (fibra_alimentaria (+ (fact-slot-value ?fact fibra_alimentaria) ?fibra_alimentaria))
 				  (proteinas         (+ (fact-slot-value ?fact proteinas)                 ?proteinas))
+				  (energia           (+ (fact-slot-value ?fact energia)                     ?energia))
 	)
 	(bind ?fact (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
 )
 
 (deffunction cantidades_a_comprobar "" ()
-	(return (create$ a fibra_alimentaria sodio))
+	(return (create$ a fibra_alimentaria sodio energia))
 )
 
 (deffunction cantidades-validas "" ()
@@ -8647,6 +8648,7 @@
 				  (carbohidratos 	 (min (* (fact-slot-value ?fact carbohidratos)     ?inc) 999999999))
 				  (fibra_alimentaria (min (* (fact-slot-value ?fact fibra_alimentaria) ?inc) 999999999))
 				  (proteinas         (min (* (fact-slot-value ?fact proteinas)         ?inc) 999999999))
+				  (energia			 (min (* (fact-slot-value ?fact energia)           ?inc) 999999999))
 	)
 	(bind ?fact (nth$ 1 (find-fact ((?f cdr-final)) (eq ?f:tipo min))))
 	(modify ?fact (a				 (max (* (fact-slot-value ?fact a)                 ?dec) 0.5))
@@ -8674,6 +8676,7 @@
 				  (carbohidratos 	 (max (* (fact-slot-value ?fact carbohidratos)     ?dec) 0))
 				  (fibra_alimentaria (max (* (fact-slot-value ?fact fibra_alimentaria) ?dec) 0))
 				  (proteinas         (max (* (fact-slot-value ?fact proteinas)         ?dec) 0))
+				  (energia			 (max (* (fact-slot-value ?fact energia)           ?dec) 0))
 	)
 	;(printout t acaba " " min crlf)
 )
@@ -8693,6 +8696,7 @@
 									 (sodio (* (fact-slot-value ?avg sodio) ?max)) (proteinas (* (fact-slot-value ?avg proteinas) ?max))
 									 (carbohidratos (* (fact-slot-value ?avg carbohidratos) ?max))
 									 (fibra_alimentaria (* (fact-slot-value ?avg fibra_alimentaria) ?max))
+									 (energia (* (fact-slot-value ?avg energia) ?max))
 	))
 	(assert (cdr-final (tipo min)
 									 (a (* (fact-slot-value ?avg a) ?min)) (c (* (fact-slot-value ?avg c) ?min)) (d (* (fact-slot-value ?avg d) ?min))
@@ -8701,6 +8705,7 @@
 									 (sodio (* (fact-slot-value ?avg sodio) ?min)) (proteinas (* (fact-slot-value ?avg proteinas) ?min))
 									 (carbohidratos (* (fact-slot-value ?avg carbohidratos) ?min))
 									 (fibra_alimentaria (* (fact-slot-value ?avg fibra_alimentaria) ?min))
+									 (energia (* (fact-slot-value ?avg energia) ?min))
 	))
 )
 
@@ -9435,20 +9440,21 @@
 		(postre_cen ?postre_cen7)
 	)
 	(cdr ?nombre)
+	(cdr-energia ?ne)
 	=>
 	(bind ?cant (cantidades_a_comprobar))
 	(printout t crlf "Lunes:"     crlf "Almuerzo: " ?bebida_des1 " " ?almuer_des1 crlf "Comida: " ?bebida_com1 " " ?entran_com1 " " ?platop_com1 " " ?postre_com1 crlf "Cena: " ?bebida_cen1 " " ?entran_cen1 " " ?platop_cen1 " " ?postre_cen1 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des1 ?almuer_des1 ?bebida_com1 ?entran_com1 ?platop_com1 ?postre_com1 ?bebida_cen1 ?entran_cen1 ?platop_cen1 ?postre_cen1))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des1 ?almuer_des1 ?bebida_com1 ?entran_com1 ?platop_com1 ?postre_com1 ?bebida_cen1 ?entran_cen1 ?platop_cen1 ?postre_cen1))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Martes:"    crlf "Almuerzo: " ?bebida_des2 " " ?almuer_des2 crlf "Comida: " ?bebida_com2 " " ?entran_com2 " " ?platop_com2 " " ?postre_com2 crlf "Cena: " ?bebida_cen2 " " ?entran_cen2 " " ?platop_cen2 " " ?postre_cen2 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des2 ?almuer_des2 ?bebida_com2 ?entran_com2 ?platop_com2 ?postre_com2 ?bebida_cen2 ?entran_cen2 ?platop_cen2 ?postre_cen2))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des2 ?almuer_des2 ?bebida_com2 ?entran_com2 ?platop_com2 ?postre_com2 ?bebida_cen2 ?entran_cen2 ?platop_cen2 ?postre_cen2))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Miercoles:" crlf "Almuerzo: " ?bebida_des3 " " ?almuer_des3 crlf "Comida: " ?bebida_com3 " " ?entran_com3 " " ?platop_com3 " " ?postre_com3 crlf "Cena: " ?bebida_cen3 " " ?entran_cen3 " " ?platop_cen3 " " ?postre_cen3 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des3 ?almuer_des3 ?bebida_com3 ?entran_com3 ?platop_com3 ?postre_com3 ?bebida_cen3 ?entran_cen3 ?platop_cen3 ?postre_cen3))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des3 ?almuer_des3 ?bebida_com3 ?entran_com3 ?platop_com3 ?postre_com3 ?bebida_cen3 ?entran_cen3 ?platop_cen3 ?postre_cen3))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Jueves:"    crlf "Almuerzo: " ?bebida_des4 " " ?almuer_des4 crlf "Comida: " ?bebida_com4 " " ?entran_com4 " " ?platop_com4 " " ?postre_com4 crlf "Cena: " ?bebida_cen4 " " ?entran_cen4 " " ?platop_cen4 " " ?postre_cen4 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des4 ?almuer_des4 ?bebida_com4 ?entran_com4 ?platop_com4 ?postre_com4 ?bebida_cen4 ?entran_cen4 ?platop_cen4 ?postre_cen4))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des4 ?almuer_des4 ?bebida_com4 ?entran_com4 ?platop_com4 ?postre_com4 ?bebida_cen4 ?entran_cen4 ?platop_cen4 ?postre_cen4))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Viernes:"   crlf "Almuerzo: " ?bebida_des5 " " ?almuer_des5 crlf "Comida: " ?bebida_com5 " " ?entran_com5 " " ?platop_com5 " " ?postre_com5 crlf "Cena: " ?bebida_cen5 " " ?entran_cen5 " " ?platop_cen5 " " ?postre_cen5 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des5 ?almuer_des5 ?bebida_com5 ?entran_com5 ?platop_com5 ?postre_com5 ?bebida_cen5 ?entran_cen5 ?platop_cen5 ?postre_cen5))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des5 ?almuer_des5 ?bebida_com5 ?entran_com5 ?platop_com5 ?postre_com5 ?bebida_cen5 ?entran_cen5 ?platop_cen5 ?postre_cen5))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Sabado:"    crlf "Almuerzo: " ?bebida_des6 " " ?almuer_des6 crlf "Comida: " ?bebida_com6 " " ?entran_com6 " " ?platop_com6 " " ?postre_com6 crlf "Cena: " ?bebida_cen6 " " ?entran_cen6 " " ?platop_cen6 " " ?postre_cen6 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des6 ?almuer_des6 ?bebida_com6 ?entran_com6 ?platop_com6 ?postre_com6 ?bebida_cen6 ?entran_cen6 ?platop_cen6 ?postre_cen6))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des6 ?almuer_des6 ?bebida_com6 ?entran_com6 ?platop_com6 ?postre_com6 ?bebida_cen6 ?entran_cen6 ?platop_cen6 ?postre_cen6))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 	(printout t crlf "Domingo:"   crlf "Almuerzo: " ?bebida_des7 " " ?almuer_des7 crlf "Comida: " ?bebida_com7 " " ?entran_com7 " " ?platop_com7 " " ?postre_com7 crlf "Cena: " ?bebida_cen7 " " ?entran_cen7 " " ?platop_cen7 " " ?postre_cen7 crlf)
-	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des7 ?almuer_des7 ?bebida_com7 ?entran_com7 ?platop_com7 ?postre_com7 ?bebida_cen7 ?entran_cen7 ?platop_cen7 ?postre_cen7))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?c) ")" crlf))
+	(progn$ (?c ?cant)(bind ?x (cantidad-menu-diario ?c ?bebida_des7 ?almuer_des7 ?bebida_com7 ?entran_com7 ?platop_com7 ?postre_com7 ?bebida_cen7 ?entran_cen7 ?platop_cen7 ?postre_cen7))(printout t "  Cantidades de " ?c ": " ?x " (" (get-goal-cdr ?nombre ?ne ?c) ")" crlf))
 )
