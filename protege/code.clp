@@ -7210,11 +7210,15 @@
 ;		(return FALSE)
 ;	)))))))
 
-	(if (or (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) (< (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmin calcio))) then
-			(return FALSE)
+	(if (or (> (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmax sodio)) (< (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmin sodio))) then
+		(return FALSE)
 	else (if (or (> (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmax proteinas)) (< (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmin proteinas))) then
-			(return FALSE)
-	))
+		(return FALSE)
+	else (if (or (> (fact-slot-value ?cmenu fibra_alimentaria) (fact-slot-value ?cdrmax fibra_alimentaria)) (< (fact-slot-value ?cmenu fibra_alimentaria) (fact-slot-value ?cdrmin fibra_alimentaria))) then
+		(return FALSE)
+	else (if (or (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) (< (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmin calcio))) then
+		(return FALSE)
+	))))
 	(return TRUE)
 )
 
