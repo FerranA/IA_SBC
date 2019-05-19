@@ -1,4 +1,4 @@
-; Sun May 19 20:11:26 CEST 2019
+; Sun May 19 22:30:00 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -76,6 +76,11 @@
 	(single-slot riboflavin
 		(type FLOAT)
 		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nivel_actividad_fisica
+		(type SYMBOL)
+		(allowed-values 1.2 1.4 1.6 1.8 2.0 2.2)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_vitaminas
@@ -477,10 +482,9 @@
 		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ingredientes_recomendados
+	(multislot ingredientes_recomendados
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ingrediente
@@ -575,6 +579,11 @@
 		(type SYMBOL)
 		(allowed-values 70-79 80-89 90-100 100-110 65-69)
 		(create-accessor read-write))
+	(single-slot nivel_actividad_fisica
+		(type SYMBOL)
+		(allowed-values 1.2 1.4 1.6 1.8 2.0 2.2)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot sexo
 		(type SYMBOL)
 		(allowed-values hombre mujer otros)
@@ -583,11 +592,6 @@
 	(single-slot recomendaciones
 		(type INSTANCE)
 ;+		(allowed-classes restriccion)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot actividad_fisica
-		(type SYMBOL)
-		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -629,10 +633,9 @@
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
 		(create-accessor read-write))
-	(single-slot ingredientes_recomendados
+	(multislot ingredientes_recomendados
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
