@@ -8270,7 +8270,7 @@
 )
 
 (deffunction cantidades_a_comprobar "" ()
-	(return (create$ a fibra_alimentaria sodio energia))
+	(return (create$ a sodio energia))
 )
 
 (deffunction cantidades-validas "" ()
@@ -8661,7 +8661,7 @@
 				  (carbohidratos 	 (min (* (fact-slot-value ?fact carbohidratos)     ?inc) (send ?macromax get-carbohidratos)))
 				  (fibra_alimentaria (min (* (fact-slot-value ?fact fibra_alimentaria) ?inc) (send ?macromax get-fibra_alimentaria)))
 				  (proteinas         (min (* (fact-slot-value ?fact proteinas)         ?inc) (send ?macromax get-numero_proteinas)))
-				  (energia			 (min (* (fact-slot-value ?fact energia)           ?inc) (send ?macromax get-energia)))
+				  (energia			 (min (* (fact-slot-value ?fact energia)           ?inc) 9999999))
 	)
 	(bind ?fact (nth$ 1 (find-fact ((?f cdr-final)) (eq ?f:tipo min))))
 	(modify ?fact (a				 (max (* (fact-slot-value ?fact a)                 ?dec) 0.5))
