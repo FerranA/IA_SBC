@@ -1,6 +1,6 @@
 (defmodule MAIN (export ?ALL))
 
-; Sun May 19 00:18:56 CEST 2019
+; Sun May 19 19:38:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -48,6 +48,11 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot poliinsaturados
+		(type FLOAT)
+		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fluoruro
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -201,11 +206,6 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot iodo
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot fluor
 		(type FLOAT)
 		(default -1.0)
 ;+		(cardinality 0 1)
@@ -857,11 +857,6 @@
 		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot fluor
-		(type FLOAT)
-		(default -1.0)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
 	(single-slot sodio
 		(type FLOAT)
 		(default -1.0)
@@ -899,6 +894,11 @@
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot fluoruro
+		(type FLOAT)
+		(default -1.0)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot calcio
@@ -993,7 +993,7 @@
 	(role concrete))
 
 (definstances instancias
-; Sun May 19 00:18:56 CEST 2019
+; Sun May 19 19:38:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -1171,8 +1171,8 @@
 	(colesterol -1.0)
 	(etanol -1.0)
 	(monoinsaturados -1.0)
-	(octadecadienoic_acid -1.0)
-	(octadecatrienoic_acid -1.0)
+	(octadecadienoic_acid 14.0)
+	(octadecatrienoic_acid 1.6)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1182,8 +1182,8 @@
 	(colesterol -1.0)
 	(etanol -1.0)
 	(monoinsaturados -1.0)
-	(octadecadienoic_acid -1.0)
-	(octadecatrienoic_acid -1.0)
+	(octadecadienoic_acid 11.0)
+	(octadecatrienoic_acid 1.1)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1193,8 +1193,8 @@
 	(colesterol -1.0)
 	(etanol -1.0)
 	(monoinsaturados -1.0)
-	(octadecadienoic_acid -1.0)
-	(octadecatrienoic_acid -1.0)
+	(octadecadienoic_acid 14.0)
+	(octadecatrienoic_acid 1.6)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1204,8 +1204,8 @@
 	(colesterol -1.0)
 	(etanol -1.0)
 	(monoinsaturados -1.0)
-	(octadecadienoic_acid -1.0)
-	(octadecatrienoic_acid -1.0)
+	(octadecadienoic_acid 11.0)
+	(octadecatrienoic_acid 1.1)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1744,7 +1744,7 @@
 
 ([arroz+blanco] of  cereal
 
-	(cantidad_porcion 500.0)
+	(cantidad_porcion 200.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes [ingrediente+arroz])
 	(momento_ingesta comida cena)
@@ -1753,7 +1753,7 @@
 
 ([arroz+con+frijoles] of  cereal
 
-	(cantidad_porcion 350.0)
+	(cantidad_porcion 200.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes
 		[ingrediente+arroz]
@@ -1777,7 +1777,7 @@
 
 ([arroz+con+pollo] of  cereal
 
-	(cantidad_porcion 550.0)
+	(cantidad_porcion 200.0)
 	(ingrediente_principal [ingrediente+arroz])
 	(ingredientes
 		[ingrediente+pollo]
@@ -3810,7 +3810,7 @@
 
 	(calcio 10.0)
 	(cobre 0.007)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 0.0)
 	(hierro 0.0)
 	(iodo -1.0)
@@ -3825,7 +3825,7 @@
 
 	(calcio 13.0)
 	(cobre 0.078)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 23.0)
 	(hierro 0.39)
 	(iodo -1.0)
@@ -3840,7 +3840,7 @@
 
 	(calcio 21.0)
 	(cobre 0.127)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 73.0)
 	(hierro 0.61)
 	(iodo -1.0)
@@ -3855,7 +3855,7 @@
 
 	(calcio 10.0)
 	(cobre 0.03)
-	(fluor 0.0385)
+	(fluoruro 0.0385)
 	(fosforo 180.0)
 	(hierro 0.8)
 	(iodo 0.002)
@@ -3869,7 +3869,7 @@
 
 	(calcio 37.0)
 	(cobre 0.161)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 87.0)
 	(hierro 1.57)
 	(iodo -1.0)
@@ -3908,7 +3908,7 @@
 
 	(calcio 4.0)
 	(cobre 0.043)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 333.0)
 	(hierro 0.92)
 	(iodo -1.0)
@@ -3923,7 +3923,7 @@
 
 	(calcio 5.0)
 	(cobre 0.078)
-	(fluor 0.0022)
+	(fluoruro 0.0022)
 	(fosforo 22.0)
 	(hierro 0.26)
 	(iodo -1.0)
@@ -3949,7 +3949,7 @@
 
 	(calcio 54.0)
 	(cobre 0.838)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 319.0)
 	(hierro 1.65)
 	(iodo -1.0)
@@ -3976,7 +3976,7 @@
 
 	(calcio 6.0)
 	(cobre 0.057)
-	(fluor 0.002)
+	(fluoruro 0.002)
 	(fosforo 16.0)
 	(hierro 0.17)
 	(iodo -1.0)
@@ -3991,7 +3991,7 @@
 
 	(calcio 48.0)
 	(cobre 0.017)
-	(fluor 1.0)
+	(fluoruro 1.0)
 	(fosforo 33.0)
 	(hierro 0.17)
 	(iodo -1.0)
@@ -4005,7 +4005,7 @@
 
 	(calcio 43.0)
 	(cobre 0.35)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 220.0)
 	(hierro 1.04)
 	(iodo -1.0)
@@ -4020,7 +4020,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4034,7 +4034,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4048,11 +4048,12 @@
 
 	(calcio 1000.0)
 	(cobre 0.9)
-	(fluor 4.0)
+	(fluoruro 4.0)
 	(fosforo 700.0)
 	(hierro 8.0)
 	(iodo 0.15)
 	(magnesio 0.42)
+	(manganese 420.0)
 	(potasio 4700.0)
 	(selenio 0.055)
 	(sodio 1300.0)
@@ -4062,11 +4063,12 @@
 
 	(calcio 1200.0)
 	(cobre 0.9)
-	(fluor 3.0)
+	(fluoruro 3.0)
 	(fosforo 700.0)
 	(hierro 8.0)
 	(iodo 0.15)
 	(magnesio 320.0)
+	(manganese 320.0)
 	(potasio 4700.0)
 	(selenio 0.055)
 	(sodio 1300.0)
@@ -4076,11 +4078,12 @@
 
 	(calcio 1200.0)
 	(cobre 0.9)
-	(fluor 4.0)
+	(fluoruro 4.0)
 	(fosforo 700.0)
 	(hierro 8.0)
 	(iodo 0.15)
 	(magnesio 420.0)
+	(manganese 2.3)
 	(potasio 4700.0)
 	(selenio 0.055)
 	(sodio 1200.0)
@@ -4090,11 +4093,12 @@
 
 	(calcio 1200.0)
 	(cobre 0.9)
-	(fluor 3.0)
+	(fluoruro 3.0)
 	(fosforo 700.0)
 	(hierro 8.0)
 	(iodo 0.15)
 	(magnesio 320.0)
+	(manganese 1.8)
 	(potasio 4700.0)
 	(selenio 0.055)
 	(sodio 1200.0)
@@ -4104,7 +4108,7 @@
 
 	(calcio 17.0)
 	(cobre 0.145)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 178.0)
 	(hierro 1.0)
 	(iodo -1.0)
@@ -4118,7 +4122,7 @@
 
 	(calcio 13.0)
 	(cobre 0.08)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 7.0)
 	(hierro 0.52)
 	(iodo -1.0)
@@ -4133,7 +4137,7 @@
 
 	(calcio 15.0)
 	(cobre 0.041)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 53.0)
 	(hierro 0.5)
 	(iodo -1.0)
@@ -4148,7 +4152,7 @@
 
 	(calcio 23.0)
 	(cobre 0.165)
-	(fluor 0.0219)
+	(fluoruro 0.0219)
 	(fosforo 54.0)
 	(hierro 0.91)
 	(iodo -1.0)
@@ -4163,7 +4167,7 @@
 
 	(calcio 17.0)
 	(cobre 0.053)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 271.0)
 	(hierro 0.9)
 	(iodo -1.0)
@@ -4178,7 +4182,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4192,7 +4196,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4207,7 +4211,7 @@
 
 	(calcio 81.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 120.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4221,7 +4225,7 @@
 
 	(calcio 61.0)
 	(cobre 0.159)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 109.0)
 	(hierro 1.99)
 	(iodo -1.0)
@@ -4236,7 +4240,7 @@
 
 	(calcio 3.0)
 	(cobre 0.024)
-	(fluor 0.0691)
+	(fluoruro 0.0691)
 	(fosforo 22.0)
 	(hierro 0.02)
 	(iodo -1.0)
@@ -4251,7 +4255,7 @@
 
 	(calcio 75.0)
 	(cobre 0.075)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 126.0)
 	(hierro 2.34)
 	(iodo -1.0)
@@ -4297,7 +4301,7 @@
 
 	(calcio 17.0)
 	(cobre 0.07)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 74.0)
 	(hierro 1.07)
 	(iodo -1.0)
@@ -4312,7 +4316,7 @@
 
 	(calcio 57.0)
 	(cobre 0.26)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 97.0)
 	(hierro 0.91)
 	(iodo -1.0)
@@ -4327,7 +4331,7 @@
 
 	(calcio 6.0)
 	(cobre 0.031)
-	(fluor 0.0675)
+	(fluoruro 0.0675)
 	(fosforo 11.0)
 	(hierro 0.4)
 	(iodo 0.002)
@@ -4349,7 +4353,7 @@
 
 	(calcio 161.0)
 	(cobre 0.092)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 21.0)
 	(hierro 0.8)
 	(iodo -1.0)
@@ -4364,7 +4368,7 @@
 
 	(calcio 1300.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4391,7 +4395,7 @@
 
 	(calcio 10.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro 2.33)
 	(iodo -1.0)
@@ -4406,7 +4410,7 @@
 
 	(calcio 12.0)
 	(cobre 0.113)
-	(fluor 0.019)
+	(fluoruro 0.019)
 	(fosforo 14.5)
 	(hierro 0.4)
 	(iodo 0.002)
@@ -4420,7 +4424,7 @@
 
 	(calcio 13.0)
 	(cobre 0.11)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 8.0)
 	(hierro 0.29)
 	(iodo -1.0)
@@ -4435,7 +4439,7 @@
 
 	(calcio 34.0)
 	(cobre 0.043)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 230.0)
 	(hierro 0.86)
 	(iodo -1.0)
@@ -4457,7 +4461,7 @@
 
 	(calcio 432.0)
 	(cobre 0.061)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 373.0)
 	(hierro 1.52)
 	(iodo -1.0)
@@ -4472,7 +4476,7 @@
 
 	(calcio 184.0)
 	(cobre 0.019)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 188.0)
 	(hierro 0.5)
 	(iodo -1.0)
@@ -4487,7 +4491,7 @@
 
 	(calcio 731.0)
 	(cobre 0.036)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 536.0)
 	(hierro 0.44)
 	(iodo -1.0)
@@ -4502,7 +4506,7 @@
 
 	(calcio 700.0)
 	(cobre 0.036)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 546.0)
 	(hierro 0.24)
 	(iodo -1.0)
@@ -4517,7 +4521,7 @@
 
 	(calcio 121.0)
 	(cobre 0.076)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 129.0)
 	(hierro 0.96)
 	(iodo -1.0)
@@ -4532,7 +4536,7 @@
 
 	(calcio 15.0)
 	(cobre 0.066)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 116.0)
 	(hierro 1.12)
 	(iodo -1.0)
@@ -4547,7 +4551,7 @@
 
 	(calcio 11.0)
 	(cobre 0.069)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 141.0)
 	(hierro 1.57)
 	(iodo -1.0)
@@ -4562,7 +4566,7 @@
 
 	(calcio 45.0)
 	(cobre 0.071)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 322.0)
 	(hierro 0.61)
 	(iodo -1.0)
@@ -4577,7 +4581,7 @@
 
 	(calcio 7.0)
 	(cobre 0.042)
-	(fluor 0.0015)
+	(fluoruro 0.0015)
 	(fosforo 11.0)
 	(hierro 0.24)
 	(iodo -1.0)
@@ -4592,7 +4596,7 @@
 
 	(calcio 10.0)
 	(cobre 0.1)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 230.0)
 	(hierro 2.57)
 	(iodo -1.0)
@@ -4607,7 +4611,7 @@
 
 	(calcio 3.0)
 	(cobre 0.058)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 56.0)
 	(hierro 0.01)
 	(iodo -1.0)
@@ -4622,7 +4626,7 @@
 
 	(calcio 8.0)
 	(cobre 0.05)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 31.0)
 	(hierro 0.27)
 	(iodo -1.0)
@@ -4649,7 +4653,7 @@
 
 	(calcio 18.0)
 	(cobre 0.067)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 297.0)
 	(hierro 0.74)
 	(iodo -1.0)
@@ -4664,7 +4668,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4679,7 +4683,7 @@
 
 	(calcio -1.0)
 	(cobre -1.0)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo -1.0)
 	(hierro -1.0)
 	(iodo -1.0)
@@ -4694,7 +4698,7 @@
 
 	(calcio 30.0)
 	(cobre 0.055)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 270.0)
 	(hierro 0.36)
 	(iodo -1.0)
@@ -4709,7 +4713,7 @@
 
 	(calcio 363.0)
 	(cobre 0.415)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 91.0)
 	(hierro 2.63)
 	(iodo -1.0)
@@ -4724,7 +4728,7 @@
 
 	(calcio 125.0)
 	(cobre 0.01)
-	(fluor 0.0026)
+	(fluoruro 0.0026)
 	(fosforo 95.0)
 	(hierro 0.03)
 	(iodo -1.0)
@@ -4755,7 +4759,7 @@
 
 	(calcio 118.0)
 	(cobre 0.013)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 88.0)
 	(hierro 0.0)
 	(iodo -1.0)
@@ -4770,7 +4774,7 @@
 
 	(calcio 10.0)
 	(cobre 0.022)
-	(fluor 0.0313)
+	(fluoruro 0.0313)
 	(fosforo 17.0)
 	(hierro 0.1)
 	(iodo -1.0)
@@ -4784,7 +4788,7 @@
 
 	(calcio 70.0)
 	(cobre 0.01)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 9.0)
 	(hierro 0.13)
 	(iodo -1.0)
@@ -4799,7 +4803,7 @@
 
 	(calcio 10.0)
 	(cobre 0.022)
-	(fluor 0.0313)
+	(fluoruro 0.0313)
 	(fosforo 17.0)
 	(hierro 0.1)
 	(iodo -1.0)
@@ -4814,7 +4818,7 @@
 
 	(calcio 24.0)
 	(cobre 0.046)
-	(fluor -1.0)
+	(fluoruro -1.0)
 	(fosforo 42.0)
 	(hierro 0.46)
 	(iodo -1.0)
@@ -4945,7 +4949,7 @@
 
 ([quesadillas+de+queso] of  cereal
 
-	(cantidad_porcion 400.0)
+	(cantidad_porcion 300.0)
 	(ingrediente_principal [ingrediente+trigo])
 	(ingredientes
 		[ingrediente+trigo]
@@ -4983,7 +4987,7 @@
 
 ([raviolis+de+queso] of  cereal
 
-	(cantidad_porcion 454.0)
+	(cantidad_porcion 350.0)
 	(ingrediente_principal [ingrediente+pasta])
 	(ingredientes
 		[ingrediente+pasta]
@@ -5404,35 +5408,66 @@
 ([vitaminas+edad+65-69+hombre] of  vitaminas
 
 	(a 0.9)
+	(acido_folico 0.4)
+	(b_12 0.0024)
+	(b_6 1.7)
 	(c 90.0)
+	(choline 550.0)
 	(d 0.015)
 	(e 15.0)
-	(niacina 16.0))
+	(k 0.12)
+	(niacina 16.0)
+	(pantothenic_acid 5.0)
+	(riboflavin 1.3)
+	(tiamina 1.2))
 
 ([vitaminas+edad+65-69+mujer] of  vitaminas
 
 	(a 0.7)
+	(acido_folico 0.4)
+	(b_12 0.0024)
+	(b_6 1.5)
 	(c 75.0)
+	(choline 425.0)
 	(d 0.015)
 	(e 15.0)
-	(niacina 14.0))
+	(k 0.09)
+	(niacina 14.0)
+	(pantothenic_acid 5.0)
+	(riboflavin 1.1)
+	(tiamina 1.1))
 
 ([vitaminas+edad+%3E%3D+70+hombre] of  vitaminas
 
 	(a 0.9)
 	(acido_folico 0.4)
+	(b_12 0.0024)
+	(b_6 1.7)
 	(c 90.0)
+	(choline 550.0)
 	(d 0.02)
 	(e 15.0)
-	(niacina 16.0))
+	(k 0.12)
+	(niacina 16.0)
+	(pantothenic_acid 5.0)
+	(riboflavin 1.3)
+	(tiamina 1.2))
 
 ([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
 
 	(a 0.7)
+	(acido_folico 0.4)
+	(b_12 0.0024)
+	(b_6 1.5)
 	(c 75.0)
+	(choline 425.0)
 	(d 0.02)
 	(e 15.0)
-	(niacina 14.0))
+	(k 0.09)
+	(niacina 14.0)
+	(pantothenic_acid 5.0)
+	(riboflavin 1.1)
+	(tiamina 1.1))
 
 ([vitaminas+ensalada+de+atun] of  vitaminas
 
@@ -6435,7 +6470,7 @@
 
 	(slot calcio)
 	(slot cobre)
-	(slot fluor)
+	(slot fluoruro)
 	(slot fosforo)
 	(slot hierro)
 	(slot iodo)
@@ -6472,7 +6507,7 @@
 	(if (eq ?toget k)                 then (return (max 0 (send ?vitam get-k                ))))
 	(if (eq ?toget calcio)            then (return (max 0 (send ?miner get-calcio           ))))
 	(if (eq ?toget cobre)             then (return (max 0 (send ?miner get-cobre            ))))
-	(if (eq ?toget fluor)             then (return (max 0 (send ?miner get-fluor            ))))
+	(if (eq ?toget fluoruro)          then (return (max 0 (send ?miner get-fluoruro         ))))
 	(if (eq ?toget fosforo)           then (return (max 0 (send ?miner get-fosforo          ))))
 	(if (eq ?toget hierro)            then (return (max 0 (send ?miner get-hierro           ))))
 	(if (eq ?toget iodo)              then (return (max 0 (send ?miner get-iodo             ))))
@@ -6507,7 +6542,7 @@
 					  ;(k (max 0 (send ?vitam get-k)))
 					   (calcio (max 0 (send ?miner get-calcio)))
 					   (cobre (max 0 (send ?miner get-cobre)))
-					   (fluor (max 0 (send ?miner get-fluor)))
+					   (fluoruro (max 0 (send ?miner get-fluoruro)))
 					   (fosforo (max 0 (send ?miner get-fosforo)))
 					   (hierro (max 0 (send ?miner get-hierro)))
 					   (iodo (max 0 (send ?miner get-iodo)))
@@ -6554,13 +6589,13 @@
 (defrule minerales-enfermedades ""
 	(declare (salience 7))
 	(miner-rest ?simbolo)
-	?miner <- (object (name ?nombre) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
+	?miner <- (object (name ?nombre) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluoruro ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
 																							(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
 	(test (eq (instance-name-to-symbol ?nombre) ?simbolo))
 	=>
 	(if (not (eq ?ca -1.0)) then (assert (calcio-rest ?ca)))
 	(if (not (eq ?cu -1.0)) then (assert (cobre-rest ?cu)))
-	(if (not (eq ?f -1.0)) then (assert (fluor-rest ?f)))
+	(if (not (eq ?f -1.0)) then (assert (fluoruro-rest ?f)))
 	(if (not (eq ?p -1.0)) then (assert (fosforo-rest ?p)))
 	(if (not (eq ?fe -1.0)) then (assert (hierro-rest ?fe)))
 	(if (not (eq ?i -1.0)) then (assert (iodo-rest ?i)))
@@ -7069,7 +7104,7 @@
 
 	(slot calcio)
 	(slot cobre)
-	(slot fluor)
+	(slot fluoruro)
 	(slot fosforo)
 	(slot hierro)
 	(slot iodo)
@@ -7100,7 +7135,7 @@
 				(if (neq ?miner [nil]) then
 					(if (eq ?cantidad calcio)   then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-calcio  ))))))
 					(if (eq ?cantidad cobre)    then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-cobre   ))))))
-					(if (eq ?cantidad fluor)    then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-fluor   ))))))
+					(if (eq ?cantidad fluoruro) then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-fluoruro))))))
 					(if (eq ?cantidad fosforo)  then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-fosforo ))))))
 					(if (eq ?cantidad hierro)   then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-hierro  ))))))
 					(if (eq ?cantidad iodo)     then (bind ?tmp (+ ?tmp (max 0.0 (* ?multiplicador (send ?miner get-iodo    ))))))
@@ -7137,7 +7172,7 @@
 							;(k 0)
 							;(niacina 0)
 							 (calcio 0)
-							 (cobre 0) (fluor 0) (fosforo 0)
+							 (cobre 0) (fluoruro 0) (fosforo 0)
 							 (hierro 0)
 							 (iodo 0) (magnesio 0)
 							 (potasio 0)
@@ -7151,7 +7186,7 @@
 		;?fact <- (find-fact ((?p cantidades-menu)) TRUE)
 	(bind ?fact (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
 	;?fact <- (cantidades-menu (a 0) (acido_folico 0) (b_1 0) (b_2 0) (b_6 0) (b_12 0) (c 0) (d 0) (e 0) (k 0) (niacina 0)
-	;													(calcio 0) (cobre 0) (fluor 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0))
+	;													(calcio 0) (cobre 0) (fluoruro 0) (fosforo 0) (hierro 0) (iodo 0) (magnesio 0) (potasio 0) (selenio 0) (sodio 0) (zinc 0))
 	(bind ?a 0)
 	(bind ?acido_folico 0)
 	(bind ?b_1 0)
@@ -7165,7 +7200,7 @@
 	(bind ?niacina 0)
 	(bind ?calcio 0)
 	(bind ?cobre 0)
-	(bind ?fluor 0)
+	(bind ?fluoruro 0)
 	(bind ?fosforo 0)
 	(bind ?hierro 0)
 	(bind ?iodo 0)
@@ -7194,7 +7229,7 @@
 				(if (neq ?miner [nil]) then
 					(bind ?calcio (+ ?calcio (max 0.0 (* ?multiplicador (send ?miner get-calcio)))))
 					(bind ?cobre (+ ?cobre (max 0.0 (* ?multiplicador (send ?miner get-cobre)))))
-					(bind ?fluor (+ ?fluor (max 0.0 (* ?multiplicador (send ?miner get-fluor)))))
+					(bind ?fluoruro (+ ?fluoruro (max 0.0 (* ?multiplicador (send ?miner get-fluoruro)))))
 					(bind ?fosforo (+ ?fosforo (max 0.0 (* ?multiplicador (send ?miner get-fosforo)))))
 					(bind ?hierro (+ ?hierro (max 0.0 (* ?multiplicador (send ?miner get-hierro)))))
 					(bind ?iodo (+ ?iodo (max 0.0 (* ?multiplicador (send ?miner get-iodo)))))
@@ -7230,7 +7265,7 @@
 		;?cant  <- (find-instance (?))
 		;?cant  <- (object (name ?nombre) (is-a cantidades_nutricionales) (numero_micronutrientes ?micro))
 		;?micro <- (object (name ?micro) (is-a micronutrientes) (numero_minerales ?miner) (numero_vitaminas ?vitam))
-		;?miner <- (object (name ?miner) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluor ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
+		;?miner <- (object (name ?miner) (is-a mineral) (calcio ?ca) (cobre ?cu) (fluoruro ?f) (fosforo ?p) (hierro ?fe) (iodo ?i)
 		;																						(magnesio ?mg) (potasio ?k) (selenio ?se) (sodio ?na) (zinc ?z))
 		;?vitam <- (object (name ?nombre) (is-a vitaminas) (a ?a) (acido_folico ?fol) (b_1 ?b1) (b_2 ?b2) (b_12 ?b12) (b_6 ?b6) (c ?c) (d ?d) (e ?e) (k ?kk) (niacina ?n))
 			; CADA PUTO SEND GET-ALGO HAY QUE METERLO COMO MAX(0,SEND)
@@ -7251,7 +7286,7 @@
 				 ;(niacina           (+ (fact-slot-value ?fact niacina)                     ?niacina))
 				  (calcio            (+ (fact-slot-value ?fact calcio)                       ?calcio))
 				  (cobre             (+ (fact-slot-value ?fact cobre)                         ?cobre))
-				  (fluor             (+ (fact-slot-value ?fact fluor)                         ?fluor))
+				  (fluoruro          (+ (fact-slot-value ?fact fluoruro)                   ?fluoruro))
 				  (fosforo           (+ (fact-slot-value ?fact fosforo)                     ?fosforo))
 				  (hierro            (+ (fact-slot-value ?fact hierro)                       ?hierro))
 				  (iodo              (+ (fact-slot-value ?fact iodo)                           ?iodo))
@@ -7268,7 +7303,7 @@
 )
 
 (deffunction cantidades_a_comprobar "" ()
-	(return (create$ proteinas fibra_alimentaria calcio))
+	(return (create$ a fibra_alimentaria sodio))
 )
 
 (deffunction cantidades-validas "" ()
@@ -7277,22 +7312,6 @@
 	(bind ?cmenu (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
 	(bind ?cdrmax (nth$ 1 (find-fact ((?p cdr-final)) (eq ?p:tipo max))))
 	(bind ?cdrmin (nth$ 1 (find-fact ((?p cdr-final)) (eq ?p:tipo min))))
-;	(if (or (> (fact-slot-value ?cmenu a) (fact-slot-value ?cdrmax a)) (< (fact-slot-value ?cmenu a) (fact-slot-value ?cdrmin a))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu c) (fact-slot-value ?cdrmax c)) (< (fact-slot-value ?cmenu c) (fact-slot-value ?cdrmin c))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu d) (fact-slot-value ?cdrmax d)) (< (fact-slot-value ?cmenu d) (fact-slot-value ?cdrmin d))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) (< (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmin calcio))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu hierro) (fact-slot-value ?cdrmax hierro)) (< (fact-slot-value ?cmenu hierro) (fact-slot-value ?cdrmin hierro))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu potasio) (fact-slot-value ?cdrmax potasio)) (< (fact-slot-value ?cmenu potasio) (fact-slot-value ?cdrmin potasio))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmax sodio)) (< (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmin sodio))) then
-;		(return FALSE)
-;	)))))))
-
 	(progn$ (?c ?compr)
 		(if (or (> (fact-slot-value ?cmenu ?c) (fact-slot-value ?cdrmax ?c)) (< (fact-slot-value ?cmenu ?c) (fact-slot-value ?cdrmin ?c))) then (return FALSE))
 	)
@@ -7301,29 +7320,15 @@
 )
 
 (deffunction cantidades-validas2 "" ()
+	(bind ?compr (cantidades_a_comprobar))
+
 	(bind ?cmenu (nth$ 1 (find-fact ((?p cantidades-menu)) TRUE)))
 	(bind ?cdrmax (nth$ 1 (find-fact ((?p cdr-final)) (eq ?p:tipo max))))
-;	(if (or (> (fact-slot-value ?cmenu a) (fact-slot-value ?cdrmax a)) (< (fact-slot-value ?cmenu a) (fact-slot-value ?cdrmin a))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu c) (fact-slot-value ?cdrmax c)) (< (fact-slot-value ?cmenu c) (fact-slot-value ?cdrmin c))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu d) (fact-slot-value ?cdrmax d)) (< (fact-slot-value ?cmenu d) (fact-slot-value ?cdrmin d))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) (< (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmin calcio))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu hierro) (fact-slot-value ?cdrmax hierro)) (< (fact-slot-value ?cmenu hierro) (fact-slot-value ?cdrmin hierro))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu potasio) (fact-slot-value ?cdrmax potasio)) (< (fact-slot-value ?cmenu potasio) (fact-slot-value ?cdrmin potasio))) then
-;		(return FALSE)
-;	else (if (or (> (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmax sodio)) (< (fact-slot-value ?cmenu sodio) (fact-slot-value ?cdrmin sodio))) then
-;		(return FALSE)
-;	)))))))
-
-	(if (> (fact-slot-value ?cmenu calcio) (fact-slot-value ?cdrmax calcio)) then
+	(progn$ (?c ?compr)
+		(if (> (fact-slot-value ?cmenu ?c) (fact-slot-value ?cdrmax ?c)) then
 			(return FALSE)
-	else (if (> (fact-slot-value ?cmenu proteinas) (fact-slot-value ?cdrmax proteinas)) then
-			(return FALSE)
-	))
+		)
+	)
 	(return TRUE)
 )
 
@@ -7370,12 +7375,12 @@
 )
 
 (deftemplate menu-semanal ""
-	(slot menu-lunes			(type INSTANCE) (allowed-classes menu-dia))
-	(slot menu-martes			(type INSTANCE) (allowed-classes menu-dia))
+	(slot menu-lunes		(type INSTANCE) (allowed-classes menu-dia))
+	(slot menu-martes		(type INSTANCE) (allowed-classes menu-dia))
 	(slot menu-miercoles	(type INSTANCE) (allowed-classes menu-dia))
-	(slot menu-jueves			(type INSTANCE) (allowed-classes menu-dia))
+	(slot menu-jueves		(type INSTANCE) (allowed-classes menu-dia))
 	(slot menu-viernes		(type INSTANCE) (allowed-classes menu-dia))
-	(slot menu-sabado			(type INSTANCE) (allowed-classes menu-dia))
+	(slot menu-sabado		(type INSTANCE) (allowed-classes menu-dia))
 	(slot menu-domingo		(type INSTANCE) (allowed-classes menu-dia))
 )
 
@@ -7672,7 +7677,7 @@
 				 ;(niacina           (* (fact-slot-value ?fact niacina)           ?inc))
 				  (calcio            (* (fact-slot-value ?fact calcio)            ?inc))
 				 ;(cobre             (* (fact-slot-value ?fact cobre)             ?inc))
-				 ;(fluor             (* (fact-slot-value ?fact fluor)             ?inc))
+				 ;(fluoruro          (* (fact-slot-value ?fact fluoruro)          ?inc))
 				 ;(fosforo           (* (fact-slot-value ?fact fosforo)           ?inc))
 				  (hierro            (* (fact-slot-value ?fact hierro)            ?inc))
 				 ;(iodo              (* (fact-slot-value ?fact iodo)              ?inc))
@@ -7700,7 +7705,7 @@
 				 ;(niacina           (* (fact-slot-value ?fact niacina)           ?dec))
 				  (calcio            (* (fact-slot-value ?fact calcio)            ?dec))
 				 ;(cobre             (* (fact-slot-value ?fact cobre)             ?dec))
-				 ;(fluor             (* (fact-slot-value ?fact fluor)             ?dec))
+				 ;(fluoruro          (* (fact-slot-value ?fact fluoruro)          ?dec))
 				 ;(fosforo           (* (fact-slot-value ?fact fosforo)           ?dec))
 				  (hierro            (* (fact-slot-value ?fact hierro)            ?dec))
 				 ;(iodo              (* (fact-slot-value ?fact iodo)              ?dec))
