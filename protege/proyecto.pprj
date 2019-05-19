@@ -1,4 +1,4 @@
-; Sun May 19 00:18:56 CEST 2019
+; Sun May 19 19:38:49 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -20,9 +20,9 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[proyecto_ProjectKB_Class370]
-		[proyecto_ProjectKB_Class371]
-		[proyecto_ProjectKB_Class372]))
+		[proyecto_ProjectKB_Class267]
+		[proyecto_ProjectKB_Class268]
+		[proyecto_ProjectKB_Class269]))
 
 ([CLSES_TAB] of  Widget
 
@@ -70,9 +70,6 @@
 	(is_hidden FALSE)
 	(widget_class_name "edu.stanford.smi.protege.widget.InstancesTab"))
 
-([KB_078571_Class3] of  Map
-)
-
 ([KB_259481_Class0] of  String
 
 	(name "factory_class_name")
@@ -81,9 +78,9 @@
 ([KB_259481_Class1] of  Map
 
 	(entries
-		[proyecto_ProjectKB_Class373]
-		[proyecto_ProjectKB_Class374]
-		[proyecto_ProjectKB_Class375]))
+		[proyecto_ProjectKB_Class270]
+		[proyecto_ProjectKB_Class271]
+		[proyecto_ProjectKB_Class272]))
 
 ([KB_259481_Class10] of  Property_List
 )
@@ -510,6 +507,9 @@
 	(name "classes_file_name")
 	(string_value "proyecto.pont"))
 
+([KB_745718_Class3] of  Map
+)
+
 ([LAYOUT_PROPERTIES] of  Property_List
 
 	(name "layout properties")
@@ -651,36 +651,36 @@
 		[KB_259481_Class33]
 		[KB_259481_Class15]))
 
-([proyecto_ProjectKB_Class370] of  String
+([proyecto_ProjectKB_Class267] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([proyecto_ProjectKB_Class371] of  String
+([proyecto_ProjectKB_Class268] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
 
-([proyecto_ProjectKB_Class372] of  String
+([proyecto_ProjectKB_Class269] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([proyecto_ProjectKB_Class373] of  Map_Entry
+([proyecto_ProjectKB_Class270] of  Map_Entry
 
 	(key "suppress_instance_counting")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class374] of  Map_Entry
+([proyecto_ProjectKB_Class271] of  Map_Entry
 
 	(key "add_name_on_instance_form")
 	(key_class "java.lang.String")
 	(value "false")
 	(value_class "java.lang.String"))
 
-([proyecto_ProjectKB_Class375] of  Map_Entry
+([proyecto_ProjectKB_Class272] of  Map_Entry
 
 	(key "change_tracking_active")
 	(key_class "java.lang.String")
