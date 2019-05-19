@@ -1,4 +1,4 @@
-; Sun May 19 22:30:00 CEST 2019
+; Sun May 19 22:57:10 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -193,6 +193,17 @@
 	(saturados -1.0)
 	(trans -1.0))
 
+([acidos+grasos+edad+65-69+hombre+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+edad+65-69+mujer] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -200,6 +211,17 @@
 	(monoinsaturados -1.0)
 	(octadecadienoic_acid 11.0)
 	(octadecatrienoic_acid 1.1)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+65-69+mujer+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -215,6 +237,17 @@
 	(saturados -1.0)
 	(trans -1.0))
 
+([acidos+grasos+edad+%3E%3D+70+hombre+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+edad+%3E%3D+70+mujer] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -222,6 +255,17 @@
 	(monoinsaturados -1.0)
 	(octadecadienoic_acid 11.0)
 	(octadecatrienoic_acid 1.1)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+%3E%3D+70+mujer+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -984,12 +1028,26 @@
 	(numero_micronutrientes [micronutrientes+edad+65-69+hombre])
 	(sal 6.0))
 
+([cantidades+edad+65-69+hombre+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+65-69+hombre+maximas])
+	(numero_micronutrientes [micronutrientes+edad+65-69+hombre+maximas])
+	(sal -1.0))
+
 ([cantidades+edad+65-69+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+65-69+mujer])
 	(numero_micronutrientes [micronutrientes+edad+65-69+mujer])
 	(sal 6.0))
+
+([cantidades+edad+65-69+mujer+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+65-69+mujer+maximas])
+	(numero_micronutrientes [micronutrientes+edad+65-69+mujer+maximas])
+	(sal -1.0))
 
 ([cantidades+edad+%3E%3D+70+hombre] of  cantidades_nutricionales
 
@@ -998,12 +1056,26 @@
 	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre])
 	(sal 6.0))
 
+([cantidades+edad+%3E%3D+70+hombre+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+hombre+maximas])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre+maximas])
+	(sal -1.0))
+
 ([cantidades+edad+%3E%3D+70+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer])
 	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer])
 	(sal 6.0))
+
+([cantidades+edad+%3E%3D+70+mujer+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer+maximas])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer+maximas])
+	(sal -1.0))
 
 ([cantidades+ensalada+de+atun] of  cantidades_nutricionales
 
@@ -2105,6 +2177,15 @@
 	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
+([macronutrientes+edad+65-69+hombre+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+65-69+hombre+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([macronutrientes+edad+65-69+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
@@ -2113,6 +2194,15 @@
 	(grasa [acidos+grasos+edad+65-69+mujer])
 	(lipidos -1.0)
 	(numero_proteinas 46.0))
+
+([macronutrientes+edad+65-69+mujer+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+65-69+mujer+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
 
 ([macronutrientes+edad+%3E%3D+70+hombre] of  macronutrientes
 
@@ -2123,6 +2213,15 @@
 	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
+([macronutrientes+edad+%3E%3D+70+hombre+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+hombre+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([macronutrientes+edad+%3E%3D+70+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
@@ -2131,6 +2230,15 @@
 	(grasa [acidos+grasos+edad+%3E%3D+70+mujer])
 	(lipidos -1.0)
 	(numero_proteinas 46.0))
+
+([macronutrientes+edad+%3E%3D+70+mujer+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+mujer+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
 
 ([macronutrientes+ensalada+de+atun] of  macronutrientes
 
@@ -2918,20 +3026,40 @@
 	(numero_minerales [minerales+edad+65-69+hombre])
 	(numero_vitaminas [vitaminas+edad+65-69+hombre]))
 
+([micronutrientes+edad+65-69+hombre+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+hombre+maximas])
+	(numero_vitaminas [vitaminas+edad+65-69+hombre+maximas]))
+
 ([micronutrientes+edad+65-69+mujer] of  micronutrientes
 
 	(numero_minerales [minerales+edad+65-69+mujer])
 	(numero_vitaminas [vitaminas+edad+65-69+mujer]))
+
+([micronutrientes+edad+65-69+mujer+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+mujer+maximas])
+	(numero_vitaminas [vitaminas+edad+65-69+mujer+maximas]))
 
 ([micronutrientes+edad+%3E%3D+70+hombre] of  micronutrientes
 
 	(numero_minerales [minerales+edad+%3E%3D+70+hombre])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+hombre]))
 
+([micronutrientes+edad+%3E%3D+70+hombre+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+hombre+maximas])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+hombre+maximas]))
+
 ([micronutrientes+edad+%3E%3D+70+mujer] of  micronutrientes
 
 	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
+
+([micronutrientes+edad+%3E%3D+70+mujer+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+mujer+maximas])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer+maximas]))
 
 ([micronutrientes+ensalada+de+atun] of  micronutrientes
 
@@ -3454,6 +3582,21 @@
 	(sodio 1300.0)
 	(zinc 11.0))
 
+([minerales+edad+65-69+hombre+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 4000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
+
 ([minerales+edad+65-69+mujer] of  mineral
 
 	(calcio 1200.0)
@@ -3468,6 +3611,21 @@
 	(selenio 0.055)
 	(sodio 1300.0)
 	(zinc 8.0))
+
+([minerales+edad+65-69+mujer+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 4000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
 
 ([minerales+edad+%3E%3D+70+hombre] of  mineral
 
@@ -3484,6 +3642,21 @@
 	(sodio 1200.0)
 	(zinc 11.0))
 
+([minerales+edad+%3E%3D+70+hombre+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 3000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
+
 ([minerales+edad+%3E%3D+70+mujer] of  mineral
 
 	(calcio 1200.0)
@@ -3498,6 +3671,21 @@
 	(selenio 0.055)
 	(sodio 1200.0)
 	(zinc 8.0))
+
+([minerales+edad+%3E%3D+70+mujer+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 3000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
 
 ([minerales+ensalada+de+atun] of  mineral
 
@@ -4589,19 +4777,23 @@
 
 ([restriccion+edad+65-69+hombre] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+65-69+hombre+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+65-69+hombre]))
 
 ([restriccion+edad+65-69+mujer] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+65-69+mujer+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+65-69+mujer]))
 
 ([restriccion+edad+%3E%3D+70+hombre] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+%3E%3D+70+hombre+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+hombre])
 	(obligatoria FALSE))
 
 ([restriccion+edad+%3E%3D+70+mujer] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+%3E%3D+70+mujer+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
 
 ([restriccion+fenilcetonuria] of  restriccion
@@ -5124,6 +5316,22 @@
 	(riboflavin 1.3)
 	(tiamina 1.2))
 
+([vitaminas+edad+65-69+hombre+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+edad+65-69+mujer] of  vitaminas
 
 	(a 0.7)
@@ -5139,6 +5347,22 @@
 	(pantothenic_acid 5.0)
 	(riboflavin 1.1)
 	(tiamina 1.1))
+
+([vitaminas+edad+65-69+mujer+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
 
 ([vitaminas+edad+%3E%3D+70+hombre] of  vitaminas
 
@@ -5156,6 +5380,22 @@
 	(riboflavin 1.3)
 	(tiamina 1.2))
 
+([vitaminas+edad+%3E%3D+70+hombre+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
 
 	(a 0.7)
@@ -5171,6 +5411,22 @@
 	(pantothenic_acid 5.0)
 	(riboflavin 1.1)
 	(tiamina 1.1))
+
+([vitaminas+edad+%3E%3D+70+mujer+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
 
 ([vitaminas+ensalada+de+atun] of  vitaminas
 

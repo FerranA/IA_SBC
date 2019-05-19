@@ -1,4 +1,4 @@
-; Sun May 19 22:30:00 CEST 2019
+; Sun May 19 22:57:10 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -23,6 +23,11 @@
 	(single-slot choline
 		(type FLOAT)
 		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidades_maximas_diarias
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sal
@@ -621,6 +626,11 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot cantidades_recomendadas_diarias
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidades_maximas_diarias
 		(type INSTANCE)
 ;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
