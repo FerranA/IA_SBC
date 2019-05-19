@@ -1,5 +1,6 @@
 (defmodule MAIN (export ?ALL))
-; Sun May 19 20:11:26 CEST 2019
+
+; Sun May 19 22:57:10 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -24,6 +25,11 @@
 	(single-slot choline
 		(type FLOAT)
 		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cantidades_maximas_diarias
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot sal
@@ -77,6 +83,11 @@
 	(single-slot riboflavin
 		(type FLOAT)
 		(default -1.0)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nivel_actividad_fisica
+		(type SYMBOL)
+		(allowed-values 1.2 1.4 1.6 1.8 2.0 2.2)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot nombre_vitaminas
@@ -478,10 +489,9 @@
 		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
-	(single-slot ingredientes_recomendados
+	(multislot ingredientes_recomendados
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
-;+		(cardinality 0 1)
 		(create-accessor read-write)))
 
 (defclass ingrediente
@@ -576,6 +586,11 @@
 		(type SYMBOL)
 		(allowed-values 70-79 80-89 90-100 100-110 65-69)
 		(create-accessor read-write))
+	(single-slot nivel_actividad_fisica
+		(type SYMBOL)
+		(allowed-values 1.2 1.4 1.6 1.8 2.0 2.2)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot sexo
 		(type SYMBOL)
 		(allowed-values hombre mujer otros)
@@ -584,11 +599,6 @@
 	(single-slot recomendaciones
 		(type INSTANCE)
 ;+		(allowed-classes restriccion)
-;+		(cardinality 0 1)
-		(create-accessor read-write))
-	(single-slot actividad_fisica
-		(type SYMBOL)
-		(allowed-values poco medio mucho)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
@@ -622,6 +632,11 @@
 ;+		(allowed-classes cantidades_nutricionales)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot cantidades_maximas_diarias
+		(type INSTANCE)
+;+		(allowed-classes cantidades_nutricionales)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(multislot evitar_tipo_ingrediente
 		(type SYMBOL)
 ;+		(allowed-parents ingrediente_carne ingrediente_lacteo ingrediente_pescado ingrediente_bebida ingrediente_fruta ingrediente_huevo ingrediente_grasa ingrediente_legumbre ingrediente_verdura ingrediente_cereal ingrediente_otro)
@@ -630,10 +645,9 @@
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
 		(create-accessor read-write))
-	(single-slot ingredientes_recomendados
+	(multislot ingredientes_recomendados
 		(type INSTANCE)
 ;+		(allowed-classes ingrediente)
-;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot %3ANAME
 		(type STRING)
@@ -992,7 +1006,7 @@
 	(role concrete))
 
 (definstances instancias
-; Sun May 19 20:11:26 CEST 2019
+; Sun May 19 22:57:10 CEST 2019
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 660")
@@ -1079,6 +1093,17 @@
 	(poliinsaturados 0.175)
 	(saturados 0.205)
 	(trans 0.02))
+
+([acidos+grasos+bajar+colesterol] of  acidos_grasos
+
+	(colesterol 180.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados 12.0)
+	(trans -1.0))
 
 ([acidos+grasos+banana] of  acidos_grasos
 
@@ -1176,6 +1201,17 @@
 	(saturados -1.0)
 	(trans -1.0))
 
+([acidos+grasos+edad+65-69+hombre+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+edad+65-69+mujer] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -1183,6 +1219,17 @@
 	(monoinsaturados -1.0)
 	(octadecadienoic_acid 11.0)
 	(octadecatrienoic_acid 1.1)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+65-69+mujer+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1198,6 +1245,17 @@
 	(saturados -1.0)
 	(trans -1.0))
 
+([acidos+grasos+edad+%3E%3D+70+hombre+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
 ([acidos+grasos+edad+%3E%3D+70+mujer] of  acidos_grasos
 
 	(colesterol -1.0)
@@ -1205,6 +1263,17 @@
 	(monoinsaturados -1.0)
 	(octadecadienoic_acid 11.0)
 	(octadecatrienoic_acid 1.1)
+	(poliinsaturados -1.0)
+	(saturados -1.0)
+	(trans -1.0))
+
+([acidos+grasos+edad+%3E%3D+70+mujer+maximas] of  acidos_grasos
+
+	(colesterol -1.0)
+	(etanol -1.0)
+	(monoinsaturados -1.0)
+	(octadecadienoic_acid -1.0)
+	(octadecatrienoic_acid -1.0)
 	(poliinsaturados -1.0)
 	(saturados -1.0)
 	(trans -1.0))
@@ -1890,6 +1959,13 @@
 	(numero_micronutrientes [micronutrientes+atun+fresco])
 	(sal -1.0))
 
+([cantidades+bajar+colesterol] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+bajar+colesterol])
+	(numero_micronutrientes [micronutrientes+bajar+colesterol])
+	(sal -1.0))
+
 ([cantidades+banana] of  cantidades_nutricionales
 
 	(cantidad_agua 0.07491)
@@ -1960,12 +2036,26 @@
 	(numero_micronutrientes [micronutrientes+edad+65-69+hombre])
 	(sal 6.0))
 
+([cantidades+edad+65-69+hombre+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+65-69+hombre+maximas])
+	(numero_micronutrientes [micronutrientes+edad+65-69+hombre+maximas])
+	(sal -1.0))
+
 ([cantidades+edad+65-69+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+65-69+mujer])
 	(numero_micronutrientes [micronutrientes+edad+65-69+mujer])
 	(sal 6.0))
+
+([cantidades+edad+65-69+mujer+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+65-69+mujer+maximas])
+	(numero_micronutrientes [micronutrientes+edad+65-69+mujer+maximas])
+	(sal -1.0))
 
 ([cantidades+edad+%3E%3D+70+hombre] of  cantidades_nutricionales
 
@@ -1974,12 +2064,26 @@
 	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre])
 	(sal 6.0))
 
+([cantidades+edad+%3E%3D+70+hombre+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+hombre+maximas])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+hombre+maximas])
+	(sal -1.0))
+
 ([cantidades+edad+%3E%3D+70+mujer] of  cantidades_nutricionales
 
 	(cantidad_agua 2.7)
 	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer])
 	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer])
 	(sal 6.0))
+
+([cantidades+edad+%3E%3D+70+mujer+maximas] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+edad+%3E%3D+70+mujer+maximas])
+	(numero_micronutrientes [micronutrientes+edad+%3E%3D+70+mujer+maximas])
+	(sal -1.0))
 
 ([cantidades+ensalada+de+atun] of  cantidades_nutricionales
 
@@ -2118,6 +2222,150 @@
 	(cantidad_agua -1.0)
 	(numero_macronutrientes [macronutrientes+osteoporosis])
 	(numero_micronutrientes [micronutrientes+osteoporosis])
+	(sal -1.0))
+
+([cantidades+pal+1.2+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.2+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.2+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.2+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.2+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.2+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.2+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.2+mujer+%3E0+70])
+	(sal -1.0))
+
+([cantidades+pal+1.4+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.4+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.4+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.4+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.4+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.4+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.4+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.4+mujer+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.6+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.6+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.6+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.6+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.6+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.6+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.6+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.6+mujer+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.8+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.8+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.8+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.8+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+1.8+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.8+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+1.8+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+1.8+mujer+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+2.0+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.0+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+2.0+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.0+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+2.0+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.0+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+2.0+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.0+mujer+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+2.2+hombre+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.2+hombre+65-69])
+	(sal -1.0))
+
+([cantidades+pal+2.2+hombre+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.2+hombre+%3E%3D+70])
+	(sal -1.0))
+
+([cantidades+pal+2.2+mujer+65-69] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.2+mujer+65-69])
+	(sal -1.0))
+
+([cantidades+pal+2.2+mujer+%3E%3D+70] of  cantidades_nutricionales
+
+	(cantidad_agua -1.0)
+	(numero_macronutrientes [macronutrientes+pal+2.2+mujer+%3E%3D+70])
 	(sal -1.0))
 
 ([cantidades+pasta+fresca+al+huevo] of  cantidades_nutricionales
@@ -2660,6 +2908,9 @@
 ([ingrediente+patata] of  ingrediente_verdura
 )
 
+([ingrediente+pato] of  ingrediente_carne
+)
+
 ([ingrediente+pera] of  ingrediente_fruta
 )
 
@@ -2737,7 +2988,8 @@
 		[ingrediente+lenteja]
 		[ingrediente+ajo]
 		[ingrediente+cebolla]
-		[ingrediente+zanahoria])
+		[ingrediente+zanahoria]
+		[ingrediente+jamon])
 	(momento_ingesta comida cena)
 	(tipo entrante principal)
 	(valor_nutricional [cantidades+lentejas+con+jamon]))
@@ -2834,6 +3086,15 @@
 	(lipidos 0.6)
 	(numero_proteinas 29.0))
 
+([macronutrientes+bajar+colesterol] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+bajar+colesterol])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([macronutrientes+banana] of  macronutrientes
 
 	(carbohidratos 23.0)
@@ -2924,6 +3185,15 @@
 	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
+([macronutrientes+edad+65-69+hombre+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+65-69+hombre+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([macronutrientes+edad+65-69+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
@@ -2932,6 +3202,15 @@
 	(grasa [acidos+grasos+edad+65-69+mujer])
 	(lipidos -1.0)
 	(numero_proteinas 46.0))
+
+([macronutrientes+edad+65-69+mujer+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+65-69+mujer+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
 
 ([macronutrientes+edad+%3E%3D+70+hombre] of  macronutrientes
 
@@ -2942,6 +3221,15 @@
 	(lipidos -1.0)
 	(numero_proteinas 56.0))
 
+([macronutrientes+edad+%3E%3D+70+hombre+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+hombre+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
 ([macronutrientes+edad+%3E%3D+70+mujer] of  macronutrientes
 
 	(carbohidratos 130.0)
@@ -2950,6 +3238,15 @@
 	(grasa [acidos+grasos+edad+%3E%3D+70+mujer])
 	(lipidos -1.0)
 	(numero_proteinas 46.0))
+
+([macronutrientes+edad+%3E%3D+70+mujer+maximas] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia -1.0)
+	(fibra_alimentaria -1.0)
+	(grasa [acidos+grasos+edad+%3E%3D+70+mujer+maximas])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
 
 ([macronutrientes+ensalada+de+atun] of  macronutrientes
 
@@ -3118,6 +3415,198 @@
 	(energia -1.0)
 	(fibra_alimentaria -1.0)
 	(grasa [acidos+grasos+osteoporosis])
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.2+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1558.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.2+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1713.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.2+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1568.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.2+mujer+%3E0+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1491.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.4+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2184.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.4+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1998.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.4+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1826.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.4+mujer+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1739.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.6+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2504.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.6+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2280.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.6+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2084.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.6+mujer+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 1978.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.8+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2810.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.8+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2566.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.8+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2347.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+1.8+mujer+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2227.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.0+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 3126.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.0+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2853.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.0+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2595.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.0+mujer+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2476.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.2+hombre+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 3441.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.2+hombre+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 3145.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.2+mujer+65-69] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2868.0)
+	(fibra_alimentaria -1.0)
+	(lipidos -1.0)
+	(numero_proteinas -1.0))
+
+([macronutrientes+pal+2.2+mujer+%3E%3D+70] of  macronutrientes
+
+	(carbohidratos -1.0)
+	(energia 2729.0)
+	(fibra_alimentaria -1.0)
 	(lipidos -1.0)
 	(numero_proteinas -1.0))
 
@@ -3495,6 +3984,11 @@
 	(numero_minerales [minerales+atun+fresco])
 	(numero_vitaminas [vitaminas+atun+fresco]))
 
+([micronutrientes+bajar+colesterol] of  micronutrientes
+
+	(numero_minerales [minerales+bajar+colesterol])
+	(numero_vitaminas [vitaminas+bajar+colesterol]))
+
 ([micronutrientes+banana] of  micronutrientes
 
 	(numero_minerales [minerales+banana])
@@ -3540,20 +4034,40 @@
 	(numero_minerales [minerales+edad+65-69+hombre])
 	(numero_vitaminas [vitaminas+edad+65-69+hombre]))
 
+([micronutrientes+edad+65-69+hombre+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+hombre+maximas])
+	(numero_vitaminas [vitaminas+edad+65-69+hombre+maximas]))
+
 ([micronutrientes+edad+65-69+mujer] of  micronutrientes
 
 	(numero_minerales [minerales+edad+65-69+mujer])
 	(numero_vitaminas [vitaminas+edad+65-69+mujer]))
+
+([micronutrientes+edad+65-69+mujer+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+65-69+mujer+maximas])
+	(numero_vitaminas [vitaminas+edad+65-69+mujer+maximas]))
 
 ([micronutrientes+edad+%3E%3D+70+hombre] of  micronutrientes
 
 	(numero_minerales [minerales+edad+%3E%3D+70+hombre])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+hombre]))
 
+([micronutrientes+edad+%3E%3D+70+hombre+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+hombre+maximas])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+hombre+maximas]))
+
 ([micronutrientes+edad+%3E%3D+70+mujer] of  micronutrientes
 
 	(numero_minerales [minerales+edad+%3E%3D+70+mujer])
 	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer]))
+
+([micronutrientes+edad+%3E%3D+70+mujer+maximas] of  micronutrientes
+
+	(numero_minerales [minerales+edad+%3E%3D+70+mujer+maximas])
+	(numero_vitaminas [vitaminas+edad+%3E%3D+70+mujer+maximas]))
 
 ([micronutrientes+ensalada+de+atun] of  micronutrientes
 
@@ -3921,6 +4435,21 @@
 	(sodio 54.0)
 	(zinc 0.45))
 
+([minerales+bajar+colesterol] of  mineral
+
+	(calcio -1.0)
+	(cobre -1.0)
+	(fluoruro -1.0)
+	(fosforo -1.0)
+	(hierro -1.0)
+	(iodo -1.0)
+	(magnesio -1.0)
+	(manganese -1.0)
+	(potasio -1.0)
+	(selenio -1.0)
+	(sodio -1.0)
+	(zinc -1.0))
+
 ([minerales+banana] of  mineral
 
 	(calcio 5.0)
@@ -4061,6 +4590,21 @@
 	(sodio 1300.0)
 	(zinc 11.0))
 
+([minerales+edad+65-69+hombre+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 4000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
+
 ([minerales+edad+65-69+mujer] of  mineral
 
 	(calcio 1200.0)
@@ -4075,6 +4619,21 @@
 	(selenio 0.055)
 	(sodio 1300.0)
 	(zinc 8.0))
+
+([minerales+edad+65-69+mujer+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 4000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
 
 ([minerales+edad+%3E%3D+70+hombre] of  mineral
 
@@ -4091,6 +4650,21 @@
 	(sodio 1200.0)
 	(zinc 11.0))
 
+([minerales+edad+%3E%3D+70+hombre+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 3000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
+
 ([minerales+edad+%3E%3D+70+mujer] of  mineral
 
 	(calcio 1200.0)
@@ -4105,6 +4679,21 @@
 	(selenio 0.055)
 	(sodio 1200.0)
 	(zinc 8.0))
+
+([minerales+edad+%3E%3D+70+mujer+maximas] of  mineral
+
+	(calcio 2000.0)
+	(cobre 10.0)
+	(fluoruro 10.0)
+	(fosforo 3000.0)
+	(hierro 45.0)
+	(iodo 1.1)
+	(magnesio 350.0)
+	(manganese 11.0)
+	(potasio -1.0)
+	(selenio 0.4)
+	(sodio 2300.0)
+	(zinc 40.0))
 
 ([minerales+ensalada+de+atun] of  mineral
 
@@ -4863,14 +5452,11 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pastel+de+manzana]))
 
-([pato] of  ingrediente_carne
-)
-
 ([pato+estofado] of  carne
 
 	(cantidad_porcion 174.0)
-	(ingrediente_principal [pato])
-	(ingredientes [pato])
+	(ingrediente_principal [ingrediente+pato])
+	(ingredientes [ingrediente+pato])
 	(momento_ingesta comida cena)
 	(tipo principal)
 	(valor_nutricional [cantidades+pato+estofado]))
@@ -4884,28 +5470,196 @@
 	(tipo postre)
 	(valor_nutricional [cantidades+pera]))
 
-([perfil+edad+65-69+hombre] of  perfil
+([perfil+edad+65-69+hombre+general+intakes] of  perfil
 
 	(edad 65-69)
 	(recomendaciones [restriccion+edad+65-69+hombre])
 	(sexo hombre))
 
-([perfil+edad+65-69+mujer] of  perfil
+([perfil+edad+65-69+mujer+general+intakes] of  perfil
 
 	(edad 65-69)
 	(recomendaciones [restriccion+edad+65-69+mujer])
 	(sexo mujer))
 
-([perfil+edad+%3E%3D+70+hombre] of  perfil
+([perfil+edad+%3E%3D+70+hombre+general+intakes] of  perfil
 
 	(edad 70-79 80-89 90-100 100-110)
 	(recomendaciones [restriccion+edad+%3E%3D+70+hombre])
 	(sexo hombre))
 
-([perfil+edad+%3E%3D+70+mujer] of  perfil
+([perfil+edad+%3E%3D+70+mujer+general+intakes] of  perfil
 
 	(edad 70-79 80-89 90-100 100-110)
 	(recomendaciones [restriccion+edad+%3E%3D+70+mujer])
+	(sexo mujer))
+
+([perfil+pal+1.2+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.2)
+	(recomendaciones [restriccion+pal+1.2+hombre+65-69])
+	(sexo hombre))
+
+([perfil+pal+1.2+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.2)
+	(recomendaciones [restriccion+pal+1.2+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+1.2+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.2)
+	(recomendaciones [restriccion+pal+1.2+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+1.2+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.2)
+	(recomendaciones [restriccion+pal+1.2+mujer+%3E%3D+70])
+	(sexo mujer))
+
+([perfil+pal+1.4+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.4)
+	(recomendaciones [restriccion+pal+1.4+hombre+65-69])
+	(sexo hombre))
+
+([perfil+pal+1.4+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.4)
+	(recomendaciones [restriccion+pal+1.4+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+1.4+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.4)
+	(recomendaciones [restriccion+pal+1.4+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+1.4+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.4)
+	(recomendaciones [restriccion+pal+1.4+mujer+%3E%3D+70])
+	(sexo mujer))
+
+([perfil+pal+1.6+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.6)
+	(recomendaciones [restriccion+pal+1.6+hombre+65-69])
+	(sexo mujer))
+
+([perfil+pal+1.6+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.6)
+	(recomendaciones [restriccion+pal+1.6+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+1.6+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.6)
+	(recomendaciones [restriccion+pal+1.6+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+1.6+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.6)
+	(recomendaciones [restriccion+pal+1.6+mujer+%3E%3D+70])
+	(sexo mujer))
+
+([perfil+pal+1.8+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.8)
+	(recomendaciones [restriccion+pal+1.8+hombre+65-69])
+	(sexo hombre))
+
+([perfil+pal+1.8+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.8)
+	(recomendaciones [restriccion+pal+1.8+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+1.8+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 1.8)
+	(recomendaciones [restriccion+pal+1.8+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+1.8+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 1.8)
+	(recomendaciones [restriccion+pal+1.8+mujer+%3E%3D+70])
+	(sexo mujer))
+
+([perfil+pal+2.0+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 2.0)
+	(recomendaciones [restriccion+pal+2.0+hombre+65-69])
+	(sexo hombre))
+
+([perfil+pal+2.0+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 2.0)
+	(recomendaciones [restriccion+pal+2.0+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+2.0+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 2.0)
+	(recomendaciones [restriccion+pal+2.0+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+2.0+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 80-89 70-79 90-100 100-110)
+	(nivel_actividad_fisica 2.0)
+	(recomendaciones [restriccion+pal+2.0+mujer+%3E%3D+70])
+	(sexo mujer))
+
+([perfil+pal+2.2+hombre+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 2.2)
+	(recomendaciones [restriccion+pal+2.2+hombre+65-69])
+	(sexo hombre))
+
+([perfil+pal+2.2+hombre+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 2.2)
+	(recomendaciones [restriccion+pal+2.2+hombre+%3E%3D+70])
+	(sexo hombre))
+
+([perfil+pal+2.2+mujer+65-69+energy+intake] of  perfil
+
+	(edad 65-69)
+	(nivel_actividad_fisica 2.2)
+	(recomendaciones [restriccion+pal+2.2+mujer+65-69])
+	(sexo mujer))
+
+([perfil+pal+2.2+mujer+%3E%3D+70+energy+intake] of  perfil
+
+	(edad 70-79 80-89 90-100 100-110)
+	(nivel_actividad_fisica 2.2)
+	(recomendaciones [restriccion+pal+2.2+mujer+%3E%3D+70])
 	(sexo mujer))
 
 ([pi%C3%B1a] of  fruta
@@ -4937,11 +5691,6 @@
 ([preferencia+vegetariano] of  preferencia_personal
 
 	(preferencias [restriccion+vegetariano]))
-
-([proyecto_Class4] of  cantidades_nutricionales
-
-	(cantidad_agua -1.0)
-	(sal -1.0))
 
 ([proyecto_Class5] of  cantidades_nutricionales
 
@@ -5013,8 +5762,16 @@
 
 ([restriccion+bajar+colesterol] of  restriccion
 
-	(cantidades_recomendadas_diarias [proyecto_Class4])
-	(evitar_tipo_ingrediente ingrediente_grasa))
+	(cantidades_recomendadas_diarias [cantidades+bajar+colesterol])
+	(evitar_tipo_ingrediente ingrediente_grasa)
+	(ingredientes_recomendados
+		[ingrediente+alcachofa]
+		[ingrediente+esparrago]
+		[ingrediente+espinaca]
+		[ingrediente+guisante]
+		[ingrediente+lechuga]
+		[ingrediente+pimiento+rojo]
+		[ingrediente+zanahoria]))
 
 ([restriccion+diabetes] of  restriccion
 
@@ -5028,19 +5785,23 @@
 
 ([restriccion+edad+65-69+hombre] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+65-69+hombre+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+65-69+hombre]))
 
 ([restriccion+edad+65-69+mujer] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+65-69+mujer+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+65-69+mujer]))
 
 ([restriccion+edad+%3E%3D+70+hombre] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+%3E%3D+70+hombre+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+hombre])
 	(obligatoria FALSE))
 
 ([restriccion+edad+%3E%3D+70+mujer] of  restriccion
 
+	(cantidades_maximas_diarias [cantidades+edad+%3E%3D+70+mujer+maximas])
 	(cantidades_recomendadas_diarias [cantidades+edad+%3E%3D+70+mujer]))
 
 ([restriccion+fenilcetonuria] of  restriccion
@@ -5055,6 +5816,103 @@
 ([restriccion+osteoporosis] of  restriccion
 
 	(cantidades_recomendadas_diarias [cantidades+osteoporosis]))
+
+([restriccion+pal+1.2+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.2+hombre+65-69]))
+
+([restriccion+pal+1.2+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.2+hombre+%3E%3D+70]))
+
+([restriccion+pal+1.2+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.2+mujer+65-69]))
+
+([restriccion+pal+1.2+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.2+mujer+%3E%3D+70]))
+
+([restriccion+pal+1.4+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.4+hombre+65-69]))
+
+([restriccion+pal+1.4+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.4+hombre+%3E%3D+70]))
+
+([restriccion+pal+1.4+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.4+mujer+65-69]))
+
+([restriccion+pal+1.4+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.4+mujer+%3E%3D+70]))
+
+([restriccion+pal+1.6+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.6+hombre+65-69]))
+
+([restriccion+pal+1.6+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.6+hombre+%3E%3D+70]))
+
+([restriccion+pal+1.6+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.6+mujer+65-69])
+	(obligatoria FALSE))
+
+([restriccion+pal+1.6+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.6+mujer+%3E%3D+70]))
+
+([restriccion+pal+1.8+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.8+hombre+65-69]))
+
+([restriccion+pal+1.8+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.8+hombre+%3E%3D+70]))
+
+([restriccion+pal+1.8+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.8+mujer+65-69]))
+
+([restriccion+pal+1.8+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+1.8+mujer+%3E%3D+70]))
+
+([restriccion+pal+2.0+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.0+hombre+65-69]))
+
+([restriccion+pal+2.0+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.0+hombre+%3E%3D+70]))
+
+([restriccion+pal+2.0+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.0+mujer+65-69]))
+
+([restriccion+pal+2.0+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.0+mujer+%3E%3D+70]))
+
+([restriccion+pal+2.2+hombre+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.2+hombre+65-69]))
+
+([restriccion+pal+2.2+hombre+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.2+hombre+%3E%3D+70]))
+
+([restriccion+pal+2.2+mujer+65-69] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.2+mujer+65-69]))
+
+([restriccion+pal+2.2+mujer+%3E%3D+70] of  restriccion
+
+	(cantidades_recomendadas_diarias [cantidades+pal+2.2+mujer+%3E%3D+70]))
 
 ([restriccion+vegano] of  restriccion
 
@@ -5319,6 +6177,22 @@
 	(riboflavin 0.137)
 	(tiamina 0.134))
 
+([vitaminas+bajar+colesterol] of  vitaminas
+
+	(a -1.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 -1.0)
+	(c -1.0)
+	(choline -1.0)
+	(d -1.0)
+	(e -1.0)
+	(k -1.0)
+	(niacina -1.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+banana] of  vitaminas
 
 	(a 1.6)
@@ -5450,6 +6324,22 @@
 	(riboflavin 1.3)
 	(tiamina 1.2))
 
+([vitaminas+edad+65-69+hombre+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+edad+65-69+mujer] of  vitaminas
 
 	(a 0.7)
@@ -5465,6 +6355,22 @@
 	(pantothenic_acid 5.0)
 	(riboflavin 1.1)
 	(tiamina 1.1))
+
+([vitaminas+edad+65-69+mujer+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
 
 ([vitaminas+edad+%3E%3D+70+hombre] of  vitaminas
 
@@ -5482,6 +6388,22 @@
 	(riboflavin 1.3)
 	(tiamina 1.2))
 
+([vitaminas+edad+%3E%3D+70+hombre+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico 1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
+
 ([vitaminas+edad+%3E%3D+70+mujer] of  vitaminas
 
 	(a 0.7)
@@ -5497,6 +6419,22 @@
 	(pantothenic_acid 5.0)
 	(riboflavin 1.1)
 	(tiamina 1.1))
+
+([vitaminas+edad+%3E%3D+70+mujer+maximas] of  vitaminas
+
+	(a 3.0)
+	(acido_folico -1.0)
+	(b_12 -1.0)
+	(b_6 100.0)
+	(c 2000.0)
+	(choline 3500.0)
+	(d 0.1)
+	(e 1000.0)
+	(k -1.0)
+	(niacina 35.0)
+	(pantothenic_acid -1.0)
+	(riboflavin -1.0)
+	(tiamina -1.0))
 
 ([vitaminas+ensalada+de+atun] of  vitaminas
 
@@ -6221,15 +7159,6 @@
 	(riboflavin 0.185)
 	(tiamina 0.02))
 
-([whisky] of  bebida
-
-	(cantidad_porcion 0.5)
-	(ingrediente_principal [ingrediente+whisky])
-	(ingredientes [ingrediente+whisky])
-	(momento_ingesta desayuno comida cena)
-	(tipo bebida)
-	(valor_nutricional [cantidades+whisky]))
-
 ([yogurt+de+vainilla] of  lacteo
 
 	(cantidad_porcion 200.0)
@@ -6377,6 +7306,7 @@
 	(printout t "5. Realizas actividades muy laboriosas." crlf)
 	(printout t "6. Cantidades significantes de deporte ademas de 2., 3., o 4. arriba." crlf)
 	(bind ?tmp (ask "" 1 2 3 4 5 6))
+	(bind ?tmp (+ 1 (/ ?tmp 5)))
 	(assert (nivel-actividad ?tmp))
 )
 
@@ -7692,8 +8622,6 @@
 	(bind ?fact (nth$ 1 (find-fact ((?f cdr-final)) (eq ?f:tipo max))))
 	(bind ?inc 1.1)
 	(bind ?dec 0.9)
-	;(printout t aaaaaaaaaaaaaaaaa crlf)
-	;(printout t (fact-slot-value ?fact e) " " (fact-slot-value ?fact calcio) " " (fact-slot-value ?fact cobre) " " crlf)
 	(modify ?fact (a            	 (min (* (fact-slot-value ?fact a)                 ?inc) 2.9))
 				 ;(acido_folico      (min (* (fact-slot-value ?fact acido_folico)      ?inc) 999999999))
 				 ;(b_1               (min (* (fact-slot-value ?fact b_1)               ?inc) 999999999))
@@ -7720,7 +8648,6 @@
 				  (fibra_alimentaria (min (* (fact-slot-value ?fact fibra_alimentaria) ?inc) 999999999))
 				  (proteinas         (min (* (fact-slot-value ?fact proteinas)         ?inc) 999999999))
 	)
-	;(printout t acaba " " max crlf)
 	(bind ?fact (nth$ 1 (find-fact ((?f cdr-final)) (eq ?f:tipo min))))
 	(modify ?fact (a				 (max (* (fact-slot-value ?fact a)                 ?dec) 0.5))
 				 ;(acido_folico      (max (* (fact-slot-value ?fact acido_folico)      ?dec) 0))
