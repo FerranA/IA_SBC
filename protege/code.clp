@@ -8270,7 +8270,7 @@
 )
 
 (deffunction cantidades_a_comprobar "" ()
-	(return (create$ a sodio energia))
+	(return (create$ sodio energia calcio))
 )
 
 (deffunction cantidades-validas "" ()
