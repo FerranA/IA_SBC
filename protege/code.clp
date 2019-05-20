@@ -7750,18 +7750,27 @@
 	(declare (salience 10))
 	(restriccion ?restriccion)
 	?objeto <- (object (name ?x) (is-a restriccion)
-						(evitar_tipo_ingrediente $?tipos)
-						(evitar_ingrediente $?ings)
-						(evitar_receta $?recetas)
-						(ingredientes_recomendados ?recom)
+						;(evitar_tipo_ingrediente $?tipos)
+						;(evitar_ingrediente $?ings)
+						;(evitar_receta $?recetas)
+						;(ingredientes_recomendados ?recom)
 				)
-	(test (eq (instance-name-to-symbol ?x) ?restriccion))
+	;(test (eq (instance-name-to-symbol ?x) ?restriccion))
 	=>
-	(prohibir-tipos-ingrediente ?tipos)
-	(prohibir-ingredientes ?ings)
-	(prohibir-recetas ?recetas)
-	(assert (ingrediente-recomendado (instance-name-to-symbol ?recom)))
-	(printout t ingrediente-recomendado (instance-name-to-symbol ?recom) crlf)
+	(if (eq (instance-name-to-symbol ?x) ?restriccion) then
+		(prohibir-tipos-ingrediente (send ?objeto get-evitar_tipo_ingrediente))
+		;(prohibir-tipos-ingrediente ?tipos)
+		(prohibir-ingredientes (send ?objeto get-evitar_ingrediente))
+		;(prohibir-ingredientes ?ings)
+		(prohibir-recetas (send ?objeto get-evitar_receta))
+		;(prohibir-recetas ?recetas)
+		(if (neq (length$ (send ?objeto get-ingredientes_recomendados)) 0) then
+
+			(assert (ingrediente-recomendado (instance-name-to-symbol (nth$ 1 (send ?objeto get-ingredientes_recomendados)))))
+			(printout t ingrediente-recomendado " " (instance-name-to-symbol (nth$ 1 (send ?objeto get-ingredientes_recomendados))) crlf)
+		)
+		;(assert (ingrediente-recomendado (instance-name-to-symbol ?recom)))
+	)
 )
 
 (defrule ingredientes-prohibidos ""
@@ -7781,7 +7790,7 @@
 		(bind ?ning (instance-name-to-symbol ?i))
 		(if (eq ?ning ?ing) then
 			(assert (alimento-recomendado (instance-name-to-symbol ?nombre)))
-			(printout t alimento-recomendado (instance-name-to-symbol ?nombre) crlf)
+			(printout t alimento-recomendado " " (instance-name-to-symbol ?nombre) crlf)
 			(break)
 		)
 	)
