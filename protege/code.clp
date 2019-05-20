@@ -7396,9 +7396,10 @@
 	=>
 	(if (eq ?edad 65-69) then (bind ?tmp1 (sym-cat cantidades+edad+65-69+ ?sexo) )
 	else (bind ?tmp1 (sym-cat cantidades+edad+%3E%3D+70+ ?sexo) ) )
-
-	(bind ?tmp (sym-cat cantidades+pal+ ?act + ?sexo + ?edad))
 	(bind ?tmp2 (sym-cat ?tmp1 +maximas))
+
+	(if (eq ?edad 70+) then (bind ?edad %3E%3D+70))
+	(bind ?tmp (sym-cat cantidades+pal+ ?act + ?sexo + ?edad))
 
 	(assert (cdr ?tmp1))
 	(assert (cdr-energia ?tmp))
